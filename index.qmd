@@ -50,8 +50,8 @@ reactable(
           defaultSorted = c("ID"),
           columns = list(
             ID = colDef(format = colFormat(digits = 0), maxWidth = 50, align = "left"),
-            Session_1 = colDef(maxWidth = 80, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}),
-            Session_2 = colDef(maxWidth = 80, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}),
-            Session_3 = colDef(maxWidth = 80, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"})))
+            Session_1 = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}),
+            Session_2 = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}),
+            Session_3 = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"})))
 
 ```

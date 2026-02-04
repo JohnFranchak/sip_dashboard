@@ -24,6 +24,7 @@ ds <- ds %>% filter(study_outcome_complete != 1) %>%
          session = factor(session, levels = c("1","2","3"))) %>% 
   select(study_id, session, next_interest, inclusion) %>% 
   mutate(inclusion = 1) %>% rename(Session = inclusion, ID = study_id)
+nsessions <- nrow(ds)
 ds <- complete(ds, ID, session) %>% pivot_wider(id_cols = ID, names_from = session, values_from = c("next_interest","Session"))
 ds <- ds %>%
   mutate(Session_2 = ifelse(next_interest_1 == 1 & is.na(Session_2), 2, Session_2),
@@ -31,6 +32,11 @@ ds <- ds %>%
   replace_na(list(Session_1 = 0, Session_2 = 0, Session_3 = 0))
 
 ```
+| Last updated: `r now()` 
+| Dataset contains `r length(unique(ds$ID))` unique participants with `r nsessions` overall sessions. 
+| There are TODO participants with 3 complete sessions. 
+| There are TODO participants with sessions at 7 and 9 months. 
+| There are TODO participants with sessions at 9 and 11 months. 
 
 ```{r}
 #| echo: false

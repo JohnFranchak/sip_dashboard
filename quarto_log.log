@@ -1,0 +1,3 @@
+/bin/bash: /Users/johnfranchak/Documents/GitHub/sip_dashboard/update_quarto.sh: Operation not permitted
+/bin/bash: /Users/johnfranchak/Documents/GitHub/sip_dashboard/update_quarto.sh: Operation not permitted
+/Users/johnfranchak/Documents/GitHub/sip_dashboard/update_quarto.sh: line 9: quarto: command not found

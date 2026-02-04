@@ -90,3 +90,40 @@ processing file: index.qmd
   
 Output created: docs/index.html
 
+[main f36978c] Automated Quarto update: 2026-02-04 08:14:17
+ 5 files changed, 39 insertions(+), 4 deletions(-)
+ delete mode 100644 docs/.DS_Store
+ delete mode 100644 docs/site_libs/.DS_Store
+To github.com:JohnFranchak/sip_dashboard.git
+   89025ed..f36978c  main -> main
+[31m
+
+processing file: index.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: index.knit.md
+
+[39m[1mpandoc [22m
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Sensors in Person Dashboard
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  css:
+    - styles.css
+  toc: true
+  
+[1mmetadata[22m
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme:
+    - cosmo
+    - brand
+  title: Session View
+  
+Output created: docs/index.html
+

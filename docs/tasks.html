@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sensors in Person Dashboard - Session View</title>
+<title>Sensors in Person Dashboard - Task View</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -96,11 +96,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Sessions</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./tasks.html"> 
+    <a class="nav-link active" href="./tasks.html" aria-current="page"> 
 <span class="menu-text">Task View</span></a>
   </li>  
 </ul>
@@ -111,18 +111,14 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-layout-custom page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Session View</h1>
+<h1 class="title">Task View</h1>
 </div>
 
 
@@ -139,22 +135,19 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="line-block">Last updated: 2026-02-04 10:39:24<br>
-The dataset contains 6 unique participants with 7 overall sessions. 0 participants have 3 complete sessions.<br>
-1 participants have complete 7 and 9 month sessions and 0 participants have complete 9 and 11 month sessions.<br>
-<br>
+<div class="line-block">Last updated: 2026-02-04 10:39:20<br>
 ✔ Complete, ✖ Pending, ❌ Missing/Unsure<br>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="reactable html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-f85ba147b92e50e5d8bb" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-f85ba147b92e50e5d8bb">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"ID":[12,13,15,16,18,21],"Session_1":[1,1,1,1,1,1],"Session_2":[1,2,2,2,2,2],"Session_3":[2,0,0,0,0,0],"Total":[2,1,1,1,1,1]},"columns":[{"id":"ID","name":"ID","type":"numeric","format":{"cell":{"digits":0},"aggregated":{"digits":0}},"maxWidth":50,"align":"left"},{"id":"Session_1","name":"Session_1","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️"],"footer":"Total: 6","maxWidth":90},{"id":"Session_2","name":"Session_2","type":"numeric","cell":["✔️","✖","✖","✖","✖","✖"],"footer":"Total: 1","maxWidth":90},{"id":"Session_3","name":"Session_3","type":"numeric","cell":["✖","❌","❌","❌","❌","❌"],"footer":"Total: 0","maxWidth":90},{"id":"Total","name":"Total","type":"numeric","maxWidth":70}],"filterable":true,"defaultSorted":[{"id":"ID","desc":false}],"striped":true,"compact":true,"dataKey":"fcb81006146288b3e7ebdc1bc2cd87e4"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div class="reactable html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-e7b5a7b2cb941aecbf82" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-e7b5a7b2cb941aecbf82">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"ID":[12,12,13,15,16,18,21],"Session":["1","2","1","1","1","1","1"],"Surveys":[1,1,1,1,1,1,1],"Server":[1,1,1,1,1,1,1],"Databrary":[1,1,1,1,1,1,1],"LENA":[1,1,1,1,1,1,1],"Infant IMU":[1,0,1,1,1,1,0],"CG IMU":[0,0,0,0,0,0,0],"Composite":[1,1,1,1,1,1,1],"AIMS":[1,0,1,1,1,0,0],"AIMS Rel":[0,0,0,0,0,0,0]},"columns":[{"id":"ID","name":"ID","type":"numeric","format":{"cell":{"digits":0},"aggregated":{"digits":0}},"maxWidth":80,"align":"right"},{"id":"Session","name":"Session","type":"factor","format":{"cell":{"digits":0},"aggregated":{"digits":0}},"maxWidth":85,"align":"right"},{"id":"Surveys","name":"Surveys","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️"],"maxWidth":90},{"id":"Server","name":"Server","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️"],"maxWidth":90},{"id":"Databrary","name":"Databrary","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️"],"maxWidth":90},{"id":"LENA","name":"LENA","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️"],"maxWidth":90},{"id":"Infant IMU","name":"Infant IMU","type":"numeric","cell":["✔️","❌","✔️","✔️","✔️","✔️","❌"],"maxWidth":100},{"id":"CG IMU","name":"CG IMU","type":"numeric","cell":["❌","❌","❌","❌","❌","❌","❌"],"maxWidth":90},{"id":"Composite","name":"Composite","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️"],"maxWidth":100},{"id":"AIMS","name":"AIMS","type":"numeric","cell":["✔️","❌","✔️","✔️","✔️","❌","❌"],"maxWidth":90},{"id":"AIMS Rel","name":"AIMS Rel","type":"numeric","cell":["❌","❌","❌","❌","❌","❌","❌"],"maxWidth":90}],"filterable":true,"defaultSorted":[{"id":"ID","desc":false},{"id":"Session","desc":false}],"striped":true,"compact":true,"dataKey":"797194698bc7f0f69141c7d4edace9c4"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 
 
 
-</main> <!-- /main -->
+
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

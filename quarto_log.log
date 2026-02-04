@@ -29,3 +29,8 @@ quarto script failed: unrecognized architecture
 fatal: could not read Username for 'https://github.com': Device not configured
 /usr/local/bin/quarto: line 129: sysctl: command not found
 quarto script failed: unrecognized architecture 
+[main 190a950] Automated Quarto update: 2026-02-04 04:00:00
+ 1 file changed, 5 insertions(+)
+fatal: could not read Username for 'https://github.com': Device not configured
+/usr/local/bin/quarto: line 129: sysctl: command not found
+quarto script failed: unrecognized architecture 

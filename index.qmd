@@ -31,12 +31,18 @@ ds <- ds %>%
          Session_3 = ifelse(next_interest_2 == 1 & is.na(Session_3), 2, Session_3)) %>% 
   replace_na(list(Session_1 = 0, Session_2 = 0, Session_3 = 0))
 
+ds <- ds %>% mutate(
+  Total = as.numeric(Session_1 == 1) + as.numeric(Session_2 == 1) + as.numeric(Session_3 == 1)
+)
+
 ```
-| Last updated: `r now()` 
-| Dataset contains `r length(unique(ds$ID))` unique participants with `r nsessions` overall sessions. 
-| There are TODO participants with 3 complete sessions. 
-| There are TODO participants with sessions at 7 and 9 months. 
-| There are TODO participants with sessions at 9 and 11 months. 
+
+| Last updated: `r round(now())`
+| The dataset contains `r length(unique(ds$ID))` unique participants with `r nsessions` overall sessions. `r sum(as.numeric(ds$Total == 3))` participants have 3 complete sessions.
+| `r sum(as.numeric(ds$Session_1 == 1 & ds$Session_2 == 1))` participants have complete 7 and 9 month sessions and `r sum(as.numeric(ds$Session_2 == 1 & ds$Session_3 == 1))` participants have complete 9 and 11 month sessions.
+| 
+| &#x2714; Complete, &#x2716; Pending, &#x274C; Missing/Unsure
+| 
 
 ```{r}
 #| echo: false
@@ -44,14 +50,14 @@ ds <- ds %>%
 ds %>% select(-(next_interest_1:next_interest_3)) %>% 
 reactable( 
           filterable = TRUE, 
-          searchable = TRUE, 
           compact = TRUE,
           striped = TRUE,
           defaultSorted = c("ID"),
           columns = list(
             ID = colDef(format = colFormat(digits = 0), maxWidth = 50, align = "left"),
-            Session_1 = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}),
-            Session_2 = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}),
-            Session_3 = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"})))
+            Session_1 = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}, footer = function(value) paste("Total:", sum(value==1))),
+            Session_2 = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}, footer = function(value) paste("Total:", sum(value==1))),
+            Session_3 = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}, footer = function(value) paste("Total:", sum(value==1))),
+             Total = colDef(maxWidth = 70)))
 
 ```

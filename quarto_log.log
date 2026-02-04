@@ -127,3 +127,55 @@ processing file: index.qmd
   
 Output created: docs/index.html
 
+[main bf9d3a3] Automated Quarto update: 2026-02-04 09:00:10
+ 23 files changed, 2798 insertions(+), 120 deletions(-)
+ create mode 100644 docs/site_libs/bootstrap/bootstrap.min.css
+ create mode 100644 docs/site_libs/htmlwidgets-1.6.2/htmlwidgets.js
+ create mode 100644 docs/site_libs/quarto-html/quarto-syntax-highlighting.css
+ create mode 100644 docs/site_libs/react-17.0.0/AUTHORS
+ create mode 100644 docs/site_libs/react-17.0.0/LICENSE.txt
+ create mode 100644 docs/site_libs/react-17.0.0/react-dom.min.js
+ create mode 100644 docs/site_libs/react-17.0.0/react.min.js
+ create mode 100644 docs/site_libs/reactable-0.4.4/reactable.css
+ create mode 100644 docs/site_libs/reactable-0.4.4/reactable.js
+ create mode 100644 docs/site_libs/reactable-0.4.4/reactable.js.map
+ create mode 100644 docs/site_libs/reactable-0.4.4/reactable.server.js
+ create mode 100644 docs/site_libs/reactable-0.4.4/reactable.server.js.LICENSE.txt
+ create mode 100644 docs/site_libs/reactable-0.4.4/reactable.server.js.map
+ create mode 100644 docs/site_libs/reactable-0.4.4/reactable.yaml
+ create mode 100644 docs/site_libs/reactable-binding-0.4.4/reactable.js
+ create mode 100644 docs/site_libs/reactwidget-1.0.0/react-tools.js
+ create mode 100644 docs/site_libs/reactwidget-1.0.0/react-tools.js.map
+To github.com:JohnFranchak/sip_dashboard.git
+   2b4237e..bf9d3a3  main -> main
+[31m
+
+processing file: index.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: index.knit.md
+
+[39m[1mpandoc [22m
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Sensors in Person Dashboard
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  css:
+    - styles.css
+  toc: true
+  
+[1mmetadata[22m
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  theme:
+    - cosmo
+    - brand
+  title: Session View
+  
+Output created: docs/index.html
+

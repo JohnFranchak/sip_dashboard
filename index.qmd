@@ -1,0 +1,51 @@
+---
+title: "Session View"
+---
+
+```{r}
+#| echo: false
+#| warning: false
+#| error: false
+
+library(tidyverse)
+library(reactable)
+library(reactablefmtr)
+library(REDCapR)
+library(janitor)
+
+uri <- "https://redcap.ucr.edu/api/"
+source("api_token.R")
+
+
+events <- c("visit_1_arm_1", "visit_2_arm_1", "visit_3_arm_1")
+ds <- redcap_read(redcap_uri = uri, token = api_token, events = events, forms = "study_outcome")$data 
+ds <- ds %>% filter(study_outcome_complete != 1) %>% 
+  mutate(session = str_remove(str_remove(redcap_event_name, "visit_"),"_arm_1"),
+         session = factor(session, levels = c("1","2","3"))) %>% 
+  select(study_id, session, next_interest, inclusion) %>% 
+  mutate(inclusion = 1) %>% rename(Session = inclusion, ID = study_id)
+ds <- complete(ds, ID, session) %>% pivot_wider(id_cols = ID, names_from = session, values_from = c("next_interest","Session"))
+ds <- ds %>%
+  mutate(Session_2 = ifelse(next_interest_1 == 1 & is.na(Session_2), 2, Session_2),
+         Session_3 = ifelse(next_interest_2 == 1 & is.na(Session_3), 2, Session_3)) %>% 
+  replace_na(list(Session_1 = 0, Session_2 = 0, Session_3 = 0))
+
+```
+
+```{r}
+#| echo: false
+
+ds %>% select(-(next_interest_1:next_interest_3)) %>% 
+reactable( 
+          filterable = TRUE, 
+          searchable = TRUE, 
+          compact = TRUE,
+          striped = TRUE,
+          defaultSorted = c("ID"),
+          columns = list(
+            ID = colDef(format = colFormat(digits = 0), maxWidth = 50, align = "left"),
+            Session_1 = colDef(maxWidth = 80, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}),
+            Session_2 = colDef(maxWidth = 80, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}),
+            Session_3 = colDef(maxWidth = 80, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"})))
+
+```

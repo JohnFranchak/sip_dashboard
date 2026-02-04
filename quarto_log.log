@@ -1,3 +1,11 @@
 /bin/bash: /Users/johnfranchak/Documents/GitHub/sip_dashboard/update_quarto.sh: Operation not permitted
 /bin/bash: /Users/johnfranchak/Documents/GitHub/sip_dashboard/update_quarto.sh: Operation not permitted
 /Users/johnfranchak/Documents/GitHub/sip_dashboard/update_quarto.sh: line 9: quarto: command not found
+[main 6673861] Automated Quarto update: 2026-02-03 23:00:15
+ 4 files changed, 3 insertions(+)
+ create mode 100644 docs/.DS_Store
+ create mode 100644 docs/site_libs/.DS_Store
+ create mode 100644 quarto_log.log
+fatal: could not read Username for 'https://github.com': Device not configured
+/usr/local/bin/quarto: line 129: sysctl: command not found
+quarto script failed: unrecognized architecture 

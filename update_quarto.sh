@@ -6,7 +6,7 @@ cd /Users/johnfranchak/Documents/GitHub/sip_dashboard
 
 # Render the project
 # This assumes 'quarto' is in your system PATH
-quarto render
+/usr/local/bin/quarto render
 
 # Add changes to Git
 git add .

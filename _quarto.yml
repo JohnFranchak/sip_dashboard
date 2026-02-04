@@ -9,6 +9,7 @@ website:
     left:
       - href: index.qmd
         text: Sessions
+      - href: tasks.qmd
 
 format:
   html:

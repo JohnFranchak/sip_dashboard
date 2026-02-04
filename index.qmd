@@ -23,7 +23,7 @@ ds <- ds %>% filter(study_outcome_complete != 1) %>%
   mutate(session = str_remove(str_remove(redcap_event_name, "visit_"),"_arm_1"),
          session = factor(session, levels = c("1","2","3"))) %>% 
   select(study_id, session, next_interest, inclusion) %>% 
-  mutate(inclusion = 1) %>% rename(Session = inclusion, ID = study_id)
+  rename(Session = inclusion, ID = study_id)
 nsessions <- nrow(ds)
 ds <- complete(ds, ID, session) %>% pivot_wider(id_cols = ID, names_from = session, values_from = c("next_interest","Session"))
 ds <- ds %>%

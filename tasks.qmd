@@ -1,0 +1,76 @@
+---
+title: "Task View"
+format: 
+  html:
+    page-layout: custom
+---
+
+```{r}
+#| echo: false
+#| warning: false
+#| error: false
+
+library(tidyverse)
+library(reactable)
+library(reactablefmtr)
+library(REDCapR)
+library(janitor)
+
+uri <- "https://redcap.ucr.edu/api/"
+source("api_token.R")
+
+# event_instrument <- redcap_event_instruments(redcap_uri = uri, token = api_token)$data
+
+events <- c("visit_1_arm_1", "visit_2_arm_1", "visit_3_arm_1")
+ds_raw <- redcap_read_oneshot(redcap_uri = uri, token = api_token, events = events,forms = c("aims"))$data 
+ds_raw$surveys_complete <- ds_raw$infant_curiosity_complete == 2 & ds_raw$mulbourne_cg_complete == 2 & ds_raw$parent_responsiveness_complete == 2 & ds_raw$parent_stress_complete == 2
+
+ds <- ds_raw %>% filter(inclusion == 1) %>% 
+  mutate(session = str_remove(str_remove(redcap_event_name, "visit_"),"_arm_1"),
+         session = factor(session, levels = c("1","2","3"))) %>% 
+  rename(Session = session, ID = study_id) %>% 
+  select(ID, Session, surveys_complete, server_upload, databrary_upload, lena_its, imu_sync, imu_sync_cg, video_composite, aims_complete, aims_reliability_complete) %>% 
+  mutate(across(everything(), ~ replace_na(.x, 0)),
+         aims_complete = ifelse(aims_complete == 2, 1, 0),
+         aims_reliability_complete = ifelse(aims_reliability_complete == 2, 1, 0),
+         surveys_complete = as.numeric(surveys_complete))
+
+```
+
+| Last updated: `r round(now())`
+| &#x2714; Complete, &#x2716; Pending, &#x274C; Missing/Unsure
+| 
+
+```{r}
+#| echo: false
+
+ds %>% rename(
+  Surveys = surveys_complete,
+  Server = server_upload,
+  Databrary = databrary_upload,
+  LENA = lena_its,
+  `Infant IMU` = imu_sync,
+  `CG IMU` = imu_sync_cg,
+  Composite = video_composite,
+  AIMS = aims_complete,
+  `AIMS Rel` = aims_reliability_complete) %>% 
+reactable( 
+          filterable = TRUE, 
+          compact = TRUE,
+          striped = TRUE,
+          defaultSorted = c("ID","Session"),
+          columns = list(
+          ID = colDef(format = colFormat(digits = 0), maxWidth = 80, align = "right"),
+          Session = colDef(format = colFormat(digits = 0), maxWidth = 85, align = "right"),
+          Surveys = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}),
+          Server = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}),
+          Databrary = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}),
+          LENA = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}),
+          `Infant IMU` = colDef(maxWidth = 100, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}),
+          `CG IMU` = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}),
+          Composite = colDef(maxWidth = 100, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}),
+          AIMS = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}),
+          `AIMS Rel` = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"})
+          ))
+
+```

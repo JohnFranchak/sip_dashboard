@@ -10,6 +10,7 @@ website:
       - href: index.qmd
         text: Sessions
       - href: tasks.qmd
+      - href: files.qmd
 
 format:
   html:

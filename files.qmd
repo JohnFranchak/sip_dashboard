@@ -90,7 +90,9 @@ reactable(
           Session = colDef(format = colFormat(digits = 0), maxWidth = 85, align = "right", cell = function(value) value),
           GOPRO = colDef(maxWidth = 80),
           Headcam = colDef(maxWidth = 90),
-          Composite = colDef(maxWidth = 100)
+          Composite = colDef(maxWidth = 100),
+          CGMOT4 = colDef(maxWidth = 80),
+          CGPOS4 = colDef(maxWidth = 80)
           ))
 
 ```

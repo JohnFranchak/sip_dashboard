@@ -1,5 +1,5 @@
 ---
-title: "Session View"
+title: "Sessions"
 ---
 
 ```{r}

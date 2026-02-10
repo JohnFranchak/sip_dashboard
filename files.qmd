@@ -1,0 +1,96 @@
+---
+title: "Files"
+format: 
+  html:
+    page-layout: custom
+---
+
+```{r}
+#| echo: false
+#| warning: false
+#| error: false
+
+library(tidyverse)
+library(reactable)
+library(reactablefmtr)
+library(REDCapR)
+library(janitor)
+
+uri <- "https://redcap.ucr.edu/api/"
+source("api_token.R")
+
+events <- c("visit_1_arm_1", "visit_2_arm_1", "visit_3_arm_1")
+ds_raw <- redcap_read_oneshot(redcap_uri = uri, token = api_token, events = events,forms = c("aims"))$data 
+
+ds <- ds_raw %>% filter(inclusion == 1) %>% 
+  mutate(session = str_remove(str_remove(redcap_event_name, "visit_"),"_arm_1"),
+         session = factor(session, levels = c("1","2","3"))) %>% 
+  rename(Session = session, ID = study_id) %>% 
+  select(ID, Session, lena_its, imu_sync, imu_sync_cg, video_composite) %>% 
+  mutate(across(everything(), ~ replace_na(.x, 0)))
+
+ds_files <- ds %>% select(ID, Session)
+study_dir <- "/Volumes/padlab/study_sensorsinperson/"
+ids <- ds$ID
+sessions <- ds$Session
+
+# IMUS
+ds_files$LA <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data/{.x}/{.y}/imu/{.x}_LA.csv")))
+ds_files$LH <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data/{.x}/{.y}/imu/{.x}_LH.csv")))
+ds_files$RA <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data/{.x}/{.y}/imu/{.x}_RA.csv")))
+ds_files$RH <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data/{.x}/{.y}/imu/{.x}_RH.csv")))
+ds_files$CH <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data/{.x}/{.y}/imu/{.x}_CH.csv")))
+ds_files$CW <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data/{.x}/{.y}/imu/{.x}_CW.csv")))
+
+# VIDEOS
+ds_files$GOPRO <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data/{.x}/{.y}/video_converted/gopro_{.x}_{.y}_pt1.mp4")))
+ds_files$Headcam <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data/{.x}/{.y}/headcam/headcam_{.x}_{.y}_pt1.mp4")))
+ds_files$Pupil <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data/{.x}/{.y}/invisible/exports/000/cg_eyetracking_{.x}_{.y}.mp4")))
+ds_files$Composite <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data/{.x}/{.y}/video_converted/sip_{.x}_{.y}_composite.mp4")))
+
+# LENA
+ds_files$ITS <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data/{.x}/{.y}/lena/sip_lena_{.x}_{.y}.its")))
+ds_files$WAV <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data/{.x}/{.y}/lena/sip_lena_{.x}_{.y}.wav")))
+
+# Infant Processed
+
+ds_files$MOT4 <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data_processed/infant_imu/{.x}_{.y}/mot_features_infant_4s.csv")))
+ds_files$POS4 <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data_processed/infant_imu/{.x}_{.y}/infant_position_predictions_4s.csv")))
+ds_files$REST4 <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data_processed/infant_imu/{.x}_{.y}/infant_restrained_predictions_4s.csv")))
+
+# CG Processed
+
+ds_files$CGMOT4 <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data_processed/cg_imu/{.x}_{.y}/mot_features_caregiver_4s.csv")))
+ds_files$CGPOS4 <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data_processed/cg_imu/{.x}_{.y}/caregiver_position_predictions_4s.csv")))
+
+```
+
+| Last updated: `r round(now())`
+| &#x2714; Complete, &#x2716; N/A, &#x274C; Missing/Misnamed
+| 
+
+```{r}
+#| echo: false
+
+ds_files %>% 
+reactable( 
+          filterable = TRUE, 
+          compact = TRUE,
+          striped = TRUE,
+          defaultSorted = c("ID","Session"),
+          defaultColDef = colDef(maxWidth = 60, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}),
+          columnGroups = list(colGroup("Visit", columns = c("ID", "Session"), sticky = "left"),
+                              colGroup("IMUs", columns = c("LA","LH","RA","RH","CW","CH")),
+                              colGroup("Videos", columns = c("GOPRO","Headcam","Pupil","Composite")),
+                              colGroup("LENA", columns = c("ITS","WAV")),
+                              colGroup("Infant Processing", columns = c("MOT4","POS4","REST4")),
+                              colGroup("CG Processing", columns = c("CGMOT4","CGPOS4"))),
+          columns = list(
+          ID = colDef(format = colFormat(digits = 0), maxWidth = 50, align = "right", cell = function(value) value),
+          Session = colDef(format = colFormat(digits = 0), maxWidth = 85, align = "right", cell = function(value) value),
+          GOPRO = colDef(maxWidth = 80),
+          Headcam = colDef(maxWidth = 90),
+          Composite = colDef(maxWidth = 100)
+          ))
+
+```

@@ -39,7 +39,7 @@ sessions <- map_chr(id_session_keep, ~ strsplit(.x, "_")[[1]][[2]])
 
 ```
 
-| Last updated: `r round(now())`
+| Last updated: `r round(lubridate::now())`
 
 ```{r} 
 #| echo: false

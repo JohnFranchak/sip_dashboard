@@ -43,7 +43,7 @@ ds_files$CH <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data/{
 ds_files$CW <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data/{.x}/{.y}/imu/{.x}_CW.csv")))
 
 # VIDEOS
-ds_files$GOPRO <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data/{.x}/{.y}/video_converted/gopro_{.x}_{.y}_pt1.mp4")))
+ds_files$GOPRO <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data/{.x}/{.y}/video_converted/gopro_{.x}_{.y}_pt1.mp4")) | file.exists(str_glue("{study_dir}data/{.x}/{.y}/video_converted/gopro_{.x}_{.y}.mp4")))
 ds_files$Headcam <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data/{.x}/{.y}/headcam/headcam_{.x}_{.y}_pt1.mp4")))
 ds_files$Pupil <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data/{.x}/{.y}/invisible/exports/000/cg_eyetracking_{.x}_{.y}.mp4")))
 ds_files$Composite <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data/{.x}/{.y}/video_converted/sip_{.x}_{.y}_composite.mp4")))

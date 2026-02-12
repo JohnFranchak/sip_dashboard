@@ -11,6 +11,7 @@ website:
         text: Sessions
       - href: tasks.qmd
       - href: files.qmd
+      - href: timelines.qmd
 
 format:
   html:

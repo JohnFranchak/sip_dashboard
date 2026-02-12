@@ -12,8 +12,6 @@ knitr:
     out.width: "100%"
 ---
 
-| Last updated: `r round(now())`
-
 ```{r}
 #| echo: false
 #| warning: false
@@ -40,6 +38,8 @@ sessions <- map_chr(id_session_keep, ~ strsplit(.x, "_")[[1]][[2]])
 # sessions <- c(1)
 
 ```
+
+| Last updated: `r round(now())`
 
 ```{r} 
 #| echo: false

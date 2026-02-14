@@ -7,3 +7,4 @@ api_token.R
 /.quarto/
 quarto_log.log
 quarto_log.log
+*.log

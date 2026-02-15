@@ -4004,4 +4004,57 @@ Backtrace:
  34. ggplot2::translate_shape_string(data$shape)
 [39m                                                                                                            
 [31mExecution halted
+[39m[main 48c7ed6] Automated Quarto update: 2026-02-14 19:00:23
+ 4 files changed, 62 insertions(+), 9 deletions(-)
+To github.com:JohnFranchak/sip_dashboard.git
+   f36cc8a..48c7ed6  main -> main
+[1m[34m[1/4] tasks.qmd[39m[22m
+[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: tasks.knit.md
+
+[39m[1m[34m[2/4] files.qmd[39m[22m
+[31m
+
+processing file: files.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: files.knit.md
+
+[39m[1m[34m[3/4] index.qmd[39m[22m
+[31m
+
+processing file: index.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: index.knit.md
+
+[39m[1m[34m[4/4] timelines.qmd[39m[22m
+[31m
+
+processing file: timelines.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |.............                                       |  25%                    |                                                            |..........................                          |  50% (unnamed-chunk-1)  |                                                            |.......................................             |  75%                    |                                                            |....................................................| 100% (unnamed-chunk-2)[31m
+
+Quitting from lines 45-125 (timelines.qmd) 
+[39m[31mError in `map2()`:
+i In index: 1.
+Caused by error in `geom_point()`:
+! Problem while converting geom to grob.
+i Error occurred in the 1st layer.
+Caused by error in `translate_shape_string()`:
+! Shape aesthetic contains invalid value: "<U+2014>".
+Backtrace:
+  1. purrr::walk2(ids, sessions, make_timeline)
+  2. purrr::map2(.x, .y, .f, ..., .progress = .progress)
+  3. purrr:::map2_("list", .x, .y, .f, ..., .progress = .progress)
+  7. global .f(.x[[i]], .y[[i]], ...)
+  9. patchwork:::print.patchwork(fig)
+     ...
+ 29. base::lapply(...)
+ 30. ggplot2 (local) FUN(X[[i]], ...)
+ 32. self$draw_panel(data, panel_params, coord, na.rm = FALSE)
+ 33. ggplot2 (local) draw_panel(..., self = self)
+ 34. ggplot2::translate_shape_string(data$shape)
+[39m                                                                                                            
+[31mExecution halted
 [39m

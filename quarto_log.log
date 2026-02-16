@@ -5820,4 +5820,7 @@ Backtrace:
  34. ggplot2::translate_shape_string(data$shape)
 [39m                                                                                                            
 [31mExecution halted
-[39m
+[39m[main 278f2eb] Automated Quarto update: 2026-02-16 08:00:42
+ 4 files changed, 62 insertions(+), 9 deletions(-)
+To github.com:JohnFranchak/sip_dashboard.git
+   714d35f..278f2eb  main -> main

@@ -6819,4 +6819,88 @@ Backtrace:
  34. ggplot2::translate_shape_string(data$shape)
 [39m                                                                                                            
 [31mExecution halted
+[39m[main a740b9d] Automated Quarto update: 2026-02-17 12:00:39
+ 35 files changed, 63 insertions(+), 2895 deletions(-)
+ delete mode 100644 docs/search.json
+ delete mode 100644 docs/site_libs/bootstrap/bootstrap-6685f57f7611d95a701d58b4cc6878c0.min.css
+ delete mode 100644 docs/site_libs/htmltools-fill-0.5.8.1/fill.css
+ delete mode 100644 docs/site_libs/htmlwidgets-1.6.4/htmlwidgets.js
+ delete mode 100644 docs/site_libs/quarto-contrib/glightbox/glightbox.min.css
+ delete mode 100644 docs/site_libs/quarto-contrib/glightbox/glightbox.min.js
+ delete mode 100644 docs/site_libs/quarto-contrib/glightbox/lightbox.css
+ delete mode 100644 docs/site_libs/quarto-html/quarto-syntax-highlighting-d4d76bf8491c20bad77d141916dc28e1.css
+ delete mode 100644 docs/site_libs/react-18.2.0/AUTHORS
+ delete mode 100644 docs/site_libs/react-18.2.0/LICENSE.txt
+ delete mode 100644 docs/site_libs/react-18.2.0/react-dom.min.js
+ delete mode 100644 docs/site_libs/react-18.2.0/react.min.js
+ delete mode 100644 docs/site_libs/reactable-0.4.4.9001/reactable.css
+ delete mode 100644 docs/site_libs/reactable-0.4.4.9001/reactable.js
+ delete mode 100644 docs/site_libs/reactable-0.4.4.9001/reactable.js.map
+ delete mode 100644 docs/site_libs/reactable-0.4.4.9001/reactable.server.js
+ delete mode 100644 docs/site_libs/reactable-0.4.4.9001/reactable.server.js.LICENSE.txt
+ delete mode 100644 docs/site_libs/reactable-0.4.4.9001/reactable.server.js.map
+ delete mode 100644 docs/site_libs/reactable-0.4.4.9001/reactable.yaml
+ delete mode 100644 docs/site_libs/reactable-binding-0.4.4.9001/reactable.js
+ delete mode 100644 docs/site_libs/reactwidget-2.0.0/react-tools.js
+ delete mode 100644 docs/timelines.html
+ delete mode 100644 docs/timelines_files/figure-html/unnamed-chunk-2-1.png
+ delete mode 100644 docs/timelines_files/figure-html/unnamed-chunk-2-2.png
+ delete mode 100644 docs/timelines_files/figure-html/unnamed-chunk-2-3.png
+ delete mode 100644 docs/timelines_files/figure-html/unnamed-chunk-2-4.png
+ delete mode 100644 docs/timelines_files/figure-html/unnamed-chunk-2-5.png
+ delete mode 100644 docs/timelines_files/figure-html/unnamed-chunk-2-6.png
+ delete mode 100644 docs/timelines_files/figure-html/unnamed-chunk-2-7.png
+ delete mode 100644 docs/timelines_files/figure-html/unnamed-chunk-2-8.png
+ delete mode 100644 docs/timelines_files/figure-html/unnamed-chunk-2-9.png
+To github.com:JohnFranchak/sip_dashboard.git
+   f869654..a740b9d  main -> main
+[1m[34m[1/4] tasks.qmd[39m[22m
+[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: tasks.knit.md
+
+[39m[1m[34m[2/4] files.qmd[39m[22m
+[31m
+
+processing file: files.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: files.knit.md
+
+[39m[1m[34m[3/4] index.qmd[39m[22m
+[31m
+
+processing file: index.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: index.knit.md
+
+[39m[1m[34m[4/4] timelines.qmd[39m[22m
+[31m
+
+processing file: timelines.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |.............                                       |  25%                    |                                                            |..........................                          |  50% (unnamed-chunk-1)  |                                                            |.......................................             |  75%                    |                                                            |....................................................| 100% (unnamed-chunk-2)[31m
+
+Quitting from lines 45-130 (timelines.qmd) 
+[39m[31mError in `map2()`:
+i In index: 1.
+Caused by error in `geom_point()`:
+! Problem while converting geom to grob.
+i Error occurred in the 1st layer.
+Caused by error in `translate_shape_string()`:
+! Shape aesthetic contains invalid value: "<U+2014>".
+Backtrace:
+  1. purrr::walk2(ids, sessions, make_timeline)
+  2. purrr::map2(.x, .y, .f, ..., .progress = .progress)
+  3. purrr:::map2_("list", .x, .y, .f, ..., .progress = .progress)
+  7. global .f(.x[[i]], .y[[i]], ...)
+  9. patchwork:::print.patchwork(fig)
+     ...
+ 29. base::lapply(...)
+ 30. ggplot2 (local) FUN(X[[i]], ...)
+ 32. self$draw_panel(data, panel_params, coord, na.rm = FALSE)
+ 33. ggplot2 (local) draw_panel(..., self = self)
+ 34. ggplot2::translate_shape_string(data$shape)
+[39m                                                                                                            
+[31mExecution halted
 [39m

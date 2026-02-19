@@ -54,14 +54,14 @@ ds_files$WAV <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data/
 
 # Infant Processed
 
-ds_files$MOT4 <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data_processed/infant_imu/{.x}_{.y}/mot_features_infant_4s.csv")))
-ds_files$POS4 <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data_processed/infant_imu/{.x}_{.y}/infant_position_predictions_4s.csv")))
-ds_files$REST4 <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data_processed/infant_imu/{.x}_{.y}/infant_restrained_predictions_4s.csv")))
+ds_files$MOT4 <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data_processed/imu/{.x}_{.y}/mot_features_infant_4s.csv")))
+ds_files$POS4 <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data_processed/imu/{.x}_{.y}/infant_position_predictions_4s.csv")))
+ds_files$REST4 <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data_processed/imu/{.x}_{.y}/infant_restrained_predictions_4s.csv")))
 
 # CG Processed
 
-ds_files$CGMOT4 <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data_processed/cg_imu/{.x}_{.y}/mot_features_caregiver_4s.csv")))
-ds_files$CGPOS4 <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data_processed/cg_imu/{.x}_{.y}/caregiver_position_predictions_4s.csv")))
+ds_files$CGMOT4 <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data_processed/imu/{.x}_{.y}/mot_features_cg_4s.csv")))
+ds_files$CGPOS4 <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data_processed/imu/{.x}_{.y}/cg_position_predictions_4s.csv")))
 
 ```
 

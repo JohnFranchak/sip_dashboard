@@ -12,6 +12,7 @@ website:
       - href: tasks.qmd
       - href: files.qmd
       - href: timelines.qmd
+      - href: summaries.qmd
 
 format:
   html:

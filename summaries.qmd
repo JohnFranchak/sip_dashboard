@@ -1,0 +1,94 @@
+---
+title: "Summaries"
+fig-dpi: 300
+lightbox: auto
+execute:
+  cache: true
+format: 
+  html:
+    page-layout: custom
+knitr: 
+  opts_chunk: 
+    out.width: "100%"
+---
+
+| Last updated: `r round(lubridate::now())`
+
+```{r}
+#| echo: false
+#| warning: false
+#| error: false
+
+library(tidyverse)
+library(rstatix)
+pal <-  c("#F0E442","#009E73","#56B4E9", "#E69F00","#0072B2") %>%  set_names(c("Standing", "Sitting", "Prone", "Supine", "Held"))
+
+theme_update(text = element_text(size = 12),
+             axis.text.x = element_text(size = 12, color = "black"), 
+             axis.title.x = element_text(size = 14),
+             axis.text.y = element_text(size = 12,  color = "black"), 
+             axis.title.y = element_text(size = 14), 
+             panel.background = element_blank(),panel.border = element_blank(), 
+             panel.grid.major = element_blank(),
+             panel.grid.minor = element_blank(), axis.line = element_blank(), 
+             axis.ticks.length=unit(.25, "cm"), 
+             legend.key = element_rect(fill = "white")) 
+
+study_dir <- "/Volumes/padlab/study_sensorsinperson/data_processed/imu/"
+id_session <- list.files(study_dir, pattern = "\\d+_\\d+$", include.dirs = T)
+id_session_keep <- id_session[file.exists(str_glue("{study_dir}{id_session}/infant_position_predictions_4s.csv"))]
+ids <- map_chr(id_session_keep, ~ strsplit(.x, "_")[[1]][[1]])
+sessions <- map_chr(id_session_keep, ~ strsplit(.x, "_")[[1]][[2]])
+
+read_session <- function(id, session) {
+  predictions <- read_csv(str_glue("{study_dir}{id}_{session}/infant_position_predictions_4s.csv")) %>% 
+    rename(time = time_start) %>% mutate(time_rounded = round(as.numeric(time)))
+  
+  cg_predictions <- read_csv(str_glue("{study_dir}{id}_{session}/cg_position_predictions_4s.csv")) %>% 
+    rename(cgpos = pos) %>% mutate(time_rounded = round(as.numeric(time_start))) %>% 
+    select(-time_start)
+  
+  windows <- read_csv(str_glue("{study_dir}{id}_{session}/windows_4s.csv"))  %>% 
+    rename(time = temp_time) %>% 
+    select(-(time_sec:time_sec3))
+  sync <- left_join(predictions, cg_predictions) %>% left_join(windows)
+  sync$id = id
+  sync$session = session
+  sync$time_plot <- as_hms(force_tz(sync$time, "America/Los_Angeles"))
+  
+  sync_filt <- sync %>% filter(nap_period == 0, exclude_period == 0)
+}
+ds <- map2_dfr(ids, sessions, read_session)
+
+ds <- ds %>% mutate(pos = ifelse(pos == "Upright", "Standing", pos),
+                             pos = factor(pos, levels=c("Supine", "Prone", "Sitting", "Standing", "Held")))
+
+ds_sum <- ds %>% group_by(id, session) %>% mutate(total_samples = n()) %>% group_by(id, session, pos) %>% 
+  summarize(pos_n  = n(), total_samples = mean(total_samples)) %>% ungroup
+ds_sum <- ds_sum %>% complete(nesting(id, session), pos, fill = list(pos_n = 0, total_samples = 1))
+ds_sum$pos_prop = ds_sum$pos_n/ds_sum$total_samples*100
+
+```
+
+## Position Frequency
+
+```{r}
+ds_sum %>% group_by(pos, session) %>% get_summary_stats(pos_prop, show = c("mean", "sd","min","max")) %>% select(-variable)
+```
+
+```{r}
+ggplot(ds_sum, aes(x = session, y = pos_prop, color = pos)) + 
+  stat_summary(position = position_dodge(.2)) + 
+  ylim(0,100) + ylab("% of time") + xlab("Session") +
+  scale_color_manual(values = pal, name ="") + 
+  theme(legend.position = "bottom")
+```
+
+```{r}
+ggplot(ds_sum, aes(x = session, y = pos_prop, color = pos, group = id)) + 
+  facet_wrap(~ pos) + 
+  geom_point() + geom_line() +  
+  ylim(0,100) + ylab("% of time") + xlab("Session") +
+  scale_color_manual(values = pal, name ="") + 
+  theme(legend.position = "none")
+```

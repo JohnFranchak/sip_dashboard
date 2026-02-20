@@ -18,6 +18,7 @@ knitr:
 #| error: false
 
 library(tidyverse)
+library(hms)
 library(rstatix)
 pal <-  c("#F0E442","#009E73","#56B4E9", "#E69F00","#0072B2") %>%  set_names(c("Standing", "Sitting", "Prone", "Supine", "Held"))
 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sensors in Person Dashboard - Files</title>
+<title>Sensors in Person Dashboard - Summaries</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -39,6 +73,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,13 +103,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/core-js-2.5.3/shim.min.js"></script>
-<script src="site_libs/react-17.0.0/react.min.js"></script>
-<script src="site_libs/react-17.0.0/react-dom.min.js"></script>
-<script src="site_libs/reactwidget-1.0.0/react-tools.js"></script>
-<script src="site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
-<link href="site_libs/reactable-0.4.4/reactable.css" rel="stylesheet">
-<script src="site_libs/reactable-binding-0.4.4/reactable.js"></script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -104,7 +134,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Tasks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./files.html" aria-current="page"> 
+    <a class="nav-link" href="./files.html"> 
 <span class="menu-text">Files</span></a>
   </li>  
   <li class="nav-item">
@@ -112,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Timelines</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./summaries.html"> 
+    <a class="nav-link active" href="./summaries.html" aria-current="page"> 
 <span class="menu-text">Summaries</span></a>
   </li>  
 </ul>
@@ -130,7 +160,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Files</h1>
+<h1 class="title">Summaries</h1>
 </div>
 
 
@@ -146,18 +176,69 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-
-<div class="line-block">Last updated: 2026-02-20 15:00:11<br>
-✔ Complete, ✖ N/A, ❌ Missing/Misnamed<br>
+<nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#position-frequency" id="toc-position-frequency">Position Frequency</a></li>
+  </ul>
+</nav>
+<div class="line-block">Last updated: 2026-02-20 15:03:30</div>
+<section id="position-frequency" class="level2">
+<h2 data-anchor-id="position-frequency">Position Frequency</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ds_sum <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(pos, session) <span class="sc">%&gt;%</span> <span class="fu">get_summary_stats</span>(pos_prop, <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>,<span class="st">"min"</span>,<span class="st">"max"</span>)) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>variable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 x 7
+   session pos          n  mean    sd   min   max
+   &lt;chr&gt;   &lt;fct&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1 1       Supine       7 21.1  16.7   8.32  56.1
+ 2 2       Supine       3  9.79  6.48  3.96  16.8
+ 3 1       Prone        7 25.5  16.1  10.1   53.2
+ 4 2       Prone        3  8.49  4.55  3.26  11.5
+ 5 1       Sitting      7 32.4  16.1  12.8   53.7
+ 6 2       Sitting      3 41.8   8.58 32.4   49.2
+ 7 1       Standing     7  9.72  5.89  3.64  18.3
+ 8 2       Standing     3 23.6   8.11 15.8   32.0
+ 9 1       Held         7 11.3   4.49  3.70  18.3
+10 2       Held         3 16.4   2.85 14.0   19.5</code></pre>
+</div>
 </div>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ds_sum, <span class="fu">aes</span>(<span class="at">x =</span> session, <span class="at">y =</span> pos_prop, <span class="at">color =</span> pos)) <span class="sc">+</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">2</span>)) <span class="sc">+</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">100</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"% of time"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Session"</span>) <span class="sc">+</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> pal, <span class="at">name =</span><span class="st">""</span>) <span class="sc">+</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>No summary function supplied, defaulting to `mean_se()`</code></pre>
+</div>
 <div class="cell-output-display">
-<div class="reactable html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-56510e79a832546f24ab" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-56510e79a832546f24ab">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"ID":[12,12,13,13,15,16,16,18,21,23],"Session":["1","2","1","2","1","1","2","1","1","1"],"LA":[1,1,1,1,1,1,1,1,1,1],"LH":[1,1,1,1,1,1,1,1,1,1],"RA":[1,1,1,1,1,1,1,1,1,1],"RH":[1,1,1,1,1,1,1,1,1,1],"CH":[1,1,1,1,1,1,1,1,1,1],"CW":[1,1,1,1,1,1,1,1,1,1],"GOPRO":[1,1,1,1,1,1,1,1,1,1],"Headcam":[1,1,1,1,1,1,1,1,1,1],"Pupil":[1,1,1,1,1,1,1,1,1,1],"Composite":[1,1,1,1,1,1,1,1,1,1],"ITS":[1,1,1,1,1,1,1,1,1,1],"WAV":[1,1,1,1,1,1,1,1,1,1],"MOT4":[1,1,1,1,1,1,1,1,1,1],"POS4":[1,1,1,1,1,1,1,1,1,1],"REST4":[0,0,0,0,0,0,0,0,0,0],"CGMOT4":[1,1,1,1,1,1,1,1,1,1],"CGPOS4":[1,1,1,1,1,1,1,1,1,1]},"columns":[{"id":"ID","name":"ID","type":"numeric","cell":["12","12","13","13","15","16","16","18","21","23"],"maxWidth":50,"format":{"cell":{"digits":0},"aggregated":{"digits":0}},"align":"right"},{"id":"Session","name":"Session","type":"factor","cell":["1","2","1","2","1","1","2","1","1","1"],"maxWidth":85,"format":{"cell":{"digits":0},"aggregated":{"digits":0}},"align":"right"},{"id":"LA","name":"LA","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️"],"maxWidth":60},{"id":"LH","name":"LH","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️"],"maxWidth":60},{"id":"RA","name":"RA","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️"],"maxWidth":60},{"id":"RH","name":"RH","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️"],"maxWidth":60},{"id":"CH","name":"CH","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️"],"maxWidth":60},{"id":"CW","name":"CW","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️"],"maxWidth":60},{"id":"GOPRO","name":"GOPRO","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️"],"maxWidth":80},{"id":"Headcam","name":"Headcam","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️"],"maxWidth":90},{"id":"Pupil","name":"Pupil","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️"],"maxWidth":60},{"id":"Composite","name":"Composite","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️"],"maxWidth":100},{"id":"ITS","name":"ITS","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️"],"maxWidth":60},{"id":"WAV","name":"WAV","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️"],"maxWidth":60},{"id":"MOT4","name":"MOT4","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️"],"maxWidth":60},{"id":"POS4","name":"POS4","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️"],"maxWidth":60},{"id":"REST4","name":"REST4","type":"numeric","cell":["❌","❌","❌","❌","❌","❌","❌","❌","❌","❌"],"maxWidth":60},{"id":"CGMOT4","name":"CGMOT4","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️"],"maxWidth":80},{"id":"CGPOS4","name":"CGPOS4","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️"],"maxWidth":80}],"columnGroups":[{"name":"Visit","sticky":"left","columns":["ID","Session"]},{"name":"IMUs","columns":["LA","LH","RA","RH","CW","CH"]},{"name":"Videos","columns":["GOPRO","Headcam","Pupil","Composite"]},{"name":"LENA","columns":["ITS","WAV"]},{"name":"Infant Processing","columns":["MOT4","POS4","REST4"]},{"name":"CG Processing","columns":["CGMOT4","CGPOS4"]}],"filterable":true,"defaultSorted":[{"id":"ID","desc":false},{"id":"Session","desc":false}],"striped":true,"compact":true,"dataKey":"6afd930d628cea37d7904de31bd19290"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div>
+<figure class="figure">
+<p><a href="summaries_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="summaries_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" style="width:100.0%"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ds_sum, <span class="fu">aes</span>(<span class="at">x =</span> session, <span class="at">y =</span> pos_prop, <span class="at">color =</span> pos, <span class="at">group =</span> id)) <span class="sc">+</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> pos) <span class="sc">+</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span>  </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">100</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"% of time"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Session"</span>) <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> pal, <span class="at">name =</span><span class="st">""</span>) <span class="sc">+</span> </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="summaries_files/figure-html/unnamed-chunk-4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="summaries_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" style="width:100.0%"></a></p>
+</figure>
+</div>
 </div>
 </div>
 
 
+</section>
 
 
 <script id="quarto-html-after-body" type="application/javascript">
@@ -548,6 +629,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","closeEffect":"zoom","loop":false,"openEffect":"zoom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 

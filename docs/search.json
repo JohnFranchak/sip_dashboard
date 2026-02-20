@@ -1,0 +1,16 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Sessions",
+    "section": "",
+    "text": "Last updated: 2026-02-20 15:00:17\nThe dataset contains 7 unique participants with 10 overall sessions. 0 participants have 3 complete sessions.\n3 participants have complete 7 and 9 month sessions and 0 participants have complete 9 and 11 month sessions.\n\n✔ Complete, ✖ Pending, ❌ Missing/Unsure"
+  },
+  {
+    "objectID": "summaries.html#position-frequency",
+    "href": "summaries.html#position-frequency",
+    "title": "Summaries",
+    "section": "Position Frequency",
+    "text": "Position Frequency\n\nds_sum %&gt;% group_by(pos, session) %&gt;% get_summary_stats(pos_prop, show = c(\"mean\", \"sd\",\"min\",\"max\")) %&gt;% select(-variable)\n\n# A tibble: 10 x 7\n   session pos          n  mean    sd   min   max\n   &lt;chr&gt;   &lt;fct&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1 1       Supine       7 21.1  16.7   8.32  56.1\n 2 2       Supine       3  9.79  6.48  3.96  16.8\n 3 1       Prone        7 25.5  16.1  10.1   53.2\n 4 2       Prone        3  8.49  4.55  3.26  11.5\n 5 1       Sitting      7 32.4  16.1  12.8   53.7\n 6 2       Sitting      3 41.8   8.58 32.4   49.2\n 7 1       Standing     7  9.72  5.89  3.64  18.3\n 8 2       Standing     3 23.6   8.11 15.8   32.0\n 9 1       Held         7 11.3   4.49  3.70  18.3\n10 2       Held         3 16.4   2.85 14.0   19.5\n\n\n\nggplot(ds_sum, aes(x = session, y = pos_prop, color = pos)) + \n  stat_summary(position = position_dodge(.2)) + \n  ylim(0,100) + ylab(\"% of time\") + xlab(\"Session\") +\n  scale_color_manual(values = pal, name =\"\") + \n  theme(legend.position = \"bottom\")\n\nNo summary function supplied, defaulting to `mean_se()`\n\n\n\n\n\n\n\n\n\n\nggplot(ds_sum, aes(x = session, y = pos_prop, color = pos, group = id)) + \n  facet_wrap(~ pos) + \n  geom_point() + geom_line() +  \n  ylim(0,100) + ylab(\"% of time\") + xlab(\"Session\") +\n  scale_color_manual(values = pal, name =\"\") + \n  theme(legend.position = \"none\")"
+  }
+]

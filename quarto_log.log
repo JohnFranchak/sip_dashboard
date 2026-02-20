@@ -10072,3 +10072,43 @@ Output created: docs/index.html
  create mode 100755 update_timelines.sh
 To github.com:JohnFranchak/sip_dashboard.git
    6ac8190..d5c6d36  main -> main
+[1m[34m[1/5] tasks.qmd[39m[22m
+[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: tasks.knit.md
+
+[39m[1m[34m[2/5] files.qmd[39m[22m
+[31m
+
+processing file: files.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: files.knit.md
+
+[39m[1m[34m[3/5] index.qmd[39m[22m
+[31m
+
+processing file: index.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: index.knit.md
+
+[39m[1m[34m[4/5] summaries.qmd[39m[22m
+[31m
+
+processing file: summaries.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |......                                              |  12%                    |                                                            |.............                                       |  25% (unnamed-chunk-1)[31m
+
+Quitting from lines 18-71 (summaries.qmd) 
+[39m[31mError in `map2()`:
+i In index: 1.
+Caused by error in `as_hms()`:
+! could not find function "as_hms"
+Backtrace:
+ 1. purrr::map2_dfr(ids, sessions, read_session)
+ 2. purrr::map2(.x, .y, .f, ...)
+ 3. purrr:::map2_("list", .x, .y, .f, ..., .progress = .progress)
+ 7. global .f(.x[[i]], .y[[i]], ...)
+[39m                                                                                                            
+[31mExecution halted
+[39m

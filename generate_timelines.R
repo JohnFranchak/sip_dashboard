@@ -106,4 +106,8 @@ make_timeline <- function(id, session) {
     fig <- p1/p3/p2 + plot_layout(heights = c(3,1,2))
   ggsave(plot = fig, filename = str_glue("/Volumes/padlab/study_sensorsinperson/data_processed/timelines/{id}_{session}.png",
                                          width = 10, height = 6))
+  ggsave(plot = fig, filename = str_glue("timelines/{id}_{session}.png",
+                                         width = 10, height = 6))
 }
+
+walk2(ids, sessions, make_timeline)

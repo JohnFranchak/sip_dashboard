@@ -13106,3 +13106,33 @@ processing file: timelines.qmd
 [39m
 Output created: docs/index.html
 
+[main 328561e] Automated Quarto update: 2026-02-23 12:00:32
+ 40 files changed, 155 insertions(+), 2403 deletions(-)
+ delete mode 100644 docs/site_libs/bootstrap/bootstrap-6685f57f7611d95a701d58b4cc6878c0.min.css
+ delete mode 100644 docs/site_libs/htmltools-fill-0.5.8.1/fill.css
+ delete mode 100644 docs/site_libs/htmlwidgets-1.6.4/htmlwidgets.js
+ delete mode 100644 docs/site_libs/quarto-html/quarto-syntax-highlighting-d4d76bf8491c20bad77d141916dc28e1.css
+ delete mode 100644 docs/site_libs/react-18.2.0/AUTHORS
+ delete mode 100644 docs/site_libs/react-18.2.0/LICENSE.txt
+ delete mode 100644 docs/site_libs/react-18.2.0/react-dom.min.js
+ delete mode 100644 docs/site_libs/react-18.2.0/react.min.js
+ delete mode 100644 docs/site_libs/reactable-0.4.4.9001/reactable.css
+ delete mode 100644 docs/site_libs/reactable-0.4.4.9001/reactable.js
+ delete mode 100644 docs/site_libs/reactable-0.4.4.9001/reactable.js.map
+ delete mode 100644 docs/site_libs/reactable-0.4.4.9001/reactable.server.js
+ delete mode 100644 docs/site_libs/reactable-0.4.4.9001/reactable.server.js.LICENSE.txt
+ delete mode 100644 docs/site_libs/reactable-0.4.4.9001/reactable.server.js.map
+ delete mode 100644 docs/site_libs/reactable-0.4.4.9001/reactable.yaml
+ delete mode 100644 docs/site_libs/reactable-binding-0.4.4.9001/reactable.js
+ delete mode 100644 docs/site_libs/reactwidget-2.0.0/react-tools.js
+ rename {timelines_files => docs/timelines_files}/figure-html/unnamed-chunk-2-1.png (100%)
+ rename {timelines_files => docs/timelines_files}/figure-html/unnamed-chunk-2-2.png (100%)
+ rename {timelines_files => docs/timelines_files}/figure-html/unnamed-chunk-2-3.png (100%)
+ rename {timelines_files => docs/timelines_files}/figure-html/unnamed-chunk-2-4.png (100%)
+ rename {timelines_files => docs/timelines_files}/figure-html/unnamed-chunk-2-5.png (100%)
+ rename {timelines_files => docs/timelines_files}/figure-html/unnamed-chunk-2-6.png (100%)
+ rename {timelines_files => docs/timelines_files}/figure-html/unnamed-chunk-2-7.png (100%)
+ rename {timelines_files => docs/timelines_files}/figure-html/unnamed-chunk-2-8.png (100%)
+ rename {timelines_files => docs/timelines_files}/figure-html/unnamed-chunk-2-9.png (100%)
+To github.com:JohnFranchak/sip_dashboard.git
+   1bba08b..328561e  main -> main

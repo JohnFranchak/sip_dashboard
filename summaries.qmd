@@ -115,7 +115,7 @@ ggplot(ds_sum, aes(x = session, y = pos_prop, fill = pos)) +
   stat_summary(geom = "bar", position = "stack") + 
   ylim(0,100) + ylab("% of time") + xlab("Session") +
   scale_x_continuous(breaks = 1:3, labels = c("7 mo","9 mo","11 mo"), limits = c(0.5,3.5)) + 
-  scale_color_manual(values = pal, name ="") + 
+  scale_fill_manual(values = pal, name ="") + 
   theme(legend.position = "bottom")
 ```
 

@@ -55,12 +55,31 @@ recording_duration <- ds %>% group_by(id, session) %>%
 usable_data %>% left_join(recording_duration) %>% 
   get_summary_stats(usable_hours, recording_hours, show = c("mean", "sd","min","max")) %>% 
   flextable() %>% autofit()
-
 ```
+
+```{r}
+#| warning: false
+#| label: Usable-data-histograms
+#| layout-ncol: 2
+#| fig-cap: 
+#|   - "Usable hours after exclusions"
+#|   - "Recording length in hours"
+  
+usable_data  %>% 
+  ggplot(aes(x = usable_hours)) + 
+  geom_histogram() + 
+  scale_x_binned(name = "Hours", limits = c(2,14))
+
+recording_duration  %>% 
+  ggplot(aes(x = recording_hours)) + 
+  geom_histogram() + 
+  scale_x_binned(name = "Hours", limits = c(2,14))
+```
+
 
 ### Infant Position Frequency by Age (Overall)
 
-```{r}
+```{r} 
 #| warning: false
 #| label: position-table-age
 #| tbl-cap: Position summary statistics
@@ -77,12 +96,23 @@ ds_sum %>% group_by(pos, session) %>%
 ```
 
 ```{r}
-#| out-width: "90%"
 #| warning: false
 #| label: "frequency-by-age-overall"
+#| layout-ncol: 2
+#| fig-cap: 
+#|   - "Position means and SE"
+#|   - "Position distribution"
 
 ggplot(ds_sum, aes(x = session, y = pos_prop, color = pos)) + 
-  stat_summary(position = position_dodge(.2)) + 
+  stat_summary(position = position_dodge(.1)) + 
+  stat_summary(geom = "line", position = position_dodge(.1)) + 
+  ylim(0,100) + ylab("% of time") + xlab("Session") +
+  scale_x_continuous(breaks = 1:3, labels = c("7 mo","9 mo","11 mo"), limits = c(0.5,3.5)) + 
+  scale_color_manual(values = pal, name ="") + 
+  theme(legend.position = "bottom")
+
+ggplot(ds_sum, aes(x = session, y = pos_prop, fill = pos)) + 
+  stat_summary(geom = "bar", position = "stack") + 
   ylim(0,100) + ylab("% of time") + xlab("Session") +
   scale_x_continuous(breaks = 1:3, labels = c("7 mo","9 mo","11 mo"), limits = c(0.5,3.5)) + 
   scale_color_manual(values = pal, name ="") + 

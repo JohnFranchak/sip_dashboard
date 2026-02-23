@@ -12959,3 +12959,63 @@ processing file: timelines.qmd
 [39m
 Output created: docs/index.html
 
+[main 63c7812] Automated Quarto update: 2026-02-23 09:00:34
+ 29 files changed, 101 insertions(+), 2317 deletions(-)
+ delete mode 100644 docs/site_libs/bootstrap/bootstrap-6685f57f7611d95a701d58b4cc6878c0.min.css
+ delete mode 100644 docs/site_libs/htmltools-fill-0.5.8.1/fill.css
+ delete mode 100644 docs/site_libs/htmlwidgets-1.6.4/htmlwidgets.js
+ delete mode 100644 docs/site_libs/quarto-html/quarto-syntax-highlighting-d4d76bf8491c20bad77d141916dc28e1.css
+ delete mode 100644 docs/site_libs/react-18.2.0/AUTHORS
+ delete mode 100644 docs/site_libs/react-18.2.0/LICENSE.txt
+ delete mode 100644 docs/site_libs/react-18.2.0/react-dom.min.js
+ delete mode 100644 docs/site_libs/react-18.2.0/react.min.js
+ delete mode 100644 docs/site_libs/reactable-0.4.4.9001/reactable.css
+ delete mode 100644 docs/site_libs/reactable-0.4.4.9001/reactable.js
+ delete mode 100644 docs/site_libs/reactable-0.4.4.9001/reactable.js.map
+ delete mode 100644 docs/site_libs/reactable-0.4.4.9001/reactable.server.js
+ delete mode 100644 docs/site_libs/reactable-0.4.4.9001/reactable.server.js.LICENSE.txt
+ delete mode 100644 docs/site_libs/reactable-0.4.4.9001/reactable.server.js.map
+ delete mode 100644 docs/site_libs/reactable-0.4.4.9001/reactable.yaml
+ delete mode 100644 docs/site_libs/reactable-binding-0.4.4.9001/reactable.js
+ delete mode 100644 docs/site_libs/reactwidget-2.0.0/react-tools.js
+ rename docs/summaries_files/figure-html/{unnamed-chunk-3-1.png => frequency-by-age-individual-1.png} (100%)
+ rename docs/summaries_files/figure-html/{frequency-means-by-age-1.png => frequency-by-age-overall-1.png} (100%)
+ delete mode 100644 docs/summaries_files/figure-html/unnamed-chunk-4-1.png
+ create mode 100644 summaries_files/figure-html/frequency-by-age-individual-1.png
+ create mode 100644 summaries_files/figure-html/frequency-by-age-overall-1.png
+To github.com:JohnFranchak/sip_dashboard.git
+   5602f5d..63c7812  main -> main
+[1m[34m[1/5] tasks.qmd[39m[22m
+[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: tasks.knit.md
+
+[39m[1m[34m[2/5] files.qmd[39m[22m
+[31m
+
+processing file: files.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: files.knit.md
+
+[39m[1m[34m[3/5] index.qmd[39m[22m
+[31m
+
+processing file: index.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: index.knit.md
+
+[39m[1m[34m[4/5] summaries.qmd[39m[22m
+[31m
+
+processing file: summaries.qmd
+[39m  |                                                |                                        |   0%  |                                                |....                                    |  10%                                |                                                |........                                |  20% (unnamed-chunk-1)              |                                                |............                            |  30%                                |                                                |................                        |  40% (Usable data (hours))        [31m
+
+Quitting from lines 46-58 (summaries.qmd) 
+Error in opts_current_table() : 
+  if a label (Usable data (hours)) is defined, chunk option `tbl-cap` should also be defined.
+Calls: .main ... knit_print.flextable -> knitr_update_properties -> opts_current_table
+[39m                                                                                                                        
+[31mExecution halted
+[39m

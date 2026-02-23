@@ -13136,3 +13136,41 @@ Output created: docs/index.html
  rename {timelines_files => docs/timelines_files}/figure-html/unnamed-chunk-2-9.png (100%)
 To github.com:JohnFranchak/sip_dashboard.git
    1bba08b..328561e  main -> main
+[1m[34m[1/5] tasks.qmd[39m[22m
+[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: tasks.knit.md
+
+[39m[1m[34m[2/5] files.qmd[39m[22m
+[31m
+
+processing file: files.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: files.knit.md
+
+[39m[1m[34m[3/5] index.qmd[39m[22m
+[31m
+
+processing file: index.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: index.knit.md
+
+[39m[1m[34m[4/5] summaries.qmd[39m[22m
+[31m
+
+processing file: summaries.qmd
+[39m  |                                                |                                        |   0%  |                                                |...                                     |   8%                                |                                                |.......                                 |  17% (unnamed-chunk-1)              |                                                |..........                              |  25%                                |                                                |.............                           |  33% (Usable-data)                  |                                                |.................                       |  42%                                |                                                |....................                    |  50% (Usable-data-histograms)       |                                                |.......................                 |  58%                                |                                                |...........................             |  67% (position-table-age)           |                                                |..............................          |  75%                                |                                                |.................................       |  83% (frequency-by-age-overall)     |                                                |.....................................   |  92%                                |                                                |........................................| 100% (frequency-by-age-individual)                                                                                                                        
+[31moutput file: summaries.knit.md
+
+[39m[1m[34m[5/5] timelines.qmd[39m[22m
+[31m
+
+processing file: timelines.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |.................                                   |  33%                    |                                                            |...................................                 |  67% (unnamed-chunk-1)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: timelines.knit.md
+
+[39m
+Output created: docs/index.html
+

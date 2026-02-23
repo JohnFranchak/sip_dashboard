@@ -7,6 +7,7 @@ cd /Users/johnfranchak/Documents/GitHub/sip_dashboard
 # Render the project
 # This assumes 'quarto' is in your system PATH
 /usr/local/bin/Rscript generate_timelines.qmd
+/usr/local/bin/Rscript generate_summaries.qmd
 
 # Add changes to Git
 git add .

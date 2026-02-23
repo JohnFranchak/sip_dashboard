@@ -8,6 +8,8 @@ format:
   html:
     toc: true
     code-fold: true
+    code-tools: true
+    code-link: true
 knitr: 
   opts_chunk: 
     out.width: "100%"
@@ -37,8 +39,6 @@ theme_update(text = element_text(size = 12),
              axis.ticks.length=unit(.25, "cm"), 
              legend.key = element_rect(fill = "white")) 
 
-# ds <- read_csv("/Volumes/padlab/study_sensorsinperson/data_processed/datasets/infant_raw_position.csv")
-
 board <- board_folder("/Volumes/padlab/study_sensorsinperson/data_processed/datasets/")
 data_version <- board %>% pin_meta("imu_raw_samples")
 ds <- board %>% pin_read("imu_raw_samples")
@@ -46,7 +46,9 @@ ds <- board %>% pin_read("imu_raw_samples")
 
 | Using pinned data version from: `r round(data_version$created)`
 | Users can load data by running:
-```
+```{r}
+#| eval: false
+
 library(tidyverse)
 library(pins)
 library(nanoparquet)

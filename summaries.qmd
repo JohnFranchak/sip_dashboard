@@ -6,8 +6,8 @@ execute:
   cache: false
 format: 
   html:
-    page-layout: custom
-    toc: false
+    toc: true
+    code-fold: true
 knitr: 
   opts_chunk: 
     out.width: "100%"
@@ -21,6 +21,7 @@ knitr:
 library(tidyverse)
 library(hms)
 library(rstatix)
+library(flextable)
 pal <-  c("#F0E442","#009E73","#56B4E9", "#E69F00","#0072B2") %>%  set_names(c("Standing", "Sitting", "Prone", "Supine", "Held"))
 
 theme_update(text = element_text(size = 12),
@@ -35,26 +36,45 @@ theme_update(text = element_text(size = 12),
              legend.key = element_rect(fill = "white")) 
 
 ds <- read_csv("/Volumes/padlab/study_sensorsinperson/data_processed/datasets/infant_raw_position.csv")
-
-ds_sum <- ds %>% group_by(id, session) %>% mutate(total_samples = n()) %>% group_by(id, session, pos) %>% 
-  summarize(pos_n  = n(), total_samples = mean(total_samples)) %>% ungroup
-ds_sum <- ds_sum %>% complete(nesting(id, session), pos, fill = list(pos_n = 0, total_samples = 1))
-ds_sum$pos_prop = ds_sum$pos_n/ds_sum$total_samples*100
-
 ```
 
 | Last updated: `r round(lubridate::now())`
 
-### Position Frequency by Age (Overall)
+### Usable data
 
 ```{r}
+#| warning: false
+#| label: Usable data (hours)
+
+usable_data <- ds %>% count(id, session) %>% mutate(usable_hours = n/3600)
+recording_duration <- ds %>% group_by(id, session) %>% 
+  mutate(recording_hours = as.numeric(time_leg_off - time_leg_on)) %>% 
+  slice_head(n = 1) %>% ungroup
+  
+usable_data %>% left_join(recording_duration) %>% 
+  get_summary_stats(usable_hours, recording_hours, show = c("mean", "sd","min","max")) %>% 
+  flextable() %>% autofit()
+
+```
+
+### Infant Position Frequency by Age (Overall)
+
+```{r}
+#| warning: false
+
+ds_sum <- ds %>% group_by(id, session) %>% 
+  mutate(total_samples = n()) %>% group_by(id, session, pos) %>% 
+  summarize(pos_n  = n(), total_samples = mean(total_samples)) %>% ungroup
+ds_sum <- ds_sum %>% complete(nesting(id, session), pos, fill = list(pos_n = 0, total_samples = 1))
+ds_sum$pos_prop = ds_sum$pos_n/ds_sum$total_samples*100
+
 ds_sum %>% group_by(pos, session) %>% 
   get_summary_stats(pos_prop, show = c("mean", "sd","min","max")) %>% 
-  select(-variable)
+  select(-variable) %>% flextable() %>% autofit()
 ```
 
 ```{r}
-#| out-width: "50%"
+#| out-width: "90%"
 #| warning: false
 #| label: "frequency-by-age-overall"
 
@@ -66,10 +86,10 @@ ggplot(ds_sum, aes(x = session, y = pos_prop, color = pos)) +
   theme(legend.position = "bottom")
 ```
 
-### Position Frequency by Age (Individual)
+### Infant Position Frequency by Age (Individual)
 
 ```{r}
-#| out-width: "60%"
+#| out-width: "90%"
 #| warning: false
 #| label: "frequency-by-age-individual"
 

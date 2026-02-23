@@ -44,7 +44,8 @@ ds <- read_csv("/Volumes/padlab/study_sensorsinperson/data_processed/datasets/in
 
 ```{r}
 #| warning: false
-#| label: Usable data (hours)
+#| label: Usable-data
+#| tbl-cap: Usable data and total recording length in hours
 
 usable_data <- ds %>% count(id, session) %>% mutate(usable_hours = n/3600)
 recording_duration <- ds %>% group_by(id, session) %>% 
@@ -61,6 +62,8 @@ usable_data %>% left_join(recording_duration) %>%
 
 ```{r}
 #| warning: false
+#| label: position-table-age
+#| tbl-cap: Position summary statistics
 
 ds_sum <- ds %>% group_by(id, session) %>% 
   mutate(total_samples = n()) %>% group_by(id, session, pos) %>% 

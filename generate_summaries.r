@@ -1,6 +1,10 @@
 library(tidyverse)
 library(hms)
 library(rstatix)
+library(pins)
+
+board <- board_folder("/Volumes/padlab/study_sensorsinperson/data_processed/datasets/", versioned = T)
+board_gh <- board_folder("datasets/", versioned = T)
 
 study_dir <- "/Volumes/padlab/study_sensorsinperson/data_processed/imu/"
 id_session <- list.files(study_dir, pattern = "\\d+_\\d+$", include.dirs = T)
@@ -31,4 +35,18 @@ ds <- map2_dfr(ids, sessions, read_session)
 ds <- ds %>% mutate(pos = ifelse(pos == "Upright", "Standing", pos),
                     pos = factor(pos, levels=c("Supine", "Prone", "Sitting", "Standing", "Held")))
 
-write_csv(ds, "/Volumes/padlab/study_sensorsinperson/data_processed/datasets/infant_raw_position.csv")
+#write_csv(ds, "/Volumes/padlab/study_sensorsinperson/data_processed/datasets/infant_raw_position.csv")
+
+board %>% pin_write(name = "imu_raw_samples", x = ds,
+                    title = "Infant and Caregiver Raw Position",
+                    description = "Raw position predictions sampled every 1 second. 
+                    Data are filtered to only include usable samples.",
+                    metadata = list(infant_model = "TDCP-March2025", cg_model = "Nov2025"),
+                    type = "parquet")
+board_gh %>% pin_write(name = "imu_raw_samples", x = ds,
+                       title = "Infant and Caregiver Raw Position",
+                       description = "Raw position predictions sampled every 1 second. 
+                    Data are filtered to only include usable samples.",
+                       metadata = list(infant_model = "TDCP-March2025", cg_model = "Nov2025"),
+                       type = "parquet")
+write_board_manifest(board_gh)

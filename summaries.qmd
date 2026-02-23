@@ -22,6 +22,8 @@ library(tidyverse)
 library(hms)
 library(rstatix)
 library(flextable)
+library(pins)
+
 pal <-  c("#F0E442","#009E73","#56B4E9", "#E69F00","#0072B2") %>%  set_names(c("Standing", "Sitting", "Prone", "Supine", "Held"))
 
 theme_update(text = element_text(size = 12),
@@ -35,10 +37,14 @@ theme_update(text = element_text(size = 12),
              axis.ticks.length=unit(.25, "cm"), 
              legend.key = element_rect(fill = "white")) 
 
-ds <- read_csv("/Volumes/padlab/study_sensorsinperson/data_processed/datasets/infant_raw_position.csv")
+# ds <- read_csv("/Volumes/padlab/study_sensorsinperson/data_processed/datasets/infant_raw_position.csv")
+
+board <- board_folder("/Volumes/padlab/study_sensorsinperson/data_processed/datasets/")
+data_version <- board %>% pin_meta("imu_raw_samples")
+ds <- board %>% pin_read("imu_raw_samples")
 ```
 
-| Last updated: `r round(lubridate::now())`
+| Using pinned data version from: `r round(data_version$created)`
 
 ### Usable data
 

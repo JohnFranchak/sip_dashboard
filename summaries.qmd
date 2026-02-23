@@ -45,6 +45,8 @@ ds <- board %>% pin_read("imu_raw_samples")
 ```
 
 | Using pinned data version from: `r round(data_version$created)`
+| Users can load data by running:
+`board_url("https://raw.githubusercontent.com/JohnFranchak/sip_dashboard/refs/heads/main/datasets/_pins.yaml") %>% pin_read("imu_raw_samples")`
 
 ### Usable data
 

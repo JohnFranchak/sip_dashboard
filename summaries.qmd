@@ -46,7 +46,13 @@ ds <- board %>% pin_read("imu_raw_samples")
 
 | Using pinned data version from: `r round(data_version$created)`
 | Users can load data by running:
-`board_url("https://raw.githubusercontent.com/JohnFranchak/sip_dashboard/refs/heads/main/datasets/_pins.yaml") %>% pin_read("imu_raw_samples")`
+```
+library(tidyverse)
+library(pins)
+library(nanoparquet)
+board_url("https://raw.githubusercontent.com/JohnFranchak/sip_dashboard/refs/heads/main/datasets/_pins.yaml") %>%
+  pin_read("imu_raw_samples")`
+```
 
 ### Usable data
 
@@ -97,6 +103,7 @@ ds_sum <- ds %>% group_by(id, session) %>%
   summarize(pos_n  = n(), total_samples = mean(total_samples)) %>% ungroup
 ds_sum <- ds_sum %>% complete(nesting(id, session), pos, fill = list(pos_n = 0, total_samples = 1))
 ds_sum$pos_prop = ds_sum$pos_n/ds_sum$total_samples*100
+ds_sum$session = as.numeric(ds_sum$session)
 
 ds_sum %>% group_by(pos, session) %>% 
   get_summary_stats(pos_prop, show = c("mean", "sd","min","max")) %>% 

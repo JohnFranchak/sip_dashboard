@@ -3,6 +3,7 @@ library(hms)
 library(rstatix)
 library(pins)
 library("googledrive")
+drive_auth(email = TRUE)
 
 board <- board_folder("/Volumes/padlab/study_sensorsinperson/data_processed/datasets/", versioned = T)
 board_gd <- board_gdrive(path = as_id("1OZlphhu6vYm1A2Bm2-zD7a4luS5nGWgS"))

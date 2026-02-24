@@ -44,16 +44,16 @@ data_version <- board %>% pin_meta("imu_raw_samples")
 ds <- board %>% pin_read("imu_raw_samples")
 ```
 
-| Using pinned data version from: `r round(data_version$created)`
-| Users can load data by running:
+| Last updated: `r round(now())` using pinned data version from: `r round(data_version$created)`
+| Users can load data by running (requires one-time google drive authentication):
 ```{r}
 #| eval: false
-
 library(tidyverse)
 library(pins)
 library(nanoparquet)
-board_url("https://raw.githubusercontent.com/JohnFranchak/sip_dashboard/refs/heads/main/datasets/_pins.yaml") %>%
-  pin_read("imu_raw_samples")`
+library(googledrive)
+ds <- board_gdrive(path = as_id("1OZlphhu6vYm1A2Bm2-zD7a4luS5nGWgS")) %>%
+  pin_read("imu_raw_samples")
 ```
 
 ### Usable data

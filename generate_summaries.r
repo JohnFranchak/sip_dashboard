@@ -2,9 +2,10 @@ library(tidyverse)
 library(hms)
 library(rstatix)
 library(pins)
+library("googledrive")
 
 board <- board_folder("/Volumes/padlab/study_sensorsinperson/data_processed/datasets/", versioned = T)
-board_gh <- board_folder("datasets/", versioned = T)
+board_gd <- board_gdrive(path = as_id("1OZlphhu6vYm1A2Bm2-zD7a4luS5nGWgS"))
 
 study_dir <- "/Volumes/padlab/study_sensorsinperson/data_processed/imu/"
 id_session <- list.files(study_dir, pattern = "\\d+_\\d+$", include.dirs = T)
@@ -43,10 +44,10 @@ board %>% pin_write(name = "imu_raw_samples", x = ds,
                     Data are filtered to only include usable samples.",
                     metadata = list(infant_model = "TDCP-March2025", cg_model = "Nov2025"),
                     type = "parquet")
-board_gh %>% pin_write(name = "imu_raw_samples", x = ds,
+board_gd %>% pin_write(name = "imu_raw_samples", x = ds,
                        title = "Infant and Caregiver Raw Position",
                        description = "Raw position predictions sampled every 1 second. 
                     Data are filtered to only include usable samples.",
                        metadata = list(infant_model = "TDCP-March2025", cg_model = "Nov2025"),
                        type = "parquet")
-write_board_manifest(board_gh)
+#write_board_manifest(board_gh)

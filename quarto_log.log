@@ -13663,4 +13663,39 @@ Quitting from lines 19-45 (summaries.qmd)
 Error: [EACCES] Failed to make directory '/Volumes/padlab': permission denied
 [39m                                                                                                                        
 [31mExecution halted
+[39m[main 1a6be75] Automated Quarto update: 2026-02-24 06:00:19
+ 4 files changed, 44 insertions(+), 9 deletions(-)
+To github.com:JohnFranchak/sip_dashboard.git
+   72d913a..1a6be75  main -> main
+[1m[34m[1/5] tasks.qmd[39m[22m
+[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: tasks.knit.md
+
+[39m[1m[34m[2/5] files.qmd[39m[22m
+[31m
+
+processing file: files.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: files.knit.md
+
+[39m[1m[34m[3/5] index.qmd[39m[22m
+[31m
+
+processing file: index.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: index.knit.md
+
+[39m[1m[34m[4/5] summaries.qmd[39m[22m
+[31m
+
+processing file: summaries.qmd
+[39m  |                                                |                                        |   0%  |                                                |...                                     |   7%                                |                                                |......                                  |  14% (unnamed-chunk-1)            [31m
+
+Quitting from lines 19-45 (summaries.qmd) 
+Error: [EACCES] Failed to make directory '/Volumes/padlab': permission denied
+[39m                                                                                                                        
+[31mExecution halted
 [39m

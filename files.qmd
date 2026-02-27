@@ -77,6 +77,7 @@ reactable(
           filterable = TRUE, 
           compact = TRUE,
           striped = TRUE,
+          defaultPageSize = 50,
           defaultSorted = c("ID","Session"),
           defaultColDef = colDef(maxWidth = 60, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}),
           columnGroups = list(colGroup("Visit", columns = c("ID", "Session"), sticky = "left"),

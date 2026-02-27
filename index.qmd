@@ -52,6 +52,7 @@ reactable(
           filterable = TRUE, 
           compact = TRUE,
           striped = TRUE,
+          defaultPageSize = 50,
           defaultSorted = c("ID"),
           columns = list(
             ID = colDef(format = colFormat(digits = 0), maxWidth = 50, align = "left"),

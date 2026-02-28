@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sensors in Person Dashboard - Sessions</title>
+<title>Sensors in Person Dashboard - Timelines</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -39,6 +39,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,13 +69,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/core-js-2.5.3/shim.min.js"></script>
-<script src="site_libs/react-17.0.0/react.min.js"></script>
-<script src="site_libs/react-17.0.0/react-dom.min.js"></script>
-<script src="site_libs/reactwidget-1.0.0/react-tools.js"></script>
-<script src="site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
-<link href="site_libs/reactable-0.4.4/reactable.css" rel="stylesheet">
-<script src="site_libs/reactable-binding-0.4.4/reactable.js"></script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -96,7 +92,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Sessions</span></a>
   </li>  
   <li class="nav-item">
@@ -108,7 +104,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Files</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./timelines.html"> 
+    <a class="nav-link active" href="./timelines.html" aria-current="page"> 
 <span class="menu-text">Timelines</span></a>
   </li>  
   <li class="nav-item">
@@ -123,18 +119,14 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-layout-custom page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Sessions</h1>
+<h1 class="title">Timelines</h1>
 </div>
 
 
@@ -151,22 +143,57 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="line-block">Last updated: 2026-02-27 18:52:11<br>
-The dataset contains 8 unique participants with 12 overall sessions. 0 participants have 3 complete sessions.<br>
-3 participants have complete 7 and 9 month sessions and 0 participants have complete 9 and 11 month sessions.<br>
-<br>
-✔ Complete, ✖ Pending, ❌ Missing/Unsure<br>
+<div class="line-block">Last updated: 2026-02-27 18:52:17</div>
+<div>
+
 </div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="reactable html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-3a279d7b96f018bb61df" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-3a279d7b96f018bb61df">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"ID":[12,13,15,16,18,21,23,26],"Session_1":[1,1,1,1,1,1,1,1],"Session_2":[1,1,2,1,2,2,2,2],"Session_3":[2,2,0,2,0,0,0,0],"Total":[2,2,1,2,1,1,1,1]},"columns":[{"id":"ID","name":"ID","type":"numeric","format":{"cell":{"digits":0},"aggregated":{"digits":0}},"maxWidth":50,"align":"left"},{"id":"Session_1","name":"Session_1","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️"],"footer":"Total: 8","maxWidth":90},{"id":"Session_2","name":"Session_2","type":"numeric","cell":["✔️","✔️","✖","✔️","✖","✖","✖","✖"],"footer":"Total: 3","maxWidth":90},{"id":"Session_3","name":"Session_3","type":"numeric","cell":["✖","✖","❌","✖","❌","❌","❌","❌"],"footer":"Total: 0","maxWidth":90},{"id":"Total","name":"Total","type":"numeric","maxWidth":70}],"filterable":true,"defaultSorted":[{"id":"ID","desc":false}],"defaultPageSize":50,"striped":true,"compact":true,"dataKey":"0236c9435967460bd749e18be311a7bb"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><a href="timelines/12_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="timelines/12_1.png" class="img-fluid" style="width:100.0%"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><a href="timelines/12_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="timelines/12_2.png" class="img-fluid" style="width:100.0%"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><a href="timelines/13_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="timelines/13_1.png" class="img-fluid" style="width:100.0%"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><a href="timelines/13_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="timelines/13_2.png" class="img-fluid" style="width:100.0%"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><a href="timelines/15_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="timelines/15_1.png" class="img-fluid" style="width:100.0%"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><a href="timelines/16_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="timelines/16_1.png" class="img-fluid" style="width:100.0%"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><a href="timelines/16_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="timelines/16_2.png" class="img-fluid" style="width:100.0%"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><a href="timelines/18_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="timelines/18_1.png" class="img-fluid" style="width:100.0%"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><a href="timelines/21_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="timelines/21_1.png" class="img-fluid" style="width:100.0%"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><a href="timelines/23_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="timelines/23_1.png" class="img-fluid" style="width:100.0%"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><a href="timelines/26_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="timelines/26_1.png" class="img-fluid" style="width:100.0%"></a></p>
+</div>
 </div>
 </div>
 
 
 
-</main> <!-- /main -->
+
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -555,6 +582,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","loop":false});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 

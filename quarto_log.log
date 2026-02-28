@@ -16980,4 +16980,9 @@ Quitting from lines 19-45 (summaries.qmd)
 Error: [EACCES] Failed to make directory '/Volumes/padlab': permission denied
 [39m                                                                                                                        
 [31mExecution halted
-[39m
+[39m[main df86bed] Automated Quarto update: 2026-02-27 18:01:34
+ 4 files changed, 44 insertions(+), 9 deletions(-)
+To github.com:JohnFranchak/sip_dashboard.git
+   aebad4d..df86bed  main -> main
+file padlab:
+0:47: execution error: User canceled. (-128)

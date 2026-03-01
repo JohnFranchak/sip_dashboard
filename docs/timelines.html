@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sensors in Person Dashboard - Tasks</title>
+<title>Sensors in Person Dashboard - Timelines</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -39,6 +39,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,13 +69,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/core-js-2.5.3/shim.min.js"></script>
-<script src="site_libs/react-17.0.0/react.min.js"></script>
-<script src="site_libs/react-17.0.0/react-dom.min.js"></script>
-<script src="site_libs/reactwidget-1.0.0/react-tools.js"></script>
-<script src="site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
-<link href="site_libs/reactable-0.4.4/reactable.css" rel="stylesheet">
-<script src="site_libs/reactable-binding-0.4.4/reactable.js"></script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -100,7 +96,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Sessions</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./tasks.html" aria-current="page"> 
+    <a class="nav-link" href="./tasks.html"> 
 <span class="menu-text">Tasks</span></a>
   </li>  
   <li class="nav-item">
@@ -108,7 +104,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Files</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./timelines.html"> 
+    <a class="nav-link active" href="./timelines.html" aria-current="page"> 
 <span class="menu-text">Timelines</span></a>
   </li>  
   <li class="nav-item">
@@ -130,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Tasks</h1>
+<h1 class="title">Timelines</h1>
 </div>
 
 
@@ -147,13 +143,51 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="line-block">Last updated: 2026-03-01 12:40:14<br>
-✔ Complete, ✖ Pending, ❌ Missing/Unsure<br>
+<div class="line-block">Last updated: 2026-03-01 12:40:27</div>
+<div>
+
 </div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="reactable html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-2d7369769553d0d89127" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-2d7369769553d0d89127">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"ID":[12,12,13,13,15,16,16,18,21,23,26],"Session":["1","2","1","2","1","1","2","1","1","1","1"],"Surveys":[1,1,1,1,1,1,1,1,1,1,1],"Server":[1,1,1,1,1,1,1,1,1,0,1],"Databrary":[1,1,1,1,1,1,1,1,1,0,1],"LENA":[1,1,1,1,1,1,1,1,1,1,0],"Infant IMU":[1,1,1,1,1,1,1,1,1,1,1],"CG IMU":[1,1,1,1,1,1,1,1,1,1,0],"Composite":[1,1,1,1,1,1,1,1,1,1,0],"AIMS":[1,0,1,0,1,1,0,0,0,0,0],"AIMS Rel":[0,0,0,0,0,0,0,0,0,0,0]},"columns":[{"id":"ID","name":"ID","type":"numeric","format":{"cell":{"digits":0},"aggregated":{"digits":0}},"maxWidth":80,"align":"right"},{"id":"Session","name":"Session","type":"factor","format":{"cell":{"digits":0},"aggregated":{"digits":0}},"maxWidth":85,"align":"right"},{"id":"Surveys","name":"Surveys","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️"],"maxWidth":90},{"id":"Server","name":"Server","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","❌","✔️"],"maxWidth":90},{"id":"Databrary","name":"Databrary","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","❌","✔️"],"maxWidth":90},{"id":"LENA","name":"LENA","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","❌"],"maxWidth":90},{"id":"Infant IMU","name":"Infant IMU","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️"],"maxWidth":100},{"id":"CG IMU","name":"CG IMU","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","❌"],"maxWidth":90},{"id":"Composite","name":"Composite","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","❌"],"maxWidth":100},{"id":"AIMS","name":"AIMS","type":"numeric","cell":["✔️","❌","✔️","❌","✔️","✔️","❌","❌","❌","❌","❌"],"maxWidth":90},{"id":"AIMS Rel","name":"AIMS Rel","type":"numeric","cell":["❌","❌","❌","❌","❌","❌","❌","❌","❌","❌","❌"],"maxWidth":90}],"filterable":true,"defaultSorted":[{"id":"ID","desc":false},{"id":"Session","desc":false}],"defaultPageSize":50,"striped":true,"compact":true,"dataKey":"cc8cef8baa66560d20d692c610a0478e"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><a href="timelines/12_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="timelines/12_1.png" class="img-fluid" style="width:100.0%"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><a href="timelines/12_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="timelines/12_2.png" class="img-fluid" style="width:100.0%"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><a href="timelines/13_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="timelines/13_1.png" class="img-fluid" style="width:100.0%"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><a href="timelines/13_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="timelines/13_2.png" class="img-fluid" style="width:100.0%"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><a href="timelines/15_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="timelines/15_1.png" class="img-fluid" style="width:100.0%"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><a href="timelines/16_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="timelines/16_1.png" class="img-fluid" style="width:100.0%"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><a href="timelines/16_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="timelines/16_2.png" class="img-fluid" style="width:100.0%"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><a href="timelines/18_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="timelines/18_1.png" class="img-fluid" style="width:100.0%"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><a href="timelines/21_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="timelines/21_1.png" class="img-fluid" style="width:100.0%"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><a href="timelines/23_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="timelines/23_1.png" class="img-fluid" style="width:100.0%"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><a href="timelines/26_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="timelines/26_1.png" class="img-fluid" style="width:100.0%"></a></p>
+</div>
 </div>
 </div>
 
@@ -548,6 +582,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","loop":false,"descPosition":"bottom","selector":".lightbox"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 

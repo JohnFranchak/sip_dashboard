@@ -17206,3 +17206,12 @@ Output created: docs/index.html
  7 files changed, 162 insertions(+), 118 deletions(-)
 To github.com:JohnFranchak/sip_dashboard.git
    3d79c39..1eb0d93  main -> main
+[1m[34m[1/5] tasks.qmd[39m[22m
+[91mERROR: Directory not empty (os error 66): remove '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.quarto/idx'
+
+Stack trace:
+    at Object.removeSync (ext:deno_fs/30_fs.js:189:7)
+    at removeIfExists (file:///Applications/quarto/bin/quarto.js:5336:14)
+    at clearProjectIndex (file:///Applications/quarto/bin/quarto.js:73534:5)
+    at renderProject (file:///Applications/quarto/bin/quarto.js:77353:9)
+    at eventLoopTick (ext:core/01_core.js:183:11)[39m

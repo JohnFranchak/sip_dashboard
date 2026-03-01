@@ -17738,3 +17738,34 @@ an editor opened by 'git commit'. Please make sure all processes
 are terminated then try again. If it still fails, a git process
 may have crashed in this repository earlier:
 remove the file manually to continue.
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+[main 74d0880] Automated Quarto update: 2026-03-01 12:21:10
+ 21 files changed, 174 insertions(+), 84 deletions(-)
+ rename {site_libs => docs/site_libs}/core-js-2.5.3/LICENSE (100%)
+ rename {site_libs => docs/site_libs}/core-js-2.5.3/package.json (100%)
+ rename {site_libs => docs/site_libs}/core-js-2.5.3/shim.min.js (100%)
+ rename {site_libs => docs/site_libs}/htmlwidgets-1.6.2/htmlwidgets.js (100%)
+ rename {site_libs => docs/site_libs}/react-17.0.0/AUTHORS (100%)
+ rename {site_libs => docs/site_libs}/react-17.0.0/LICENSE.txt (100%)
+ rename {site_libs => docs/site_libs}/react-17.0.0/react-dom.min.js (100%)
+ rename {site_libs => docs/site_libs}/react-17.0.0/react.min.js (100%)
+ rename {site_libs => docs/site_libs}/reactable-0.4.4/reactable.css (100%)
+ rename {site_libs => docs/site_libs}/reactable-0.4.4/reactable.js (100%)
+ create mode 100644 docs/site_libs/reactable-0.4.4/reactable.js.map
+ create mode 100644 docs/site_libs/reactable-0.4.4/reactable.server.js
+ create mode 100644 docs/site_libs/reactable-0.4.4/reactable.server.js.LICENSE.txt
+ create mode 100644 docs/site_libs/reactable-0.4.4/reactable.server.js.map
+ create mode 100644 docs/site_libs/reactable-0.4.4/reactable.yaml
+ create mode 100644 docs/site_libs/reactable-binding-0.4.4/reactable.js
+ rename {site_libs => docs/site_libs}/reactwidget-1.0.0/react-tools.js (100%)
+ rename {site_libs => docs/site_libs}/reactwidget-1.0.0/react-tools.js.map (100%)
+ delete mode 100644 tasks.rmarkdown

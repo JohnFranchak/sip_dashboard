@@ -17922,3 +17922,33 @@ In readLines(con, warn = FALSE) :
 [39m[31mExecution halted
 [39mTo github.com:JohnFranchak/sip_dashboard.git
    c8d4380..74d0880  main -> main
+fatal: Unable to create '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+fatal: Unable to create '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+[main fde9a3b] Automated Quarto update: 2026-03-01 12:21:15
+ 2 files changed, 115 insertions(+), 3 deletions(-)
+To github.com:JohnFranchak/sip_dashboard.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 74d08808bf21c907da18e4c27b8d4aa045b243e7 but expected c8d43806ad3a67f00f1254a0f7909cc46cbc9394)
+error: failed to push some refs to 'github.com:JohnFranchak/sip_dashboard.git'
+[1m[34m[2/5] files.qmd[39m[22m
+To github.com:JohnFranchak/sip_dashboard.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 74d08808bf21c907da18e4c27b8d4aa045b243e7 but expected c8d43806ad3a67f00f1254a0f7909cc46cbc9394)
+error: failed to push some refs to 'github.com:JohnFranchak/sip_dashboard.git'
+fatal: Unable to create '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.

@@ -17215,3 +17215,198 @@ Stack trace:
     at clearProjectIndex (file:///Applications/quarto/bin/quarto.js:73534:5)
     at renderProject (file:///Applications/quarto/bin/quarto.js:77353:9)
     at eventLoopTick (ext:core/01_core.js:183:11)[39m
+[91mERROR: WalkError: No such file or directory (os error 2): readdir '/Users/johnfranchak/Documents/GitHub/sip_dashboard/docs' for path "/Users/johnfranchak/Documents/GitHub/sip_dashboard/docs"
+
+Stack trace:
+    at wrapErrorWithPath (file:///Applications/quarto/bin/quarto.js:2341:12)
+    at walkSync (file:///Applications/quarto/bin/quarto.js:2358:15)
+    at walkSync.next (<anonymous>)
+    at walkSync (file:///Applications/quarto/bin/quarto.js:2377:20)
+    at walkSync.next (<anonymous>)
+    at addDir (file:///Applications/quarto/bin/quarto.js:73041:20)
+    at projectInputFiles (file:///Applications/quarto/bin/quarto.js:73070:9)
+    at projectContext (file:///Applications/quarto/bin/quarto.js:72803:44)
+    at eventLoopTick (ext:core/01_core.js:183:11)
+    at async render (file:///Applications/quarto/bin/quarto.js:81779:19)[39m
+[91mERROR: WalkError: No such file or directory (os error 2): readdir '/Users/johnfranchak/Documents/GitHub/sip_dashboard/docs' for path "/Users/johnfranchak/Documents/GitHub/sip_dashboard/docs"
+
+Stack trace:
+    at wrapErrorWithPath (file:///Applications/quarto/bin/quarto.js:2341:12)
+    at walkSync (file:///Applications/quarto/bin/quarto.js:2358:15)
+    at walkSync.next (<anonymous>)
+    at walkSync (file:///Applications/quarto/bin/quarto.js:2377:20)
+    at walkSync.next (<anonymous>)
+    at addDir (file:///Applications/quarto/bin/quarto.js:73041:20)
+    at projectInputFiles (file:///Applications/quarto/bin/quarto.js:73070:9)
+    at projectContext (file:///Applications/quarto/bin/quarto.js:72803:44)
+    at eventLoopTick (ext:core/01_core.js:183:11)
+    at async render (file:///Applications/quarto/bin/quarto.js:81779:19)[39m
+fatal: Unable to create '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+[91mERROR: WalkError: No such file or directory (os error 2): readdir '/Users/johnfranchak/Documents/GitHub/sip_dashboard/docs' for path "/Users/johnfranchak/Documents/GitHub/sip_dashboard/docs"
+
+Stack trace:
+    at wrapErrorWithPath (file:///Applications/quarto/bin/quarto.js:2341:12)
+    at walkSync (file:///Applications/quarto/bin/quarto.js:2358:15)
+    at walkSync.next (<anonymous>)
+    at walkSync (file:///Applications/quarto/bin/quarto.js:2377:20)
+    at walkSync.next (<anonymous>)
+    at addDir (file:///Applications/quarto/bin/quarto.js:73041:20)
+    at projectInputFiles (file:///Applications/quarto/bin/quarto.js:73070:9)
+    at projectContext (file:///Applications/quarto/bin/quarto.js:72803:44)
+    at eventLoopTick (ext:core/01_core.js:183:11)
+    at async render (file:///Applications/quarto/bin/quarto.js:81779:19)[39m
+[91mERROR: WalkError: No such file or directory (os error 2): readdir '/Users/johnfranchak/Documents/GitHub/sip_dashboard/docs' for path "/Users/johnfranchak/Documents/GitHub/sip_dashboard/docs"
+
+Stack trace:
+    at wrapErrorWithPath (file:///Applications/quarto/bin/quarto.js:2341:12)
+    at walkSync (file:///Applications/quarto/bin/quarto.js:2358:15)
+    at walkSync.next (<anonymous>)
+    at walkSync (file:///Applications/quarto/bin/quarto.js:2377:20)
+    at walkSync.next (<anonymous>)
+    at addDir (file:///Applications/quarto/bin/quarto.js:73041:20)
+    at projectInputFiles (file:///Applications/quarto/bin/quarto.js:73070:9)
+    at projectContext (file:///Applications/quarto/bin/quarto.js:72803:44)
+    at eventLoopTick (ext:core/01_core.js:183:11)
+    at async render (file:///Applications/quarto/bin/quarto.js:81779:19)[39m
+fatal: Unable to create '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+[91mERROR: NotFound: No such file or directory (os error 2): stat '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.quarto/idx'
+
+Stack trace:
+    at Object.statSync (ext:deno_fs/30_fs.js:363:7)
+    at createWalkEntrySync (file:///Applications/quarto/bin/quarto.js:2305:23)
+    at walkSync (file:///Applications/quarto/bin/quarto.js:2349:15)
+    at walkSync.next (<anonymous>)
+    at advanceMatch (file:///Applications/quarto/bin/quarto.js:2467:20)
+    at advanceMatch.next (<anonymous>)
+    at expandGlobSync (file:///Applications/quarto/bin/quarto.js:2483:24)
+    at expandGlobSync.next (<anonymous>)
+    at expandGlobs (file:///Applications/quarto/bin/quarto.js:5448:24)
+    at resolveGlobs (file:///Applications/quarto/bin/quarto.js:5526:26)[39m
+[91mERROR: WalkError: No such file or directory (os error 2): readdir '/Users/johnfranchak/Documents/GitHub/sip_dashboard/docs' for path "/Users/johnfranchak/Documents/GitHub/sip_dashboard/docs"
+
+Stack trace:
+    at wrapErrorWithPath (file:///Applications/quarto/bin/quarto.js:2341:12)
+    at walkSync (file:///Applications/quarto/bin/quarto.js:2358:15)
+    at walkSync.next (<anonymous>)
+    at walkSync (file:///Applications/quarto/bin/quarto.js:2377:20)
+    at walkSync.next (<anonymous>)
+    at addDir (file:///Applications/quarto/bin/quarto.js:73041:20)
+    at projectInputFiles (file:///Applications/quarto/bin/quarto.js:73070:9)
+    at projectContext (file:///Applications/quarto/bin/quarto.js:72803:44)
+    at eventLoopTick (ext:core/01_core.js:183:11)
+    at async render (file:///Applications/quarto/bin/quarto.js:81779:19)[39m
+[91mERROR: WalkError: No such file or directory (os error 2): readdir '/Users/johnfranchak/Documents/GitHub/sip_dashboard/docs' for path "/Users/johnfranchak/Documents/GitHub/sip_dashboard/docs"
+
+Stack trace:
+    at wrapErrorWithPath (file:///Applications/quarto/bin/quarto.js:2341:12)
+    at walkSync (file:///Applications/quarto/bin/quarto.js:2358:15)
+    at walkSync.next (<anonymous>)
+    at walkSync (file:///Applications/quarto/bin/quarto.js:2377:20)
+    at walkSync.next (<anonymous>)
+    at addDir (file:///Applications/quarto/bin/quarto.js:73041:20)
+    at projectInputFiles (file:///Applications/quarto/bin/quarto.js:73070:9)
+    at projectContext (file:///Applications/quarto/bin/quarto.js:72803:44)
+    at eventLoopTick (ext:core/01_core.js:183:11)
+    at async render (file:///Applications/quarto/bin/quarto.js:81779:19)[39m
+fatal: Unable to create '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+fatal: Unable to create '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+fatal: Unable to create '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+fatal: Unable to create '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+fatal: Unable to create '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+fatal: Unable to create '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+fatal: Unable to create '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+fatal: Unable to create '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+fatal: Unable to create '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+fatal: Unable to create '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+[91mERROR: NotFound: No such file or directory (os error 2): stat '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.quarto/idx'
+
+Stack trace:
+    at Object.statSync (ext:deno_fs/30_fs.js:363:7)
+    at createWalkEntrySync (file:///Applications/quarto/bin/quarto.js:2305:23)
+    at walkSync (file:///Applications/quarto/bin/quarto.js:2349:15)
+    at walkSync.next (<anonymous>)
+    at advanceMatch (file:///Applications/quarto/bin/quarto.js:2467:20)
+    at advanceMatch.next (<anonymous>)
+    at expandGlobSync (file:///Applications/quarto/bin/quarto.js:2483:24)
+    at expandGlobSync.next (<anonymous>)
+    at expandGlobs (file:///Applications/quarto/bin/quarto.js:5448:24)
+    at resolveGlobs (file:///Applications/quarto/bin/quarto.js:5526:26)[39m
+fatal: Unable to create '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.

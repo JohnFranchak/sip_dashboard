@@ -17517,3 +17517,128 @@ Stack trace:
  delete mode 100755 docs/timelines/21_1.png
  delete mode 100755 docs/timelines/23_1.png
  delete mode 100644 docs/timelines/26_1.png
+[1m[34m[1/5] tasks.qmd[39m[22m
+[1m[34m[1/5] tasks.qmd[39m[22m
+[1m[34m[1/5] tasks.qmd[39m[22m
+[1m[34m[1/5] tasks.qmd[39m[22m
+[1m[34m[1/5] tasks.qmd[39m[22m
+[main f08d8c7] Automated Quarto update: 2026-03-01 12:20:47
+ 1 file changed, 26 insertions(+)
+[1m[34m[1/5] tasks.qmd[39m[22m
+[1m[34m[1/5] tasks.qmd[39m[22m
+[1m[34m[1/5] tasks.qmd[39m[22m
+[1m[34m[1/5] tasks.qmd[39m[22m
+[1m[34m[1/5] tasks.qmd[39m[22m
+[1m[34m[1/5] tasks.qmd[39m[22m
+[1m[34m[1/5] tasks.qmd[39m[22m
+[1m[34m[1/5] tasks.qmd[39m[22m
+[main c2f2efe] Automated Quarto update: 2026-03-01 12:20:47
+ 1 file changed, 81 insertions(+)
+[1m[34m[1/5] tasks.qmd[39m[22m
+[1m[34m[1/5] tasks.qmd[39m[22m
+[1m[34m[1/5] tasks.qmd[39m[22m
+[1m[34m[1/5] tasks.qmd[39m[22m
+Everything up-to-date
+Everything up-to-date
+Everything up-to-date
+To github.com:JohnFranchak/sip_dashboard.git
+   11518a1..bedfb90  main -> main
+To github.com:JohnFranchak/sip_dashboard.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at bedfb90cb0aa533c1e5af6210c83b62ec86c66da but expected 11518a177e0a53096eaff95bd2b48af13b8aca59)
+error: failed to push some refs to 'github.com:JohnFranchak/sip_dashboard.git'
+To github.com:JohnFranchak/sip_dashboard.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at bedfb90cb0aa533c1e5af6210c83b62ec86c66da but expected 11518a177e0a53096eaff95bd2b48af13b8aca59)
+error: failed to push some refs to 'github.com:JohnFranchak/sip_dashboard.git'
+To github.com:JohnFranchak/sip_dashboard.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at bedfb90cb0aa533c1e5af6210c83b62ec86c66da but expected 11518a177e0a53096eaff95bd2b48af13b8aca59)
+error: failed to push some refs to 'github.com:JohnFranchak/sip_dashboard.git'
+To github.com:JohnFranchak/sip_dashboard.git
+   bedfb90..8a7c7df  main -> main
+To github.com:JohnFranchak/sip_dashboard.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 8a7c7dfa6b96f14dc26d1764c767c000b7ca2cf4 but expected bedfb90cb0aa533c1e5af6210c83b62ec86c66da)
+error: failed to push some refs to 'github.com:JohnFranchak/sip_dashboard.git'
+To github.com:JohnFranchak/sip_dashboard.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 8a7c7dfa6b96f14dc26d1764c767c000b7ca2cf4 but expected 11518a177e0a53096eaff95bd2b48af13b8aca59)
+error: failed to push some refs to 'github.com:JohnFranchak/sip_dashboard.git'
+To github.com:JohnFranchak/sip_dashboard.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 8a7c7dfa6b96f14dc26d1764c767c000b7ca2cf4 but expected bedfb90cb0aa533c1e5af6210c83b62ec86c66da)
+error: failed to push some refs to 'github.com:JohnFranchak/sip_dashboard.git'
+[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                  [31m
+
+processing file: tasks.qmd
+[39m[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                  [31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)[31m
+
+processing file: tasks.qmd
+[39m[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)[31m
+
+processing file: tasks.qmd
+[39m[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)[31m
+
+processing file: tasks.qmd
+[39m[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |.....................                               |  40% (unnamed-chunk-1)[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)[31m
+
+processing file: tasks.qmd
+[39m[31m
+
+processing file: tasks.qmd
+[39m[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)[31m
+
+processing file: tasks.qmd
+[39m[31m
+
+processing file: tasks.qmd
+[39m[31m
+
+processing file: tasks.qmd
+[39m[31m
+
+processing file: tasks.qmd
+[39m[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |                                                            |                                                    |   0%  |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |.....................                               |  40% (unnamed-chunk-1)[31m
+
+processing file: tasks.qmd
+[39m[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: tasks.knit.md
+
+[39m

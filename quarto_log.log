@@ -17952,3 +17952,98 @@ an editor opened by 'git commit'. Please make sure all processes
 are terminated then try again. If it still fails, a git process
 may have crashed in this repository earlier:
 remove the file manually to continue.
+fatal: Unable to create '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+To github.com:JohnFranchak/sip_dashboard.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 74d08808bf21c907da18e4c27b8d4aa045b243e7 but expected c8d43806ad3a67f00f1254a0f7909cc46cbc9394)
+error: failed to push some refs to 'github.com:JohnFranchak/sip_dashboard.git'
+fatal: Unable to create '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+On branch main
+Your branch is ahead of 'origin/main' by 7 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   quarto_log.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+To github.com:JohnFranchak/sip_dashboard.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 74d08808bf21c907da18e4c27b8d4aa045b243e7 but expected c8d43806ad3a67f00f1254a0f7909cc46cbc9394)
+error: failed to push some refs to 'github.com:JohnFranchak/sip_dashboard.git'
+fatal: Unable to create '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+fatal: Unable to create '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+fatal: Unable to create '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+[main 67e9795] Automated Quarto update: 2026-03-01 12:21:15
+ 36 files changed, 5402 insertions(+), 2618 deletions(-)
+ create mode 100644 docs/site_libs/bootstrap/bootstrap-icons.css
+ create mode 100644 docs/site_libs/bootstrap/bootstrap-icons.woff
+ create mode 100644 docs/site_libs/bootstrap/bootstrap.min.css
+ create mode 100644 docs/site_libs/bootstrap/bootstrap.min.js
+ create mode 100644 docs/site_libs/clipboard/clipboard.min.js
+ delete mode 100644 docs/site_libs/core-js-2.5.3/LICENSE
+ delete mode 100644 docs/site_libs/core-js-2.5.3/package.json
+ delete mode 100644 docs/site_libs/core-js-2.5.3/shim.min.js
+ delete mode 100644 docs/site_libs/htmlwidgets-1.6.2/htmlwidgets.js
+ create mode 100644 docs/site_libs/quarto-html/anchor.min.js
+ create mode 100644 docs/site_libs/quarto-html/popper.min.js
+ create mode 100644 docs/site_libs/quarto-html/quarto-syntax-highlighting.css
+ create mode 100644 docs/site_libs/quarto-html/quarto.js
+ create mode 100644 docs/site_libs/quarto-html/tippy.css
+ create mode 100644 docs/site_libs/quarto-html/tippy.umd.min.js
+ create mode 100644 docs/site_libs/quarto-nav/headroom.min.js
+ create mode 100644 docs/site_libs/quarto-nav/quarto-nav.js
+ create mode 100644 docs/site_libs/quarto-search/autocomplete.umd.js
+ create mode 100644 docs/site_libs/quarto-search/fuse.min.js
+ create mode 100644 docs/site_libs/quarto-search/quarto-search.js
+ delete mode 100644 docs/site_libs/react-17.0.0/AUTHORS
+ delete mode 100644 docs/site_libs/react-17.0.0/LICENSE.txt
+ delete mode 100644 docs/site_libs/react-17.0.0/react-dom.min.js
+ delete mode 100644 docs/site_libs/react-17.0.0/react.min.js
+ delete mode 100644 docs/site_libs/reactable-0.4.4/reactable.css
+ delete mode 100644 docs/site_libs/reactable-0.4.4/reactable.js
+ delete mode 100644 docs/site_libs/reactable-0.4.4/reactable.js.map
+ delete mode 100644 docs/site_libs/reactable-0.4.4/reactable.server.js
+ delete mode 100644 docs/site_libs/reactable-0.4.4/reactable.server.js.LICENSE.txt
+ delete mode 100644 docs/site_libs/reactable-0.4.4/reactable.server.js.map
+ delete mode 100644 docs/site_libs/reactable-0.4.4/reactable.yaml
+ delete mode 100644 docs/site_libs/reactable-binding-0.4.4/reactable.js
+ delete mode 100644 docs/site_libs/reactwidget-1.0.0/react-tools.js
+ delete mode 100644 docs/site_libs/reactwidget-1.0.0/react-tools.js.map
+ create mode 100644 tasks.html
+fatal: Unable to create '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.

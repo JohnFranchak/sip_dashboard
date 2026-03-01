@@ -18047,3 +18047,154 @@ an editor opened by 'git commit'. Please make sure all processes
 are terminated then try again. If it still fails, a git process
 may have crashed in this repository earlier:
 remove the file manually to continue.
+fatal: Unable to create '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+fatal: Unable to create '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+fatal: Unable to create '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+To github.com:JohnFranchak/sip_dashboard.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 74d08808bf21c907da18e4c27b8d4aa045b243e7 but expected c8d43806ad3a67f00f1254a0f7909cc46cbc9394)
+error: failed to push some refs to 'github.com:JohnFranchak/sip_dashboard.git'
+fatal: cannot lock ref 'HEAD': is at 5acde66cc12174d8bda5abac0f1790633c02bb1b but expected 67e9795a1196db24da5920fec7705d2a79fbfcb8
+On branch main
+Your branch is ahead of 'origin/main' by 8 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   quarto_log.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+On branch main
+Your branch is ahead of 'origin/main' by 8 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   quarto_log.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+fatal: Unable to create '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+On branch main
+Your branch is ahead of 'origin/main' by 8 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   quarto_log.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[main 5acde66] Automated Quarto update: 2026-03-01 12:21:15
+ 1 file changed, 95 insertions(+)
+On branch main
+Your branch is ahead of 'origin/main' by 8 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   quarto_log.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+To github.com:JohnFranchak/sip_dashboard.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 74d08808bf21c907da18e4c27b8d4aa045b243e7 but expected c8d43806ad3a67f00f1254a0f7909cc46cbc9394)
+error: failed to push some refs to 'github.com:JohnFranchak/sip_dashboard.git'
+To github.com:JohnFranchak/sip_dashboard.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 74d08808bf21c907da18e4c27b8d4aa045b243e7 but expected c8d43806ad3a67f00f1254a0f7909cc46cbc9394)
+error: failed to push some refs to 'github.com:JohnFranchak/sip_dashboard.git'
+To github.com:JohnFranchak/sip_dashboard.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 74d08808bf21c907da18e4c27b8d4aa045b243e7 but expected c8d43806ad3a67f00f1254a0f7909cc46cbc9394)
+error: failed to push some refs to 'github.com:JohnFranchak/sip_dashboard.git'
+To github.com:JohnFranchak/sip_dashboard.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 74d08808bf21c907da18e4c27b8d4aa045b243e7 but expected c8d43806ad3a67f00f1254a0f7909cc46cbc9394)
+error: failed to push some refs to 'github.com:JohnFranchak/sip_dashboard.git'
+[31m
+
+processing file: files.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)To github.com:JohnFranchak/sip_dashboard.git
+   74d0880..fde9a3b  main -> main
+To github.com:JohnFranchak/sip_dashboard.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at fde9a3b2346bac8764730f2cad131ecbc1fcfb5c but expected 74d08808bf21c907da18e4c27b8d4aa045b243e7)
+error: failed to push some refs to 'github.com:JohnFranchak/sip_dashboard.git'
+To github.com:JohnFranchak/sip_dashboard.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at fde9a3b2346bac8764730f2cad131ecbc1fcfb5c but expected 74d08808bf21c907da18e4c27b8d4aa045b243e7)
+error: failed to push some refs to 'github.com:JohnFranchak/sip_dashboard.git'
+To github.com:JohnFranchak/sip_dashboard.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at fde9a3b2346bac8764730f2cad131ecbc1fcfb5c but expected 74d08808bf21c907da18e4c27b8d4aa045b243e7)
+error: failed to push some refs to 'github.com:JohnFranchak/sip_dashboard.git'
+To github.com:JohnFranchak/sip_dashboard.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at fde9a3b2346bac8764730f2cad131ecbc1fcfb5c but expected 74d08808bf21c907da18e4c27b8d4aa045b243e7)
+error: failed to push some refs to 'github.com:JohnFranchak/sip_dashboard.git'
+To github.com:JohnFranchak/sip_dashboard.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at fde9a3b2346bac8764730f2cad131ecbc1fcfb5c but expected 74d08808bf21c907da18e4c27b8d4aa045b243e7)
+error: failed to push some refs to 'github.com:JohnFranchak/sip_dashboard.git'
+To github.com:JohnFranchak/sip_dashboard.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at fde9a3b2346bac8764730f2cad131ecbc1fcfb5c but expected 74d08808bf21c907da18e4c27b8d4aa045b243e7)
+error: failed to push some refs to 'github.com:JohnFranchak/sip_dashboard.git'
+To github.com:JohnFranchak/sip_dashboard.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at fde9a3b2346bac8764730f2cad131ecbc1fcfb5c but expected 74d08808bf21c907da18e4c27b8d4aa045b243e7)
+error: failed to push some refs to 'github.com:JohnFranchak/sip_dashboard.git'
+To github.com:JohnFranchak/sip_dashboard.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at fde9a3b2346bac8764730f2cad131ecbc1fcfb5c but expected 74d08808bf21c907da18e4c27b8d4aa045b243e7)
+error: failed to push some refs to 'github.com:JohnFranchak/sip_dashboard.git'
+To github.com:JohnFranchak/sip_dashboard.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at fde9a3b2346bac8764730f2cad131ecbc1fcfb5c but expected 74d08808bf21c907da18e4c27b8d4aa045b243e7)
+error: failed to push some refs to 'github.com:JohnFranchak/sip_dashboard.git'
+To github.com:JohnFranchak/sip_dashboard.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at fde9a3b2346bac8764730f2cad131ecbc1fcfb5c but expected 74d08808bf21c907da18e4c27b8d4aa045b243e7)
+error: failed to push some refs to 'github.com:JohnFranchak/sip_dashboard.git'
+To github.com:JohnFranchak/sip_dashboard.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at fde9a3b2346bac8764730f2cad131ecbc1fcfb5c but expected 74d08808bf21c907da18e4c27b8d4aa045b243e7)
+error: failed to push some refs to 'github.com:JohnFranchak/sip_dashboard.git'
+To github.com:JohnFranchak/sip_dashboard.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at fde9a3b2346bac8764730f2cad131ecbc1fcfb5c but expected 74d08808bf21c907da18e4c27b8d4aa045b243e7)
+error: failed to push some refs to 'github.com:JohnFranchak/sip_dashboard.git'
+To github.com:JohnFranchak/sip_dashboard.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at fde9a3b2346bac8764730f2cad131ecbc1fcfb5c but expected 74d08808bf21c907da18e4c27b8d4aa045b243e7)
+error: failed to push some refs to 'github.com:JohnFranchak/sip_dashboard.git'
+  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: files.knit.md
+
+[39m[1m[34m[3/5] index.qmd[39m[22m
+[31m
+
+processing file: index.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: index.knit.md
+
+[39m[1m[34m[4/5] summaries.qmd[39m[22m
+[31m
+
+processing file: summaries.qmd
+[39m  |                                                |                                        |   0%  |                                                |...                                     |   7%                                |                                                |.....                                   |  13% (unnamed-chunk-1)            [31m
+
+Quitting from lines 19-45 (summaries.qmd) 
+Error: [EACCES] Failed to make directory '/Volumes/padlab': permission denied
+[39m                                                                                                                        
+[31mExecution halted
+[39m

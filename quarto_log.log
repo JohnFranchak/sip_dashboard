@@ -17410,3 +17410,29 @@ an editor opened by 'git commit'. Please make sure all processes
 are terminated then try again. If it still fails, a git process
 may have crashed in this repository earlier:
 remove the file manually to continue.
+fatal: Unable to create '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+[1m[34m[1/5] tasks.qmd[39m[22m
+[1m[34m[1/5] tasks.qmd[39m[22m
+[1m[34m[1/5] tasks.qmd[39m[22m
+[1m[34m[1/5] tasks.qmd[39m[22m
+[main 8a7c7df] Automated Quarto update: 2026-03-01 12:20:46
+ 1 file changed, 195 insertions(+)
+[91mERROR: NotFound: No such file or directory (os error 2): stat '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.quarto/idx'
+
+Stack trace:
+    at Object.statSync (ext:deno_fs/30_fs.js:363:7)
+    at createWalkEntrySync (file:///Applications/quarto/bin/quarto.js:2305:23)
+    at walkSync (file:///Applications/quarto/bin/quarto.js:2349:15)
+    at walkSync.next (<anonymous>)
+    at advanceMatch (file:///Applications/quarto/bin/quarto.js:2467:20)
+    at advanceMatch.next (<anonymous>)
+    at expandGlobSync (file:///Applications/quarto/bin/quarto.js:2483:24)
+    at expandGlobSync.next (<anonymous>)
+    at expandGlobs (file:///Applications/quarto/bin/quarto.js:5448:24)
+    at resolveGlobs (file:///Applications/quarto/bin/quarto.js:5526:26)[39m

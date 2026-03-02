@@ -19198,3 +19198,48 @@ Stack trace:
     at async Command.execute (file:///Applications/quarto/bin/quarto.js:8104:13)
     at async quarto (file:///Applications/quarto/bin/quarto.js:114999:5)
     at async file:///Applications/quarto/bin/quarto.js:115017:9[39m
+[main 6617b3b] Automated Quarto update: 2026-03-02 14:01:11
+ 27 files changed, 709 insertions(+), 1177 deletions(-)
+ delete mode 100644 docs/search.json
+ delete mode 100644 docs/site_libs/quarto-contrib/glightbox/glightbox.min.css
+ delete mode 100644 docs/site_libs/quarto-contrib/glightbox/glightbox.min.js
+ delete mode 100644 docs/site_libs/quarto-contrib/glightbox/lightbox.css
+ delete mode 100644 docs/summaries.html
+ delete mode 100644 docs/summaries_files/figure-html/Usable-data-histograms-1.png
+ delete mode 100644 docs/summaries_files/figure-html/Usable-data-histograms-2.png
+ delete mode 100644 docs/summaries_files/figure-html/frequency-by-age-individual-1.png
+ delete mode 100644 docs/summaries_files/figure-html/frequency-by-age-overall-1.png
+ delete mode 100644 docs/summaries_files/figure-html/frequency-by-age-overall-2.png
+ delete mode 100755 docs/timelines/12_1.png
+ delete mode 100755 docs/timelines/12_2.png
+ delete mode 100755 docs/timelines/13_1.png
+ delete mode 100755 docs/timelines/13_2.png
+ delete mode 100755 docs/timelines/15_1.png
+ delete mode 100755 docs/timelines/16_1.png
+ delete mode 100755 docs/timelines/16_2.png
+ delete mode 100755 docs/timelines/18_1.png
+ delete mode 100755 docs/timelines/21_1.png
+ delete mode 100755 docs/timelines/23_1.png
+ delete mode 100644 docs/timelines/26_1.png
+ rename docs/timelines.html => index.html (80%)
+ create mode 100644 summaries.knit.md
+[91mERROR: NotFound: No such file or directory (os error 2): rename '/Users/johnfranchak/Documents/GitHub/sip_dashboard/files.html' -> '/Users/johnfranchak/Documents/GitHub/sip_dashboard/docs/files.html'
+
+Stack trace:
+    at Object.renameSync (ext:deno_fs/30_fs.js:207:7)
+    at renderProject (file:///Applications/quarto/bin/quarto.js:77422:22)
+    at eventLoopTick (ext:core/01_core.js:183:11)
+    at async Command.fn (file:///Applications/quarto/bin/quarto.js:81954:32)
+    at async Command.execute (file:///Applications/quarto/bin/quarto.js:8104:13)
+    at async quarto (file:///Applications/quarto/bin/quarto.js:114999:5)
+    at async file:///Applications/quarto/bin/quarto.js:115017:9[39m
+[91mERROR: NotFound: No such file or directory (os error 2): rename '/Users/johnfranchak/Documents/GitHub/sip_dashboard/files.html' -> '/Users/johnfranchak/Documents/GitHub/sip_dashboard/docs/files.html'
+
+Stack trace:
+    at Object.renameSync (ext:deno_fs/30_fs.js:207:7)
+    at renderProject (file:///Applications/quarto/bin/quarto.js:77422:22)
+    at eventLoopTick (ext:core/01_core.js:183:11)
+    at async Command.fn (file:///Applications/quarto/bin/quarto.js:81954:32)
+    at async Command.execute (file:///Applications/quarto/bin/quarto.js:8104:13)
+    at async quarto (file:///Applications/quarto/bin/quarto.js:114999:5)
+    at async file:///Applications/quarto/bin/quarto.js:115017:9[39m

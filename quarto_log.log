@@ -28516,4 +28516,18 @@ Quitting from lines 19-45 (summaries.qmd)
 Error: [EACCES] Failed to make directory '/Volumes/padlab': permission denied
 [39m                                                                                                                        
 [31mExecution halted
-[39m
+[39m[main 10d6503] Automated Quarto update: 2026-03-11 12:00:21
+ 4 files changed, 44 insertions(+), 9 deletions(-)
+To github.com:JohnFranchak/sip_dashboard.git
+   26664ed..10d6503  main -> main
+0:47: execution error: User canceled. (-128)
+0:47: execution error: User canceled. (-128)
+0:47: execution error: User canceled. (-128)
+0:47: execution error: User canceled. (-128)
+0:47: execution error: User canceled. (-128)
+0:47: execution error: User canceled. (-128)
+0:47: execution error: User canceled. (-128)
+0:47: execution error: User canceled. (-128)
+0:47: execution error: User canceled. (-128)
+0:47: execution error: User canceled. (-128)
+0:47: execution error: User canceled. (-128)

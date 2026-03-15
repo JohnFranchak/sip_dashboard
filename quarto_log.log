@@ -32276,4 +32276,38 @@ Quitting from lines 19-45 (summaries.qmd)
 Error: [EACCES] Failed to make directory '/Volumes/padlab': permission denied
 [39m                                                                                                                        
 [31mExecution halted
-[39m
+[39m[main c2a9c8c] Automated Quarto update: 2026-03-15 08:00:19
+ 4 files changed, 44 insertions(+), 9 deletions(-)
+To github.com:JohnFranchak/sip_dashboard.git
+   ebc0034..c2a9c8c  main -> main
+0:47: execution error: User canceled. (-128)
+0:47: execution error: User canceled. (-128)
+0:47:0:47:  execution error: execution error: User canceled.User canceled. (-128)
+ (-128)
+0:47: execution error: User canceled. (-128)
+0:47: execution error: User canceled. (-128)
+0:47:0:47:  0:47: 0:47: 0:47: 0:47: 0:47: 0:47: 0:47: 0:47: 0:47: execution error: User canceled. (-128)
+execution error: User canceled. (-128)
+execution error: User canceled. (-128)
+execution error: User canceled. (-128)
+execution error: execution error: User canceled. (-128)
+execution error: User canceled. (-128)
+User canceled. (-128)
+execution error: User canceled. (-128)
+execution error: User canceled. (-128)
+execution error: User canceled. (-128)
+execution error: User canceled. (-128)
+0:47: execution error: User canceled. (-128)
+0:47: execution error: User canceled. (-128)
+0:47: execution error: User canceled. (-128)
+0:47: execution error: User canceled. (-128)
+0:47: execution error: An error of type -5014 has occurred. (-5014)
+0:47: execution error: User canceled. (-128)
+0:47: execution error: User canceled. (-128)
+0:47:0:47:  execution error: User canceled. (-128)
+execution error: User canceled. (-128)
+0:47: execution error: User canceled. (-128)
+0:47: execution error: User canceled. (-128)
+0:47: execution error: User canceled. (-128)
+0:47: execution error: User canceled. (-128)
+0:47: execution error: User canceled. (-128)

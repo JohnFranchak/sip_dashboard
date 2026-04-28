@@ -35,6 +35,14 @@ ds <- ds_raw %>% filter(inclusion == 1) %>%
          aims_reliability_complete = ifelse(aims_reliability_complete == 2, 1, 0),
          surveys_complete = as.numeric(surveys_complete))
 
+tdate_events <- c("intro_call_arm_1", "schedule_2_arm_1", "schedule_3_arm_1")
+ds_tdate <- redcap_read_oneshot(redcap_uri = uri, token = api_token, events = tdate_events, fields = c("study_id", "visit_date"))$data %>% 
+  mutate(session = str_replace(str_remove(str_remove(redcap_event_name, "schedule_"),"_arm_1"), "intro_call", "1"),
+         session = factor(session, levels = c("1","2","3"))) %>% 
+          rename(Session = session, ID = study_id) %>% select(-redcap_event_name)
+
+ds <- ds %>% left_join(ds_tdate) %>% rename(Date = visit_date)
+
 ```
 
 | Last updated: `r round(now())`
@@ -54,6 +62,7 @@ ds %>% rename(
   Composite = video_composite,
   AIMS = aims_complete,
   `AIMS Rel` = aims_reliability_complete) %>% 
+  relocate(Date, .after = Session) %>% 
 reactable( 
           filterable = TRUE, 
           compact = TRUE,
@@ -63,6 +72,7 @@ reactable(
           columns = list(
           ID = colDef(format = colFormat(digits = 0), maxWidth = 80, align = "right"),
           Session = colDef(format = colFormat(digits = 0), maxWidth = 85, align = "right"),
+          Date = colDef(format = colFormat(date = TRUE)),
           Surveys = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}),
           Server = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}),
           Databrary = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}),

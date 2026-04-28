@@ -72,7 +72,7 @@ reactable(
           columns = list(
           ID = colDef(format = colFormat(digits = 0), maxWidth = 80, align = "right"),
           Session = colDef(format = colFormat(digits = 0), maxWidth = 85, align = "right"),
-          Date = colDef(format = colFormat(date = TRUE)),
+          Date = colDef(format = colFormat(date = TRUE), maxWidth = 95, align = "right"),
           Surveys = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}),
           Server = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}),
           Databrary = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}),

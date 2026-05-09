@@ -29,8 +29,8 @@ read_session <- function(id, session) {
   sync$id = id
   sync$session = session
   sync$time_plot <- as_hms(force_tz(sync$time, "America/Los_Angeles"))
-  
-  sync_filt <- sync %>% filter(nap_period == 0, exclude_period == 0)
+  return(sync)
+  #sync_filt <- sync %>% filter(nap_period == 0, exclude_period == 0)
 }
 ds <- map2_dfr(ids, sessions, read_session)
 
@@ -43,13 +43,13 @@ ds <- ds %>% mutate(pos = ifelse(pos == "Upright", "Standing", pos),
 board %>% pin_write(name = "imu_raw_samples", x = ds,
                     title = "Infant and Caregiver Raw Position",
                     description = "Raw position predictions sampled every 1 second. 
-                    Data are filtered to only include usable samples.",
+                    Data are NOT filtered and include usable samples.",
                     metadata = list(infant_model = "TDCP-March2025", cg_model = "Nov2025", rest_model = "May2026"),
                     type = "parquet")
 board_gd %>% pin_write(name = "imu_raw_samples", x = ds,
                        title = "Infant and Caregiver Raw Position",
                        description = "Raw position predictions sampled every 1 second. 
-                    Data are filtered to only include usable samples.",
+                    Data are NOT filtered and include usable samples.",
                        metadata = list(infant_model = "TDCP-March2025", cg_model = "Nov2025", rest_model = "May2026"),
                        type = "parquet")
 #write_board_manifest(board_gh)

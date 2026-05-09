@@ -22,10 +22,10 @@ read_session <- function(id, session) {
     rename(cgpos = pos) %>% mutate(time_rounded = round(as.numeric(time_start))) %>% 
     select(-time_start)
   
-  windows <- read_csv(str_glue("{study_dir}{id}_{session}/windows_4s.csv"))  %>% 
-    rename(time = temp_time) %>% 
-    select(-(time_sec:time_sec3))
-  sync <- left_join(predictions, cg_predictions) %>% left_join(windows)
+  # windows <- read_csv(str_glue("{study_dir}{id}_{session}/windows_4s.csv"))  %>% 
+  #   rename(time = temp_time) %>% 
+  #   select(-(time_sec:time_sec3))
+  sync <- left_join(predictions, cg_predictions) # %>% left_join(windows)
   sync$id = id
   sync$session = session
   sync$time_plot <- as_hms(force_tz(sync$time, "America/Los_Angeles"))
@@ -35,7 +35,8 @@ read_session <- function(id, session) {
 ds <- map2_dfr(ids, sessions, read_session)
 
 ds <- ds %>% mutate(pos = ifelse(pos == "Upright", "Standing", pos),
-                    pos = factor(pos, levels=c("Supine", "Prone", "Sitting", "Standing", "Held")))
+                    pos = factor(pos, levels=c("Supine", "Prone", "Sitting", "Standing", "Held")),
+                    restraint = factor(restraint, levels=c("Restrained","Unrestrained")))
 
 #write_csv(ds, "/Volumes/padlab/study_sensorsinperson/data_processed/datasets/infant_raw_position.csv")
 
@@ -43,12 +44,12 @@ board %>% pin_write(name = "imu_raw_samples", x = ds,
                     title = "Infant and Caregiver Raw Position",
                     description = "Raw position predictions sampled every 1 second. 
                     Data are filtered to only include usable samples.",
-                    metadata = list(infant_model = "TDCP-March2025", cg_model = "Nov2025"),
+                    metadata = list(infant_model = "TDCP-March2025", cg_model = "Nov2025", rest_model = "May2026"),
                     type = "parquet")
 board_gd %>% pin_write(name = "imu_raw_samples", x = ds,
                        title = "Infant and Caregiver Raw Position",
                        description = "Raw position predictions sampled every 1 second. 
                     Data are filtered to only include usable samples.",
-                       metadata = list(infant_model = "TDCP-March2025", cg_model = "Nov2025"),
+                       metadata = list(infant_model = "TDCP-March2025", cg_model = "Nov2025", rest_model = "May2026"),
                        type = "parquet")
 #write_board_manifest(board_gh)

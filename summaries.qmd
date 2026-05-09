@@ -65,7 +65,7 @@ ds <- board_gdrive(path = as_id("1OZlphhu6vYm1A2Bm2-zD7a4luS5nGWgS")) %>%
 
 usable_data <- ds %>% count(id, session) %>% mutate(usable_hours = n/3600)
 recording_duration <- ds %>% group_by(id, session) %>% 
-  mutate(recording_hours = as.numeric(time_leg_off - time_leg_on)) %>% 
+  mutate(recording_hours = as.numeric(max(time) - min(time))) %>% 
   slice_head(n = 1) %>% ungroup
   
 usable_data %>% left_join(recording_duration) %>% 
@@ -151,4 +151,23 @@ ggplot(ds_sum, aes(x = session, y = pos_prop, color = pos, group = id)) +
   scale_color_manual(values = pal, name ="") + 
   theme(legend.position = "none")
 ``` 
+
+### Infant Restraint Frequency by Age (Overall)
+
+```{r} 
+#| warning: false
+#| label: restraint-table-age
+#| tbl-cap: Restraint summary statistics
+
+ds_sum <- ds %>% group_by(id, session) %>% 
+  mutate(total_samples = n()) %>% group_by(id, session, restraint) %>% 
+  summarize(restraint_n  = n(), total_samples = mean(total_samples)) %>% ungroup
+ds_sum <- ds_sum %>% complete(nesting(id, session), restraint, fill = list(restraint_n = 0, total_samples = 1))
+ds_sum$restraint_prop = ds_sum$restraint_n/ds_sum$total_samples*100
+ds_sum$session = as.numeric(ds_sum$session)
+
+ds_sum %>% group_by(restraint, session) %>% 
+  get_summary_stats(restraint_prop, show = c("mean", "sd","min","max")) %>% 
+  select(-variable) %>% flextable() %>% autofit()
+```
  

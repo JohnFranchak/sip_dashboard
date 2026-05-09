@@ -126,7 +126,7 @@ make_timeline <- function(i) {
     
     fig <- p1/p5/p6/p3/p4/p2 + plot_layout(heights = c(2,1,1,1,1,1))
   } else{
-    fig <- p1/p3/p4/p2 + plot_layout(heights = c(3,1,1,2))
+    fig <- p1/p3/p4/p2 + plot_layout(heights = c(3,2,2,2))
   }
   
   ggsave(plot = fig, filename = str_glue("/Volumes/padlab/study_sensorsinperson/data_processed/timelines/{id}_{session}.png",

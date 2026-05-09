@@ -22,13 +22,6 @@ uri <- "https://redcap.ucr.edu/api/"
 source("api_token.R")
 all_events <- redcap_event_instruments(redcap_uri = uri, token = api_token)$data
 
-# Find which participants are processed
-# study_dir <- "/Volumes/padlab/study_sensorsinperson/data_processed/imu/"
-# id_session <- list.files(study_dir, pattern = "\\d+_\\d+$", include.dirs = T)
-# id_session_keep <- id_session[file.exists(str_glue("{study_dir}{id_session}/infant_position_predictions_4s.csv"))]
-# ids <- map_chr(id_session_keep, ~ strsplit(.x, "_")[[1]][[1]])
-# sessions <- map_chr(id_session_keep, ~ strsplit(.x, "_")[[1]][[2]])
-
 board <- board_folder("/Volumes/padlab/study_sensorsinperson/data_processed/datasets/")
 data_version <- board %>% pin_meta("imu_raw_samples")
 ds <- board %>% pin_read("imu_raw_samples") %>% 
@@ -107,11 +100,39 @@ make_timeline <- function(i) {
     scale_x_time(breaks = hour_breaks, name = "", limits = lims, labels = label_breaks) + 
     scale_y_continuous(name = "Unrest.", breaks = c(0,1), labels = c("0%", "100%"), limits = c(0,1))
   
-    fig <- p1/p3/p4/p2 + plot_layout(heights = c(3,2,2,2))
+  sleep_file <- str_glue("/Volumes/padlab/study_sensorsinperson/data_processed/lena_sleep_tcds/{i}.csv")
+  if (file.exists(sleep_file)) {
+    sleep <- read_csv(sleep_file) %>% 
+      mutate(time_start = mdy_hms(str_remove(StartTime, " (America/Los_Angeles)")),
+             time_end = mdy_hms(str_remove(EndTime, " (America/Los_Angeles)"))) %>% 
+      filter(time_start >= min(sync$time), time_end <= max(sync$time)) %>% 
+      mutate(time_plot = as_hms(time_start))
+    
+    p5 <- ggplot(sleep, aes(x = time_plot, y = sleep_prob)) + geom_line(linetype = 1, color = "red") + 
+      theme(legend.position = "none",
+            axis.title.x = element_blank(),
+            axis.text.x = element_blank(),
+            axis.ticks.x = element_blank()) + 
+      scale_x_time(breaks = hour_breaks, name = "", limits = lims, labels = label_breaks) + 
+      scale_y_continuous(name = "Sleep", breaks = c(0,1), labels = c("0%", "100%"), limits = c(0,1))
+    
+    p6 <- ggplot(sleep, aes(x = time_plot, y = cds_prob)) + geom_line(linetype = 1, color = "purple") + 
+      theme(legend.position = "none",
+            axis.title.x = element_blank(),
+            axis.text.x = element_blank(),
+            axis.ticks.x = element_blank()) + 
+      scale_x_time(breaks = hour_breaks, name = "", limits = lims, labels = label_breaks) + 
+      scale_y_continuous(name = "CDS", breaks = c(0,1), labels = c("0%", "100%"), limits = c(0,1))
+    
+    fig <- p1/p5/p6/p3/p4/p2 + plot_layout(heights = c(2,1,1,1,1,1))
+  } else{
+    fig <- p1/p3/p4/p2 + plot_layout(heights = c(3,1,1,2))
+  }
+  
   ggsave(plot = fig, filename = str_glue("/Volumes/padlab/study_sensorsinperson/data_processed/timelines/{id}_{session}.png",
-                                         width = 10, height = 10), scale = 1.5)
+                                         width = 10, height = 9), scale = 1.5)
   ggsave(plot = fig, filename = str_glue("timelines/{id}_{session}.png",
-                                         width = 10, height = 10), scale = 1.5)
+                                         width = 10, height = 9), scale = 1.5)
 }
 
 walk(id_session, make_timeline)

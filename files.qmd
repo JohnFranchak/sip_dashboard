@@ -55,8 +55,8 @@ ds_files$WAV <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data/
 # Infant Processed
 
 ds_files$MOT4 <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data_processed/imu/{.x}_{.y}/mot_features_infant_4s.csv")))
-ds_files$POS4 <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data_processed/imu/{.x}_{.y}/infant_position_predictions_4s.csv")))
-ds_files$REST4 <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data_processed/imu/{.x}_{.y}/infant_restrained_predictions_4s.csv")))
+ds_files$IMU4 <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data_processed/imu/{.x}_{.y}/infant_position_predictions_4s.csv")))
+ds_files$Sleep <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}data_processed/lena_sleep_tcds/{.x}_{.y}.csv")))
 
 # CG Processed
 
@@ -83,8 +83,8 @@ reactable(
           columnGroups = list(colGroup("Visit", columns = c("ID", "Session"), sticky = "left"),
                               colGroup("IMUs", columns = c("LA","LH","RA","RH","CW","CH")),
                               colGroup("Videos", columns = c("GOPRO","Headcam","Pupil","Composite")),
-                              colGroup("LENA", columns = c("ITS","WAV")),
-                              colGroup("Infant Processing", columns = c("MOT4","POS4","REST4")),
+                              colGroup("LENA", columns = c("ITS","WAV","Sleep")),
+                              colGroup("Infant Processing", columns = c("MOT4","IMU4")),
                               colGroup("CG Processing", columns = c("CGMOT4","CGPOS4"))),
           columns = list(
           ID = colDef(format = colFormat(digits = 0), maxWidth = 50, align = "right", cell = function(value) value),

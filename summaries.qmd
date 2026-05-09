@@ -210,4 +210,28 @@ ggplot(ds_sum_restraint, aes(x = session, y = restraint_prop, color = restraint,
   theme(legend.position = "none")
 ```
  
+### Posture by restraint
+
+```{r}
+#| out-width: "90%"
+#| warning: false
+#| label: "posture-by-restraint"
+
+ds_sum_posrest <- ds %>% group_by(id, session) %>% 
+  mutate(total_samples = n()) %>% group_by(id, session, pos, restraint) %>% 
+  summarize(posrest_n  = n(), total_samples = mean(total_samples)) %>% ungroup
+ds_sum_posrest <- ds_sum_posrest %>% complete(nesting(id, session), restraint, pos, fill = list(posrest_n = 0, total_samples = 1))
+ds_sum_posrest$prop = ds_sum_posrest$posrest_n/ds_sum_posrest$total_samples*100
+ds_sum_posrest$session = as.numeric(ds_sum_posrest$session)
+
+ggplot(ds_sum_posrest, aes(x = session, y = prop, color = pos)) + 
+  stat_summary(position = position_dodge(.1)) + 
+  stat_summary(geom = "line", position = position_dodge(.1)) + 
+  facet_wrap(~ restraint) + 
+  ylab("% of time") + xlab("Session") +
+  scale_x_continuous(breaks = 1:3, labels = c("7 mo","9 mo","11 mo"), limits = c(0.5,3.5)) + 
+  coord_cartesian(ylim = c(0,55)) + 
+  scale_color_manual(values = pal, name ="") + 
+  theme(legend.position = "bottom")
+```
  

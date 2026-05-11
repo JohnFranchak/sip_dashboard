@@ -4,7 +4,7 @@
 MOUNT_POINT="/Volumes/padlab"
 
 # Check if the mount point appears in the active mounts list
-# We include "smbfs" to ensure it's an SMB mount, and add a trailing space 
+# We include "smbfs" to ensure it's an SMB mount, and add a trailing space
 # after $MOUNT_POINT to prevent partial matches (e.g., matching "ShareName2")
 if ! mount | grep "smbfs" | grep -1 "on $MOUNT_POINT "; then
     echo "Error: SMB share is not mounted at $MOUNT_POINT."
@@ -21,8 +21,9 @@ cd /Users/johnfranchak/Documents/GitHub/sip_dashboard
 
 # Render the project
 # This assumes 'quarto' is in your system PATH
-/usr/local/bin/Rscript generate_timelines.r
 /usr/local/bin/Rscript generate_summaries.r
+/usr/local/bin/Rscript generate_timelines.r
+
 
 # Add changes to Git
 git add .

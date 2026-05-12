@@ -8,6 +8,7 @@ drive_auth(email = TRUE)
 board <- board_folder("/Volumes/padlab/study_sensorsinperson/data_processed/datasets/", versioned = T)
 board_gd <- board_gdrive(path = as_id("1OZlphhu6vYm1A2Bm2-zD7a4luS5nGWgS"))
 
+# IMU Data
 study_dir <- "/Volumes/padlab/study_sensorsinperson/data_processed/imu/"
 id_session <- list.files(study_dir, pattern = "\\d+_\\d+$", include.dirs = T)
 id_session_keep <- id_session[file.exists(str_glue("{study_dir}{id_session}/infant_position_predictions_4s.csv"))]
@@ -38,8 +39,6 @@ ds <- ds %>% mutate(pos = ifelse(pos == "Upright", "Standing", pos),
                     pos = factor(pos, levels=c("Supine", "Prone", "Sitting", "Standing", "Held")),
                     restraint = factor(restraint, levels=c("Restrained","Unrestrained")))
 
-#write_csv(ds, "/Volumes/padlab/study_sensorsinperson/data_processed/datasets/infant_raw_position.csv")
-
 board %>% pin_write(name = "imu_raw_samples", x = ds,
                     title = "Infant and Caregiver Raw Position",
                     description = "Raw position predictions sampled every 1 second. 
@@ -52,4 +51,28 @@ board_gd %>% pin_write(name = "imu_raw_samples", x = ds,
                     Data are NOT filtered and include usable samples.",
                        metadata = list(infant_model = "TDCP-March2025", cg_model = "Nov2025", rest_model = "May2026"),
                        type = "parquet")
-#write_board_manifest(board_gh)
+
+# Sleep and TCDS
+
+study_dir <- "/Volumes/padlab/study_sensorsinperson/data_processed/lena_sleep_tcds/"
+files <- list.files(study_dir, pattern = ".csv", include.dirs = F, full.names = T)
+
+sleep_tcds <- read_csv(files)
+sleep_tcds <- sleep_tcds %>% 
+  mutate(time_start = mdy_hms(str_remove(StartTime, " (America/Los_Angeles)")),
+         time_end = mdy_hms(str_remove(EndTime, " (America/Los_Angeles)"))) %>% 
+  select(-(RecordingDate:EndTime), -(ProgramType:RecorderTransferDateTime)) %>%
+  relocate(time_start:time_end, .before = Duration_Secs) %>% 
+  relocate(sleep_prob:cds_pred, .before = Duration_Secs) 
+
+board %>% pin_write(name = "sleep_tcds", x = sleep_tcds,
+                    title = "Infant and Caregiver Raw Position",
+                    description = "LENA predictions using Bang, Kachergis, Weisleder, and Marchman(2022) Shiny Algorithm",
+                    metadata = list(model_url = "https://kachergis.shinyapps.io/classify_cds_ods/"),
+                    type = "parquet")
+board_gd %>% pin_write(name = "sleep_tcds", x = sleep_tcds,
+                    title = "Infant and Caregiver Raw Position",
+                    description = "LENA predictions using Bang, Kachergis, Weisleder, and Marchman(2022) Shiny Algorithm",
+                    metadata = list(model_url = "https://kachergis.shinyapps.io/classify_cds_ods/"),
+                    type = "parquet")
+  

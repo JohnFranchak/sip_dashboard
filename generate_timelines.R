@@ -28,6 +28,8 @@ ds <- board %>% pin_read("imu_raw_samples") %>%
   mutate(id_uni = paste(id, session, sep = "_"))
 id_session <- unique(ds$id_uni)
 
+sleep_tcds <- board %>% pin_read("sleep_tcds")
+
 make_timeline <- function(i) {
   id <-strsplit(i, "_")[[1]][[1]]
   session <- strsplit(i, "_")[[1]][[2]]
@@ -103,11 +105,10 @@ make_timeline <- function(i) {
     scale_x_time(breaks = hour_breaks, name = "", limits = lims, labels = label_breaks) + 
     scale_y_continuous(name = "Unrest.", breaks = c(0,1), labels = c("0%", "100%"), limits = c(0,1))
   
-  sleep_file <- str_glue("/Volumes/padlab/study_sensorsinperson/data_processed/lena_sleep_tcds/{i}.csv")
-  if (file.exists(sleep_file)) {
-    sleep <- read_csv(sleep_file) %>% 
-      mutate(time_start = mdy_hms(str_remove(StartTime, " (America/Los_Angeles)")),
-             time_end = mdy_hms(str_remove(EndTime, " (America/Los_Angeles)"))) %>% 
+  
+  sleep <- sleep_tcds %>% filter(id == i)
+  if (nrow(sleep) > 1) {
+    sleep <- sleep %>% 
       filter(time_start >= min(sync$time), time_end <= max(sync$time)) %>% 
       mutate(time_plot = as_hms(time_start))
     

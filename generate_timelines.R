@@ -83,7 +83,7 @@ make_timeline <- function(i) {
     ) 
   
   p3 <- sync %>% mutate(cgpos = as.numeric(cgpos == "Upright")) %>% 
-    ggplot(aes(x = time_plot, y = cgpos)) + geom_ma(n = 600, linetype = 1) + 
+    ggplot(aes(x = time_plot, y = cgpos)) + geom_ma(n = 300, linetype = 1) + 
     theme(legend.position = "top",
           axis.title.x = element_blank(),
           axis.text.x = element_blank(),
@@ -92,8 +92,10 @@ make_timeline <- function(i) {
     scale_y_continuous(name = "CG Up", breaks = c(0,1), labels = c("0%", "100%"), limits = c(0,1))
   
   p4 <- sync %>% mutate(restraint = as.numeric(restraint == "Unrestrained"), 
-                        restraint = ifelse(nap_period == 1 | exclude_period == 1, NA, restraint)) %>% 
-    ggplot(aes(x = time_plot, y = restraint)) +  geom_ma(n = 600, linetype = 1, color = "darkgreen", na.rm = FALSE) + 
+                        restraint = ifelse(nap_period == 1 | exclude_period == 1, NA, restraint),
+                        group_id = consecutive_id(!is.na(restraint))) %>% 
+    ggplot(aes(x = time_plot, y = restraint, group = group_id)) +  
+    geom_ma(n = 300, linetype = 1, color = "darkgreen", na.rm = FALSE) +    
     theme(legend.position = "top",
           axis.title.x = element_blank(),
           axis.text.x = element_blank(),

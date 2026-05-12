@@ -91,8 +91,9 @@ make_timeline <- function(i) {
     scale_x_time(breaks = hour_breaks, name = "", limits = lims, labels = label_breaks) + 
     scale_y_continuous(name = "CG Up", breaks = c(0,1), labels = c("0%", "100%"), limits = c(0,1))
   
-  p4 <- sync_filt %>% mutate(restraint = as.numeric(restraint == "Unrestrained")) %>% 
-    ggplot(aes(x = time_plot, y = restraint)) + geom_ma(n = 600, linetype = 1, color = "darkgreen") + 
+  p4 <- sync %>% mutate(restraint = as.numeric(restraint == "Unrestrained"), 
+                        restraint = ifelse(nap_period == 1 | exclude_period == 1, NA, restraint)) %>% 
+    ggplot(aes(x = time_plot, y = restraint)) +  geom_ma(n = 600, linetype = 1, color = "darkgreen", na.rm = FALSE) + 
     theme(legend.position = "top",
           axis.title.x = element_blank(),
           axis.text.x = element_blank(),

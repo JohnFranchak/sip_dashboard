@@ -54,7 +54,14 @@ library(tidyverse)
 library(pins)
 library(nanoparquet)
 library(googledrive)
-ds <- board_gdrive(path = as_id("1OZlphhu6vYm1A2Bm2-zD7a4luS5nGWgS")) 
+
+# Load the board of pinned data sets (authenticated users only)
+board <- board_gdrive(path = as_id("1OZlphhu6vYm1A2Bm2-zD7a4luS5nGWgS")) 
+
+# To see available pinned data
+board %>% pin_list()
+
+# To read a specific data pin into memory
 ds <- board %>% pin_read("imu_raw_samples") %>%
   filter(nap_period == 0, exclude_period == 0)
 ```

@@ -171,14 +171,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><div class="line-block">Last updated: 2026-05-16 15:09:53 using pinned data version from: 2026-05-15 18:36:17<br>
+</header><div class="line-block">Last updated: 2026-05-16 16:00:32 using pinned data version from: 2026-05-15 18:36:17<br>
 Users can load data by running (requires one-time google drive authentication):</div>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://pins.rstudio.com/">pins</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-lib/nanoparquet">nanoparquet</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://googledrive.tidyverse.org">googledrive</a></span><span class="op">)</span></span>
-<span><span class="va">ds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://pins.rstudio.com/reference/board_gdrive.html">board_gdrive</a></span><span class="op">(</span>path <span class="op">=</span> <span class="fu"><a href="https://googledrive.tidyverse.org/reference/as_id.html">as_id</a></span><span class="op">(</span><span class="st">"1OZlphhu6vYm1A2Bm2-zD7a4luS5nGWgS"</span><span class="op">)</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co"># Load the board of pinned data sets (authenticated users only)</span></span>
+<span><span class="va">board</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://pins.rstudio.com/reference/board_gdrive.html">board_gdrive</a></span><span class="op">(</span>path <span class="op">=</span> <span class="fu"><a href="https://googledrive.tidyverse.org/reference/as_id.html">as_id</a></span><span class="op">(</span><span class="st">"1OZlphhu6vYm1A2Bm2-zD7a4luS5nGWgS"</span><span class="op">)</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co"># To see available pinned data</span></span>
+<span><span class="va">board</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://pins.rstudio.com/reference/pin_list.html">pin_list</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># To read a specific data pin into memory</span></span>
 <span><span class="va">ds</span> <span class="op">&lt;-</span> <span class="va">board</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://pins.rstudio.com/reference/pin_read.html">pin_read</a></span><span class="op">(</span><span class="st">"imu_raw_samples"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">nap_period</span> <span class="op">==</span> <span class="fl">0</span>, <span class="va">exclude_period</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -195,33 +202,33 @@ Users can load data by running (requires one-time google drive authentication):<
 <span>  <span class="fu">flextable</span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">autofit</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div class="tabwid">
-<style>.cl-f6f4f85e{}.cl-f6f21bd4{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-f6f34ec8{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-f6f34ed2{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-f6f3572e{width:1.389in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f6f3572f{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f6f35738{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f6f35739{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f6f3573a{width:1.389in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f6f3573b{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f6f35742{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f6f35743{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f6f35744{width:1.389in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f6f35745{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f6f35746{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f6f3574c{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table data-quarto-disable-processing="true" class="cl-f6f4f85e">
+<style>.cl-0ad13fac{}.cl-0aca38e2{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-0acd4ac8{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-0acd4ad2{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-0acd5e1e{width:1.389in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0acd5e28{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0acd5e29{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0acd5e32{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0acd5e33{width:1.389in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0acd5e34{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0acd5e3c{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0acd5e3d{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0acd5e46{width:1.389in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0acd5e47{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0acd5e48{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0acd5e50{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table data-quarto-disable-processing="true" class="cl-0ad13fac">
 <caption><p>Usable data and total recording length in hours</p></caption>
 <thead><tr style="overflow-wrap:break-word;">
-<th class="cl-f6f3572e"><p class="cl-f6f34ec8"><span class="cl-f6f21bd4">variable</span></p></th>
-<th class="cl-f6f3572f"><p class="cl-f6f34ed2"><span class="cl-f6f21bd4">n</span></p></th>
-<th class="cl-f6f35738"><p class="cl-f6f34ed2"><span class="cl-f6f21bd4">mean</span></p></th>
-<th class="cl-f6f35738"><p class="cl-f6f34ed2"><span class="cl-f6f21bd4">sd</span></p></th>
-<th class="cl-f6f35738"><p class="cl-f6f34ed2"><span class="cl-f6f21bd4">min</span></p></th>
-<th class="cl-f6f35739"><p class="cl-f6f34ed2"><span class="cl-f6f21bd4">max</span></p></th>
+<th class="cl-0acd5e1e"><p class="cl-0acd4ac8"><span class="cl-0aca38e2">variable</span></p></th>
+<th class="cl-0acd5e28"><p class="cl-0acd4ad2"><span class="cl-0aca38e2">n</span></p></th>
+<th class="cl-0acd5e29"><p class="cl-0acd4ad2"><span class="cl-0aca38e2">mean</span></p></th>
+<th class="cl-0acd5e29"><p class="cl-0acd4ad2"><span class="cl-0aca38e2">sd</span></p></th>
+<th class="cl-0acd5e29"><p class="cl-0acd4ad2"><span class="cl-0aca38e2">min</span></p></th>
+<th class="cl-0acd5e32"><p class="cl-0acd4ad2"><span class="cl-0aca38e2">max</span></p></th>
 </tr></thead>
 <tbody>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f6f3573a"><p class="cl-f6f34ec8"><span class="cl-f6f21bd4">usable_hours</span></p></td>
-<td class="cl-f6f3573b"><p class="cl-f6f34ed2"><span class="cl-f6f21bd4">28</span></p></td>
-<td class="cl-f6f35742"><p class="cl-f6f34ed2"><span class="cl-f6f21bd4">6.385</span></p></td>
-<td class="cl-f6f35742"><p class="cl-f6f34ed2"><span class="cl-f6f21bd4">1.996</span></p></td>
-<td class="cl-f6f35742"><p class="cl-f6f34ed2"><span class="cl-f6f21bd4">1.199</span></p></td>
-<td class="cl-f6f35743"><p class="cl-f6f34ed2"><span class="cl-f6f21bd4">9.466</span></p></td>
+<td class="cl-0acd5e33"><p class="cl-0acd4ac8"><span class="cl-0aca38e2">usable_hours</span></p></td>
+<td class="cl-0acd5e34"><p class="cl-0acd4ad2"><span class="cl-0aca38e2">28</span></p></td>
+<td class="cl-0acd5e3c"><p class="cl-0acd4ad2"><span class="cl-0aca38e2">6.385</span></p></td>
+<td class="cl-0acd5e3c"><p class="cl-0acd4ad2"><span class="cl-0aca38e2">1.996</span></p></td>
+<td class="cl-0acd5e3c"><p class="cl-0acd4ad2"><span class="cl-0aca38e2">1.199</span></p></td>
+<td class="cl-0acd5e3d"><p class="cl-0acd4ad2"><span class="cl-0aca38e2">9.466</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f6f35744"><p class="cl-f6f34ec8"><span class="cl-f6f21bd4">recording_hours</span></p></td>
-<td class="cl-f6f35745"><p class="cl-f6f34ed2"><span class="cl-f6f21bd4">28</span></p></td>
-<td class="cl-f6f35746"><p class="cl-f6f34ed2"><span class="cl-f6f21bd4">9.274</span></p></td>
-<td class="cl-f6f35746"><p class="cl-f6f34ed2"><span class="cl-f6f21bd4">2.728</span></p></td>
-<td class="cl-f6f35746"><p class="cl-f6f34ed2"><span class="cl-f6f21bd4">1.232</span></p></td>
-<td class="cl-f6f3574c"><p class="cl-f6f34ed2"><span class="cl-f6f21bd4">12.316</span></p></td>
+<td class="cl-0acd5e46"><p class="cl-0acd4ac8"><span class="cl-0aca38e2">recording_hours</span></p></td>
+<td class="cl-0acd5e47"><p class="cl-0acd4ad2"><span class="cl-0aca38e2">28</span></p></td>
+<td class="cl-0acd5e48"><p class="cl-0acd4ad2"><span class="cl-0aca38e2">9.274</span></p></td>
+<td class="cl-0acd5e48"><p class="cl-0acd4ad2"><span class="cl-0aca38e2">2.728</span></p></td>
+<td class="cl-0acd5e48"><p class="cl-0acd4ad2"><span class="cl-0aca38e2">1.232</span></p></td>
+<td class="cl-0acd5e50"><p class="cl-0acd4ad2"><span class="cl-0aca38e2">12.316</span></p></td>
 </tr>
 </tbody>
 </table>
@@ -240,13 +247,13 @@ Users can load data by running (requires one-time google drive authentication):<
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="summaries_files/figure-html/Usable-data-histograms-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Usable hours after exclusions"><img src="summaries_files/figure-html/Usable-data-histograms-1.png" class="img-fluid figure-img" style="width:100.0%" alt="Usable hours after exclusions"></a></p>
+<figure class="figure"><p><a href="summaries_files/figure-html/Usable-data-histograms-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Usable hours after exclusions"><img src="summaries_files/figure-html/Usable-data-histograms-1.png" class="img-fluid figure-img" style="width:100.0%" alt="Usable hours after exclusions"></a></p>
 <figcaption>Usable hours after exclusions</figcaption></figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="summaries_files/figure-html/Usable-data-histograms-2.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Recording length in hours"><img src="summaries_files/figure-html/Usable-data-histograms-2.png" class="img-fluid figure-img" style="width:100.0%" alt="Recording length in hours"></a></p>
+<figure class="figure"><p><a href="summaries_files/figure-html/Usable-data-histograms-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="Recording length in hours"><img src="summaries_files/figure-html/Usable-data-histograms-2.png" class="img-fluid figure-img" style="width:100.0%" alt="Recording length in hours"></a></p>
 <figcaption>Recording length in hours</figcaption></figure>
 </div>
 </div>
@@ -266,153 +273,153 @@ Users can load data by running (requires one-time google drive authentication):<
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">variable</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">flextable</span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">autofit</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div class="tabwid">
-<style>.cl-f77a7ccc{}.cl-f7774ffc{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-f778763e{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-f7787648{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-f7787e7c{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f7787e7d{width:0.888in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f7787e86{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f7787e87{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f7787e88{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f7787e89{width:0.888in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f7787e90{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f7787e91{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f7787e92{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f7787e9a{width:0.888in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f7787e9b{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f7787e9c{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f7787e9d{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f7787ea4{width:0.888in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f7787ea5{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f7787ea6{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f7787ea7{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f7787ea8{width:0.888in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f7787ea9{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f7787eae{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f7787eaf{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f7787eb0{width:0.888in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f7787eb1{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f7787eb8{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table data-quarto-disable-processing="true" class="cl-f77a7ccc">
+<style>.cl-0c3057d4{}.cl-0c268efc{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-0c29cacc{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-0c29cad6{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-0c29de7c{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0c29de7d{width:0.888in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0c29de86{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0c29de87{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0c29de90{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0c29de91{width:0.888in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0c29de9a{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0c29de9b{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0c29de9c{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0c29dea4{width:0.888in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0c29dea5{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0c29deae{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0c29deaf{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0c29deb0{width:0.888in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0c29deb8{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0c29dec2{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0c29dec3{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0c29dec4{width:0.888in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0c29decc{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0c29ded6{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0c29ded7{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0c29dee0{width:0.888in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0c29dee1{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0c29deea{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table data-quarto-disable-processing="true" class="cl-0c3057d4">
 <caption><p>Position summary statistics</p></caption>
 <thead><tr style="overflow-wrap:break-word;">
-<th class="cl-f7787e7c"><p class="cl-f778763e"><span class="cl-f7774ffc">session</span></p></th>
-<th class="cl-f7787e7d"><p class="cl-f7787648"><span class="cl-f7774ffc">pos</span></p></th>
-<th class="cl-f7787e86"><p class="cl-f778763e"><span class="cl-f7774ffc">n</span></p></th>
-<th class="cl-f7787e87"><p class="cl-f778763e"><span class="cl-f7774ffc">mean</span></p></th>
-<th class="cl-f7787e87"><p class="cl-f778763e"><span class="cl-f7774ffc">sd</span></p></th>
-<th class="cl-f7787e87"><p class="cl-f778763e"><span class="cl-f7774ffc">min</span></p></th>
-<th class="cl-f7787e87"><p class="cl-f778763e"><span class="cl-f7774ffc">max</span></p></th>
+<th class="cl-0c29de7c"><p class="cl-0c29cacc"><span class="cl-0c268efc">session</span></p></th>
+<th class="cl-0c29de7d"><p class="cl-0c29cad6"><span class="cl-0c268efc">pos</span></p></th>
+<th class="cl-0c29de86"><p class="cl-0c29cacc"><span class="cl-0c268efc">n</span></p></th>
+<th class="cl-0c29de87"><p class="cl-0c29cacc"><span class="cl-0c268efc">mean</span></p></th>
+<th class="cl-0c29de87"><p class="cl-0c29cacc"><span class="cl-0c268efc">sd</span></p></th>
+<th class="cl-0c29de87"><p class="cl-0c29cacc"><span class="cl-0c268efc">min</span></p></th>
+<th class="cl-0c29de87"><p class="cl-0c29cacc"><span class="cl-0c268efc">max</span></p></th>
 </tr></thead>
 <tbody>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f7787e88"><p class="cl-f778763e"><span class="cl-f7774ffc">1</span></p></td>
-<td class="cl-f7787e89"><p class="cl-f7787648"><span class="cl-f7774ffc">Supine</span></p></td>
-<td class="cl-f7787e90"><p class="cl-f778763e"><span class="cl-f7774ffc">14</span></p></td>
-<td class="cl-f7787e91"><p class="cl-f778763e"><span class="cl-f7774ffc">25.430</span></p></td>
-<td class="cl-f7787e91"><p class="cl-f778763e"><span class="cl-f7774ffc">17.165</span></p></td>
-<td class="cl-f7787e91"><p class="cl-f778763e"><span class="cl-f7774ffc">8.322</span></p></td>
-<td class="cl-f7787e91"><p class="cl-f778763e"><span class="cl-f7774ffc">58.046</span></p></td>
+<td class="cl-0c29de90"><p class="cl-0c29cacc"><span class="cl-0c268efc">1</span></p></td>
+<td class="cl-0c29de91"><p class="cl-0c29cad6"><span class="cl-0c268efc">Supine</span></p></td>
+<td class="cl-0c29de9a"><p class="cl-0c29cacc"><span class="cl-0c268efc">14</span></p></td>
+<td class="cl-0c29de9b"><p class="cl-0c29cacc"><span class="cl-0c268efc">25.430</span></p></td>
+<td class="cl-0c29de9b"><p class="cl-0c29cacc"><span class="cl-0c268efc">17.165</span></p></td>
+<td class="cl-0c29de9b"><p class="cl-0c29cacc"><span class="cl-0c268efc">8.322</span></p></td>
+<td class="cl-0c29de9b"><p class="cl-0c29cacc"><span class="cl-0c268efc">58.046</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f7787e88"><p class="cl-f778763e"><span class="cl-f7774ffc">2</span></p></td>
-<td class="cl-f7787e89"><p class="cl-f7787648"><span class="cl-f7774ffc">Supine</span></p></td>
-<td class="cl-f7787e90"><p class="cl-f778763e"><span class="cl-f7774ffc">9</span></p></td>
-<td class="cl-f7787e91"><p class="cl-f778763e"><span class="cl-f7774ffc">15.335</span></p></td>
-<td class="cl-f7787e91"><p class="cl-f778763e"><span class="cl-f7774ffc">10.302</span></p></td>
-<td class="cl-f7787e91"><p class="cl-f778763e"><span class="cl-f7774ffc">3.956</span></p></td>
-<td class="cl-f7787e91"><p class="cl-f778763e"><span class="cl-f7774ffc">35.125</span></p></td>
+<td class="cl-0c29de90"><p class="cl-0c29cacc"><span class="cl-0c268efc">2</span></p></td>
+<td class="cl-0c29de91"><p class="cl-0c29cad6"><span class="cl-0c268efc">Supine</span></p></td>
+<td class="cl-0c29de9a"><p class="cl-0c29cacc"><span class="cl-0c268efc">9</span></p></td>
+<td class="cl-0c29de9b"><p class="cl-0c29cacc"><span class="cl-0c268efc">15.335</span></p></td>
+<td class="cl-0c29de9b"><p class="cl-0c29cacc"><span class="cl-0c268efc">10.302</span></p></td>
+<td class="cl-0c29de9b"><p class="cl-0c29cacc"><span class="cl-0c268efc">3.956</span></p></td>
+<td class="cl-0c29de9b"><p class="cl-0c29cacc"><span class="cl-0c268efc">35.125</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f7787e88"><p class="cl-f778763e"><span class="cl-f7774ffc">3</span></p></td>
-<td class="cl-f7787e89"><p class="cl-f7787648"><span class="cl-f7774ffc">Supine</span></p></td>
-<td class="cl-f7787e90"><p class="cl-f778763e"><span class="cl-f7774ffc">5</span></p></td>
-<td class="cl-f7787e91"><p class="cl-f778763e"><span class="cl-f7774ffc">11.218</span></p></td>
-<td class="cl-f7787e91"><p class="cl-f778763e"><span class="cl-f7774ffc">10.087</span></p></td>
-<td class="cl-f7787e91"><p class="cl-f778763e"><span class="cl-f7774ffc">1.922</span></p></td>
-<td class="cl-f7787e91"><p class="cl-f778763e"><span class="cl-f7774ffc">25.343</span></p></td>
+<td class="cl-0c29de90"><p class="cl-0c29cacc"><span class="cl-0c268efc">3</span></p></td>
+<td class="cl-0c29de91"><p class="cl-0c29cad6"><span class="cl-0c268efc">Supine</span></p></td>
+<td class="cl-0c29de9a"><p class="cl-0c29cacc"><span class="cl-0c268efc">5</span></p></td>
+<td class="cl-0c29de9b"><p class="cl-0c29cacc"><span class="cl-0c268efc">11.218</span></p></td>
+<td class="cl-0c29de9b"><p class="cl-0c29cacc"><span class="cl-0c268efc">10.087</span></p></td>
+<td class="cl-0c29de9b"><p class="cl-0c29cacc"><span class="cl-0c268efc">1.922</span></p></td>
+<td class="cl-0c29de9b"><p class="cl-0c29cacc"><span class="cl-0c268efc">25.343</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f7787e92"><p class="cl-f778763e"><span class="cl-f7774ffc">1</span></p></td>
-<td class="cl-f7787e9a"><p class="cl-f7787648"><span class="cl-f7774ffc">Prone</span></p></td>
-<td class="cl-f7787e9b"><p class="cl-f778763e"><span class="cl-f7774ffc">14</span></p></td>
-<td class="cl-f7787e9c"><p class="cl-f778763e"><span class="cl-f7774ffc">19.794</span></p></td>
-<td class="cl-f7787e9c"><p class="cl-f778763e"><span class="cl-f7774ffc">13.419</span></p></td>
-<td class="cl-f7787e9c"><p class="cl-f778763e"><span class="cl-f7774ffc">2.168</span></p></td>
-<td class="cl-f7787e9c"><p class="cl-f778763e"><span class="cl-f7774ffc">53.195</span></p></td>
+<td class="cl-0c29de9c"><p class="cl-0c29cacc"><span class="cl-0c268efc">1</span></p></td>
+<td class="cl-0c29dea4"><p class="cl-0c29cad6"><span class="cl-0c268efc">Prone</span></p></td>
+<td class="cl-0c29dea5"><p class="cl-0c29cacc"><span class="cl-0c268efc">14</span></p></td>
+<td class="cl-0c29deae"><p class="cl-0c29cacc"><span class="cl-0c268efc">19.794</span></p></td>
+<td class="cl-0c29deae"><p class="cl-0c29cacc"><span class="cl-0c268efc">13.419</span></p></td>
+<td class="cl-0c29deae"><p class="cl-0c29cacc"><span class="cl-0c268efc">2.168</span></p></td>
+<td class="cl-0c29deae"><p class="cl-0c29cacc"><span class="cl-0c268efc">53.195</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f7787e92"><p class="cl-f778763e"><span class="cl-f7774ffc">2</span></p></td>
-<td class="cl-f7787e9a"><p class="cl-f7787648"><span class="cl-f7774ffc">Prone</span></p></td>
-<td class="cl-f7787e9b"><p class="cl-f778763e"><span class="cl-f7774ffc">9</span></p></td>
-<td class="cl-f7787e9c"><p class="cl-f778763e"><span class="cl-f7774ffc">9.736</span></p></td>
-<td class="cl-f7787e9c"><p class="cl-f778763e"><span class="cl-f7774ffc">3.694</span></p></td>
-<td class="cl-f7787e9c"><p class="cl-f778763e"><span class="cl-f7774ffc">3.257</span></p></td>
-<td class="cl-f7787e9c"><p class="cl-f778763e"><span class="cl-f7774ffc">15.002</span></p></td>
+<td class="cl-0c29de9c"><p class="cl-0c29cacc"><span class="cl-0c268efc">2</span></p></td>
+<td class="cl-0c29dea4"><p class="cl-0c29cad6"><span class="cl-0c268efc">Prone</span></p></td>
+<td class="cl-0c29dea5"><p class="cl-0c29cacc"><span class="cl-0c268efc">9</span></p></td>
+<td class="cl-0c29deae"><p class="cl-0c29cacc"><span class="cl-0c268efc">9.736</span></p></td>
+<td class="cl-0c29deae"><p class="cl-0c29cacc"><span class="cl-0c268efc">3.694</span></p></td>
+<td class="cl-0c29deae"><p class="cl-0c29cacc"><span class="cl-0c268efc">3.257</span></p></td>
+<td class="cl-0c29deae"><p class="cl-0c29cacc"><span class="cl-0c268efc">15.002</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f7787e92"><p class="cl-f778763e"><span class="cl-f7774ffc">3</span></p></td>
-<td class="cl-f7787e9a"><p class="cl-f7787648"><span class="cl-f7774ffc">Prone</span></p></td>
-<td class="cl-f7787e9b"><p class="cl-f778763e"><span class="cl-f7774ffc">5</span></p></td>
-<td class="cl-f7787e9c"><p class="cl-f778763e"><span class="cl-f7774ffc">11.802</span></p></td>
-<td class="cl-f7787e9c"><p class="cl-f778763e"><span class="cl-f7774ffc">2.444</span></p></td>
-<td class="cl-f7787e9c"><p class="cl-f778763e"><span class="cl-f7774ffc">10.066</span></p></td>
-<td class="cl-f7787e9c"><p class="cl-f778763e"><span class="cl-f7774ffc">15.904</span></p></td>
+<td class="cl-0c29de9c"><p class="cl-0c29cacc"><span class="cl-0c268efc">3</span></p></td>
+<td class="cl-0c29dea4"><p class="cl-0c29cad6"><span class="cl-0c268efc">Prone</span></p></td>
+<td class="cl-0c29dea5"><p class="cl-0c29cacc"><span class="cl-0c268efc">5</span></p></td>
+<td class="cl-0c29deae"><p class="cl-0c29cacc"><span class="cl-0c268efc">11.802</span></p></td>
+<td class="cl-0c29deae"><p class="cl-0c29cacc"><span class="cl-0c268efc">2.444</span></p></td>
+<td class="cl-0c29deae"><p class="cl-0c29cacc"><span class="cl-0c268efc">10.066</span></p></td>
+<td class="cl-0c29deae"><p class="cl-0c29cacc"><span class="cl-0c268efc">15.904</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f7787e9d"><p class="cl-f778763e"><span class="cl-f7774ffc">1</span></p></td>
-<td class="cl-f7787ea4"><p class="cl-f7787648"><span class="cl-f7774ffc">Sitting</span></p></td>
-<td class="cl-f7787ea5"><p class="cl-f778763e"><span class="cl-f7774ffc">14</span></p></td>
-<td class="cl-f7787ea6"><p class="cl-f778763e"><span class="cl-f7774ffc">33.177</span></p></td>
-<td class="cl-f7787ea6"><p class="cl-f778763e"><span class="cl-f7774ffc">13.518</span></p></td>
-<td class="cl-f7787ea6"><p class="cl-f778763e"><span class="cl-f7774ffc">12.819</span></p></td>
-<td class="cl-f7787ea6"><p class="cl-f778763e"><span class="cl-f7774ffc">53.703</span></p></td>
+<td class="cl-0c29deaf"><p class="cl-0c29cacc"><span class="cl-0c268efc">1</span></p></td>
+<td class="cl-0c29deb0"><p class="cl-0c29cad6"><span class="cl-0c268efc">Sitting</span></p></td>
+<td class="cl-0c29deb8"><p class="cl-0c29cacc"><span class="cl-0c268efc">14</span></p></td>
+<td class="cl-0c29dec2"><p class="cl-0c29cacc"><span class="cl-0c268efc">33.177</span></p></td>
+<td class="cl-0c29dec2"><p class="cl-0c29cacc"><span class="cl-0c268efc">13.518</span></p></td>
+<td class="cl-0c29dec2"><p class="cl-0c29cacc"><span class="cl-0c268efc">12.819</span></p></td>
+<td class="cl-0c29dec2"><p class="cl-0c29cacc"><span class="cl-0c268efc">53.703</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f7787e9d"><p class="cl-f778763e"><span class="cl-f7774ffc">2</span></p></td>
-<td class="cl-f7787ea4"><p class="cl-f7787648"><span class="cl-f7774ffc">Sitting</span></p></td>
-<td class="cl-f7787ea5"><p class="cl-f778763e"><span class="cl-f7774ffc">9</span></p></td>
-<td class="cl-f7787ea6"><p class="cl-f778763e"><span class="cl-f7774ffc">43.748</span></p></td>
-<td class="cl-f7787ea6"><p class="cl-f778763e"><span class="cl-f7774ffc">10.718</span></p></td>
-<td class="cl-f7787ea6"><p class="cl-f778763e"><span class="cl-f7774ffc">32.400</span></p></td>
-<td class="cl-f7787ea6"><p class="cl-f778763e"><span class="cl-f7774ffc">60.394</span></p></td>
+<td class="cl-0c29deaf"><p class="cl-0c29cacc"><span class="cl-0c268efc">2</span></p></td>
+<td class="cl-0c29deb0"><p class="cl-0c29cad6"><span class="cl-0c268efc">Sitting</span></p></td>
+<td class="cl-0c29deb8"><p class="cl-0c29cacc"><span class="cl-0c268efc">9</span></p></td>
+<td class="cl-0c29dec2"><p class="cl-0c29cacc"><span class="cl-0c268efc">43.748</span></p></td>
+<td class="cl-0c29dec2"><p class="cl-0c29cacc"><span class="cl-0c268efc">10.718</span></p></td>
+<td class="cl-0c29dec2"><p class="cl-0c29cacc"><span class="cl-0c268efc">32.400</span></p></td>
+<td class="cl-0c29dec2"><p class="cl-0c29cacc"><span class="cl-0c268efc">60.394</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f7787e9d"><p class="cl-f778763e"><span class="cl-f7774ffc">3</span></p></td>
-<td class="cl-f7787ea4"><p class="cl-f7787648"><span class="cl-f7774ffc">Sitting</span></p></td>
-<td class="cl-f7787ea5"><p class="cl-f778763e"><span class="cl-f7774ffc">5</span></p></td>
-<td class="cl-f7787ea6"><p class="cl-f778763e"><span class="cl-f7774ffc">37.510</span></p></td>
-<td class="cl-f7787ea6"><p class="cl-f778763e"><span class="cl-f7774ffc">7.848</span></p></td>
-<td class="cl-f7787ea6"><p class="cl-f778763e"><span class="cl-f7774ffc">25.139</span></p></td>
-<td class="cl-f7787ea6"><p class="cl-f778763e"><span class="cl-f7774ffc">44.118</span></p></td>
+<td class="cl-0c29deaf"><p class="cl-0c29cacc"><span class="cl-0c268efc">3</span></p></td>
+<td class="cl-0c29deb0"><p class="cl-0c29cad6"><span class="cl-0c268efc">Sitting</span></p></td>
+<td class="cl-0c29deb8"><p class="cl-0c29cacc"><span class="cl-0c268efc">5</span></p></td>
+<td class="cl-0c29dec2"><p class="cl-0c29cacc"><span class="cl-0c268efc">37.510</span></p></td>
+<td class="cl-0c29dec2"><p class="cl-0c29cacc"><span class="cl-0c268efc">7.848</span></p></td>
+<td class="cl-0c29dec2"><p class="cl-0c29cacc"><span class="cl-0c268efc">25.139</span></p></td>
+<td class="cl-0c29dec2"><p class="cl-0c29cacc"><span class="cl-0c268efc">44.118</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f7787e9d"><p class="cl-f778763e"><span class="cl-f7774ffc">1</span></p></td>
-<td class="cl-f7787ea4"><p class="cl-f7787648"><span class="cl-f7774ffc">Standing</span></p></td>
-<td class="cl-f7787ea5"><p class="cl-f778763e"><span class="cl-f7774ffc">14</span></p></td>
-<td class="cl-f7787ea6"><p class="cl-f778763e"><span class="cl-f7774ffc">10.158</span></p></td>
-<td class="cl-f7787ea6"><p class="cl-f778763e"><span class="cl-f7774ffc">8.236</span></p></td>
-<td class="cl-f7787ea6"><p class="cl-f778763e"><span class="cl-f7774ffc">1.326</span></p></td>
-<td class="cl-f7787ea6"><p class="cl-f778763e"><span class="cl-f7774ffc">33.114</span></p></td>
+<td class="cl-0c29deaf"><p class="cl-0c29cacc"><span class="cl-0c268efc">1</span></p></td>
+<td class="cl-0c29deb0"><p class="cl-0c29cad6"><span class="cl-0c268efc">Standing</span></p></td>
+<td class="cl-0c29deb8"><p class="cl-0c29cacc"><span class="cl-0c268efc">14</span></p></td>
+<td class="cl-0c29dec2"><p class="cl-0c29cacc"><span class="cl-0c268efc">10.158</span></p></td>
+<td class="cl-0c29dec2"><p class="cl-0c29cacc"><span class="cl-0c268efc">8.236</span></p></td>
+<td class="cl-0c29dec2"><p class="cl-0c29cacc"><span class="cl-0c268efc">1.326</span></p></td>
+<td class="cl-0c29dec2"><p class="cl-0c29cacc"><span class="cl-0c268efc">33.114</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f7787e9d"><p class="cl-f778763e"><span class="cl-f7774ffc">2</span></p></td>
-<td class="cl-f7787ea4"><p class="cl-f7787648"><span class="cl-f7774ffc">Standing</span></p></td>
-<td class="cl-f7787ea5"><p class="cl-f778763e"><span class="cl-f7774ffc">9</span></p></td>
-<td class="cl-f7787ea6"><p class="cl-f778763e"><span class="cl-f7774ffc">20.781</span></p></td>
-<td class="cl-f7787ea6"><p class="cl-f778763e"><span class="cl-f7774ffc">6.835</span></p></td>
-<td class="cl-f7787ea6"><p class="cl-f778763e"><span class="cl-f7774ffc">8.784</span></p></td>
-<td class="cl-f7787ea6"><p class="cl-f778763e"><span class="cl-f7774ffc">31.995</span></p></td>
+<td class="cl-0c29deaf"><p class="cl-0c29cacc"><span class="cl-0c268efc">2</span></p></td>
+<td class="cl-0c29deb0"><p class="cl-0c29cad6"><span class="cl-0c268efc">Standing</span></p></td>
+<td class="cl-0c29deb8"><p class="cl-0c29cacc"><span class="cl-0c268efc">9</span></p></td>
+<td class="cl-0c29dec2"><p class="cl-0c29cacc"><span class="cl-0c268efc">20.781</span></p></td>
+<td class="cl-0c29dec2"><p class="cl-0c29cacc"><span class="cl-0c268efc">6.835</span></p></td>
+<td class="cl-0c29dec2"><p class="cl-0c29cacc"><span class="cl-0c268efc">8.784</span></p></td>
+<td class="cl-0c29dec2"><p class="cl-0c29cacc"><span class="cl-0c268efc">31.995</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f7787e9d"><p class="cl-f778763e"><span class="cl-f7774ffc">3</span></p></td>
-<td class="cl-f7787ea4"><p class="cl-f7787648"><span class="cl-f7774ffc">Standing</span></p></td>
-<td class="cl-f7787ea5"><p class="cl-f778763e"><span class="cl-f7774ffc">5</span></p></td>
-<td class="cl-f7787ea6"><p class="cl-f778763e"><span class="cl-f7774ffc">29.638</span></p></td>
-<td class="cl-f7787ea6"><p class="cl-f778763e"><span class="cl-f7774ffc">6.951</span></p></td>
-<td class="cl-f7787ea6"><p class="cl-f778763e"><span class="cl-f7774ffc">20.757</span></p></td>
-<td class="cl-f7787ea6"><p class="cl-f778763e"><span class="cl-f7774ffc">38.755</span></p></td>
+<td class="cl-0c29deaf"><p class="cl-0c29cacc"><span class="cl-0c268efc">3</span></p></td>
+<td class="cl-0c29deb0"><p class="cl-0c29cad6"><span class="cl-0c268efc">Standing</span></p></td>
+<td class="cl-0c29deb8"><p class="cl-0c29cacc"><span class="cl-0c268efc">5</span></p></td>
+<td class="cl-0c29dec2"><p class="cl-0c29cacc"><span class="cl-0c268efc">29.638</span></p></td>
+<td class="cl-0c29dec2"><p class="cl-0c29cacc"><span class="cl-0c268efc">6.951</span></p></td>
+<td class="cl-0c29dec2"><p class="cl-0c29cacc"><span class="cl-0c268efc">20.757</span></p></td>
+<td class="cl-0c29dec2"><p class="cl-0c29cacc"><span class="cl-0c268efc">38.755</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f7787ea7"><p class="cl-f778763e"><span class="cl-f7774ffc">1</span></p></td>
-<td class="cl-f7787ea8"><p class="cl-f7787648"><span class="cl-f7774ffc">Held</span></p></td>
-<td class="cl-f7787ea9"><p class="cl-f778763e"><span class="cl-f7774ffc">14</span></p></td>
-<td class="cl-f7787eae"><p class="cl-f778763e"><span class="cl-f7774ffc">11.441</span></p></td>
-<td class="cl-f7787eae"><p class="cl-f778763e"><span class="cl-f7774ffc">4.541</span></p></td>
-<td class="cl-f7787eae"><p class="cl-f778763e"><span class="cl-f7774ffc">3.704</span></p></td>
-<td class="cl-f7787eae"><p class="cl-f778763e"><span class="cl-f7774ffc">20.746</span></p></td>
+<td class="cl-0c29dec3"><p class="cl-0c29cacc"><span class="cl-0c268efc">1</span></p></td>
+<td class="cl-0c29dec4"><p class="cl-0c29cad6"><span class="cl-0c268efc">Held</span></p></td>
+<td class="cl-0c29decc"><p class="cl-0c29cacc"><span class="cl-0c268efc">14</span></p></td>
+<td class="cl-0c29ded6"><p class="cl-0c29cacc"><span class="cl-0c268efc">11.441</span></p></td>
+<td class="cl-0c29ded6"><p class="cl-0c29cacc"><span class="cl-0c268efc">4.541</span></p></td>
+<td class="cl-0c29ded6"><p class="cl-0c29cacc"><span class="cl-0c268efc">3.704</span></p></td>
+<td class="cl-0c29ded6"><p class="cl-0c29cacc"><span class="cl-0c268efc">20.746</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f7787ea7"><p class="cl-f778763e"><span class="cl-f7774ffc">2</span></p></td>
-<td class="cl-f7787ea8"><p class="cl-f7787648"><span class="cl-f7774ffc">Held</span></p></td>
-<td class="cl-f7787ea9"><p class="cl-f778763e"><span class="cl-f7774ffc">9</span></p></td>
-<td class="cl-f7787eae"><p class="cl-f778763e"><span class="cl-f7774ffc">10.400</span></p></td>
-<td class="cl-f7787eae"><p class="cl-f778763e"><span class="cl-f7774ffc">5.651</span></p></td>
-<td class="cl-f7787eae"><p class="cl-f778763e"><span class="cl-f7774ffc">2.494</span></p></td>
-<td class="cl-f7787eae"><p class="cl-f778763e"><span class="cl-f7774ffc">19.508</span></p></td>
+<td class="cl-0c29dec3"><p class="cl-0c29cacc"><span class="cl-0c268efc">2</span></p></td>
+<td class="cl-0c29dec4"><p class="cl-0c29cad6"><span class="cl-0c268efc">Held</span></p></td>
+<td class="cl-0c29decc"><p class="cl-0c29cacc"><span class="cl-0c268efc">9</span></p></td>
+<td class="cl-0c29ded6"><p class="cl-0c29cacc"><span class="cl-0c268efc">10.400</span></p></td>
+<td class="cl-0c29ded6"><p class="cl-0c29cacc"><span class="cl-0c268efc">5.651</span></p></td>
+<td class="cl-0c29ded6"><p class="cl-0c29cacc"><span class="cl-0c268efc">2.494</span></p></td>
+<td class="cl-0c29ded6"><p class="cl-0c29cacc"><span class="cl-0c268efc">19.508</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f7787eaf"><p class="cl-f778763e"><span class="cl-f7774ffc">3</span></p></td>
-<td class="cl-f7787eb0"><p class="cl-f7787648"><span class="cl-f7774ffc">Held</span></p></td>
-<td class="cl-f7787eb1"><p class="cl-f778763e"><span class="cl-f7774ffc">5</span></p></td>
-<td class="cl-f7787eb8"><p class="cl-f778763e"><span class="cl-f7774ffc">9.832</span></p></td>
-<td class="cl-f7787eb8"><p class="cl-f778763e"><span class="cl-f7774ffc">5.086</span></p></td>
-<td class="cl-f7787eb8"><p class="cl-f778763e"><span class="cl-f7774ffc">3.273</span></p></td>
-<td class="cl-f7787eb8"><p class="cl-f778763e"><span class="cl-f7774ffc">15.978</span></p></td>
+<td class="cl-0c29ded7"><p class="cl-0c29cacc"><span class="cl-0c268efc">3</span></p></td>
+<td class="cl-0c29dee0"><p class="cl-0c29cad6"><span class="cl-0c268efc">Held</span></p></td>
+<td class="cl-0c29dee1"><p class="cl-0c29cacc"><span class="cl-0c268efc">5</span></p></td>
+<td class="cl-0c29deea"><p class="cl-0c29cacc"><span class="cl-0c268efc">9.832</span></p></td>
+<td class="cl-0c29deea"><p class="cl-0c29cacc"><span class="cl-0c268efc">5.086</span></p></td>
+<td class="cl-0c29deea"><p class="cl-0c29cacc"><span class="cl-0c268efc">3.273</span></p></td>
+<td class="cl-0c29deea"><p class="cl-0c29cacc"><span class="cl-0c268efc">15.978</span></p></td>
 </tr>
 </tbody>
 </table>
@@ -436,13 +443,13 @@ Users can load data by running (requires one-time google drive authentication):<
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="summaries_files/figure-html/frequency-by-age-overall-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3" title="Position means and SE"><img src="summaries_files/figure-html/frequency-by-age-overall-1.png" class="img-fluid figure-img" style="width:100.0%" alt="Position means and SE"></a></p>
+<figure class="figure"><p><a href="summaries_files/figure-html/frequency-by-age-overall-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3" title="Position means and SE"><img src="summaries_files/figure-html/frequency-by-age-overall-1.png" class="img-fluid figure-img" style="width:100.0%" alt="Position means and SE"></a></p>
 <figcaption>Position means and SE</figcaption></figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="summaries_files/figure-html/frequency-by-age-overall-2.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4" title="Position distribution"><img src="summaries_files/figure-html/frequency-by-age-overall-2.png" class="img-fluid figure-img" style="width:100.0%" alt="Position distribution"></a></p>
+<figure class="figure"><p><a href="summaries_files/figure-html/frequency-by-age-overall-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4" title="Position distribution"><img src="summaries_files/figure-html/frequency-by-age-overall-2.png" class="img-fluid figure-img" style="width:100.0%" alt="Position distribution"></a></p>
 <figcaption>Position distribution</figcaption></figure>
 </div>
 </div>
@@ -478,72 +485,72 @@ Users can load data by running (requires one-time google drive authentication):<
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">variable</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">flextable</span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">autofit</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div class="tabwid">
-<style>.cl-f83522b6{}.cl-f832365a{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-f8339fd6{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-f8339fd7{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-f833a6a2{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f833a6a3{width:1.16in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f833a6ac{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f833a6ad{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f833a6ae{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f833a6af{width:1.16in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f833a6b0{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f833a6b6{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f833a6b7{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f833a6b8{width:1.16in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f833a6b9{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f833a6ba{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table data-quarto-disable-processing="true" class="cl-f83522b6">
+<style>.cl-0e263c2a{}.cl-0e1c7190{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-0e21de64{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-0e21de78{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-0e21f160{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0e21f16a{width:1.16in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0e21f174{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0e21f175{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0e21f17e{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0e21f17f{width:1.16in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0e21f188{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0e21f192{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0e21f193{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0e21f19c{width:1.16in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0e21f19d{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0e21f1a6{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table data-quarto-disable-processing="true" class="cl-0e263c2a">
 <caption><p>Restraint summary statistics</p></caption>
 <thead><tr style="overflow-wrap:break-word;">
-<th class="cl-f833a6a2"><p class="cl-f8339fd6"><span class="cl-f832365a">session</span></p></th>
-<th class="cl-f833a6a3"><p class="cl-f8339fd7"><span class="cl-f832365a">restraint</span></p></th>
-<th class="cl-f833a6ac"><p class="cl-f8339fd6"><span class="cl-f832365a">n</span></p></th>
-<th class="cl-f833a6ad"><p class="cl-f8339fd6"><span class="cl-f832365a">mean</span></p></th>
-<th class="cl-f833a6ad"><p class="cl-f8339fd6"><span class="cl-f832365a">sd</span></p></th>
-<th class="cl-f833a6ad"><p class="cl-f8339fd6"><span class="cl-f832365a">min</span></p></th>
-<th class="cl-f833a6ad"><p class="cl-f8339fd6"><span class="cl-f832365a">max</span></p></th>
+<th class="cl-0e21f160"><p class="cl-0e21de64"><span class="cl-0e1c7190">session</span></p></th>
+<th class="cl-0e21f16a"><p class="cl-0e21de78"><span class="cl-0e1c7190">restraint</span></p></th>
+<th class="cl-0e21f174"><p class="cl-0e21de64"><span class="cl-0e1c7190">n</span></p></th>
+<th class="cl-0e21f175"><p class="cl-0e21de64"><span class="cl-0e1c7190">mean</span></p></th>
+<th class="cl-0e21f175"><p class="cl-0e21de64"><span class="cl-0e1c7190">sd</span></p></th>
+<th class="cl-0e21f175"><p class="cl-0e21de64"><span class="cl-0e1c7190">min</span></p></th>
+<th class="cl-0e21f175"><p class="cl-0e21de64"><span class="cl-0e1c7190">max</span></p></th>
 </tr></thead>
 <tbody>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f833a6ae"><p class="cl-f8339fd6"><span class="cl-f832365a">1</span></p></td>
-<td class="cl-f833a6af"><p class="cl-f8339fd7"><span class="cl-f832365a">Restrained</span></p></td>
-<td class="cl-f833a6b0"><p class="cl-f8339fd6"><span class="cl-f832365a">14</span></p></td>
-<td class="cl-f833a6b6"><p class="cl-f8339fd6"><span class="cl-f832365a">25.260</span></p></td>
-<td class="cl-f833a6b6"><p class="cl-f8339fd6"><span class="cl-f832365a">12.212</span></p></td>
-<td class="cl-f833a6b6"><p class="cl-f8339fd6"><span class="cl-f832365a">11.638</span></p></td>
-<td class="cl-f833a6b6"><p class="cl-f8339fd6"><span class="cl-f832365a">53.168</span></p></td>
+<td class="cl-0e21f17e"><p class="cl-0e21de64"><span class="cl-0e1c7190">1</span></p></td>
+<td class="cl-0e21f17f"><p class="cl-0e21de78"><span class="cl-0e1c7190">Restrained</span></p></td>
+<td class="cl-0e21f188"><p class="cl-0e21de64"><span class="cl-0e1c7190">14</span></p></td>
+<td class="cl-0e21f192"><p class="cl-0e21de64"><span class="cl-0e1c7190">25.260</span></p></td>
+<td class="cl-0e21f192"><p class="cl-0e21de64"><span class="cl-0e1c7190">12.212</span></p></td>
+<td class="cl-0e21f192"><p class="cl-0e21de64"><span class="cl-0e1c7190">11.638</span></p></td>
+<td class="cl-0e21f192"><p class="cl-0e21de64"><span class="cl-0e1c7190">53.168</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f833a6ae"><p class="cl-f8339fd6"><span class="cl-f832365a">2</span></p></td>
-<td class="cl-f833a6af"><p class="cl-f8339fd7"><span class="cl-f832365a">Restrained</span></p></td>
-<td class="cl-f833a6b0"><p class="cl-f8339fd6"><span class="cl-f832365a">9</span></p></td>
-<td class="cl-f833a6b6"><p class="cl-f8339fd6"><span class="cl-f832365a">25.424</span></p></td>
-<td class="cl-f833a6b6"><p class="cl-f8339fd6"><span class="cl-f832365a">15.525</span></p></td>
-<td class="cl-f833a6b6"><p class="cl-f8339fd6"><span class="cl-f832365a">5.402</span></p></td>
-<td class="cl-f833a6b6"><p class="cl-f8339fd6"><span class="cl-f832365a">55.081</span></p></td>
+<td class="cl-0e21f17e"><p class="cl-0e21de64"><span class="cl-0e1c7190">2</span></p></td>
+<td class="cl-0e21f17f"><p class="cl-0e21de78"><span class="cl-0e1c7190">Restrained</span></p></td>
+<td class="cl-0e21f188"><p class="cl-0e21de64"><span class="cl-0e1c7190">9</span></p></td>
+<td class="cl-0e21f192"><p class="cl-0e21de64"><span class="cl-0e1c7190">25.424</span></p></td>
+<td class="cl-0e21f192"><p class="cl-0e21de64"><span class="cl-0e1c7190">15.525</span></p></td>
+<td class="cl-0e21f192"><p class="cl-0e21de64"><span class="cl-0e1c7190">5.402</span></p></td>
+<td class="cl-0e21f192"><p class="cl-0e21de64"><span class="cl-0e1c7190">55.081</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f833a6ae"><p class="cl-f8339fd6"><span class="cl-f832365a">3</span></p></td>
-<td class="cl-f833a6af"><p class="cl-f8339fd7"><span class="cl-f832365a">Restrained</span></p></td>
-<td class="cl-f833a6b0"><p class="cl-f8339fd6"><span class="cl-f832365a">5</span></p></td>
-<td class="cl-f833a6b6"><p class="cl-f8339fd6"><span class="cl-f832365a">28.435</span></p></td>
-<td class="cl-f833a6b6"><p class="cl-f8339fd6"><span class="cl-f832365a">9.345</span></p></td>
-<td class="cl-f833a6b6"><p class="cl-f8339fd6"><span class="cl-f832365a">12.556</span></p></td>
-<td class="cl-f833a6b6"><p class="cl-f8339fd6"><span class="cl-f832365a">36.106</span></p></td>
+<td class="cl-0e21f17e"><p class="cl-0e21de64"><span class="cl-0e1c7190">3</span></p></td>
+<td class="cl-0e21f17f"><p class="cl-0e21de78"><span class="cl-0e1c7190">Restrained</span></p></td>
+<td class="cl-0e21f188"><p class="cl-0e21de64"><span class="cl-0e1c7190">5</span></p></td>
+<td class="cl-0e21f192"><p class="cl-0e21de64"><span class="cl-0e1c7190">28.435</span></p></td>
+<td class="cl-0e21f192"><p class="cl-0e21de64"><span class="cl-0e1c7190">9.345</span></p></td>
+<td class="cl-0e21f192"><p class="cl-0e21de64"><span class="cl-0e1c7190">12.556</span></p></td>
+<td class="cl-0e21f192"><p class="cl-0e21de64"><span class="cl-0e1c7190">36.106</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f833a6ae"><p class="cl-f8339fd6"><span class="cl-f832365a">1</span></p></td>
-<td class="cl-f833a6af"><p class="cl-f8339fd7"><span class="cl-f832365a">Unrestrained</span></p></td>
-<td class="cl-f833a6b0"><p class="cl-f8339fd6"><span class="cl-f832365a">14</span></p></td>
-<td class="cl-f833a6b6"><p class="cl-f8339fd6"><span class="cl-f832365a">74.740</span></p></td>
-<td class="cl-f833a6b6"><p class="cl-f8339fd6"><span class="cl-f832365a">12.212</span></p></td>
-<td class="cl-f833a6b6"><p class="cl-f8339fd6"><span class="cl-f832365a">46.832</span></p></td>
-<td class="cl-f833a6b6"><p class="cl-f8339fd6"><span class="cl-f832365a">88.362</span></p></td>
+<td class="cl-0e21f17e"><p class="cl-0e21de64"><span class="cl-0e1c7190">1</span></p></td>
+<td class="cl-0e21f17f"><p class="cl-0e21de78"><span class="cl-0e1c7190">Unrestrained</span></p></td>
+<td class="cl-0e21f188"><p class="cl-0e21de64"><span class="cl-0e1c7190">14</span></p></td>
+<td class="cl-0e21f192"><p class="cl-0e21de64"><span class="cl-0e1c7190">74.740</span></p></td>
+<td class="cl-0e21f192"><p class="cl-0e21de64"><span class="cl-0e1c7190">12.212</span></p></td>
+<td class="cl-0e21f192"><p class="cl-0e21de64"><span class="cl-0e1c7190">46.832</span></p></td>
+<td class="cl-0e21f192"><p class="cl-0e21de64"><span class="cl-0e1c7190">88.362</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f833a6ae"><p class="cl-f8339fd6"><span class="cl-f832365a">2</span></p></td>
-<td class="cl-f833a6af"><p class="cl-f8339fd7"><span class="cl-f832365a">Unrestrained</span></p></td>
-<td class="cl-f833a6b0"><p class="cl-f8339fd6"><span class="cl-f832365a">9</span></p></td>
-<td class="cl-f833a6b6"><p class="cl-f8339fd6"><span class="cl-f832365a">74.576</span></p></td>
-<td class="cl-f833a6b6"><p class="cl-f8339fd6"><span class="cl-f832365a">15.525</span></p></td>
-<td class="cl-f833a6b6"><p class="cl-f8339fd6"><span class="cl-f832365a">44.919</span></p></td>
-<td class="cl-f833a6b6"><p class="cl-f8339fd6"><span class="cl-f832365a">94.598</span></p></td>
+<td class="cl-0e21f17e"><p class="cl-0e21de64"><span class="cl-0e1c7190">2</span></p></td>
+<td class="cl-0e21f17f"><p class="cl-0e21de78"><span class="cl-0e1c7190">Unrestrained</span></p></td>
+<td class="cl-0e21f188"><p class="cl-0e21de64"><span class="cl-0e1c7190">9</span></p></td>
+<td class="cl-0e21f192"><p class="cl-0e21de64"><span class="cl-0e1c7190">74.576</span></p></td>
+<td class="cl-0e21f192"><p class="cl-0e21de64"><span class="cl-0e1c7190">15.525</span></p></td>
+<td class="cl-0e21f192"><p class="cl-0e21de64"><span class="cl-0e1c7190">44.919</span></p></td>
+<td class="cl-0e21f192"><p class="cl-0e21de64"><span class="cl-0e1c7190">94.598</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f833a6b7"><p class="cl-f8339fd6"><span class="cl-f832365a">3</span></p></td>
-<td class="cl-f833a6b8"><p class="cl-f8339fd7"><span class="cl-f832365a">Unrestrained</span></p></td>
-<td class="cl-f833a6b9"><p class="cl-f8339fd6"><span class="cl-f832365a">5</span></p></td>
-<td class="cl-f833a6ba"><p class="cl-f8339fd6"><span class="cl-f832365a">71.565</span></p></td>
-<td class="cl-f833a6ba"><p class="cl-f8339fd6"><span class="cl-f832365a">9.345</span></p></td>
-<td class="cl-f833a6ba"><p class="cl-f8339fd6"><span class="cl-f832365a">63.894</span></p></td>
-<td class="cl-f833a6ba"><p class="cl-f8339fd6"><span class="cl-f832365a">87.444</span></p></td>
+<td class="cl-0e21f193"><p class="cl-0e21de64"><span class="cl-0e1c7190">3</span></p></td>
+<td class="cl-0e21f19c"><p class="cl-0e21de78"><span class="cl-0e1c7190">Unrestrained</span></p></td>
+<td class="cl-0e21f19d"><p class="cl-0e21de64"><span class="cl-0e1c7190">5</span></p></td>
+<td class="cl-0e21f1a6"><p class="cl-0e21de64"><span class="cl-0e1c7190">71.565</span></p></td>
+<td class="cl-0e21f1a6"><p class="cl-0e21de64"><span class="cl-0e1c7190">9.345</span></p></td>
+<td class="cl-0e21f1a6"><p class="cl-0e21de64"><span class="cl-0e1c7190">63.894</span></p></td>
+<td class="cl-0e21f1a6"><p class="cl-0e21de64"><span class="cl-0e1c7190">87.444</span></p></td>
 </tr>
 </tbody>
 </table>
@@ -567,13 +574,13 @@ Users can load data by running (requires one-time google drive authentication):<
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="summaries_files/figure-html/restraint-by-age-overall-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="quarto-lightbox-gallery-6" title="Restraint means and SE"><img src="summaries_files/figure-html/restraint-by-age-overall-1.png" class="img-fluid figure-img" style="width:100.0%" alt="Restraint means and SE"></a></p>
+<figure class="figure"><p><a href="summaries_files/figure-html/restraint-by-age-overall-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-glightbox="description: .lightbox-desc-6" title="Restraint means and SE"><img src="summaries_files/figure-html/restraint-by-age-overall-1.png" class="img-fluid figure-img" style="width:100.0%" alt="Restraint means and SE"></a></p>
 <figcaption>Restraint means and SE</figcaption></figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="summaries_files/figure-html/restraint-by-age-overall-2.png" class="lightbox" data-glightbox="description: .lightbox-desc-7" data-gallery="quarto-lightbox-gallery-7" title="Restraint distribution"><img src="summaries_files/figure-html/restraint-by-age-overall-2.png" class="img-fluid figure-img" style="width:100.0%" alt="Restraint distribution"></a></p>
+<figure class="figure"><p><a href="summaries_files/figure-html/restraint-by-age-overall-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" data-glightbox="description: .lightbox-desc-7" title="Restraint distribution"><img src="summaries_files/figure-html/restraint-by-age-overall-2.png" class="img-fluid figure-img" style="width:100.0%" alt="Restraint distribution"></a></p>
 <figcaption>Restraint distribution</figcaption></figure>
 </div>
 </div>
@@ -1126,193 +1133,200 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pins)</span>
 <span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nanoparquet)</span>
 <span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(googledrive)</span>
-<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a>ds <span class="ot">&lt;-</span> <span class="fu">board_gdrive</span>(<span class="at">path =</span> <span class="fu">as_id</span>(<span class="st">"1OZlphhu6vYm1A2Bm2-zD7a4luS5nGWgS"</span>)) </span>
-<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a>ds <span class="ot">&lt;-</span> board <span class="sc">%&gt;%</span> <span class="fu">pin_read</span>(<span class="st">"imu_raw_samples"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(nap_period <span class="sc">==</span> <span class="dv">0</span>, exclude_period <span class="sc">==</span> <span class="dv">0</span>)</span>
-<span id="cb11-64"><a href="#cb11-64" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a><span class="fu">### Usable data</span></span>
+<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the board of pinned data sets (authenticated users only)</span></span>
+<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a>board <span class="ot">&lt;-</span> <span class="fu">board_gdrive</span>(<span class="at">path =</span> <span class="fu">as_id</span>(<span class="st">"1OZlphhu6vYm1A2Bm2-zD7a4luS5nGWgS"</span>)) </span>
+<span id="cb11-64"><a href="#cb11-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a><span class="co"># To see available pinned data</span></span>
+<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a>board <span class="sc">%&gt;%</span> <span class="fu">pin_list</span>()</span>
 <span id="cb11-67"><a href="#cb11-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-70"><a href="#cb11-70" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb11-71"><a href="#cb11-71" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb11-72"><a href="#cb11-72" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: Usable-data</span></span>
-<span id="cb11-73"><a href="#cb11-73" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: Usable data and total recording length in hours</span></span>
+<span id="cb11-68"><a href="#cb11-68" aria-hidden="true" tabindex="-1"></a><span class="co"># To read a specific data pin into memory</span></span>
+<span id="cb11-69"><a href="#cb11-69" aria-hidden="true" tabindex="-1"></a>ds <span class="ot">&lt;-</span> board <span class="sc">%&gt;%</span> <span class="fu">pin_read</span>(<span class="st">"imu_raw_samples"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-70"><a href="#cb11-70" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(nap_period <span class="sc">==</span> <span class="dv">0</span>, exclude_period <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb11-71"><a href="#cb11-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-72"><a href="#cb11-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-73"><a href="#cb11-73" aria-hidden="true" tabindex="-1"></a><span class="fu">### Usable data</span></span>
 <span id="cb11-74"><a href="#cb11-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-75"><a href="#cb11-75" aria-hidden="true" tabindex="-1"></a>usable_data <span class="ot">&lt;-</span> ds <span class="sc">%&gt;%</span> <span class="fu">count</span>(id, session) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">usable_hours =</span> n<span class="sc">/</span><span class="dv">3600</span>)</span>
-<span id="cb11-76"><a href="#cb11-76" aria-hidden="true" tabindex="-1"></a>recording_duration <span class="ot">&lt;-</span> ds <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(id, session) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-77"><a href="#cb11-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">recording_hours =</span> <span class="fu">as.numeric</span>(<span class="fu">max</span>(time) <span class="sc">-</span> <span class="fu">min</span>(time))) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-78"><a href="#cb11-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> ungroup</span>
-<span id="cb11-79"><a href="#cb11-79" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-80"><a href="#cb11-80" aria-hidden="true" tabindex="-1"></a>usable_data <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(recording_duration) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-81"><a href="#cb11-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(usable_hours, recording_hours, <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>,<span class="st">"min"</span>,<span class="st">"max"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-82"><a href="#cb11-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">flextable</span>() <span class="sc">%&gt;%</span> <span class="fu">autofit</span>()</span>
-<span id="cb11-83"><a href="#cb11-83" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-84"><a href="#cb11-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-87"><a href="#cb11-87" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb11-88"><a href="#cb11-88" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb11-89"><a href="#cb11-89" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: Usable-data-histograms</span></span>
-<span id="cb11-90"><a href="#cb11-90" aria-hidden="true" tabindex="-1"></a><span class="co">#| layout-ncol: 2</span></span>
-<span id="cb11-91"><a href="#cb11-91" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: </span></span>
-<span id="cb11-92"><a href="#cb11-92" aria-hidden="true" tabindex="-1"></a><span class="co">#|   - "Usable hours after exclusions"</span></span>
-<span id="cb11-93"><a href="#cb11-93" aria-hidden="true" tabindex="-1"></a><span class="co">#|   - "Recording length in hours"</span></span>
-<span id="cb11-94"><a href="#cb11-94" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-95"><a href="#cb11-95" aria-hidden="true" tabindex="-1"></a>usable_data  <span class="sc">%&gt;%</span> </span>
-<span id="cb11-96"><a href="#cb11-96" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> usable_hours)) <span class="sc">+</span> </span>
-<span id="cb11-97"><a href="#cb11-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> </span>
-<span id="cb11-98"><a href="#cb11-98" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_binned</span>(<span class="at">name =</span> <span class="st">"Hours"</span>, <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">14</span>))</span>
-<span id="cb11-99"><a href="#cb11-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-100"><a href="#cb11-100" aria-hidden="true" tabindex="-1"></a>recording_duration  <span class="sc">%&gt;%</span> </span>
-<span id="cb11-101"><a href="#cb11-101" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> recording_hours)) <span class="sc">+</span> </span>
-<span id="cb11-102"><a href="#cb11-102" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> </span>
-<span id="cb11-103"><a href="#cb11-103" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_binned</span>(<span class="at">name =</span> <span class="st">"Hours"</span>, <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">14</span>))</span>
-<span id="cb11-104"><a href="#cb11-104" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-105"><a href="#cb11-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-77"><a href="#cb11-77" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-78"><a href="#cb11-78" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb11-79"><a href="#cb11-79" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: Usable-data</span></span>
+<span id="cb11-80"><a href="#cb11-80" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: Usable data and total recording length in hours</span></span>
+<span id="cb11-81"><a href="#cb11-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-82"><a href="#cb11-82" aria-hidden="true" tabindex="-1"></a>usable_data <span class="ot">&lt;-</span> ds <span class="sc">%&gt;%</span> <span class="fu">count</span>(id, session) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">usable_hours =</span> n<span class="sc">/</span><span class="dv">3600</span>)</span>
+<span id="cb11-83"><a href="#cb11-83" aria-hidden="true" tabindex="-1"></a>recording_duration <span class="ot">&lt;-</span> ds <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(id, session) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-84"><a href="#cb11-84" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">recording_hours =</span> <span class="fu">as.numeric</span>(<span class="fu">max</span>(time) <span class="sc">-</span> <span class="fu">min</span>(time))) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-85"><a href="#cb11-85" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> ungroup</span>
+<span id="cb11-86"><a href="#cb11-86" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-87"><a href="#cb11-87" aria-hidden="true" tabindex="-1"></a>usable_data <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(recording_duration) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-88"><a href="#cb11-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(usable_hours, recording_hours, <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>,<span class="st">"min"</span>,<span class="st">"max"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-89"><a href="#cb11-89" aria-hidden="true" tabindex="-1"></a>  <span class="fu">flextable</span>() <span class="sc">%&gt;%</span> <span class="fu">autofit</span>()</span>
+<span id="cb11-90"><a href="#cb11-90" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-91"><a href="#cb11-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-94"><a href="#cb11-94" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-95"><a href="#cb11-95" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb11-96"><a href="#cb11-96" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: Usable-data-histograms</span></span>
+<span id="cb11-97"><a href="#cb11-97" aria-hidden="true" tabindex="-1"></a><span class="co">#| layout-ncol: 2</span></span>
+<span id="cb11-98"><a href="#cb11-98" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: </span></span>
+<span id="cb11-99"><a href="#cb11-99" aria-hidden="true" tabindex="-1"></a><span class="co">#|   - "Usable hours after exclusions"</span></span>
+<span id="cb11-100"><a href="#cb11-100" aria-hidden="true" tabindex="-1"></a><span class="co">#|   - "Recording length in hours"</span></span>
+<span id="cb11-101"><a href="#cb11-101" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-102"><a href="#cb11-102" aria-hidden="true" tabindex="-1"></a>usable_data  <span class="sc">%&gt;%</span> </span>
+<span id="cb11-103"><a href="#cb11-103" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> usable_hours)) <span class="sc">+</span> </span>
+<span id="cb11-104"><a href="#cb11-104" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> </span>
+<span id="cb11-105"><a href="#cb11-105" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_binned</span>(<span class="at">name =</span> <span class="st">"Hours"</span>, <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">14</span>))</span>
 <span id="cb11-106"><a href="#cb11-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-107"><a href="#cb11-107" aria-hidden="true" tabindex="-1"></a><span class="fu">### Infant Position Frequency by Age (Overall)</span></span>
-<span id="cb11-108"><a href="#cb11-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-111"><a href="#cb11-111" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb11-112"><a href="#cb11-112" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb11-113"><a href="#cb11-113" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: position-table-age</span></span>
-<span id="cb11-114"><a href="#cb11-114" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: Position summary statistics</span></span>
+<span id="cb11-107"><a href="#cb11-107" aria-hidden="true" tabindex="-1"></a>recording_duration  <span class="sc">%&gt;%</span> </span>
+<span id="cb11-108"><a href="#cb11-108" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> recording_hours)) <span class="sc">+</span> </span>
+<span id="cb11-109"><a href="#cb11-109" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> </span>
+<span id="cb11-110"><a href="#cb11-110" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_binned</span>(<span class="at">name =</span> <span class="st">"Hours"</span>, <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">14</span>))</span>
+<span id="cb11-111"><a href="#cb11-111" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-112"><a href="#cb11-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-113"><a href="#cb11-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-114"><a href="#cb11-114" aria-hidden="true" tabindex="-1"></a><span class="fu">### Infant Position Frequency by Age (Overall)</span></span>
 <span id="cb11-115"><a href="#cb11-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-116"><a href="#cb11-116" aria-hidden="true" tabindex="-1"></a>ds_sum <span class="ot">&lt;-</span> ds <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(id, session) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-117"><a href="#cb11-117" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">total_samples =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(id, session, pos) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-118"><a href="#cb11-118" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">pos_n  =</span> <span class="fu">n</span>(), <span class="at">total_samples =</span> <span class="fu">mean</span>(total_samples)) <span class="sc">%&gt;%</span> ungroup</span>
-<span id="cb11-119"><a href="#cb11-119" aria-hidden="true" tabindex="-1"></a>ds_sum <span class="ot">&lt;-</span> ds_sum <span class="sc">%&gt;%</span> <span class="fu">complete</span>(<span class="fu">nesting</span>(id, session), pos, <span class="at">fill =</span> <span class="fu">list</span>(<span class="at">pos_n =</span> <span class="dv">0</span>, <span class="at">total_samples =</span> <span class="dv">1</span>))</span>
-<span id="cb11-120"><a href="#cb11-120" aria-hidden="true" tabindex="-1"></a>ds_sum<span class="sc">$</span>pos_prop <span class="ot">=</span> ds_sum<span class="sc">$</span>pos_n<span class="sc">/</span>ds_sum<span class="sc">$</span>total_samples<span class="sc">*</span><span class="dv">100</span></span>
-<span id="cb11-121"><a href="#cb11-121" aria-hidden="true" tabindex="-1"></a>ds_sum<span class="sc">$</span>session <span class="ot">=</span> <span class="fu">as.numeric</span>(ds_sum<span class="sc">$</span>session)</span>
+<span id="cb11-118"><a href="#cb11-118" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-119"><a href="#cb11-119" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb11-120"><a href="#cb11-120" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: position-table-age</span></span>
+<span id="cb11-121"><a href="#cb11-121" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: Position summary statistics</span></span>
 <span id="cb11-122"><a href="#cb11-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-123"><a href="#cb11-123" aria-hidden="true" tabindex="-1"></a>ds_sum <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(pos, session) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-124"><a href="#cb11-124" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(pos_prop, <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>,<span class="st">"min"</span>,<span class="st">"max"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-125"><a href="#cb11-125" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>variable) <span class="sc">%&gt;%</span> <span class="fu">flextable</span>() <span class="sc">%&gt;%</span> <span class="fu">autofit</span>()</span>
-<span id="cb11-126"><a href="#cb11-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-127"><a href="#cb11-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-130"><a href="#cb11-130" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb11-131"><a href="#cb11-131" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb11-132"><a href="#cb11-132" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: "frequency-by-age-overall"</span></span>
-<span id="cb11-133"><a href="#cb11-133" aria-hidden="true" tabindex="-1"></a><span class="co">#| layout-ncol: 2</span></span>
-<span id="cb11-134"><a href="#cb11-134" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: </span></span>
-<span id="cb11-135"><a href="#cb11-135" aria-hidden="true" tabindex="-1"></a><span class="co">#|   - "Position means and SE"</span></span>
-<span id="cb11-136"><a href="#cb11-136" aria-hidden="true" tabindex="-1"></a><span class="co">#|   - "Position distribution"</span></span>
-<span id="cb11-137"><a href="#cb11-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-138"><a href="#cb11-138" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ds_sum, <span class="fu">aes</span>(<span class="at">x =</span> session, <span class="at">y =</span> pos_prop, <span class="at">color =</span> pos)) <span class="sc">+</span> </span>
-<span id="cb11-139"><a href="#cb11-139" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">1</span>)) <span class="sc">+</span> </span>
-<span id="cb11-140"><a href="#cb11-140" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"line"</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">1</span>)) <span class="sc">+</span> </span>
-<span id="cb11-141"><a href="#cb11-141" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">101</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"% of time"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Session"</span>) <span class="sc">+</span></span>
-<span id="cb11-142"><a href="#cb11-142" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"7 mo"</span>,<span class="st">"9 mo"</span>,<span class="st">"11 mo"</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="fl">3.5</span>)) <span class="sc">+</span> </span>
-<span id="cb11-143"><a href="#cb11-143" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> pal, <span class="at">name =</span><span class="st">""</span>) <span class="sc">+</span> </span>
-<span id="cb11-144"><a href="#cb11-144" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span>
-<span id="cb11-145"><a href="#cb11-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-146"><a href="#cb11-146" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ds_sum, <span class="fu">aes</span>(<span class="at">x =</span> session, <span class="at">y =</span> pos_prop, <span class="at">fill =</span> pos)) <span class="sc">+</span> </span>
-<span id="cb11-147"><a href="#cb11-147" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"bar"</span>, <span class="at">position =</span> <span class="st">"stack"</span>) <span class="sc">+</span> </span>
+<span id="cb11-123"><a href="#cb11-123" aria-hidden="true" tabindex="-1"></a>ds_sum <span class="ot">&lt;-</span> ds <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(id, session) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-124"><a href="#cb11-124" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">total_samples =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(id, session, pos) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-125"><a href="#cb11-125" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">pos_n  =</span> <span class="fu">n</span>(), <span class="at">total_samples =</span> <span class="fu">mean</span>(total_samples)) <span class="sc">%&gt;%</span> ungroup</span>
+<span id="cb11-126"><a href="#cb11-126" aria-hidden="true" tabindex="-1"></a>ds_sum <span class="ot">&lt;-</span> ds_sum <span class="sc">%&gt;%</span> <span class="fu">complete</span>(<span class="fu">nesting</span>(id, session), pos, <span class="at">fill =</span> <span class="fu">list</span>(<span class="at">pos_n =</span> <span class="dv">0</span>, <span class="at">total_samples =</span> <span class="dv">1</span>))</span>
+<span id="cb11-127"><a href="#cb11-127" aria-hidden="true" tabindex="-1"></a>ds_sum<span class="sc">$</span>pos_prop <span class="ot">=</span> ds_sum<span class="sc">$</span>pos_n<span class="sc">/</span>ds_sum<span class="sc">$</span>total_samples<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb11-128"><a href="#cb11-128" aria-hidden="true" tabindex="-1"></a>ds_sum<span class="sc">$</span>session <span class="ot">=</span> <span class="fu">as.numeric</span>(ds_sum<span class="sc">$</span>session)</span>
+<span id="cb11-129"><a href="#cb11-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-130"><a href="#cb11-130" aria-hidden="true" tabindex="-1"></a>ds_sum <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(pos, session) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-131"><a href="#cb11-131" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(pos_prop, <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>,<span class="st">"min"</span>,<span class="st">"max"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-132"><a href="#cb11-132" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>variable) <span class="sc">%&gt;%</span> <span class="fu">flextable</span>() <span class="sc">%&gt;%</span> <span class="fu">autofit</span>()</span>
+<span id="cb11-133"><a href="#cb11-133" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-134"><a href="#cb11-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-137"><a href="#cb11-137" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-138"><a href="#cb11-138" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb11-139"><a href="#cb11-139" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: "frequency-by-age-overall"</span></span>
+<span id="cb11-140"><a href="#cb11-140" aria-hidden="true" tabindex="-1"></a><span class="co">#| layout-ncol: 2</span></span>
+<span id="cb11-141"><a href="#cb11-141" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: </span></span>
+<span id="cb11-142"><a href="#cb11-142" aria-hidden="true" tabindex="-1"></a><span class="co">#|   - "Position means and SE"</span></span>
+<span id="cb11-143"><a href="#cb11-143" aria-hidden="true" tabindex="-1"></a><span class="co">#|   - "Position distribution"</span></span>
+<span id="cb11-144"><a href="#cb11-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-145"><a href="#cb11-145" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ds_sum, <span class="fu">aes</span>(<span class="at">x =</span> session, <span class="at">y =</span> pos_prop, <span class="at">color =</span> pos)) <span class="sc">+</span> </span>
+<span id="cb11-146"><a href="#cb11-146" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">1</span>)) <span class="sc">+</span> </span>
+<span id="cb11-147"><a href="#cb11-147" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"line"</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">1</span>)) <span class="sc">+</span> </span>
 <span id="cb11-148"><a href="#cb11-148" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">101</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"% of time"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Session"</span>) <span class="sc">+</span></span>
 <span id="cb11-149"><a href="#cb11-149" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"7 mo"</span>,<span class="st">"9 mo"</span>,<span class="st">"11 mo"</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="fl">3.5</span>)) <span class="sc">+</span> </span>
-<span id="cb11-150"><a href="#cb11-150" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> pal, <span class="at">name =</span><span class="st">""</span>) <span class="sc">+</span> </span>
+<span id="cb11-150"><a href="#cb11-150" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> pal, <span class="at">name =</span><span class="st">""</span>) <span class="sc">+</span> </span>
 <span id="cb11-151"><a href="#cb11-151" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span>
-<span id="cb11-152"><a href="#cb11-152" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-153"><a href="#cb11-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-154"><a href="#cb11-154" aria-hidden="true" tabindex="-1"></a><span class="fu">### Infant Position Frequency by Age (Individual)</span></span>
-<span id="cb11-155"><a href="#cb11-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-158"><a href="#cb11-158" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb11-159"><a href="#cb11-159" aria-hidden="true" tabindex="-1"></a><span class="co">#| out-width: "90%"</span></span>
-<span id="cb11-160"><a href="#cb11-160" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb11-161"><a href="#cb11-161" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: "frequency-by-age-individual"</span></span>
+<span id="cb11-152"><a href="#cb11-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-153"><a href="#cb11-153" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ds_sum, <span class="fu">aes</span>(<span class="at">x =</span> session, <span class="at">y =</span> pos_prop, <span class="at">fill =</span> pos)) <span class="sc">+</span> </span>
+<span id="cb11-154"><a href="#cb11-154" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"bar"</span>, <span class="at">position =</span> <span class="st">"stack"</span>) <span class="sc">+</span> </span>
+<span id="cb11-155"><a href="#cb11-155" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">101</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"% of time"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Session"</span>) <span class="sc">+</span></span>
+<span id="cb11-156"><a href="#cb11-156" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"7 mo"</span>,<span class="st">"9 mo"</span>,<span class="st">"11 mo"</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="fl">3.5</span>)) <span class="sc">+</span> </span>
+<span id="cb11-157"><a href="#cb11-157" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> pal, <span class="at">name =</span><span class="st">""</span>) <span class="sc">+</span> </span>
+<span id="cb11-158"><a href="#cb11-158" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span>
+<span id="cb11-159"><a href="#cb11-159" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-160"><a href="#cb11-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-161"><a href="#cb11-161" aria-hidden="true" tabindex="-1"></a><span class="fu">### Infant Position Frequency by Age (Individual)</span></span>
 <span id="cb11-162"><a href="#cb11-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-163"><a href="#cb11-163" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ds_sum, <span class="fu">aes</span>(<span class="at">x =</span> session, <span class="at">y =</span> pos_prop, <span class="at">color =</span> pos, <span class="at">group =</span> id)) <span class="sc">+</span> </span>
-<span id="cb11-164"><a href="#cb11-164" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> pos) <span class="sc">+</span> </span>
-<span id="cb11-165"><a href="#cb11-165" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span>  </span>
-<span id="cb11-166"><a href="#cb11-166" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">100</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"% of time"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Session"</span>) <span class="sc">+</span></span>
-<span id="cb11-167"><a href="#cb11-167" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"7 mo"</span>,<span class="st">"9 mo"</span>,<span class="st">"11 mo"</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="fl">3.5</span>)) <span class="sc">+</span> </span>
-<span id="cb11-168"><a href="#cb11-168" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> pal, <span class="at">name =</span><span class="st">""</span>) <span class="sc">+</span> </span>
-<span id="cb11-169"><a href="#cb11-169" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
-<span id="cb11-170"><a href="#cb11-170" aria-hidden="true" tabindex="-1"></a><span class="in">```</span> </span>
-<span id="cb11-171"><a href="#cb11-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-172"><a href="#cb11-172" aria-hidden="true" tabindex="-1"></a><span class="fu">### Infant Restraint Frequency by Age (Overall)</span></span>
-<span id="cb11-173"><a href="#cb11-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-176"><a href="#cb11-176" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb11-177"><a href="#cb11-177" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb11-178"><a href="#cb11-178" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: restraint-table-age</span></span>
-<span id="cb11-179"><a href="#cb11-179" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: Restraint summary statistics</span></span>
+<span id="cb11-165"><a href="#cb11-165" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-166"><a href="#cb11-166" aria-hidden="true" tabindex="-1"></a><span class="co">#| out-width: "90%"</span></span>
+<span id="cb11-167"><a href="#cb11-167" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb11-168"><a href="#cb11-168" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: "frequency-by-age-individual"</span></span>
+<span id="cb11-169"><a href="#cb11-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-170"><a href="#cb11-170" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ds_sum, <span class="fu">aes</span>(<span class="at">x =</span> session, <span class="at">y =</span> pos_prop, <span class="at">color =</span> pos, <span class="at">group =</span> id)) <span class="sc">+</span> </span>
+<span id="cb11-171"><a href="#cb11-171" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> pos) <span class="sc">+</span> </span>
+<span id="cb11-172"><a href="#cb11-172" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span>  </span>
+<span id="cb11-173"><a href="#cb11-173" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">100</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"% of time"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Session"</span>) <span class="sc">+</span></span>
+<span id="cb11-174"><a href="#cb11-174" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"7 mo"</span>,<span class="st">"9 mo"</span>,<span class="st">"11 mo"</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="fl">3.5</span>)) <span class="sc">+</span> </span>
+<span id="cb11-175"><a href="#cb11-175" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> pal, <span class="at">name =</span><span class="st">""</span>) <span class="sc">+</span> </span>
+<span id="cb11-176"><a href="#cb11-176" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb11-177"><a href="#cb11-177" aria-hidden="true" tabindex="-1"></a><span class="in">```</span> </span>
+<span id="cb11-178"><a href="#cb11-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-179"><a href="#cb11-179" aria-hidden="true" tabindex="-1"></a><span class="fu">### Infant Restraint Frequency by Age (Overall)</span></span>
 <span id="cb11-180"><a href="#cb11-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-181"><a href="#cb11-181" aria-hidden="true" tabindex="-1"></a>ds_sum_restraint <span class="ot">&lt;-</span> ds <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(id, session) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-182"><a href="#cb11-182" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">total_samples =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(id, session, restraint) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-183"><a href="#cb11-183" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">restraint_n  =</span> <span class="fu">n</span>(), <span class="at">total_samples =</span> <span class="fu">mean</span>(total_samples)) <span class="sc">%&gt;%</span> ungroup</span>
-<span id="cb11-184"><a href="#cb11-184" aria-hidden="true" tabindex="-1"></a>ds_sum_restraint <span class="ot">&lt;-</span> ds_sum_restraint <span class="sc">%&gt;%</span> <span class="fu">complete</span>(<span class="fu">nesting</span>(id, session), restraint, <span class="at">fill =</span> <span class="fu">list</span>(<span class="at">restraint_n =</span> <span class="dv">0</span>, <span class="at">total_samples =</span> <span class="dv">1</span>))</span>
-<span id="cb11-185"><a href="#cb11-185" aria-hidden="true" tabindex="-1"></a>ds_sum_restraint<span class="sc">$</span>restraint_prop <span class="ot">=</span> ds_sum_restraint<span class="sc">$</span>restraint_n<span class="sc">/</span>ds_sum_restraint<span class="sc">$</span>total_samples<span class="sc">*</span><span class="dv">100</span></span>
-<span id="cb11-186"><a href="#cb11-186" aria-hidden="true" tabindex="-1"></a>ds_sum_restraint<span class="sc">$</span>session <span class="ot">=</span> <span class="fu">as.numeric</span>(ds_sum_restraint<span class="sc">$</span>session)</span>
+<span id="cb11-183"><a href="#cb11-183" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-184"><a href="#cb11-184" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb11-185"><a href="#cb11-185" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: restraint-table-age</span></span>
+<span id="cb11-186"><a href="#cb11-186" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: Restraint summary statistics</span></span>
 <span id="cb11-187"><a href="#cb11-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-188"><a href="#cb11-188" aria-hidden="true" tabindex="-1"></a>ds_sum_restraint <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(restraint, session) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-189"><a href="#cb11-189" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(restraint_prop, <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>,<span class="st">"min"</span>,<span class="st">"max"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-190"><a href="#cb11-190" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>variable) <span class="sc">%&gt;%</span> <span class="fu">flextable</span>() <span class="sc">%&gt;%</span> <span class="fu">autofit</span>()</span>
-<span id="cb11-191"><a href="#cb11-191" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-194"><a href="#cb11-194" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb11-195"><a href="#cb11-195" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb11-196"><a href="#cb11-196" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: "restraint-by-age-overall"</span></span>
-<span id="cb11-197"><a href="#cb11-197" aria-hidden="true" tabindex="-1"></a><span class="co">#| layout-ncol: 2</span></span>
-<span id="cb11-198"><a href="#cb11-198" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: </span></span>
-<span id="cb11-199"><a href="#cb11-199" aria-hidden="true" tabindex="-1"></a><span class="co">#|   - "Restraint means and SE"</span></span>
-<span id="cb11-200"><a href="#cb11-200" aria-hidden="true" tabindex="-1"></a><span class="co">#|   - "Restraint distribution"</span></span>
-<span id="cb11-201"><a href="#cb11-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-202"><a href="#cb11-202" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ds_sum_restraint, <span class="fu">aes</span>(<span class="at">x =</span> session, <span class="at">y =</span> restraint_prop, <span class="at">color =</span> restraint)) <span class="sc">+</span> </span>
-<span id="cb11-203"><a href="#cb11-203" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">1</span>)) <span class="sc">+</span> </span>
-<span id="cb11-204"><a href="#cb11-204" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"line"</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">1</span>)) <span class="sc">+</span> </span>
-<span id="cb11-205"><a href="#cb11-205" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">101</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"% of time"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Session"</span>) <span class="sc">+</span></span>
-<span id="cb11-206"><a href="#cb11-206" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"7 mo"</span>,<span class="st">"9 mo"</span>,<span class="st">"11 mo"</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="fl">3.5</span>)) <span class="sc">+</span> </span>
-<span id="cb11-207"><a href="#cb11-207" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> restraint_pal, <span class="at">name =</span><span class="st">""</span>) <span class="sc">+</span> </span>
-<span id="cb11-208"><a href="#cb11-208" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span>
-<span id="cb11-209"><a href="#cb11-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-210"><a href="#cb11-210" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ds_sum_restraint, <span class="fu">aes</span>(<span class="at">x =</span> session, <span class="at">y =</span> restraint_prop, <span class="at">fill =</span> restraint)) <span class="sc">+</span> </span>
-<span id="cb11-211"><a href="#cb11-211" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"bar"</span>, <span class="at">position =</span> <span class="st">"stack"</span>) <span class="sc">+</span> </span>
+<span id="cb11-188"><a href="#cb11-188" aria-hidden="true" tabindex="-1"></a>ds_sum_restraint <span class="ot">&lt;-</span> ds <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(id, session) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-189"><a href="#cb11-189" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">total_samples =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(id, session, restraint) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-190"><a href="#cb11-190" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">restraint_n  =</span> <span class="fu">n</span>(), <span class="at">total_samples =</span> <span class="fu">mean</span>(total_samples)) <span class="sc">%&gt;%</span> ungroup</span>
+<span id="cb11-191"><a href="#cb11-191" aria-hidden="true" tabindex="-1"></a>ds_sum_restraint <span class="ot">&lt;-</span> ds_sum_restraint <span class="sc">%&gt;%</span> <span class="fu">complete</span>(<span class="fu">nesting</span>(id, session), restraint, <span class="at">fill =</span> <span class="fu">list</span>(<span class="at">restraint_n =</span> <span class="dv">0</span>, <span class="at">total_samples =</span> <span class="dv">1</span>))</span>
+<span id="cb11-192"><a href="#cb11-192" aria-hidden="true" tabindex="-1"></a>ds_sum_restraint<span class="sc">$</span>restraint_prop <span class="ot">=</span> ds_sum_restraint<span class="sc">$</span>restraint_n<span class="sc">/</span>ds_sum_restraint<span class="sc">$</span>total_samples<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb11-193"><a href="#cb11-193" aria-hidden="true" tabindex="-1"></a>ds_sum_restraint<span class="sc">$</span>session <span class="ot">=</span> <span class="fu">as.numeric</span>(ds_sum_restraint<span class="sc">$</span>session)</span>
+<span id="cb11-194"><a href="#cb11-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-195"><a href="#cb11-195" aria-hidden="true" tabindex="-1"></a>ds_sum_restraint <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(restraint, session) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-196"><a href="#cb11-196" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(restraint_prop, <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>,<span class="st">"min"</span>,<span class="st">"max"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-197"><a href="#cb11-197" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>variable) <span class="sc">%&gt;%</span> <span class="fu">flextable</span>() <span class="sc">%&gt;%</span> <span class="fu">autofit</span>()</span>
+<span id="cb11-198"><a href="#cb11-198" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-201"><a href="#cb11-201" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-202"><a href="#cb11-202" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb11-203"><a href="#cb11-203" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: "restraint-by-age-overall"</span></span>
+<span id="cb11-204"><a href="#cb11-204" aria-hidden="true" tabindex="-1"></a><span class="co">#| layout-ncol: 2</span></span>
+<span id="cb11-205"><a href="#cb11-205" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: </span></span>
+<span id="cb11-206"><a href="#cb11-206" aria-hidden="true" tabindex="-1"></a><span class="co">#|   - "Restraint means and SE"</span></span>
+<span id="cb11-207"><a href="#cb11-207" aria-hidden="true" tabindex="-1"></a><span class="co">#|   - "Restraint distribution"</span></span>
+<span id="cb11-208"><a href="#cb11-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-209"><a href="#cb11-209" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ds_sum_restraint, <span class="fu">aes</span>(<span class="at">x =</span> session, <span class="at">y =</span> restraint_prop, <span class="at">color =</span> restraint)) <span class="sc">+</span> </span>
+<span id="cb11-210"><a href="#cb11-210" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">1</span>)) <span class="sc">+</span> </span>
+<span id="cb11-211"><a href="#cb11-211" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"line"</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">1</span>)) <span class="sc">+</span> </span>
 <span id="cb11-212"><a href="#cb11-212" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">101</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"% of time"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Session"</span>) <span class="sc">+</span></span>
 <span id="cb11-213"><a href="#cb11-213" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"7 mo"</span>,<span class="st">"9 mo"</span>,<span class="st">"11 mo"</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="fl">3.5</span>)) <span class="sc">+</span> </span>
-<span id="cb11-214"><a href="#cb11-214" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> restraint_pal, <span class="at">name =</span><span class="st">""</span>) <span class="sc">+</span> </span>
+<span id="cb11-214"><a href="#cb11-214" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> restraint_pal, <span class="at">name =</span><span class="st">""</span>) <span class="sc">+</span> </span>
 <span id="cb11-215"><a href="#cb11-215" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span>
-<span id="cb11-216"><a href="#cb11-216" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-217"><a href="#cb11-217" aria-hidden="true" tabindex="-1"></a><span class="fu">### Infant Restraint Frequency by Age (Individual)</span></span>
-<span id="cb11-218"><a href="#cb11-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-221"><a href="#cb11-221" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb11-222"><a href="#cb11-222" aria-hidden="true" tabindex="-1"></a><span class="co">#| out-width: "90%"</span></span>
-<span id="cb11-223"><a href="#cb11-223" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb11-224"><a href="#cb11-224" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: "restraint-by-age-individual"</span></span>
+<span id="cb11-216"><a href="#cb11-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-217"><a href="#cb11-217" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ds_sum_restraint, <span class="fu">aes</span>(<span class="at">x =</span> session, <span class="at">y =</span> restraint_prop, <span class="at">fill =</span> restraint)) <span class="sc">+</span> </span>
+<span id="cb11-218"><a href="#cb11-218" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"bar"</span>, <span class="at">position =</span> <span class="st">"stack"</span>) <span class="sc">+</span> </span>
+<span id="cb11-219"><a href="#cb11-219" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">101</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"% of time"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Session"</span>) <span class="sc">+</span></span>
+<span id="cb11-220"><a href="#cb11-220" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"7 mo"</span>,<span class="st">"9 mo"</span>,<span class="st">"11 mo"</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="fl">3.5</span>)) <span class="sc">+</span> </span>
+<span id="cb11-221"><a href="#cb11-221" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> restraint_pal, <span class="at">name =</span><span class="st">""</span>) <span class="sc">+</span> </span>
+<span id="cb11-222"><a href="#cb11-222" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span>
+<span id="cb11-223"><a href="#cb11-223" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-224"><a href="#cb11-224" aria-hidden="true" tabindex="-1"></a><span class="fu">### Infant Restraint Frequency by Age (Individual)</span></span>
 <span id="cb11-225"><a href="#cb11-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-226"><a href="#cb11-226" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ds_sum_restraint, <span class="fu">aes</span>(<span class="at">x =</span> session, <span class="at">y =</span> restraint_prop, <span class="at">color =</span> restraint, <span class="at">group =</span> id)) <span class="sc">+</span> </span>
-<span id="cb11-227"><a href="#cb11-227" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> restraint) <span class="sc">+</span> </span>
-<span id="cb11-228"><a href="#cb11-228" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span>  </span>
-<span id="cb11-229"><a href="#cb11-229" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">100</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"% of time"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Session"</span>) <span class="sc">+</span></span>
-<span id="cb11-230"><a href="#cb11-230" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"7 mo"</span>,<span class="st">"9 mo"</span>,<span class="st">"11 mo"</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="fl">3.5</span>)) <span class="sc">+</span> </span>
-<span id="cb11-231"><a href="#cb11-231" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> restraint_pal, <span class="at">name =</span><span class="st">""</span>) <span class="sc">+</span> </span>
-<span id="cb11-232"><a href="#cb11-232" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
-<span id="cb11-233"><a href="#cb11-233" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-234"><a href="#cb11-234" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb11-235"><a href="#cb11-235" aria-hidden="true" tabindex="-1"></a><span class="fu">### Posture by restraint</span></span>
-<span id="cb11-236"><a href="#cb11-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-239"><a href="#cb11-239" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb11-240"><a href="#cb11-240" aria-hidden="true" tabindex="-1"></a><span class="co">#| out-width: "90%"</span></span>
-<span id="cb11-241"><a href="#cb11-241" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb11-242"><a href="#cb11-242" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: "posture-by-restraint"</span></span>
+<span id="cb11-228"><a href="#cb11-228" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-229"><a href="#cb11-229" aria-hidden="true" tabindex="-1"></a><span class="co">#| out-width: "90%"</span></span>
+<span id="cb11-230"><a href="#cb11-230" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb11-231"><a href="#cb11-231" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: "restraint-by-age-individual"</span></span>
+<span id="cb11-232"><a href="#cb11-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-233"><a href="#cb11-233" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ds_sum_restraint, <span class="fu">aes</span>(<span class="at">x =</span> session, <span class="at">y =</span> restraint_prop, <span class="at">color =</span> restraint, <span class="at">group =</span> id)) <span class="sc">+</span> </span>
+<span id="cb11-234"><a href="#cb11-234" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> restraint) <span class="sc">+</span> </span>
+<span id="cb11-235"><a href="#cb11-235" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span>  </span>
+<span id="cb11-236"><a href="#cb11-236" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">100</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"% of time"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Session"</span>) <span class="sc">+</span></span>
+<span id="cb11-237"><a href="#cb11-237" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"7 mo"</span>,<span class="st">"9 mo"</span>,<span class="st">"11 mo"</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="fl">3.5</span>)) <span class="sc">+</span> </span>
+<span id="cb11-238"><a href="#cb11-238" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> restraint_pal, <span class="at">name =</span><span class="st">""</span>) <span class="sc">+</span> </span>
+<span id="cb11-239"><a href="#cb11-239" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb11-240"><a href="#cb11-240" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-241"><a href="#cb11-241" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb11-242"><a href="#cb11-242" aria-hidden="true" tabindex="-1"></a><span class="fu">### Posture by restraint</span></span>
 <span id="cb11-243"><a href="#cb11-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-244"><a href="#cb11-244" aria-hidden="true" tabindex="-1"></a>ds_sum_posrest <span class="ot">&lt;-</span> ds <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(id, session) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-245"><a href="#cb11-245" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">total_samples =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(id, session, pos, restraint) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-246"><a href="#cb11-246" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">posrest_n  =</span> <span class="fu">n</span>(), <span class="at">total_samples =</span> <span class="fu">mean</span>(total_samples)) <span class="sc">%&gt;%</span> ungroup</span>
-<span id="cb11-247"><a href="#cb11-247" aria-hidden="true" tabindex="-1"></a>ds_sum_posrest <span class="ot">&lt;-</span> ds_sum_posrest <span class="sc">%&gt;%</span> <span class="fu">complete</span>(<span class="fu">nesting</span>(id, session), restraint, pos, <span class="at">fill =</span> <span class="fu">list</span>(<span class="at">posrest_n =</span> <span class="dv">0</span>, <span class="at">total_samples =</span> <span class="dv">1</span>))</span>
-<span id="cb11-248"><a href="#cb11-248" aria-hidden="true" tabindex="-1"></a>ds_sum_posrest<span class="sc">$</span>prop <span class="ot">=</span> ds_sum_posrest<span class="sc">$</span>posrest_n<span class="sc">/</span>ds_sum_posrest<span class="sc">$</span>total_samples<span class="sc">*</span><span class="dv">100</span></span>
-<span id="cb11-249"><a href="#cb11-249" aria-hidden="true" tabindex="-1"></a>ds_sum_posrest<span class="sc">$</span>session <span class="ot">=</span> <span class="fu">as.numeric</span>(ds_sum_posrest<span class="sc">$</span>session)</span>
+<span id="cb11-246"><a href="#cb11-246" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-247"><a href="#cb11-247" aria-hidden="true" tabindex="-1"></a><span class="co">#| out-width: "90%"</span></span>
+<span id="cb11-248"><a href="#cb11-248" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb11-249"><a href="#cb11-249" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: "posture-by-restraint"</span></span>
 <span id="cb11-250"><a href="#cb11-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-251"><a href="#cb11-251" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ds_sum_posrest, <span class="fu">aes</span>(<span class="at">x =</span> session, <span class="at">y =</span> prop, <span class="at">color =</span> pos)) <span class="sc">+</span> </span>
-<span id="cb11-252"><a href="#cb11-252" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">1</span>)) <span class="sc">+</span> </span>
-<span id="cb11-253"><a href="#cb11-253" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"line"</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">1</span>)) <span class="sc">+</span> </span>
-<span id="cb11-254"><a href="#cb11-254" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> restraint) <span class="sc">+</span> </span>
-<span id="cb11-255"><a href="#cb11-255" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"% of time"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Session"</span>) <span class="sc">+</span></span>
-<span id="cb11-256"><a href="#cb11-256" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"7 mo"</span>,<span class="st">"9 mo"</span>,<span class="st">"11 mo"</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="fl">3.5</span>)) <span class="sc">+</span> </span>
-<span id="cb11-257"><a href="#cb11-257" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">55</span>)) <span class="sc">+</span> </span>
-<span id="cb11-258"><a href="#cb11-258" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> pal, <span class="at">name =</span><span class="st">""</span>) <span class="sc">+</span> </span>
-<span id="cb11-259"><a href="#cb11-259" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span>
-<span id="cb11-260"><a href="#cb11-260" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-261"><a href="#cb11-261" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb11-251"><a href="#cb11-251" aria-hidden="true" tabindex="-1"></a>ds_sum_posrest <span class="ot">&lt;-</span> ds <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(id, session) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-252"><a href="#cb11-252" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">total_samples =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(id, session, pos, restraint) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-253"><a href="#cb11-253" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">posrest_n  =</span> <span class="fu">n</span>(), <span class="at">total_samples =</span> <span class="fu">mean</span>(total_samples)) <span class="sc">%&gt;%</span> ungroup</span>
+<span id="cb11-254"><a href="#cb11-254" aria-hidden="true" tabindex="-1"></a>ds_sum_posrest <span class="ot">&lt;-</span> ds_sum_posrest <span class="sc">%&gt;%</span> <span class="fu">complete</span>(<span class="fu">nesting</span>(id, session), restraint, pos, <span class="at">fill =</span> <span class="fu">list</span>(<span class="at">posrest_n =</span> <span class="dv">0</span>, <span class="at">total_samples =</span> <span class="dv">1</span>))</span>
+<span id="cb11-255"><a href="#cb11-255" aria-hidden="true" tabindex="-1"></a>ds_sum_posrest<span class="sc">$</span>prop <span class="ot">=</span> ds_sum_posrest<span class="sc">$</span>posrest_n<span class="sc">/</span>ds_sum_posrest<span class="sc">$</span>total_samples<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb11-256"><a href="#cb11-256" aria-hidden="true" tabindex="-1"></a>ds_sum_posrest<span class="sc">$</span>session <span class="ot">=</span> <span class="fu">as.numeric</span>(ds_sum_posrest<span class="sc">$</span>session)</span>
+<span id="cb11-257"><a href="#cb11-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-258"><a href="#cb11-258" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ds_sum_posrest, <span class="fu">aes</span>(<span class="at">x =</span> session, <span class="at">y =</span> prop, <span class="at">color =</span> pos)) <span class="sc">+</span> </span>
+<span id="cb11-259"><a href="#cb11-259" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">1</span>)) <span class="sc">+</span> </span>
+<span id="cb11-260"><a href="#cb11-260" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"line"</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">1</span>)) <span class="sc">+</span> </span>
+<span id="cb11-261"><a href="#cb11-261" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> restraint) <span class="sc">+</span> </span>
+<span id="cb11-262"><a href="#cb11-262" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"% of time"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Session"</span>) <span class="sc">+</span></span>
+<span id="cb11-263"><a href="#cb11-263" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"7 mo"</span>,<span class="st">"9 mo"</span>,<span class="st">"11 mo"</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="fl">3.5</span>)) <span class="sc">+</span> </span>
+<span id="cb11-264"><a href="#cb11-264" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">55</span>)) <span class="sc">+</span> </span>
+<span id="cb11-265"><a href="#cb11-265" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> pal, <span class="at">name =</span><span class="st">""</span>) <span class="sc">+</span> </span>
+<span id="cb11-266"><a href="#cb11-266" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span>
+<span id="cb11-267"><a href="#cb11-267" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-268"><a href="#cb11-268" aria-hidden="true" tabindex="-1"></a> </span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom","selector":".lightbox"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

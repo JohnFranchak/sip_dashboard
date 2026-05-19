@@ -20,7 +20,7 @@ uri <- "https://redcap.ucr.edu/api/"
 source("api_token.R")
 
 events <- c("visit_1_arm_1", "visit_2_arm_1", "visit_3_arm_1")
-ds_raw <- redcap_read_oneshot(redcap_uri = uri, token = api_token, events = events,forms = c("aims"))$data 
+ds_raw <- redcap_read_oneshot(redcap_uri = uri, token = api_token, events = events)$data 
 
 ds <- ds_raw %>% filter(inclusion == 1) %>% 
   mutate(session = str_remove(str_remove(redcap_event_name, "visit_"),"_arm_1"),

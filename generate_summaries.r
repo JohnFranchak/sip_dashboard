@@ -42,13 +42,13 @@ ds <- ds %>% mutate(pos = ifelse(pos == "Upright", "Standing", pos),
 board %>% pin_write(name = "imu_raw_samples", x = ds,
                     title = "Infant and Caregiver Raw Position",
                     description = "Raw position predictions sampled every 1 second. 
-                    Data are NOT filtered and include usable samples.",
+                    Data are NOT filtered and include unusable samples.",
                     metadata = list(infant_model = "TDCP-March2025", cg_model = "Nov2025", rest_model = "May2026"),
                     type = "parquet")
 board_gd %>% pin_write(name = "imu_raw_samples", x = ds,
                        title = "Infant and Caregiver Raw Position",
                        description = "Raw position predictions sampled every 1 second. 
-                    Data are NOT filtered and include usable samples.",
+                    Data are NOT filtered and include unusable samples.",
                        metadata = list(infant_model = "TDCP-March2025", cg_model = "Nov2025", rest_model = "May2026"),
                        type = "parquet")
 

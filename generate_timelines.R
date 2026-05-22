@@ -84,8 +84,10 @@ make_timeline <- function(i) {
       legend.position = "bottom"
     ) 
   
-  p3 <- sync %>% mutate(cgpos = as.numeric(cgpos == "Upright")) %>% 
-    ggplot(aes(x = time_plot, y = cgpos)) + geom_ma(n = 300, linetype = 1) + 
+  p3 <- sync %>% mutate(cgpos = as.numeric(cgpos == "Upright"),
+                        cgpos = ifelse(cg_exclude_period == 1, NA, cgpos),
+                        group_id = consecutive_id(!is.na(cgpos))) %>% 
+    ggplot(aes(x = time_plot, y = cgpos, group = group_id)) + geom_ma(n = 300, linetype = 1) + 
     theme(legend.position = "top",
           axis.title.x = element_blank(),
           axis.text.x = element_blank(),
@@ -105,6 +107,16 @@ make_timeline <- function(i) {
     scale_x_time(breaks = hour_breaks, name = "", limits = lims, labels = label_breaks) + 
     scale_y_continuous(name = "Unrest.", breaks = c(0,1), labels = c("0%", "100%"), limits = c(0,1))
   
+  p7 <- sync %>% mutate(inf_wear = as.numeric(wear_status == "worn"), 
+                        cg_wear = as.numeric(cg_wear_status == "worn")) %>% 
+    ggplot() + geom_ma(aes(x = time_plot, y = inf_wear), n = 150, color = "red") + 
+    geom_ma(aes(x = time_plot, y = cg_wear), n = 150, linetype = 1, color = "blue") +
+    theme(legend.position = "top",
+          axis.title.x = element_blank(),
+          axis.text.x = element_blank(),
+          axis.ticks.x = element_blank()) + 
+    scale_x_time(breaks = hour_breaks, name = "", limits = lims, labels = label_breaks) + 
+    scale_y_continuous(name = "Wear", breaks = c(0,1), labels = c("0%", "100%"), limits = c(0,1))
   
   sleep <- sleep_tcds %>% filter(id == i)
   if (nrow(sleep) > 1) {
@@ -128,15 +140,15 @@ make_timeline <- function(i) {
       scale_x_time(breaks = hour_breaks, name = "", limits = lims, labels = label_breaks) + 
       scale_y_continuous(name = "CDS", breaks = c(0,1), labels = c("0%", "100%"), limits = c(0,1))
     
-    fig <- p1/p5/p6/p3/p4/p2 + plot_layout(heights = c(2,1,1,1,1,1))
+    fig <- p1/p5/p6/p3/p4/p7/p2 + plot_layout(heights = c(2,1,1,1,1,1,1))
   } else{
-    fig <- p1/p3/p4/p2 + plot_layout(heights = c(3,2,2,2))
+    fig <- p1/p3/p4/p7/p2 + plot_layout(heights = c(3,2,2,2,2))
   }
   
   ggsave(plot = fig, filename = str_glue("/Volumes/padlab/study_sensorsinperson/data_processed/timelines/{id}_{session}.png",
-                                         width = 10, height = 9), scale = 1.5)
+                                         width = 10, height = 10), scale = 1.5)
   ggsave(plot = fig, filename = str_glue("timelines/{id}_{session}.png",
-                                         width = 10, height = 9), scale = 1.5)
+                                         width = 10, height = 10), scale = 1.5)
 }
 
 walk(id_session, make_timeline)

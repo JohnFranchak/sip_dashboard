@@ -228,8 +228,10 @@ ggplot(ds_sum_restraint, aes(x = session, y = restraint_prop, color = restraint,
 
 ds_sum_posrest <- ds %>% group_by(id, session) %>% 
   mutate(total_samples = n()) %>% group_by(id, session, pos, restraint) %>% 
-  summarize(posrest_n  = n(), total_samples = mean(total_samples)) %>% ungroup
-ds_sum_posrest <- ds_sum_posrest %>% complete(nesting(id, session), restraint, pos, fill = list(posrest_n = 0, total_samples = 1))
+  summarize(posrest_n  = n()) %>% ungroup
+ds_sum_posrest <- ds_sum_posrest %>% complete(nesting(id, session), restraint, pos, fill = list(posrest_n = 0))
+ds_sum_posrest <- ds_sum_posrest %>% group_by(id, session) %>% 
+  mutate(total_samples = sum(posrest_n)) %>% ungroup
 ds_sum_posrest$prop = ds_sum_posrest$posrest_n/ds_sum_posrest$total_samples*100
 ds_sum_posrest$session = as.numeric(ds_sum_posrest$session)
 
@@ -242,5 +244,15 @@ ggplot(ds_sum_posrest, aes(x = session, y = prop, color = pos)) +
   coord_cartesian(ylim = c(0,55)) + 
   scale_color_manual(values = pal, name ="") + 
   theme(legend.position = "bottom")
+```
+
+```{r}
+#| warning: false
+#| label: posture-restraint-table-age
+#| tbl-cap: Posture by restraint summary statistics
+
+ds_sum_posrest %>% group_by(session, pos, restraint) %>% 
+  get_summary_stats(prop, show = c("mean", "sd","min","max")) %>% 
+  select(-variable) %>% flextable() %>% autofit()
 ```
  

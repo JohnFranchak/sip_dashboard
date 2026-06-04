@@ -60,12 +60,13 @@ sync$inf_excl = SMA(sync[,"logged_exclude"], 30)
 
 # Create individual plots
 plot_ly(data = sync, type = 'scatter', mode = 'lines') %>% 
-  add_trace(x = ~time, y = ~inf_wear) %>% 
-  add_trace(x = ~time, y = ~inf_excl) %>% 
+  add_trace(x = ~time, y = ~inf_wear, name = "Sensor-based") %>% 
+  add_trace(x = ~time, y = ~inf_excl, name = "Parent-logged") %>% 
   layout(xaxis = list(
     type = "date",
     title = "Time",
     tickformat = "%I:%M %p",
-    rangeslider = list(visible = T)))
+    rangeslider = list(visible = T)),
+    yaxis = list(title = "Wear Time"))
 
 ```

@@ -21,6 +21,8 @@ library(hms)
 library(rstatix)
 library(flextable)
 library(pins)
+library(plotly)
+library(TTR)
 
 pal <-  c("#F0E442","#009E73","#56B4E9", "#E69F00","#0072B2") %>%  set_names(c("Standing", "Sitting", "Prone", "Supine", "Held"))
 restraint_pal <-  c("#CC79A7","chartreuse4") %>%  set_names(c("Restrained", "Unrestrained"))
@@ -46,15 +48,32 @@ ds <- board %>% pin_read("imu_raw_samples")
 ```
 
 ```{r}
-id = 12
-session = 1
-i <- str_glue("{id}_{session}")
-  
-sync = ds %>% filter(id_uni == i)
+this_id = 12
+this_session = 1
 
-  
+sync = ds %>% filter(id == this_id & session == this_session) %>% 
+  mutate(wear_status = as.numeric(wear_status == "worn"))
 
-  
+sync$inf_wear = SMA(sync[,"wear_status"], 30)
+
+p1 <- sync %>% ggplot(aes(x = time_plot, y = inf_wear)) +
+    geom_line(linetype = 1, color = "blue") +
+    scale_y_continuous(name = "Wear", breaks = c(0,1), labels = c("0%", "100%"), limits = c(0,1))
+ggplotly(p = p1)
+
+# sync %>% mutate(restraint = as.numeric(restraint == "Unrestrained"),
+#                         restraint = ifelse(nap_period == 1 | exclude_period == 1, NA, restraint),
+#                         group_id = consecutive_id(!is.na(restraint))) %>%
+#     ggplot(aes(x = time_plot, y = restraint, group = group_id)) +
+#     geom_ma(n = 300, linetype = 1, color = "darkgreen", na.rm = FALSE) +
+#     theme(legend.position = "top",
+#           axis.title.x = element_blank(),
+#           axis.text.x = element_blank(),
+#           axis.ticks.x = element_blank()) +
+#     scale_x_time(breaks = hour_breaks, name = "", limits = lims, labels = label_breaks) +
+#     scale_y_continuous(name = "Unrest.", breaks = c(0,1), labels = c("0%", "100%"), limits = c(0,1))
+# 
+#   
   
   # p2 <- sync_filt %>% 
   #   ggplot(aes(x = time_plot, y = 1, fill = pos)) + 
@@ -80,17 +99,6 @@ sync = ds %>% filter(id_uni == i)
   #   scale_x_time(breaks = hour_breaks, name = "", limits = lims, labels = label_breaks) + 
   #   scale_y_continuous(name = "CG Up", breaks = c(0,1), labels = c("0%", "100%"), limits = c(0,1))
   # 
-  # p4 <- sync %>% mutate(restraint = as.numeric(restraint == "Unrestrained"), 
-  #                       restraint = ifelse(nap_period == 1 | exclude_period == 1, NA, restraint),
-  #                       group_id = consecutive_id(!is.na(restraint))) %>% 
-  #   ggplot(aes(x = time_plot, y = restraint, group = group_id)) +  
-  #   geom_ma(n = 300, linetype = 1, color = "darkgreen", na.rm = FALSE) +    
-  #   theme(legend.position = "top",
-  #         axis.title.x = element_blank(),
-  #         axis.text.x = element_blank(),
-  #         axis.ticks.x = element_blank()) + 
-  #   scale_x_time(breaks = hour_breaks, name = "", limits = lims, labels = label_breaks) + 
-  #   scale_y_continuous(name = "Unrest.", breaks = c(0,1), labels = c("0%", "100%"), limits = c(0,1))
   # 
   # p7 <- sync %>% mutate(inf_wear = as.numeric(wear_status == "worn"), 
   #                       cg_wear = as.numeric(cg_wear_status == "worn")) %>% 

@@ -1,0 +1,122 @@
+---
+title: "Wear Time"
+fig-dpi: 300
+execute:
+  cache: false
+format: 
+  html:
+    page-layout: custom
+knitr: 
+  opts_chunk: 
+    out.width: "100%"
+---
+
+| Last updated: `r round(lubridate::now())`
+
+::: {layout-ncol=3}
+```{r}
+#| echo: false
+library(tidyverse)
+library(hms)
+library(rstatix)
+library(flextable)
+library(pins)
+
+pal <-  c("#F0E442","#009E73","#56B4E9", "#E69F00","#0072B2") %>%  set_names(c("Standing", "Sitting", "Prone", "Supine", "Held"))
+restraint_pal <-  c("#CC79A7","chartreuse4") %>%  set_names(c("Restrained", "Unrestrained"))
+
+theme_update(text = element_text(size = 12),
+             axis.text.x = element_text(size = 12, color = "black"), 
+             axis.title.x = element_text(size = 14),
+             axis.text.y = element_text(size = 12,  color = "black"), 
+             axis.title.y = element_text(size = 14), 
+             panel.background = element_blank(),panel.border = element_blank(), 
+             panel.grid.major = element_blank(),
+             panel.grid.minor = element_blank(), axis.line = element_blank(), 
+             axis.ticks.length=unit(.25, "cm"), 
+             legend.key = element_rect(fill = "white")) 
+
+# lims <- as_hms(c('07:00:00', '21:59:00'))
+# hour_breaks = as_hms(c('07:00:00','08:00:00','09:00:00', '10:00:00', '11:00:00', '12:00:00', '13:00:00', '14:00:00', '15:00:00', '16:00:00', '17:00:00', '18:00:00', '19:00:00', '20:00:00', '21:00:00'))
+# label_breaks = c("7am","","9am","","11am","","1pm","","3pm","","5pm","","7pm","","9pm")
+
+board <- board_folder("/Volumes/padlab/study_sensorsinperson/data_processed/datasets/")
+data_version <- board %>% pin_meta("imu_raw_samples")
+ds <- board %>% pin_read("imu_raw_samples")
+```
+
+```{r}
+id = 12
+session = 1
+i <- str_glue("{id}_{session}")
+  
+sync = ds %>% filter(id_uni == i)
+
+  
+
+  
+  
+  # p2 <- sync_filt %>% 
+  #   ggplot(aes(x = time_plot, y = 1, fill = pos)) + 
+  #   geom_raster() + scale_fill_manual(values = pal, name = "") + 
+  #   facet_wrap(~id, ncol = 1, scales = "free_x", strip.position = "left") +
+  #   scale_x_time(breaks = hour_breaks, name = "", limits = lims, labels = label_breaks) + 
+  #   theme(
+  #     axis.title.y = element_blank(),
+  #     axis.text.y = element_blank(),
+  #     axis.ticks.y = element_blank(),
+  #     strip.text = element_blank(),
+  #     legend.position = "bottom"
+  #   ) 
+  # 
+  # p3 <- sync %>% mutate(cgpos = as.numeric(cgpos == "Upright"),
+  #                       cgpos = ifelse(cg_exclude_period == 1, NA, cgpos),
+  #                       group_id = consecutive_id(!is.na(cgpos))) %>% 
+  #   ggplot(aes(x = time_plot, y = cgpos, group = group_id)) + geom_ma(n = 300, linetype = 1) + 
+  #   theme(legend.position = "top",
+  #         axis.title.x = element_blank(),
+  #         axis.text.x = element_blank(),
+  #         axis.ticks.x = element_blank()) + 
+  #   scale_x_time(breaks = hour_breaks, name = "", limits = lims, labels = label_breaks) + 
+  #   scale_y_continuous(name = "CG Up", breaks = c(0,1), labels = c("0%", "100%"), limits = c(0,1))
+  # 
+  # p4 <- sync %>% mutate(restraint = as.numeric(restraint == "Unrestrained"), 
+  #                       restraint = ifelse(nap_period == 1 | exclude_period == 1, NA, restraint),
+  #                       group_id = consecutive_id(!is.na(restraint))) %>% 
+  #   ggplot(aes(x = time_plot, y = restraint, group = group_id)) +  
+  #   geom_ma(n = 300, linetype = 1, color = "darkgreen", na.rm = FALSE) +    
+  #   theme(legend.position = "top",
+  #         axis.title.x = element_blank(),
+  #         axis.text.x = element_blank(),
+  #         axis.ticks.x = element_blank()) + 
+  #   scale_x_time(breaks = hour_breaks, name = "", limits = lims, labels = label_breaks) + 
+  #   scale_y_continuous(name = "Unrest.", breaks = c(0,1), labels = c("0%", "100%"), limits = c(0,1))
+  # 
+  # p7 <- sync %>% mutate(inf_wear = as.numeric(wear_status == "worn"), 
+  #                       cg_wear = as.numeric(cg_wear_status == "worn")) %>% 
+  #   ggplot() + geom_ma(aes(x = time_plot, y = inf_wear), n = 150, color = "red") + 
+  #   geom_ma(aes(x = time_plot, y = cg_wear), n = 150, linetype = 1, color = "blue") +
+  #   theme(legend.position = "top",
+  #         axis.title.x = element_blank(),
+  #         axis.text.x = element_blank(),
+  #         axis.ticks.x = element_blank()) + 
+  #   scale_x_time(breaks = hour_breaks, name = "", limits = lims, labels = label_breaks) + 
+  #   scale_y_continuous(name = "Wear", breaks = c(0,1), labels = c("0%", "100%"), limits = c(0,1))
+  # 
+  # sleep <- sleep_tcds %>% filter(id == i)
+  # 
+  # sleep <- sleep %>% 
+  #   filter(time_start >= min(sync$time), time_end <= max(sync$time)) %>% 
+  #   mutate(time_plot = as_hms(time_start))
+  # 
+  # p5 <- ggplot(sleep, aes(x = time_plot, y = sleep_prob)) + geom_line(linetype = 1, color = "red") + 
+  #   theme(legend.position = "none",
+  #         axis.title.x = element_blank(),
+  #         axis.text.x = element_blank(),
+  #         axis.ticks.x = element_blank()) + 
+  #   scale_x_time(breaks = hour_breaks, name = "", limits = lims, labels = label_breaks) + 
+  #   scale_y_continuous(name = "Sleep", breaks = c(0,1), labels = c("0%", "100%"), limits = c(0,1))
+  #   
+
+
+```

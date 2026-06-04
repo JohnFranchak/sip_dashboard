@@ -52,79 +52,20 @@ this_id = 12
 this_session = 1
 
 sync = ds %>% filter(id == this_id & session == this_session) %>% 
-  mutate(wear_status = as.numeric(wear_status == "worn"))
+  mutate(wear_status = as.numeric(wear_status == "worn"),
+         logged_exclude = as.numeric(!(exclude_period == 1 | nap_period == 1)))
 
 sync$inf_wear = SMA(sync[,"wear_status"], 30)
+sync$inf_excl = SMA(sync[,"logged_exclude"], 30)
 
-p1 <- sync %>% ggplot(aes(x = time_plot, y = inf_wear)) +
-    geom_line(linetype = 1, color = "blue") +
-    scale_y_continuous(name = "Wear", breaks = c(0,1), labels = c("0%", "100%"), limits = c(0,1))
-ggplotly(p = p1)
-
-# sync %>% mutate(restraint = as.numeric(restraint == "Unrestrained"),
-#                         restraint = ifelse(nap_period == 1 | exclude_period == 1, NA, restraint),
-#                         group_id = consecutive_id(!is.na(restraint))) %>%
-#     ggplot(aes(x = time_plot, y = restraint, group = group_id)) +
-#     geom_ma(n = 300, linetype = 1, color = "darkgreen", na.rm = FALSE) +
-#     theme(legend.position = "top",
-#           axis.title.x = element_blank(),
-#           axis.text.x = element_blank(),
-#           axis.ticks.x = element_blank()) +
-#     scale_x_time(breaks = hour_breaks, name = "", limits = lims, labels = label_breaks) +
-#     scale_y_continuous(name = "Unrest.", breaks = c(0,1), labels = c("0%", "100%"), limits = c(0,1))
-# 
-#   
-  
-  # p2 <- sync_filt %>% 
-  #   ggplot(aes(x = time_plot, y = 1, fill = pos)) + 
-  #   geom_raster() + scale_fill_manual(values = pal, name = "") + 
-  #   facet_wrap(~id, ncol = 1, scales = "free_x", strip.position = "left") +
-  #   scale_x_time(breaks = hour_breaks, name = "", limits = lims, labels = label_breaks) + 
-  #   theme(
-  #     axis.title.y = element_blank(),
-  #     axis.text.y = element_blank(),
-  #     axis.ticks.y = element_blank(),
-  #     strip.text = element_blank(),
-  #     legend.position = "bottom"
-  #   ) 
-  # 
-  # p3 <- sync %>% mutate(cgpos = as.numeric(cgpos == "Upright"),
-  #                       cgpos = ifelse(cg_exclude_period == 1, NA, cgpos),
-  #                       group_id = consecutive_id(!is.na(cgpos))) %>% 
-  #   ggplot(aes(x = time_plot, y = cgpos, group = group_id)) + geom_ma(n = 300, linetype = 1) + 
-  #   theme(legend.position = "top",
-  #         axis.title.x = element_blank(),
-  #         axis.text.x = element_blank(),
-  #         axis.ticks.x = element_blank()) + 
-  #   scale_x_time(breaks = hour_breaks, name = "", limits = lims, labels = label_breaks) + 
-  #   scale_y_continuous(name = "CG Up", breaks = c(0,1), labels = c("0%", "100%"), limits = c(0,1))
-  # 
-  # 
-  # p7 <- sync %>% mutate(inf_wear = as.numeric(wear_status == "worn"), 
-  #                       cg_wear = as.numeric(cg_wear_status == "worn")) %>% 
-  #   ggplot() + geom_ma(aes(x = time_plot, y = inf_wear), n = 150, color = "red") + 
-  #   geom_ma(aes(x = time_plot, y = cg_wear), n = 150, linetype = 1, color = "blue") +
-  #   theme(legend.position = "top",
-  #         axis.title.x = element_blank(),
-  #         axis.text.x = element_blank(),
-  #         axis.ticks.x = element_blank()) + 
-  #   scale_x_time(breaks = hour_breaks, name = "", limits = lims, labels = label_breaks) + 
-  #   scale_y_continuous(name = "Wear", breaks = c(0,1), labels = c("0%", "100%"), limits = c(0,1))
-  # 
-  # sleep <- sleep_tcds %>% filter(id == i)
-  # 
-  # sleep <- sleep %>% 
-  #   filter(time_start >= min(sync$time), time_end <= max(sync$time)) %>% 
-  #   mutate(time_plot = as_hms(time_start))
-  # 
-  # p5 <- ggplot(sleep, aes(x = time_plot, y = sleep_prob)) + geom_line(linetype = 1, color = "red") + 
-  #   theme(legend.position = "none",
-  #         axis.title.x = element_blank(),
-  #         axis.text.x = element_blank(),
-  #         axis.ticks.x = element_blank()) + 
-  #   scale_x_time(breaks = hour_breaks, name = "", limits = lims, labels = label_breaks) + 
-  #   scale_y_continuous(name = "Sleep", breaks = c(0,1), labels = c("0%", "100%"), limits = c(0,1))
-  #   
-
+# Create individual plots
+plot_ly(data = sync, type = 'scatter', mode = 'lines') %>% 
+  add_trace(x = ~time, y = ~inf_wear) %>% 
+  add_trace(x = ~time, y = ~inf_excl) %>% 
+  layout(xaxis = list(
+    type = "date",
+    title = "Time",
+    tickformat = "%I:%M %p",
+    rangeslider = list(visible = T)))
 
 ```

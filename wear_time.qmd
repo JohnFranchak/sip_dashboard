@@ -3,6 +3,9 @@ title: "Wear Time"
 fig-dpi: 300
 execute:
   cache: false
+  error: false
+  warning: false
+  echo: false
 format: 
   html:
     page-layout: custom
@@ -59,7 +62,8 @@ ds <- ds %>% filter(row_number() %% 15 == 0)
 shared_ds <- SharedData$new(ds)
 ```
 
-```{r}
+
+```{r} 
 #| error: false
 #| warning: false
 #| echo: false
@@ -88,5 +92,16 @@ bscols(
   shared_plot
   )
 
+
+```
+
+
+```{js}
+function filter_default(){
+  const dropdown = document.getElementById("id_slider");
+  dropdown.selectedIndex = 2;
+}
+    
+$(document).ready(filter_default);
 
 ```

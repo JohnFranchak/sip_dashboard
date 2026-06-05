@@ -55,7 +55,7 @@ ds <- board %>% pin_read("imu_raw_samples") %>%
 ds$inf_wear = SMA(ds[,"wear_status"], 30)
 ds$inf_excl = SMA(ds[,"logged_exclude"], 30)
 
-ds <- ds %>% filter(row_number() %% 30 == 0)
+ds <- ds %>% filter(row_number() %% 15 == 0)
 shared_ds <- SharedData$new(ds)
 ```
 

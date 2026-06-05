@@ -13,6 +13,8 @@ website:
       - href: files.qmd
       - href: timelines.qmd
       - href: summaries.qmd
+      - href: wear_time.qmd
+        text: Wear Time
 
 format:
   html:

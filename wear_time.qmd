@@ -13,9 +13,10 @@ knitr:
 
 | Last updated: `r round(lubridate::now())`
 
-::: {layout-ncol=3}
 ```{r}
 #| echo: false
+#| error: false
+#| warning: false
 library(tidyverse)
 library(hms)
 library(rstatix)
@@ -23,6 +24,7 @@ library(flextable)
 library(pins)
 library(plotly)
 library(TTR)
+library(crosstalk)
 
 pal <-  c("#F0E442","#009E73","#56B4E9", "#E69F00","#0072B2") %>%  set_names(c("Standing", "Sitting", "Prone", "Supine", "Held"))
 restraint_pal <-  c("#CC79A7","chartreuse4") %>%  set_names(c("Restrained", "Unrestrained"))
@@ -44,22 +46,24 @@ theme_update(text = element_text(size = 12),
 
 board <- board_folder("/Volumes/padlab/study_sensorsinperson/data_processed/datasets/")
 data_version <- board %>% pin_meta("imu_raw_samples")
-ds <- board %>% pin_read("imu_raw_samples")
+ds <- board %>% pin_read("imu_raw_samples") %>% 
+  mutate(wear_status = as.numeric(wear_status == "worn"),
+         logged_exclude = as.numeric(!(exclude_period == 1 | nap_period == 1)),
+         id = as.numeric(id),
+         session = as.numeric(session),
+         id_uni = str_glue("{id}_{session}"))
+ds$inf_wear = SMA(ds[,"wear_status"], 30)
+ds$inf_excl = SMA(ds[,"logged_exclude"], 30)
+
+ds <- ds %>% filter(row_number() %% 30 == 0)
+shared_ds <- SharedData$new(ds)
 ```
 
 ```{r}
-this_id = 12
-this_session = 1
-
-sync = ds %>% filter(id == this_id & session == this_session) %>% 
-  mutate(wear_status = as.numeric(wear_status == "worn"),
-         logged_exclude = as.numeric(!(exclude_period == 1 | nap_period == 1)))
-
-sync$inf_wear = SMA(sync[,"wear_status"], 30)
-sync$inf_excl = SMA(sync[,"logged_exclude"], 30)
-
-# Create individual plots
-plot_ly(data = sync, type = 'scatter', mode = 'lines') %>% 
+#| error: false
+#| warning: false
+#| echo: false
+shared_plot <- plot_ly(data = shared_ds, type = 'scatter', mode = 'lines') %>% 
   add_trace(x = ~time, y = ~inf_wear, name = "Sensor-based") %>% 
   add_trace(x = ~time, y = ~inf_excl, name = "Parent-logged") %>% 
   layout(xaxis = list(
@@ -68,5 +72,21 @@ plot_ly(data = sync, type = 'scatter', mode = 'lines') %>%
     tickformat = "%I:%M %p",
     rangeslider = list(visible = T)),
     yaxis = list(title = "Wear Time"))
+
+bscols(
+  widths = c(1,1,9),
+  list(),
+  list(
+    filter_select(
+      id = "id_slider",
+      label = "Session Select",
+      sharedData = shared_ds,
+      multiple = F,
+      group = ~id_uni
+      )
+  ),
+  shared_plot
+  )
+
 
 ```

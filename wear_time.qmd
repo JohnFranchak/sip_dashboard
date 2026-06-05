@@ -16,6 +16,8 @@ knitr:
 
 | Last updated: `r round(lubridate::now())`
 
+These timelines are used to explore and make potential corrections to parent-logged wear time based on automatically-detected wear time based on sensor movement. Use the drop-down menu to select a session. The bottom timeline allows the user to select a range to zoom in. Each timeline can be dynamically panned, and hovering over the timeline indicates the data value. Values are smoothed over a 30-s window; each point represents the proportion of samples in the 30-s window labelled as "worn".
+
 ```{r}
 #| echo: false
 #| error: false
@@ -51,17 +53,21 @@ board <- board_folder("/Volumes/padlab/study_sensorsinperson/data_processed/data
 data_version <- board %>% pin_meta("imu_raw_samples")
 ds <- board %>% pin_read("imu_raw_samples") %>% 
   mutate(wear_status = as.numeric(wear_status == "worn"),
+         wear_status_cg = as.numeric(cg_wear_status == "worn"),
          logged_exclude = as.numeric(!(exclude_period == 1 | nap_period == 1)),
+         logged_exclude_cg = as.numeric(cg_exclude_period),
          id = as.numeric(id),
          session = as.numeric(session),
          id_uni = str_glue("{id}_{session}"))
 ds$inf_wear = SMA(ds[,"wear_status"], 30)
 ds$inf_excl = SMA(ds[,"logged_exclude"], 30)
+#ds$cg_wear = SMA(ds[,"wear_status_cg"], 30)
+#ds$cg_excl = SMA(ds[,"logged_exclude_cg"], 30)
 
 ds <- ds %>% filter(row_number() %% 15 == 0)
 shared_ds <- SharedData$new(ds)
 ```
-
+### Infant Wear Time
 
 ```{r} 
 #| error: false
@@ -95,13 +101,4 @@ bscols(
 
 ```
 
-
-```{js}
-function filter_default(){
-  const dropdown = document.getElementById("id_slider");
-  dropdown.selectedIndex = 2;
-}
-    
-$(document).ready(filter_default);
-
-```
+### Caregiver Wear Time

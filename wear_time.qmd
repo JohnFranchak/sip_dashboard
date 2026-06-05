@@ -67,7 +67,7 @@ ds$inf_excl = SMA(ds[,"logged_exclude"], 30)
 ds <- ds %>% filter(row_number() %% 15 == 0)
 shared_ds <- SharedData$new(ds)
 ```
-### Infant Wear Time
+#### Infant Wear Time
 
 ```{r} 
 #| error: false
@@ -89,7 +89,7 @@ bscols(
   list(
     filter_select(
       id = "id_slider",
-      label = "Session Select",
+      label = "Session",
       sharedData = shared_ds,
       multiple = F,
       group = ~id_uni
@@ -101,4 +101,4 @@ bscols(
 
 ```
 
-### Caregiver Wear Time
+#### Caregiver Wear Time

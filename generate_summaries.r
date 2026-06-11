@@ -23,6 +23,8 @@ read_session <- function(id, session) {
     rename(cgpos = pos) %>% mutate(time_rounded = round(as.numeric(time_start))) %>% 
     select(-time_start)
   
+  print(length(predictions) == length(cg_predictions))
+  
   # windows <- read_csv(str_glue("{study_dir}{id}_{session}/windows_4s.csv"))  %>% 
   #   rename(time = temp_time) %>% 
   #   select(-(time_sec:time_sec3))
@@ -36,7 +38,9 @@ read_session <- function(id, session) {
 ds <- map2_dfr(ids, sessions, read_session)
 
 ds <- ds %>% mutate(pos = ifelse(pos == "Upright", "Standing", pos),
+                    cgpos = ifelse(pos == "Upright", "Standing", cgpos),
                     pos = factor(pos, levels=c("Supine", "Prone", "Sitting", "Standing", "Held")),
+                    cgpos = factor(pos, levels=c("Down", "Standing")),
                     restraint = factor(restraint, levels=c("Restrained","Unrestrained")))
 
 board %>% pin_write(name = "imu_raw_samples", x = ds,

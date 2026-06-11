@@ -84,7 +84,7 @@ make_timeline <- function(i) {
       legend.position = "bottom"
     ) 
   
-  p3 <- sync %>% mutate(cgpos = as.numeric(cgpos == "Upright"),
+  p3 <- sync %>% mutate(cgpos = as.numeric(cgpos == "Standing"),
                         cgpos = ifelse(cg_exclude_period == 1, NA, cgpos),
                         group_id = consecutive_id(!is.na(cgpos))) %>% 
     ggplot(aes(x = time_plot, y = cgpos, group = group_id)) + geom_ma(n = 300, linetype = 1) + 

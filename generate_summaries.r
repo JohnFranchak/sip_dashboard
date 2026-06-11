@@ -17,18 +17,18 @@ sessions <- map_chr(id_session_keep, ~ strsplit(.x, "_")[[1]][[2]])
 
 read_session <- function(id, session) {
   predictions <- read_csv(str_glue("{study_dir}{id}_{session}/infant_position_predictions_4s.csv")) %>% 
-    rename(time = time_start) %>% mutate(time_rounded = round(as.numeric(time)))
+    rename(time = time_start) %>% mutate(time_rounded = as.numeric(time))
   
   cg_predictions <- read_csv(str_glue("{study_dir}{id}_{session}/cg_position_predictions_4s.csv")) %>% 
-    rename(cgpos = pos) %>% mutate(time_rounded = round(as.numeric(time_start))) %>% 
+    rename(cgpos = pos) %>% mutate(time_rounded = as.numeric(time_start)) %>% 
     select(-time_start)
   
-  print(length(predictions) == length(cg_predictions))
+  print(nrow(predictions) == nrow(cg_predictions))
   
   # windows <- read_csv(str_glue("{study_dir}{id}_{session}/windows_4s.csv"))  %>% 
   #   rename(time = temp_time) %>% 
   #   select(-(time_sec:time_sec3))
-  sync <- left_join(predictions, cg_predictions) # %>% left_join(windows)
+  sync <- left_join(predictions, cg_predictions, by = join_by(closest(time_rounded >= time_rounded))) # %>% left_join(windows)
   sync$id = id
   sync$session = session
   sync$time_plot <- as_hms(force_tz(sync$time, "America/Los_Angeles"))

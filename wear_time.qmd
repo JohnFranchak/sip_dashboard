@@ -61,13 +61,12 @@ ds <- board %>% pin_read("imu_raw_samples") %>%
          id_uni = str_glue("{id}_{session}"))
 ds$inf_wear = SMA(ds[,"wear_status"], 30)
 ds$inf_excl = SMA(ds[,"logged_exclude"], 30)
-#ds$cg_wear = SMA(ds[,"wear_status_cg"], 30)
-#ds$cg_excl = SMA(ds[,"logged_exclude_cg"], 30)
+ds$cg_wear = SMA(ds[,"wear_status_cg"], 30)
+ds$cg_excl = SMA(ds[,"logged_exclude_cg"], 30)
 
 ds <- ds %>% filter(row_number() %% 15 == 0)
 shared_ds <- SharedData$new(ds)
 ```
-#### Infant Wear Time
 
 ```{r} 
 #| error: false
@@ -81,7 +80,7 @@ shared_plot <- plot_ly(data = shared_ds, type = 'scatter', mode = 'lines') %>%
     title = "Time",
     tickformat = "%I:%M %p",
     rangeslider = list(visible = T)),
-    yaxis = list(title = "Wear Time"))
+    yaxis = list(title = "Infant Wear Time"))
 
 bscols(
   widths = c(1,1,9),
@@ -95,10 +94,38 @@ bscols(
       group = ~id_uni
       )
   ),
+  list()
+  )
+bscols(
+  widths = c(1,1,9),
+  list(),
+  list(),
   shared_plot
   )
 
 
 ```
 
-#### Caregiver Wear Time
+```{r} 
+#| error: false
+#| warning: false
+#| echo: false
+shared_plot_cg <- plot_ly(data = shared_ds, type = 'scatter', mode = 'lines') %>% 
+  add_trace(x = ~time, y = ~cg_wear, name = "Sensor-based") %>% 
+  add_trace(x = ~time, y = ~cg_excl, name = "Parent-logged") %>% 
+  layout(xaxis = list(
+    type = "date",
+    title = "Time",
+    tickformat = "%I:%M %p",
+    rangeslider = list(visible = T)),
+    yaxis = list(title = "CG Wear Time"))
+
+bscols(
+  widths = c(1,1,9),
+  list(),
+  list(),
+  shared_plot_cg
+  )
+
+
+```

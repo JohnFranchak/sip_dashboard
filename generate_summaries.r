@@ -2,18 +2,37 @@ library(tidyverse)
 library(hms)
 library(rstatix)
 library(pins)
+library(REDCapR)
 library("googledrive")
 drive_auth(email = TRUE)
 
 board <- board_folder("/Volumes/padlab/study_sensorsinperson/data_processed/datasets/", versioned = T)
 board_gd <- board_gdrive(path = as_id("1OZlphhu6vYm1A2Bm2-zD7a4luS5nGWgS"))
 
-# IMU Data
+#IDS FOR REDCAP AND IMU
 study_dir <- "/Volumes/padlab/study_sensorsinperson/data_processed/imu/"
 id_session <- list.files(study_dir, pattern = "\\d+_\\d+$", include.dirs = T)
 id_session_keep <- id_session[file.exists(str_glue("{study_dir}{id_session}/infant_position_predictions_4s.csv"))]
 ids <- map_chr(id_session_keep, ~ strsplit(.x, "_")[[1]][[1]])
 sessions <- map_chr(id_session_keep, ~ strsplit(.x, "_")[[1]][[2]])
+
+
+#REDCAP DATA
+uri <- "https://redcap.ucr.edu/api/"
+source("api_token.R")
+
+id_session_strings  <-  paste0(ids, "_", as.character(factor(sessions, levels = 1:4, labels = c("visit_1_arm_1", "visit_2_arm_1", "visit_3_arm_1", "visit_4_arm_1"))))
+
+redcap <- redcap_read(redcap_uri = uri, token = api_token, forms = c("session_notes"), guess_type = F) %>% 
+  .[["data"]] %>% select(study_id, redcap_event_name, time_gopro_start:cg_off_6_reason) %>% 
+  mutate(id_redcap_session = paste0(study_id, "_", redcap_event_name))
+
+  filter(id %in% ids, redcap_event_name == session_string)
+
+
+
+
+#IMU DATA 
 
 read_session <- function(id, session) {
   predictions <- read_csv(str_glue("{study_dir}{id}_{session}/infant_position_predictions_4s.csv")) %>% 
@@ -73,12 +92,12 @@ sleep_tcds <- sleep_tcds %>%
 
 board %>% pin_write(name = "sleep_tcds", x = sleep_tcds,
                     title = "Infant and Caregiver Raw Position",
-                    description = "LENA predictions using Bang, Kachergis, Weisleder, and Marchman(2022) Shiny Algorithm",
+                    description = "LENA predictions using Bang, Kachergis, Weisleder, and Marchman (2022) Shiny Algorithm. Does not include parent logged exclude periods",
                     metadata = list(model_url = "https://kachergis.shinyapps.io/classify_cds_ods/"),
                     type = "parquet")
 board_gd %>% pin_write(name = "sleep_tcds", x = sleep_tcds,
                     title = "Infant and Caregiver Raw Position",
-                    description = "LENA predictions using Bang, Kachergis, Weisleder, and Marchman(2022) Shiny Algorithm",
+                    description = "LENA predictions using Bang, Kachergis, Weisleder, and Marchman (2022) Shiny Algorithm. Does not include parent logged exclude periods",
                     metadata = list(model_url = "https://kachergis.shinyapps.io/classify_cds_ods/"),
                     type = "parquet")
   

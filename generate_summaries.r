@@ -17,31 +17,34 @@ sessions <- map_chr(id_session_keep, ~ strsplit(.x, "_")[[1]][[2]])
 
 read_session <- function(id, session) {
   predictions <- read_csv(str_glue("{study_dir}{id}_{session}/infant_position_predictions_4s.csv")) %>% 
-    rename(time = time_start) %>% mutate(time_rounded = as.numeric(time))
+    rename(time = time_start) %>% mutate(time_rounded = round(as.numeric(time)))
   
   cg_predictions <- read_csv(str_glue("{study_dir}{id}_{session}/cg_position_predictions_4s.csv")) %>% 
-    rename(cgpos = pos) %>% mutate(time_rounded = as.numeric(time_start)) %>% 
+    rename(cgpos = pos) %>% mutate(time_rounded = round(as.numeric(time_start))) %>% 
     select(-time_start)
   
   print(nrow(predictions) == nrow(cg_predictions))
   
-  # windows <- read_csv(str_glue("{study_dir}{id}_{session}/windows_4s.csv"))  %>% 
-  #   rename(time = temp_time) %>% 
-  #   select(-(time_sec:time_sec3))
-  sync <- left_join(predictions, cg_predictions, by = join_by(closest(time_rounded >= time_rounded))) # %>% left_join(windows)
+  #sync <- left_join(predictions, cg_predictions, by = join_by(closest(time_rounded >= time_rounded)))
+  sync <- left_join(predictions, cg_predictions)
+  
+  
   sync$id = id
   sync$session = session
   sync$time_plot <- as_hms(force_tz(sync$time, "America/Los_Angeles"))
   return(sync)
   #sync_filt <- sync %>% filter(nap_period == 0, exclude_period == 0)
 }
-ds <- map2_dfr(ids, sessions, read_session)
+ds <- map2_dfr(ids, sessions, read_session) 
 
 ds <- ds %>% mutate(pos = ifelse(pos == "Upright", "Standing", pos),
                     cgpos = ifelse(pos == "Upright", "Standing", cgpos),
                     pos = factor(pos, levels=c("Supine", "Prone", "Sitting", "Standing", "Held")),
                     cgpos = factor(pos, levels=c("Down", "Standing")),
-                    restraint = factor(restraint, levels=c("Restrained","Unrestrained")))
+                    restraint = factor(restraint, levels=c("Restrained","Unrestrained"))) 
+#%>% 
+#  select(-time_rounded.x, -time_rounded.y) 
+#%>% drop_na(cgpos)
 
 board %>% pin_write(name = "imu_raw_samples", x = ds,
                     title = "Infant and Caregiver Raw Position",

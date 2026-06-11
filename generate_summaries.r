@@ -25,34 +25,66 @@ id_session_strings  <-  paste0(ids, "_", as.character(factor(sessions, levels = 
 
 redcap <- redcap_read(redcap_uri = uri, token = api_token, forms = c("session_notes"), guess_type = F) %>% 
   .[["data"]] %>% select(study_id, redcap_event_name, time_gopro_start:cg_off_6_reason) %>% 
-  mutate(id_redcap_session = paste0(study_id, "_", redcap_event_name))
-
-  filter(id %in% ids, redcap_event_name == session_string)
-
-
-
+  mutate(id_redcap_session = paste0(study_id, "_", redcap_event_name)) %>% 
+  filter(id_redcap_session %in% id_session_strings) %>% 
+  mutate(session_num = as.numeric(str_extract(redcap_event_name, "\\d+")))
 
 #IMU DATA 
 
 read_session <- function(id, session) {
   predictions <- read_csv(str_glue("{study_dir}{id}_{session}/infant_position_predictions_4s.csv")) %>% 
-    rename(time = time_start) %>% mutate(time_rounded = as.numeric(time))
+    rename(time = time_start) %>% mutate(time_rounded = as.numeric(time)) %>% 
+    select(-exclude_period, -nap_period)
   
   cg_predictions <- read_csv(str_glue("{study_dir}{id}_{session}/cg_position_predictions_4s.csv")) %>% 
-    rename(cgpos = pos) %>% mutate(time_rounded = as.numeric(time_start)) %>% 
-    select(-time_start)
+    rename(cgpos = pos) %>% mutate(time_rounded = as.numeric(time_start)) %>% select(-cg_exclude_period)
   
-  print(nrow(predictions) == nrow(cg_predictions))
+  exclude_times <- redcap %>% filter(study_id == id, session_num == session)
+  sync_point <- exclude_times$sync_point_la
+  
+  inf_exclude = exclude_times %>% select(matches("^time_off_\\d_(start|end)")) %>% 
+    pivot_longer(cols = everything(), names_to = c("event", ".value"), names_pattern = "time_off_(\\d)_(.*)") %>% 
+    drop_na() %>% separate(start, into = c("start_hour", "start_minute")) %>% 
+    separate(end, into = c("end_hour", "end_minute")) %>%
+    mutate(across(start_hour:end_minute, as.numeric),
+      start_time = make_datetime(year = year(sync_point), month = month(sync_point), day = day(sync_point), hour = start_hour, min = start_minute, sec = 0, tz = tz(sync_point)),
+      end_time = make_datetime(year = year(sync_point), month = month(sync_point), day = day(sync_point), hour = end_hour, min = end_minute, sec = 0, tz = tz(sync_point))) %>% 
+    select(start_time, end_time)
+    
+  
+  nap_exclude = exclude_times %>% select(matches("^time_nap_\\d_(start|end)")) %>% 
+    pivot_longer(cols = everything(), names_to = c("event", ".value"), names_pattern = "time_nap_(\\d)_(.*)") %>% 
+    drop_na() %>% separate(start, into = c("start_hour", "start_minute")) %>% 
+    separate(end, into = c("end_hour", "end_minute")) %>%
+    mutate(across(start_hour:end_minute, as.numeric),
+           start_time = make_datetime(year = year(sync_point), month = month(sync_point), day = day(sync_point), hour = start_hour, min = start_minute, sec = 0, tz = tz(sync_point)),
+           end_time = make_datetime(year = year(sync_point), month = month(sync_point), day = day(sync_point), hour = end_hour, min = end_minute, sec = 0, tz = tz(sync_point)))  %>% 
+    select(start_time, end_time)
+  
+  
+  cg_exclude = exclude_times %>% select(matches("^cg_off_\\d_(start|end)")) %>% 
+    pivot_longer(cols = everything(), names_to = c("event", ".value"), names_pattern = "cg_off_(\\d)_(.*)") %>% 
+    drop_na()  %>% separate(start, into = c("start_hour", "start_minute")) %>% 
+    separate(end, into = c("end_hour", "end_minute")) %>%
+    mutate(across(start_hour:end_minute, as.numeric),
+           start_time = make_datetime(year = year(sync_point), month = month(sync_point), day = day(sync_point), hour = start_hour, min = start_minute, sec = 0, tz = tz(sync_point)),
+           end_time = make_datetime(year = year(sync_point), month = month(sync_point), day = day(sync_point), hour = end_hour, min = end_minute, sec = 0, tz = tz(sync_point)))  %>% 
+    select(start_time, end_time)
+  
+  predictions <- predictions %>% left_join(inf_exclude, by = join_by(between(time, start_time, end_time))) %>% 
+    mutate(exclude_period = as.numeric(!is.na(start_time))) %>% select(-start_time, -end_time)
+  predictions <- predictions %>% left_join(nap_exclude, by = join_by(between(time, start_time, end_time))) %>% 
+    mutate(nap_period = as.numeric(!is.na(start_time))) %>% select(-start_time, -end_time)
+  
+  cg_predictions <- cg_predictions %>% left_join(cg_exclude, by = join_by(between(time_start, start_time, end_time))) %>% 
+    mutate(cg_exclude_period = as.numeric(!is.na(start_time))) %>% select(-start_time, -end_time, -time_start)
   
   sync <- left_join(predictions, cg_predictions, by = join_by(closest(time_rounded >= time_rounded)))
-  #sync <- left_join(predictions, cg_predictions)
-  
-  
+
   sync$id = id
   sync$session = session
   sync$time_plot <- as_hms(force_tz(sync$time, "America/Los_Angeles"))
   return(sync)
-  #sync_filt <- sync %>% filter(nap_period == 0, exclude_period == 0)
 }
 ds <- map2_dfr(ids, sessions, read_session) 
 

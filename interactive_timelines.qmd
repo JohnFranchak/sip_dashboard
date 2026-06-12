@@ -1,0 +1,110 @@
+---
+title: "Interactive Timelines"
+fig-dpi: 300
+execute:
+  cache: false
+  error: false
+  warning: false
+  echo: false
+format: 
+  html:
+    page-layout: custom
+knitr: 
+  opts_chunk: 
+    out.width: "100%"
+---
+
+| Last updated: `r round(lubridate::now())`
+
+```{r}
+#| echo: false
+#| error: false
+#| warning: false
+library(tidyverse)
+library(hms)
+library(pins)
+library(plotly)
+library(TTR)
+library(crosstalk)
+library(fastDummies)
+
+board <- board_folder("/Volumes/padlab/study_sensorsinperson/data_processed/datasets/")
+data_version <- board %>% pin_meta("imu_raw_samples")
+ds <- board %>% pin_read("imu_raw_samples")
+ds <- ds %>% dummy_cols(select_columns = "pos", omit_colname_prefix = T)
+ds <- ds %>% dummy_cols(select_columns = "restraint", omit_colname_prefix = T)
+ds <- ds %>% 
+  mutate(wear_status = as.numeric(wear_status == "worn"),
+         wear_status_cg = as.numeric(cg_wear_status == "worn"),
+         logged_exclude = as.numeric(!(exclude_period == 1 | nap_period == 1)),
+         logged_exclude_cg = as.numeric(cg_exclude_period == 0),
+         Standing_CG = as.numeric(cgpos == "Standing"),
+         id = as.numeric(id),
+         session = as.numeric(session),
+         id_uni = str_glue("{id}_{session}"))
+ds$inf_wear = SMA(ds[,"wear_status"], 30)
+ds$inf_excl = SMA(ds[,"logged_exclude"], 30)
+ds$cg_wear = SMA(ds[,"wear_status_cg"], 30)
+ds$cg_excl = SMA(ds[,"logged_exclude_cg"], 30)
+ds$Supine = SMA(ds[,"Supine"], 30)
+ds$Held = SMA(ds[,"Held"], 30)
+ds$Prone = SMA(ds[,"Prone"], 30)
+ds$Sitting = SMA(ds[,"Sitting"], 30)
+ds$Standing = SMA(ds[,"Standing"], 30)
+ds$Standing_CG = SMA(ds[,"Standing_CG"], 30)
+ds$Restrained = SMA(ds[,"Restrained"], 30)
+ds$Unrestrained = SMA(ds[,"Supine"], 30)
+
+ds <- ds %>% filter(row_number() %% 15 == 0)
+
+ds <- ds %>% mutate(
+  across(Supine:Unrestrained, ~ ifelse(exclude_period == 1 | nap_period == 1, NA, .x)),
+  Standing_CG = ifelse(cg_exclude_period == 1, NA, Standing_CG)
+)
+
+shared_ds <- SharedData$new(ds)
+```
+
+```{r} 
+#| error: false
+#| warning: false
+#| echo: false
+shared_plot <- plot_ly(data = shared_ds, type = 'scatter', mode = 'lines') %>% 
+  add_trace(x = ~time, y = ~inf_wear, name = "Sensor-based Infant Wear") %>% 
+  add_trace(x = ~time, y = ~cg_excl, name = "Sensor-based CG Wear") %>% 
+  add_trace(x = ~time, y = ~Held, name = "Held") %>%
+  add_trace(x = ~time, y = ~Supine, name = "Supine") %>%
+  add_trace(x = ~time, y = ~Prone, name = "Prone") %>%
+  add_trace(x = ~time, y = ~Sitting, name = "Sitting") %>%
+  add_trace(x = ~time, y = ~Standing, name = "Standing") %>%
+  layout(xaxis = list(
+    type = "date",
+    title = "Time",
+    tickformat = "%I:%M %p",
+    rangeslider = list(visible = T)),
+    yaxis = list(title = "% Time (2-min smoothing)"))
+
+bscols(
+  widths = c(1,1,9),
+  list(),
+  list(
+    filter_select(
+      id = "id_slider",
+      label = "Session",
+      sharedData = shared_ds,
+      multiple = F,
+      group = ~id_uni
+      )
+  ),
+  list()
+  )
+bscols(
+  widths = c(1,1,9),
+  list(),
+  list(),
+  shared_plot
+  )
+
+
+```
+

@@ -11,10 +11,13 @@ website:
         text: Sessions
       - href: tasks.qmd
       - href: files.qmd
-      - href: timelines.qmd
-      - href: summaries.qmd
       - href: wear_time.qmd
         text: Wear Time
+      - href: interactive_timelines.qmd
+        text: Interactive Timelines
+      - href: timelines.qmd
+      - href: summaries.qmd
+      
 
 format:
   html:

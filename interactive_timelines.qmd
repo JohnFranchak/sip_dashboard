@@ -55,7 +55,7 @@ ds$Sitting = SMA(ds[,"Sitting"], smooth_sec)
 ds$Standing = SMA(ds[,"Standing"], smooth_sec)
 ds$Standing_CG = SMA(ds[,"Standing_CG"], smooth_sec)
 ds$Restrained = SMA(ds[,"Restrained"], smooth_sec)
-ds$Unrestrained = SMA(ds[,"Supine"], smooth_sec)
+ds$Unrestrained = SMA(ds[,"Unrestrained"], smooth_sec)
 
 ds <- ds %>% filter(row_number() %% 15 == 0)
 

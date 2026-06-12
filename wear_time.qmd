@@ -55,7 +55,7 @@ ds <- board %>% pin_read("imu_raw_samples") %>%
   mutate(wear_status = as.numeric(wear_status == "worn"),
          wear_status_cg = as.numeric(cg_wear_status == "worn"),
          logged_exclude = as.numeric(!(exclude_period == 1 | nap_period == 1)),
-         logged_exclude_cg = as.numeric(cg_exclude_period),
+         logged_exclude_cg = as.numeric(cg_exclude_period == 0),
          id = as.numeric(id),
          session = as.numeric(session),
          id_uni = str_glue("{id}_{session}"))

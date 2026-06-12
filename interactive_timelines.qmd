@@ -42,18 +42,20 @@ ds <- ds %>%
          id = as.numeric(id),
          session = as.numeric(session),
          id_uni = str_glue("{id}_{session}"))
-ds$inf_wear = SMA(ds[,"wear_status"], 30)
-ds$inf_excl = SMA(ds[,"logged_exclude"], 30)
-ds$cg_wear = SMA(ds[,"wear_status_cg"], 30)
-ds$cg_excl = SMA(ds[,"logged_exclude_cg"], 30)
-ds$Supine = SMA(ds[,"Supine"], 30)
-ds$Held = SMA(ds[,"Held"], 30)
-ds$Prone = SMA(ds[,"Prone"], 30)
-ds$Sitting = SMA(ds[,"Sitting"], 30)
-ds$Standing = SMA(ds[,"Standing"], 30)
-ds$Standing_CG = SMA(ds[,"Standing_CG"], 30)
-ds$Restrained = SMA(ds[,"Restrained"], 30)
-ds$Unrestrained = SMA(ds[,"Supine"], 30)
+
+smooth_sec <-  60
+ds$inf_wear = SMA(ds[,"wear_status"], smooth_sec)
+ds$inf_excl = SMA(ds[,"logged_exclude"], smooth_sec)
+ds$cg_wear = SMA(ds[,"wear_status_cg"], smooth_sec)
+ds$cg_excl = SMA(ds[,"logged_exclude_cg"], smooth_sec)
+ds$Supine = SMA(ds[,"Supine"], smooth_sec)
+ds$Held = SMA(ds[,"Held"], smooth_sec)
+ds$Prone = SMA(ds[,"Prone"], smooth_sec)
+ds$Sitting = SMA(ds[,"Sitting"], smooth_sec)
+ds$Standing = SMA(ds[,"Standing"], smooth_sec)
+ds$Standing_CG = SMA(ds[,"Standing_CG"], smooth_sec)
+ds$Restrained = SMA(ds[,"Restrained"], smooth_sec)
+ds$Unrestrained = SMA(ds[,"Supine"], smooth_sec)
 
 ds <- ds %>% filter(row_number() %% 15 == 0)
 
@@ -70,19 +72,22 @@ shared_ds <- SharedData$new(ds)
 #| warning: false
 #| echo: false
 shared_plot <- plot_ly(data = shared_ds, type = 'scatter', mode = 'lines') %>% 
-  add_trace(x = ~time, y = ~inf_wear, name = "Sensor-based Infant Wear") %>% 
-  add_trace(x = ~time, y = ~cg_excl, name = "Sensor-based CG Wear") %>% 
-  add_trace(x = ~time, y = ~Held, name = "Held") %>%
-  add_trace(x = ~time, y = ~Supine, name = "Supine") %>%
-  add_trace(x = ~time, y = ~Prone, name = "Prone") %>%
-  add_trace(x = ~time, y = ~Sitting, name = "Sitting") %>%
-  add_trace(x = ~time, y = ~Standing, name = "Standing") %>%
+  add_trace(x = ~time, y = ~inf_wear, name = "Sensor-based Infant Wear", visible = "legendonly") %>% 
+  add_trace(x = ~time, y = ~cg_excl, name = "Sensor-based CG Wear", visible = "legendonly") %>% 
+  add_trace(x = ~time, y = ~Held, name = "Held", visible = "legendonly") %>%
+  add_trace(x = ~time, y = ~Supine, name = "Supine", visible = "legendonly") %>%
+  add_trace(x = ~time, y = ~Prone, name = "Prone", visible = "legendonly") %>%
+  add_trace(x = ~time, y = ~Sitting, name = "Sitting", visible = "legendonly") %>%
+  add_trace(x = ~time, y = ~Standing, name = "Standing", visible = "legendonly") %>%
+  add_trace(x = ~time, y = ~Unrestrained, name = "Unrestrained", visible = "legendonly") %>%
+  add_trace(x = ~time, y = ~Restrained, name = "Restrained", visible = "legendonly") %>%
+  add_trace(x = ~time, y = ~Standing_CG, name = "CG Standing", visible = "legendonly") %>%
   layout(xaxis = list(
     type = "date",
     title = "Time",
     tickformat = "%I:%M %p",
     rangeslider = list(visible = T)),
-    yaxis = list(title = "% Time (2-min smoothing)"))
+    yaxis = list(title = "% Time (1-min smoothing)"))
 
 bscols(
   widths = c(1,1,9),
@@ -99,8 +104,7 @@ bscols(
   list()
   )
 bscols(
-  widths = c(1,1,9),
-  list(),
+  widths = c(1,10),
   list(),
   shared_plot
   )

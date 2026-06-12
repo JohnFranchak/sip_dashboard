@@ -367,3 +367,21 @@ processing file: timelines.qmd
 [39m
 Output created: docs/index.html
 
+[main d1ca6943] Automated Quarto update: 2026-06-12 15:01:55
+ 9 files changed, 515 insertions(+), 460 deletions(-)
+To github.com:JohnFranchak/sip_dashboard.git
+   5e7989ea..d1ca6943  main -> main
+//franchak@johnds920.ucr.edu/padlab on /Volumes/padlab (smbfs, nodev, nosuid, mounted by johnfranchak)
+[1m[34m[1/7] tasks.qmd[39m[22m
+[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)[31m
+
+Quitting from lines 9-46 (tasks.qmd) 
+Error in curl::curl_fetch_memory(url, handle = handle) : 
+  Timeout was reached: [redcap.ucr.edu] Failed to connect to redcap.ucr.edu port 443 after 101001 ms: Timeout was reached
+Calls: .main ... request_fetch -> request_fetch.write_memory -> <Anonymous>
+[39m                                                                                                            
+[31mExecution halted
+[39m

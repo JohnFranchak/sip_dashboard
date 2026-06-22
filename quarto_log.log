@@ -4903,3 +4903,175 @@ processing file: timelines.qmd
 [39m
 Output created: docs/index.html
 
+[main 7ae5f9c0] Automated Quarto update: 2026-06-16 04:04:00
+ 9 files changed, 525 insertions(+), 466 deletions(-)
+To github.com:JohnFranchak/sip_dashboard.git
+   76aaa970..7ae5f9c0  main -> main
+//franchak@johnds920.ucr.edu/padlab on /Volumes/padlab (smbfs, nodev, nosuid, mounted by johnfranchak)
+[1m[34m[1/7] tasks.qmd[39m[22m
+[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: tasks.knit.md
+
+[39m[1m[34m[2/7] files.qmd[39m[22m
+[31m
+
+processing file: files.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: files.knit.md
+
+[39m[1m[34m[3/7] index.qmd[39m[22m
+[31m
+
+processing file: index.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: index.knit.md
+
+[39m[1m[34m[4/7] wear_time.qmd[39m[22m
+[31m
+
+processing file: wear_time.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |.........                                           |  17%                    |                                                            |.................                                   |  33% (unnamed-chunk-1)[31m
+
+Quitting from lines 22-69 (wear_time.qmd) 
+Error: [EACCES] Failed to make directory '/Volumes/padlab': permission denied
+[39m                                                                                                            
+[31mExecution halted
+[39mfatal: Unable to create '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+fatal: Unable to create '/Users/johnfranchak/Documents/GitHub/sip_dashboard/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+Everything up-to-date
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.
+Error: SMB share is not mounted at /Volumes/padlab.

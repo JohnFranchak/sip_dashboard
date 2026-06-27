@@ -84,16 +84,18 @@ make_timeline <- function(i) {
       legend.position = "bottom"
     ) 
   
-  p3 <- sync %>% mutate(cgpos = as.numeric(cgpos == "Standing"),
-                        cgpos = ifelse(cg_exclude_period == 1, NA, cgpos),
-                        group_id = consecutive_id(!is.na(cgpos))) %>% 
-    ggplot(aes(x = time_plot, y = cgpos, group = group_id)) + geom_ma(n = 90, linetype = 1) + 
-    theme(legend.position = "top",
-          axis.title.x = element_blank(),
-          axis.text.x = element_blank(),
-          axis.ticks.x = element_blank()) + 
-    scale_x_time(breaks = hour_breaks, name = "", limits = lims, labels = label_breaks) + 
-    scale_y_continuous(name = "CG Up", breaks = c(0,1), labels = c("0%", "100%"), limits = c(0,1))
+  if (nrow(drop_na(sync, cgpos)) > 0) {
+    p3 <- sync %>% mutate(cgpos = as.numeric(cgpos == "Standing"),
+                          cgpos = ifelse(cg_exclude_period == 1, NA, cgpos),
+                          group_id = consecutive_id(!is.na(cgpos))) %>% 
+      ggplot(aes(x = time_plot, y = cgpos, group = group_id)) + geom_ma(n = 90, linetype = 1) + 
+      theme(legend.position = "top",
+            axis.title.x = element_blank(),
+            axis.text.x = element_blank(),
+            axis.ticks.x = element_blank()) + 
+      scale_x_time(breaks = hour_breaks, name = "", limits = lims, labels = label_breaks) + 
+      scale_y_continuous(name = "CG Up", breaks = c(0,1), labels = c("0%", "100%"), limits = c(0,1))
+  }
   
   p4 <- sync %>% mutate(restraint = as.numeric(restraint == "Unrestrained"), 
                         restraint = ifelse(nap_period == 1 | exclude_period == 1, NA, restraint),
@@ -140,9 +142,18 @@ make_timeline <- function(i) {
       scale_x_time(breaks = hour_breaks, name = "", limits = lims, labels = label_breaks) + 
       scale_y_continuous(name = "CDS", breaks = c(0,1), labels = c("0%", "100%"), limits = c(0,1))
     
-    fig <- p1/p5/p6/p3/p4/p7/p2 + plot_layout(heights = c(2,1,1,1,1,1,1))
+    
+    if (nrow(drop_na(sync, cgpos)) > 0) {
+      fig <- p1/p5/p6/p3/p4/p7/p2 + plot_layout(heights = c(2,1,1,1,1,1,1))
+    } else {
+      fig <- p1/p5/p6/p4/p7/p2 + plot_layout(heights = c(2,1,1,1,1,1))
+    }
   } else{
-    fig <- p1/p3/p4/p7/p2 + plot_layout(heights = c(3,2,2,2,2))
+    if (nrow(drop_na(sync, cgpos)) > 0) {
+      fig <- p1/p3/p4/p7/p2 + plot_layout(heights = c(3,2,2,2,2))
+    } else {
+      fig <- p1/p4/p7/p2 + plot_layout(heights = c(3,2,2,2))
+    }
   }
   
   ggsave(plot = fig, filename = str_glue("/Volumes/padlab/study_sensorsinperson/data_processed/timelines/{id}_{session}.png",

@@ -83,7 +83,7 @@ read_session <- function(id, session) {
     cg_predictions <- cg_predictions %>% left_join(cg_exclude, by = join_by(between(time_start, start_time, end_time))) %>% 
       mutate(cg_exclude_period = as.numeric(!is.na(start_time))) %>% select(-start_time, -end_time, -time_start)
     
-    sync <- left_join(predictions, cg_predictions, by = join_by(closest(time_rounded >= time_rounded)))
+    sync <- left_join(predictions, cg_predictions, by = join_by(closest(time_rounded >= time_rounded))) # %>% drop_na(cgpos) 
   } else {
     sync <- predictions
   }
@@ -95,7 +95,7 @@ read_session <- function(id, session) {
 }
 ds <- map2_dfr(ids, sessions, read_session) 
 
-ds <- ds %>% drop_na(cgpos) %>% 
+ds <- ds %>% 
   mutate(pos = ifelse(pos == "Upright", "Standing", pos),
           cgpos = ifelse(cgpos == "Upright", "Standing", cgpos),
           pos = factor(pos, levels=c("Supine", "Prone", "Sitting", "Standing", "Held")),

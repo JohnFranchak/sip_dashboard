@@ -36,9 +36,12 @@ ds <- ds %>% dummy_cols(select_columns = "restraint", omit_colname_prefix = T)
 ds <- ds %>% 
   mutate(wear_status = as.numeric(wear_status == "worn"),
          wear_status_cg = as.numeric(cg_wear_status == "worn"),
+         wear_status_cg = ifelse(is.na(wear_status_cg),0,wear_status_cg),
          logged_exclude = as.numeric(!(exclude_period == 1 | nap_period == 1)),
          logged_exclude_cg = as.numeric(cg_exclude_period == 0),
+         logged_exclude_cg = ifelse(is.na(logged_exclude_cg), 1, logged_exclude_cg),
          Standing_CG = as.numeric(cgpos == "Standing"),
+         Standing_CG = ifelse(is.na(Standing_CG), 0, Standing_CG),
          id = as.numeric(id),
          session = as.numeric(session),
          id_uni = str_glue("{id}_{session}"))
@@ -61,7 +64,8 @@ ds <- ds %>% filter(row_number() %% 15 == 0)
 
 ds <- ds %>% mutate(
   across(Supine:Unrestrained, ~ ifelse(exclude_period == 1 | nap_period == 1, NA, .x)),
-  Standing_CG = ifelse(cg_exclude_period == 1, NA, Standing_CG)
+  Standing_CG = ifelse(cg_exclude_period == 1, NA, Standing_CG),
+  Standing_CG = ifelse(is.na(cgpos), NA, Standing_CG)
 )
 
 shared_ds <- SharedData$new(ds)

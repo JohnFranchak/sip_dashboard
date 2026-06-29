@@ -12,15 +12,20 @@ knitr:
     out.width: "100%"
 ---
 
+```{r}
+#| echo: false
+
+# Get list of files
+files <- list.files("timelines", pattern = "*.png", full.names = TRUE)
+```
+
 | Last updated: `r round(lubridate::now())`
+| Displaying `r length(files)` timelines
 
 ::: {layout-ncol=3}
 ```{r}
 #| echo: false
 #| results: asis
-
-# Get list of files
-files <- list.files("timelines", pattern = "*.png", full.names = TRUE)
 
 # Generate markdown for each file
 for (f in files) {

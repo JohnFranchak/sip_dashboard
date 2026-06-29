@@ -46,6 +46,7 @@ ds <- ds %>% left_join(ds_tdate) %>% rename(Date = visit_date)
 ```
 
 | Last updated: `r round(now())`
+| Showing files for `r nrow(ds)` sessions
 | &#x2714; Complete, &#x2716; Pending, &#x274C; Missing/Unsure
 | 
 

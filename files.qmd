@@ -66,6 +66,7 @@ ds_files$CGPOS4 <- map2_int(ids, sessions, ~ file.exists(str_glue("{study_dir}da
 ```
 
 | Last updated: `r round(now())`
+| Showing files for `r nrow(ds_files)` sessions
 | &#x2714; Complete, &#x2716; N/A, &#x274C; Missing/Misnamed
 | 
 

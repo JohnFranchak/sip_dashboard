@@ -17639,3 +17639,40 @@ processing file: timelines.qmd
 [39m
 Output created: docs/index.html
 
+[main 6fc9179c] Automated Quarto update: 2026-07-02 08:03:43
+ 9 files changed, 519 insertions(+), 460 deletions(-)
+To github.com:JohnFranchak/sip_dashboard.git
+   fafe3fde..6fc9179c  main -> main
+//franchak@johnds920.ucr.edu/padlab on /Volumes/padlab (smbfs, nodev, nosuid, mounted by johnfranchak)
+[1m[34m[1/7] tasks.qmd[39m[22m
+[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: tasks.knit.md
+
+[39m[1m[34m[2/7] files.qmd[39m[22m
+[31m
+
+processing file: files.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: files.knit.md
+
+[39m[1m[34m[3/7] index.qmd[39m[22m
+[31m
+
+processing file: index.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: index.knit.md
+
+[39m[1m[34m[4/7] wear_time.qmd[39m[22m
+[31m
+
+processing file: wear_time.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |.........                                           |  17%                    |                                                            |.................                                   |  33% (unnamed-chunk-1)[31m
+
+Quitting from lines 22-71 (wear_time.qmd) 
+Error: [EACCES] Failed to make directory '/Volumes/padlab': permission denied
+[39m                                                                                                            
+[31mExecution halted
+[39m

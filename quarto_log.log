@@ -17812,3 +17812,58 @@ Error: SMB share is not mounted at /Volumes/padlab.
 Error: SMB share is not mounted at /Volumes/padlab.
 Error: SMB share is not mounted at /Volumes/padlab.
 Error: SMB share is not mounted at /Volumes/padlab.
+//franchak@johnds920.ucr.edu/padlab on /Volumes/padlab (smbfs, nodev, nosuid, mounted by johnfranchak)
+[1m[34m[1/7] tasks.qmd[39m[22m
+[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: tasks.knit.md
+
+[39m[1m[34m[2/7] files.qmd[39m[22m
+[31m
+
+processing file: files.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: files.knit.md
+
+[39m[1m[34m[3/7] index.qmd[39m[22m
+[31m
+
+processing file: index.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: index.knit.md
+
+[39m[1m[34m[4/7] wear_time.qmd[39m[22m
+[31m
+
+processing file: wear_time.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |.........                                           |  17%                    |                                                            |.................                                   |  33% (unnamed-chunk-1)  |                                                            |..........................                          |  50%                    |                                                            |...................................                 |  67% (unnamed-chunk-2)  |                                                            |...........................................         |  83%                    |                                                            |....................................................| 100% (unnamed-chunk-3)                                                                                                            
+[31moutput file: wear_time.knit.md
+
+[39m[1m[34m[5/7] interactive_timelines.qmd[39m[22m
+[31m
+
+processing file: interactive_timelines.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: interactive_timelines.knit.md
+
+[39m[1m[34m[6/7] summaries.qmd[39m[22m
+[31m
+
+processing file: summaries.qmd
+[39m  |                                                |                                        |   0%  |                                                |..                                      |   4%                                |                                                |...                                     |   8% (unnamed-chunk-1)              |                                                |.....                                   |  12%                                |                                                |......                                  |  16% (unnamed-chunk-2)              |                                                |........                                |  20%                                |                                                |..........                              |  24% (Usable-data)                  |                                                |...........                             |  28%                                |                                                |.............                           |  32% (Usable-data-histograms)       |                                                |..............                          |  36%                                |                                                |................                        |  40% (position-table-age)           |                                                |..................                      |  44%                                |                                                |...................                     |  48% (frequency-by-age-overall)     |                                                |.....................                   |  52%                                |                                                |......................                  |  56% (frequency-by-age-individual)  |                                                |........................                |  60%                                |                                                |..........................              |  64% (restraint-table-age)          |                                                |...........................             |  68%                                |                                                |.............................           |  72% (restraint-by-age-overall)     |                                                |..............................          |  76%                                |                                                |................................        |  80% (restraint-by-age-individual)  |                                                |..................................      |  84%                                |                                                |...................................     |  88% (posture-by-restraint)         |                                                |.....................................   |  92%                                |                                                |......................................  |  96% (posture-restraint-table-age)  |                                                |........................................| 100%                                                                                                                                                      
+[31moutput file: summaries.knit.md
+
+[39m[31mWarning message:
+In readLines(input) : incomplete final line found on 'summaries.qmd'
+[39m[1m[34m[7/7] timelines.qmd[39m[22m
+[31m
+
+processing file: timelines.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: timelines.knit.md
+
+[39m
+Output created: docs/index.html
+

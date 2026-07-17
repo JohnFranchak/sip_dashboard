@@ -61,9 +61,15 @@ board <- board_gdrive(path = as_id("1OZlphhu6vYm1A2Bm2-zD7a4luS5nGWgS"))
 # To see available pinned data
 board %>% pin_list()
 
-# To read a specific data pin into memory
+# To read the raw IMU predictions throughout the day
 ds <- board %>% pin_read("imu_raw_samples") %>%
   filter(nap_period == 0, exclude_period == 0)
+
+# To read REDCap data (AIMS, Demographics, caregiver surveys, motor milestones)
+redcap <- board %>% pin_read("redcap_data")
+
+# To read sleep and target-child-directed speech predictions from LENA
+sleep_tcds <- board %>% pin_read("sleep_tcds")
 ```
 
 ### Usable data

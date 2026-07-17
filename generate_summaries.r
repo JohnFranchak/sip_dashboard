@@ -29,6 +29,37 @@ redcap <- redcap_read(redcap_uri = uri, token = api_token, forms = c("session_no
   filter(id_redcap_session %in% id_session_strings) %>% 
   mutate(session_num = as.numeric(str_extract(redcap_event_name, "\\d+")))
 
+# For Redcap Participant Level Board
+redcap_id <- redcap_read(redcap_uri = uri, token = api_token, fields = c("study_id","dob","sex"), guess_type = F, raw_or_label = "label") %>% 
+  .[["data"]] %>% filter(study_id %in% unique(ids), redcap_event_name %in% c("Intro Call")) %>% select(-redcap_event_name)
+
+redcap_visits <- redcap_read(redcap_uri = uri, token = api_token, fields = c("study_id","visit_date","zoom_call_date"), guess_type = F, raw_or_label = "label") %>% 
+  .[["data"]] %>% filter(study_id %in% unique(ids), redcap_event_name %in% c("Intro Call", "Schedule 2", "Schedule 3", "Visit 4")) %>% 
+  mutate(visit_date = ifelse(is.na(visit_date), zoom_call_date, visit_date),
+         session = as.character(factor(redcap_event_name, levels = c("Intro Call", "Schedule 2", "Schedule 3", "Visit 4"), labels = 1:4))) %>% 
+  select(-redcap_event_name, -zoom_call_date)
+
+redcap_demo <- redcap_read(redcap_uri = uri, token = api_token, forms = c("demographics"), guess_type = F, raw_or_label = "label") %>% 
+  .[["data"]] %>% filter(study_id %in% unique(ids), redcap_event_name %in% c("Visit 1")) %>% select(-redcap_event_name)
+
+redcap_session <- redcap_read(redcap_uri = uri, token = api_token, forms = c("motor_milestones","mulborne_cg", "parent_stress", "aims","aims_reliability"), guess_type = F, raw_or_label = "label") %>% 
+  .[["data"]] %>% filter(study_id %in% unique(ids), redcap_event_name %in% c("Visit 1", "Visit 2", "Visit 3", "Visit 4")) %>% 
+  mutate(session = str_extract(redcap_event_name, "\\d")) %>% select(-redcap_event_name)
+
+session_export <- left_join(redcap_session, redcap_id) %>% left_join(redcap_demo)
+session_export <- session_export %>% left_join(redcap_visits)
+session_export <- session_export %>% rename(id = study_id) %>% relocate(session, .after = "id") %>% relocate(dob, .after = "session") %>% 
+  relocate(sex, .after = "dob") %>% relocate(visit_date, .after = "dob")
+
+board %>% pin_write(name = "redcap_data", x = session_export,
+                    title = "Participant and session data from redcap",
+                    description = "Demographics, parent surveys, and AIMS",
+                    type = "csv")
+board_gd %>% pin_write(name = "redcap_data", x = session_export,
+                       title = "Participant and session data from redcap",
+                       description = "Demographics, parent surveys, and AIMS",
+                       type = "csv")
+
 #IMU DATA 
 
 read_session <- function(id, session) {

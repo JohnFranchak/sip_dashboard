@@ -42,7 +42,7 @@ redcap_visits <- redcap_read(redcap_uri = uri, token = api_token, fields = c("st
 redcap_demo <- redcap_read(redcap_uri = uri, token = api_token, forms = c("demographics"), guess_type = F, raw_or_label = "label") %>% 
   .[["data"]] %>% filter(study_id %in% unique(ids), redcap_event_name %in% c("Visit 1")) %>% select(-redcap_event_name)
 
-redcap_session <- redcap_read(redcap_uri = uri, token = api_token, forms = c("motor_milestones","mulborne_cg", "parent_stress", "aims","aims_reliability"), guess_type = F, raw_or_label = "label") %>% 
+redcap_session <- redcap_read(redcap_uri = uri, token = api_token, forms = c("motor_milestones","mulbourne_cg", "parent_responsiveness","infant_curiosity", "parent_stress", "aims","aims_reliability"), guess_type = F, raw_or_label = "label") %>% 
   .[["data"]] %>% filter(study_id %in% unique(ids), redcap_event_name %in% c("Visit 1", "Visit 2", "Visit 3", "Visit 4")) %>% 
   mutate(session = str_extract(redcap_event_name, "\\d")) %>% select(-redcap_event_name)
 

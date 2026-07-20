@@ -4,6 +4,7 @@ fig-dpi: 300
 lightbox: auto
 execute:
   cache: false
+  warning: false
 format: 
   html:
     toc: true
@@ -44,6 +45,11 @@ board <- board_folder("/Volumes/padlab/study_sensorsinperson/data_processed/data
 data_version <- board %>% pin_meta("imu_raw_samples")
 ds <- board %>% pin_read("imu_raw_samples") %>%
   filter(nap_period == 0, exclude_period == 0)
+
+redcap <- board %>% pin_read("redcap_data") %>% 
+  select(id, session, sitting, crawl, cruise, walk, aims_totalscore, percentile_rank,
+         aims_prone_complete, aims_prone_total, aims_supine_complete, aims_supine_total,
+         aims_sitting_complete, aims_sitting_total, aims_standing_complete, aims_standing_total) 
 ```
 
 | Last updated: `r round(now())` using pinned data version from: `r round(data_version$created)`
@@ -254,6 +260,7 @@ ggplot(ds_sum_posrest, aes(x = session, y = prop, color = pos)) +
 
 ```{r}
 #| warning: false
+#| include: false
 #| label: posture-restraint-table-age
 #| tbl-cap: Posture by restraint summary statistics
 

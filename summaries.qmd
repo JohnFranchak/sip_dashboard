@@ -49,7 +49,15 @@ ds <- board %>% pin_read("imu_raw_samples") %>%
 redcap <- board %>% pin_read("redcap_data") %>% 
   select(id, session, sitting, crawl, cruise, walk, aims_totalscore, percentile_rank,
          aims_prone_complete, aims_prone_total, aims_supine_complete, aims_supine_total,
-         aims_sitting_complete, aims_sitting_total, aims_standing_complete, aims_standing_total) 
+         aims_sitting_complete, aims_sitting_total, aims_standing_complete, aims_standing_total) %>% 
+  mutate(id = as.character(id), session = as.character(session),
+         aims_prone_total = ifelse(aims_prone_complete == "Yes", aims_prone_total, NA),
+         aims_supine_total = ifelse(aims_supine_complete == "Yes", aims_supine_total, NA),
+         aims_sitting_total = ifelse(aims_sitting_complete == "Yes", aims_sitting_total, NA),
+         aims_standing_total = ifelse(aims_standing_complete == "Yes", aims_standing_total, NA),
+         aims_totalscore = ifelse(aims_prone_complete == "Yes" & aims_supine_complete == "Yes" & aims_sitting_complete == "Yes" & aims_standing_complete == "Yes", aims_totalscore, NA),
+         percentile_rank = ifelse(aims_prone_complete == "Yes" & aims_supine_complete == "Yes" & aims_sitting_complete == "Yes" & aims_standing_complete == "Yes", percentile_rank, NA))
+
 ```
 
 | Last updated: `r round(now())` using pinned data version from: `r round(data_version$created)`
@@ -268,4 +276,31 @@ ds_sum_posrest %>% group_by(session, pos, restraint) %>%
   get_summary_stats(prop, show = c("mean", "sd","min","max")) %>% 
   select(-variable) %>% flextable() %>% autofit()
 ```
- 
+
+### Infant AIMS by Session
+
+```{r} 
+#| warning: false
+#| label: position-table-age
+#| tbl-cap: Position summary statistics
+
+redcap %>% group_by(session) %>% 
+  get_summary_stats(aims_supine_total, aims_prone_total, aims_sitting_total, aims_standing_total, aims_totalscore, show = c("mean", "sd","min","max")) %>% arrange(variable, session) %>% 
+  flextable() %>% autofit()
+```
+
+```{r}
+#| warning: false
+#| label: "AIMS-by-age-overall"
+#| fig-cap: AIMS scores by age
+
+aims_long <- redcap %>% rename(aims_total_score = aims_totalscore) %>% pivot_longer(cols = c("aims_supine_total", "aims_prone_total", "aims_sitting_total", "aims_standing_total", "aims_total_score"),
+                        names_to = "Scale", values_to = "Score", names_pattern = "^[^_]+_([^_]+)_[^_]+$") %>% 
+  mutate(Total = ifelse(Score == "total"))
+
+ggplot(aims_long, aes(x = session, y = Score, color = Scale, group = Scale)) + 
+  stat_summary(position = position_dodge(.1)) + 
+  stat_summary(geom = "line", position = position_dodge(.1)) + 
+  ylim(0,58) + ylab("Score") + xlab("Session") +
+  scale_x_discrete(breaks = c("1","2","3","4"), labels = c("7 mo","9 mo","11 mo","13 mo")) + 
+  theme(legend.position = "bottom")

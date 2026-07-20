@@ -349,6 +349,52 @@ ggplot(aes(x = aims_standing_total, y = pos_prop)) +
 ds_sum_aims %>% 
 ggplot(aes(x = aims_totalscore, y = pos_prop)) + 
   facet_wrap(~pos) + 
-  geom_point() + geom_smooth(method = "lm", se = F) + 
+  geom_point(size = 2.5, shape = 21) + geom_smooth(method = "lm", se = F) + 
+  ylab("% of awake time") + xlab("AIMS Total Score") + ylim(0,100)
+```
+
+### Infant Restraint and Position by AIMS
+
+```{r}
+#| warning: false
+#| label: "restraint-position-by-AIMS"
+#| layout-nrow: 5
+#| fig-cap: 
+#|   - "Supine AIMS"
+#|   - "Prone AIMS"
+#|   - "Sitting AIMS"
+#|   - "Standing AIMS"
+#|   - "Total AIMS"
+
+ds_sum_posrest_aims <- left_join(ds_sum_posrest, redcap)
+
+ds_sum_posrest_aims %>% 
+ggplot(aes(x = aims_supine_total, y = prop)) + 
+  facet_grid(restraint ~ pos) + 
+  geom_point(size = 2.5, shape = 21) + geom_smooth(method = "lm", se = F) + 
+  ylab("% of awake time") + xlab("AIMS Supine") + ylim(0,100)
+
+ds_sum_posrest_aims %>% 
+ggplot(aes(x = aims_prone_total, y = prop)) + 
+  facet_grid(restraint ~ pos) +
+  geom_point(size = 2.5, shape = 21) + geom_smooth(method = "lm", se = F) + 
+  ylab("% of awake time") + xlab("AIMS Prone") + ylim(0,100)
+
+ds_sum_posrest_aims %>% 
+ggplot(aes(x = aims_sitting_total, y = prop)) + 
+  facet_grid(restraint ~ pos) +
+  geom_point(size = 2.5, shape = 21) + geom_smooth(method = "lm", se = F) + 
+  ylab("% of awake time") + xlab("AIMS Sitting") + ylim(0,100)
+
+ds_sum_posrest_aims %>% 
+ggplot(aes(x = aims_standing_total, y = prop)) + 
+  facet_grid(restraint ~ pos) +
+  geom_point(size = 2.5, shape = 21) + geom_smooth(method = "lm", se = F) + 
+  ylab("% of awake time") + xlab("AIMS Standing") + ylim(0,100)
+
+ds_sum_posrest_aims %>% 
+ggplot(aes(x = aims_totalscore, y = prop)) + 
+facet_grid(restraint ~ pos) +
+  geom_point(size = 2.5, shape = 21) + geom_smooth(method = "lm", se = F) + 
   ylab("% of awake time") + xlab("AIMS Total Score") + ylim(0,100)
 ```

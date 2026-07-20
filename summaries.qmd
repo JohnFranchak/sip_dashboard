@@ -50,7 +50,7 @@ redcap <- board %>% pin_read("redcap_data") %>%
   select(id, session, sitting, crawl, cruise, walk, aims_totalscore, percentile_rank,
          aims_prone_complete, aims_prone_total, aims_supine_complete, aims_supine_total,
          aims_sitting_complete, aims_sitting_total, aims_standing_complete, aims_standing_total) %>% 
-  mutate(id = as.character(id), session = as.character(session),
+  mutate(id = as.character(id), 
          aims_prone_total = ifelse(aims_prone_complete == "Yes", aims_prone_total, NA),
          aims_supine_total = ifelse(aims_supine_complete == "Yes", aims_supine_total, NA),
          aims_sitting_total = ifelse(aims_sitting_complete == "Yes", aims_sitting_total, NA),
@@ -239,7 +239,7 @@ ggplot(ds_sum_restraint, aes(x = session, y = restraint_prop, color = restraint,
   theme(legend.position = "none")
 ```
  
-### Posture by restraint
+### Posture by Restraint
 
 ```{r}
 #| out-width: "90%"
@@ -281,7 +281,7 @@ ds_sum_posrest %>% group_by(session, pos, restraint) %>%
 
 ```{r} 
 #| warning: false
-#| label: position-table-age
+#| label: aims-table-age
 #| tbl-cap: Position summary statistics
 
 redcap %>% group_by(session) %>% 
@@ -296,11 +296,59 @@ redcap %>% group_by(session) %>%
 
 aims_long <- redcap %>% rename(aims_total_score = aims_totalscore) %>% pivot_longer(cols = c("aims_supine_total", "aims_prone_total", "aims_sitting_total", "aims_standing_total", "aims_total_score"),
                         names_to = "Scale", values_to = "Score", names_pattern = "^[^_]+_([^_]+)_[^_]+$") %>% 
-  mutate(Total = ifelse(Score == "total"))
+  mutate(Total = ifelse(Scale == "total", "Total", "Subscale"))
 
 ggplot(aims_long, aes(x = session, y = Score, color = Scale, group = Scale)) + 
+  facet_wrap(~ Total, scales = "free_y" ) + 
   stat_summary(position = position_dodge(.1)) + 
   stat_summary(geom = "line", position = position_dodge(.1)) + 
-  ylim(0,58) + ylab("Score") + xlab("Session") +
-  scale_x_discrete(breaks = c("1","2","3","4"), labels = c("7 mo","9 mo","11 mo","13 mo")) + 
+  ylab("Score") + xlab("Session") +
+  scale_x_continuous(breaks = 1:4, labels = c("7 mo","9 mo","11 mo","13 mo")) + 
   theme(legend.position = "bottom")
+```
+
+### Infant Position by AIMS
+
+```{r}
+#| warning: false
+#| label: "position-by-AIMS"
+#| layout-nrow: 5
+#| fig-cap: 
+#|   - "Supine AIMS"
+#|   - "Prone AIMS"
+#|   - "Sitting AIMS"
+#|   - "Standing AIMS"
+#|   - "Total AIMS"
+
+ds_sum_aims <- left_join(ds_sum, redcap)
+
+ds_sum_aims %>% 
+ggplot(aes(x = aims_supine_total, y = pos_prop)) + 
+  facet_wrap(~pos) + 
+  geom_point(size = 2.5, shape = 21) + geom_smooth(method = "lm", se = F) + 
+  ylab("% of awake time") + xlab("AIMS Supine") + ylim(0,100)
+
+ds_sum_aims %>% 
+ggplot(aes(x = aims_prone_total, y = pos_prop)) + 
+  facet_wrap(~pos) + 
+  geom_point(size = 2.5, shape = 21) + geom_smooth(method = "lm", se = F) + 
+  ylab("% of awake time") + xlab("AIMS Prone") + ylim(0,100)
+
+ds_sum_aims %>% 
+ggplot(aes(x = aims_sitting_total, y = pos_prop)) + 
+  facet_wrap(~pos) + 
+  geom_point(size = 2.5, shape = 21) + geom_smooth(method = "lm", se = F) + 
+  ylab("% of awake time") + xlab("AIMS Sitting") + ylim(0,100)
+
+ds_sum_aims %>% 
+ggplot(aes(x = aims_standing_total, y = pos_prop)) + 
+  facet_wrap(~pos) + 
+  geom_point(size = 2.5, shape = 21) + geom_smooth(method = "lm", se = F) + 
+  ylab("% of awake time") + xlab("AIMS Standing") + ylim(0,100)
+
+ds_sum_aims %>% 
+ggplot(aes(x = aims_totalscore, y = pos_prop)) + 
+  facet_wrap(~pos) + 
+  geom_point() + geom_smooth(method = "lm", se = F) + 
+  ylab("% of awake time") + xlab("AIMS Total Score") + ylim(0,100)
+```

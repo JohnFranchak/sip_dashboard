@@ -17,29 +17,37 @@ uri <- "https://redcap.ucr.edu/api/"
 source("api_token.R")
 
 
-events <- c("visit_1_arm_1", "visit_2_arm_1", "visit_3_arm_1")
-ds <- redcap_read(redcap_uri = uri, token = api_token, events = events, forms = "study_outcome")$data 
+events <- c("visit_1_arm_1", "visit_2_arm_1", "visit_3_arm_1", "visit_4_arm_1")
+ds <- redcap_read(redcap_uri = uri, token = api_token, events = events, forms = c("study_outcome", "mo_study_outcome"))$data 
+ds <- ds %>% mutate(study_outcome_complete = ifelse(redcap_event_name == "visit_4_arm_1", mo_study_outcome_complete, study_outcome_complete),
+                    inclusion = ifelse(redcap_event_name == "visit_4_arm_1", finished_aims, inclusion))
 ds <- ds %>% filter(study_outcome_complete != 1) %>% 
   mutate(session = str_remove(str_remove(redcap_event_name, "visit_"),"_arm_1"),
-         session = factor(session, levels = c("1","2","3"))) %>% 
+         session = factor(session, levels = c("1","2","3","4"))) %>% 
   select(study_id, session, next_interest, inclusion) %>% 
   rename(Session = inclusion, ID = study_id)
 
 ds <- complete(ds, ID, session) %>% pivot_wider(id_cols = ID, names_from = session, values_from = c("next_interest","Session"))
 ds <- ds %>%
   mutate(Session_2 = ifelse(next_interest_1 == 1 & is.na(Session_2), 2, Session_2),
-         Session_3 = ifelse(next_interest_2 == 1 & is.na(Session_3), 2, Session_3)) %>% 
-  replace_na(list(Session_1 = 0, Session_2 = 0, Session_3 = 0))
+         Session_3 = ifelse(next_interest_2 == 1 & is.na(Session_3), 2, Session_3),
+         Session_4 = ifelse(next_interest_3 == 1 & is.na(Session_4), 2, Session_4)) %>% 
+  replace_na(list(Session_1 = 0, Session_2 = 0, Session_3 = 0, Session_4 = 0))
 
 ds <- ds %>% mutate(
-  Total = as.numeric(Session_1 == 1) + as.numeric(Session_2 == 1) + as.numeric(Session_3 == 1)
+  In_Person = as.numeric(Session_1 == 1) + as.numeric(Session_2 == 1) + as.numeric(Session_3 == 1) ,
+  Total = as.numeric(Session_1 == 1) + as.numeric(Session_2 == 1) + as.numeric(Session_3 == 1) + as.numeric(Session_4 == 1)
 )
 
 ```
 
 | Last updated: `r round(now())`
-| The dataset contains `r length(unique(ds$ID))` unique participants with `r sum(ds$Total)` overall sessions. `r sum(as.numeric(ds$Total == 3))` participants have 3 complete sessions.
-| `r sum(as.numeric(ds$Session_1 == 1 & ds$Session_2 == 1))` participants have complete 7 and 9 month sessions and `r sum(as.numeric(ds$Session_2 == 1 & ds$Session_3 == 1))` participants have complete 9 and 11 month sessions.
+| The dataset contains `r length(unique(ds$ID))` unique participants with `r sum(ds$In_Person)` in-person sessions and `r sum(as.numeric(ds$Session_4 == 1))` Zoom sessions.
+| `r sum(as.numeric(ds$Session_1 == 1 & ds$Session_2 == 1 & ds$Session_3 == 1))` participants have 3 complete in-person sessions.
+| `r sum(ds$Total == 4)` participants have 4 complete sessions.
+| `r sum(as.numeric(ds$Session_1 == 1 & ds$Session_2 == 1))` participants have complete 7 and 9 month sessions.
+| `r sum(as.numeric(ds$Session_2 == 1 & ds$Session_3 == 1))` participants have complete 9 and 11 month sessions.
+| `r sum(as.numeric(ds$Session_3 == 1 & ds$Session_4 == 1))` participants have complete 11 and 13 month sessions.
 | 
 | &#x2714; Complete, &#x2716; Pending, &#x274C; Missing/Unsure
 | 
@@ -47,7 +55,7 @@ ds <- ds %>% mutate(
 ```{r}
 #| echo: false
 
-ds %>% select(-(next_interest_1:next_interest_3)) %>% 
+ds %>% select(-(next_interest_1:next_interest_4)) %>% 
 reactable( 
           filterable = TRUE, 
           compact = TRUE,
@@ -59,6 +67,8 @@ reactable(
             Session_1 = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}, footer = function(value) paste("Total:", sum(value==1))),
             Session_2 = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}, footer = function(value) paste("Total:", sum(value==1))),
             Session_3 = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}, footer = function(value) paste("Total:", sum(value==1))),
-             Total = colDef(maxWidth = 70)))
+            Session_4 = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u274c" else "\u2716"}, footer = function(value) paste("Total:", sum(value==1))),
+             In_Person = colDef(maxWidth = 90),
+             Total = colDef(maxWidth = 90)))
 
 ```

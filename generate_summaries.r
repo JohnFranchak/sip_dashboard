@@ -51,6 +51,10 @@ session_export <- session_export %>% left_join(redcap_visits)
 session_export <- session_export %>% rename(id = study_id) %>% relocate(session, .after = "id") %>% relocate(dob, .after = "session") %>% 
   relocate(sex, .after = "dob") %>% relocate(visit_date, .after = "dob")
 
+# Fix missing device use questions
+session_export <- session_export %>% mutate(across(equipment___1:equipment___7, ~ ifelse(as_date(visit_date) < as_date("2026-02-14"), NA, .x)))
+
+
 board %>% pin_write(name = "redcap_data", x = session_export,
                     title = "Participant and session data from redcap",
                     description = "Demographics, parent surveys, and AIMS",

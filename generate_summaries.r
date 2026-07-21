@@ -23,6 +23,7 @@ source("api_token.R")
 
 id_session_strings  <-  paste0(ids, "_", as.character(factor(sessions, levels = 1:4, labels = c("visit_1_arm_1", "visit_2_arm_1", "visit_3_arm_1", "visit_4_arm_1"))))
 
+# For other redcap data needed for IMU
 redcap <- redcap_read(redcap_uri = uri, token = api_token, forms = c("session_notes"), guess_type = F) %>% 
   .[["data"]] %>% select(study_id, redcap_event_name, time_gopro_start:cg_off_6_reason) %>% 
   mutate(id_redcap_session = paste0(study_id, "_", redcap_event_name)) %>% 
@@ -65,6 +66,18 @@ board_gd %>% pin_write(name = "redcap_data", x = session_export,
                        title = "Participant and session data from redcap",
                        description = "Demographics, parent surveys, and AIMS",
                        type = "csv")
+
+#EMA DATA
+redcap_ema <- redcap_read(redcap_uri = uri, token = api_token, forms = c("hour_activity"), guess_type = F, raw_or_label = "label") %>% 
+  .[["data"]] %>% filter(study_id %in% unique(ids), str_detect(redcap_event_name, "visit_[1-3]_"))
+  
+  
+  
+  filter(study_id %in% unique(ids), str_detect(redcap_event_name %in% c("Intro Call", "Schedule 2", "Schedule 3", "Visit 4")) %>% 
+  mutate(visit_date = ifelse(is.na(visit_date), zoom_call_date, visit_date),
+         session = as.character(factor(redcap_event_name, levels = c("Intro Call", "Schedule 2", "Schedule 3", "Visit 4"), labels = 1:4))) %>% 
+  select(-redcap_event_name, -zoom_call_date)
+
 
 #IMU DATA 
 

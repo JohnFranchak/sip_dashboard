@@ -52,7 +52,9 @@ session_export <- session_export %>% rename(id = study_id) %>% relocate(session,
   relocate(sex, .after = "dob") %>% relocate(visit_date, .after = "dob")
 
 # Fix missing device use questions
-session_export <- session_export %>% mutate(across(equipment___1:equipment___7, ~ ifelse(as_date(visit_date) < as_date("2026-02-14"), NA, .x)))
+session_export <- session_export %>% mutate(across(equipment___1:equipment___7, ~ ifelse(as_date(visit_date) < as_date("2026-02-14"), NA, .x))) %>% 
+  rename(equipment_highchair = equipment___1, equipment_reclinedseat = equipment___2, equipment_uprightseat = equipment___3,
+         equipment_boppy = equipment___4, equipment_upright = equipment___5, equipment_insert = equipment___6, equipment_other = equipment___7)
 
 
 board %>% pin_write(name = "redcap_data", x = session_export,
@@ -164,14 +166,18 @@ sleep_tcds <- sleep_tcds %>%
   relocate(time_start:time_end, .before = Duration_Secs) %>% 
   relocate(sleep_prob:cds_pred, .before = Duration_Secs) 
 
+# Data exclusion for LENA only (need to use nap/change excludes from other dataset)
+sleep_tcds <- sleep_tcds %>% mutate(across(AWC_COUNT:Silence,
+                                           ~ ifelse(id == "34_1" & time_start > mdy_hms("04-09-2026 15:40:00"), NA, .x)))
+
 board %>% pin_write(name = "sleep_tcds", x = sleep_tcds,
                     title = "Infant and Caregiver Raw Position",
-                    description = "LENA predictions using Bang, Kachergis, Weisleder, and Marchman (2022) Shiny Algorithm. Does not include parent logged exclude periods",
+                    description = "LENA predictions using Bang, Kachergis, Weisleder, and Marchman (2022) Shiny Algorithm. Does not filter parent logged exclude periods",
                     metadata = list(model_url = "https://kachergis.shinyapps.io/classify_cds_ods/"),
                     type = "parquet")
 board_gd %>% pin_write(name = "sleep_tcds", x = sleep_tcds,
                     title = "Infant and Caregiver Raw Position",
-                    description = "LENA predictions using Bang, Kachergis, Weisleder, and Marchman (2022) Shiny Algorithm. Does not include parent logged exclude periods",
+                    description = "LENA predictions using Bang, Kachergis, Weisleder, and Marchman (2022) Shiny Algorithm. Does not filter parent logged exclude periods",
                     metadata = list(model_url = "https://kachergis.shinyapps.io/classify_cds_ods/"),
                     type = "parquet")
   

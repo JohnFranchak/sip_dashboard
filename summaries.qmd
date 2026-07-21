@@ -282,7 +282,7 @@ ds_sum_posrest %>% group_by(session, pos, restraint) %>%
 ```{r} 
 #| warning: false
 #| label: aims-table-age
-#| tbl-cap: Position summary statistics
+#| tbl-cap: AIMS summary statistics
 
 redcap %>% group_by(session) %>% 
   get_summary_stats(aims_supine_total, aims_prone_total, aims_sitting_total, aims_standing_total, aims_totalscore, show = c("mean", "sd","min","max")) %>% arrange(variable, session) %>% 

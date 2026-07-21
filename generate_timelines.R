@@ -69,7 +69,7 @@ make_timeline <- function(i) {
           axis.title.x = element_blank(),
           axis.text.x = element_blank(),
           axis.ticks.x = element_blank()) + ylim(0,60) + 
-    ggtitle(str_glue("ID {id}, Session {session}"))
+    ggtitle(str_glue("ID {id}, Session {session} (updated {now()})"))
   
   p2 <- sync_filt %>% 
     ggplot(aes(x = time_plot, y = 1, fill = pos)) + 

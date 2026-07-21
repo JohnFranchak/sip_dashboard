@@ -82,6 +82,9 @@ ds <- board %>% pin_read("imu_raw_samples") %>%
 # To read REDCap data (AIMS, Demographics, caregiver surveys, motor milestones)
 redcap <- board %>% pin_read("redcap_data")
 
+# To read the hourly EMA REDCap data
+ema <- board %>% pin_read("ema")
+
 # To read sleep and target-child-directed speech predictions from LENA
 sleep_tcds <- board %>% pin_read("sleep_tcds")
 ```

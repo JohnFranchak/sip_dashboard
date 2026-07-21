@@ -69,15 +69,21 @@ board_gd %>% pin_write(name = "redcap_data", x = session_export,
 
 #EMA DATA
 redcap_ema <- redcap_read(redcap_uri = uri, token = api_token, forms = c("hour_activity"), guess_type = F, raw_or_label = "label") %>% 
-  .[["data"]] %>% filter(study_id %in% unique(ids), str_detect(redcap_event_name, "visit_[1-3]_"))
-  
-  
-  
-  filter(study_id %in% unique(ids), str_detect(redcap_event_name %in% c("Intro Call", "Schedule 2", "Schedule 3", "Visit 4")) %>% 
-  mutate(visit_date = ifelse(is.na(visit_date), zoom_call_date, visit_date),
-         session = as.character(factor(redcap_event_name, levels = c("Intro Call", "Schedule 2", "Schedule 3", "Visit 4"), labels = 1:4))) %>% 
-  select(-redcap_event_name, -zoom_call_date)
+  .[["data"]] %>% filter(study_id %in% unique(ids), str_detect(redcap_event_name, "test", negate = T), str_detect(redcap_event_name, "Visit [1-3]_")) %>% 
+  separate_wider_regex(cols = redcap_event_name, patterns = c("Visit ", session = "[1-3]", "_", time = "\\d{4}"))
+redcap_ema <- redcap_ema %>% rename(id = study_id) %>%  left_join(select(session_export, id, session, visit_date, sex, dob)) %>% relocate(session, .after = "id") %>% relocate(dob, .after = "session") %>% 
+  relocate(sex, .after = "dob") %>% relocate(visit_date, .after = "dob")
 
+redcap_ema <- redcap_ema %>% mutate(across(hour_present:hour_babysitter, as.numeric))
+
+board %>% pin_write(name = "ema", x = redcap_ema,
+                    title = "Hourly EMA data from redcap",
+                    description = "Hourly EMA data from redcap",
+                    type = "csv")
+board_gd %>% pin_write(name = "ema", x = redcap_ema,
+                       title = "Hourly EMA data from redcap",
+                       description = "Hourly EMA data from redcap",
+                       type = "csv")
 
 #IMU DATA 
 

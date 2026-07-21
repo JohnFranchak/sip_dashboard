@@ -22,8 +22,17 @@ cd /Users/johnfranchak/Documents/GitHub/sip_dashboard
 # Render the project
 # This assumes 'quarto' is in your system PATH
 /usr/local/bin/Rscript generate_summaries.r
-/usr/local/bin/Rscript generate_timelines.r
 
+# Add changes to Git
+git add .
+
+# Commit with a timestamped message
+git commit -m "Updated Data Pins: $(date +'%Y-%m-%d %H:%M:%S')"
+
+# Push to GitHub (assumes your 'origin' and 'main' branch are set up)
+git push origin main
+
+/usr/local/bin/Rscript generate_timelines.r
 
 # Add changes to Git
 git add .

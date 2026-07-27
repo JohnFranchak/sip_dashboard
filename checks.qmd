@@ -1,0 +1,62 @@
+---
+title: "Checks"
+fig-dpi: 300
+lightbox: auto
+execute:
+  cache: false
+warning: false
+format: 
+  html:
+   toc: true
+code-fold: true
+code-tools: true
+code-link: true
+knitr: 
+  opts_chunk: 
+   out.width: "100%"
+---
+  
+```{r} 
+#| echo: false
+#| warning: false
+#| error: false
+
+library(tidyverse)
+library(hms)
+library(rstatix)
+library(flextable)
+library(pins)
+
+pal <-  c("#F0E442","#009E73","#56B4E9", "#E69F00","#0072B2") %>%  set_names(c("Standing", "Sitting", "Prone", "Supine", "Held"))
+restraint_pal <-  c("#CC79A7","chartreuse4") %>%  set_names(c("Restrained", "Unrestrained"))
+
+theme_update(text = element_text(size = 12),
+             axis.text.x = element_text(size = 12, color = "black"), 
+             axis.title.x = element_text(size = 14),
+             axis.text.y = element_text(size = 12,  color = "black"), 
+             axis.title.y = element_text(size = 14), 
+             panel.background = element_blank(),panel.border = element_blank(), 
+             panel.grid.major = element_blank(),
+             panel.grid.minor = element_blank(), axis.line = element_blank(), 
+             axis.ticks.length=unit(.25, "cm"), 
+             legend.key = element_rect(fill = "white")) 
+
+board <- board_folder("/Volumes/padlab/study_sensorsinperson/data_processed/datasets/")
+data_version <- board %>% pin_meta("imu_raw_samples")
+ds <- board %>% pin_read("imu_raw_samples") %>%
+  filter(nap_period == 0, exclude_period == 0)
+
+redcap <- board %>% pin_read("redcap_data") %>% 
+  select(id, session, sitting, crawl, cruise, walk, aims_totalscore, percentile_rank,
+         aims_prone_complete, aims_prone_total, aims_supine_complete, aims_supine_total,
+         aims_sitting_complete, aims_sitting_total, aims_standing_complete, aims_standing_total) %>% 
+  mutate(id = as.character(id), 
+         aims_prone_total = ifelse(aims_prone_complete == "Yes", aims_prone_total, NA),
+         aims_supine_total = ifelse(aims_supine_complete == "Yes", aims_supine_total, NA),
+         aims_sitting_total = ifelse(aims_sitting_complete == "Yes", aims_sitting_total, NA),
+         aims_standing_total = ifelse(aims_standing_complete == "Yes", aims_standing_total, NA),
+         aims_totalscore = ifelse(aims_prone_complete == "Yes" & aims_supine_complete == "Yes" & aims_sitting_complete == "Yes" & aims_standing_complete == "Yes", aims_totalscore, NA),
+         percentile_rank = ifelse(aims_prone_complete == "Yes" & aims_supine_complete == "Yes" & aims_sitting_complete == "Yes" & aims_standing_complete == "Yes", percentile_rank, NA))
+```
+
+| Last updated: `r round(now())` using pinned data version from: `r round(data_version$created)`

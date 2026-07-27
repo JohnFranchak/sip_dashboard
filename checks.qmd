@@ -135,11 +135,11 @@ summarize_milestones <- function(s) {
 }
 summarize_milestones(1)
 ```
-Unlikely to be any cruisers or walkers (check anyone who appears in the table below):
+Unlikely to be any walkers (check anyone who appears in the table below):
 ```{r}
 #| warning: false
 #| error: false
-check_7 <- redcap %>% filter(session == 1) %>% filter(cruise == "Yes" | walk == "Yes") %>% 
+check_7 <- redcap %>% filter(session == 1) %>% filter(walk == "Yes") %>% 
   select(id, session, all_of(cols))
 if (nrow(check_7) == 0) {
   print("No flagged rows")

@@ -47477,3 +47477,107 @@ Stack trace:
     at async Command.execute (file:///Applications/quarto/bin/quarto.js:8104:13)
     at async quarto (file:///Applications/quarto/bin/quarto.js:114999:5)
     at async file:///Applications/quarto/bin/quarto.js:115017:9[39m
+[main 2095fa22] Automated Quarto update: 2026-07-27 13:03:18
+ 110 files changed, 8630 insertions(+), 2043 deletions(-)
+ delete mode 100644 docs/site_libs/crosstalk-1.2.0/css/crosstalk.min.css
+ delete mode 100644 docs/site_libs/crosstalk-1.2.0/js/crosstalk.js
+ delete mode 100644 docs/site_libs/crosstalk-1.2.0/js/crosstalk.js.map
+ delete mode 100644 docs/site_libs/crosstalk-1.2.0/js/crosstalk.min.js
+ delete mode 100644 docs/site_libs/crosstalk-1.2.0/js/crosstalk.min.js.map
+ delete mode 100644 docs/site_libs/crosstalk-1.2.0/scss/crosstalk.scss
+ delete mode 100644 docs/summaries_files/figure-html/AIMS-by-age-overall-1.png
+ delete mode 100644 docs/summaries_files/figure-html/Usable-data-histograms-1.png
+ delete mode 100644 docs/summaries_files/figure-html/Usable-data-histograms-2.png
+ delete mode 100644 docs/summaries_files/figure-html/frequency-by-age-individual-1.png
+ delete mode 100644 docs/summaries_files/figure-html/frequency-by-age-overall-1.png
+ delete mode 100644 docs/summaries_files/figure-html/frequency-by-age-overall-2.png
+ delete mode 100644 docs/summaries_files/figure-html/position-by-AIMS-1.png
+ delete mode 100644 docs/summaries_files/figure-html/position-by-AIMS-2.png
+ delete mode 100644 docs/summaries_files/figure-html/position-by-AIMS-3.png
+ delete mode 100644 docs/summaries_files/figure-html/position-by-AIMS-4.png
+ delete mode 100644 docs/summaries_files/figure-html/position-by-AIMS-5.png
+ delete mode 100644 docs/summaries_files/figure-html/posture-by-restraint-1.png
+ delete mode 100644 docs/summaries_files/figure-html/restraint-by-age-individual-1.png
+ delete mode 100644 docs/summaries_files/figure-html/restraint-by-age-overall-1.png
+ delete mode 100644 docs/summaries_files/figure-html/restraint-by-age-overall-2.png
+ delete mode 100644 docs/summaries_files/figure-html/restraint-position-by-AIMS-1.png
+ delete mode 100644 docs/summaries_files/figure-html/restraint-position-by-AIMS-2.png
+ delete mode 100644 docs/summaries_files/figure-html/restraint-position-by-AIMS-3.png
+ delete mode 100644 docs/summaries_files/figure-html/restraint-position-by-AIMS-4.png
+ delete mode 100644 docs/summaries_files/figure-html/restraint-position-by-AIMS-5.png
+ delete mode 100755 docs/timelines/12_1.png
+ delete mode 100755 docs/timelines/12_2.png
+ delete mode 100644 docs/timelines/12_3.png
+ delete mode 100755 docs/timelines/13_1.png
+ delete mode 100755 docs/timelines/13_2.png
+ delete mode 100644 docs/timelines/13_3.png
+ delete mode 100755 docs/timelines/15_1.png
+ delete mode 100644 docs/timelines/15_2.png
+ delete mode 100644 docs/timelines/15_3.png
+ delete mode 100755 docs/timelines/16_1.png
+ delete mode 100755 docs/timelines/16_2.png
+ delete mode 100644 docs/timelines/16_3.png
+ delete mode 100755 docs/timelines/18_1.png
+ delete mode 100644 docs/timelines/18_2.png
+ delete mode 100644 docs/timelines/18_3.png
+ delete mode 100755 docs/timelines/21_1.png
+ delete mode 100644 docs/timelines/21_2.png
+ delete mode 100644 docs/timelines/21_3.png
+ delete mode 100755 docs/timelines/23_1.png
+ delete mode 100644 docs/timelines/23_2.png
+ delete mode 100644 docs/timelines/23_3.png
+ delete mode 100644 docs/timelines/26_1.png
+ delete mode 100644 docs/timelines/26_2.png
+ delete mode 100644 docs/timelines/26_3.png
+ delete mode 100644 docs/timelines/29_1.png
+ delete mode 100644 docs/timelines/29_2.png
+ delete mode 100644 docs/timelines/29_3.png
+ delete mode 100644 docs/timelines/33_1.png
+ delete mode 100644 docs/timelines/33_2.png
+ delete mode 100644 docs/timelines/34_1.png
+ delete mode 100644 docs/timelines/34_2.png
+ delete mode 100644 docs/timelines/37_1.png
+ delete mode 100644 docs/timelines/37_2.png
+ delete mode 100644 docs/timelines/40_1.png
+ delete mode 100644 docs/timelines/40_2.png
+ delete mode 100644 docs/timelines/42_1.png
+ delete mode 100644 docs/timelines/42_2.png
+ delete mode 100644 docs/timelines/43_1.png
+ delete mode 100644 docs/timelines/43_2.png
+ delete mode 100644 docs/timelines/45_1.png
+ delete mode 100644 docs/timelines/47_1.png
+ delete mode 100644 docs/timelines/48_1.png
+ delete mode 100644 docs/timelines/50_1.png
+ delete mode 100644 docs/timelines/51_1.png
+ delete mode 100644 docs/timelines/54_1.png
+ delete mode 100644 docs/timelines/55_1.png
+ delete mode 100644 docs/timelines/57_1.png
+ create mode 100644 files.html
+ create mode 100644 index.html
+ create mode 100644 interactive_timelines.html
+ create mode 100644 site_libs/bootstrap/bootstrap-icons.css
+ create mode 100644 site_libs/bootstrap/bootstrap-icons.woff
+ create mode 100644 site_libs/bootstrap/bootstrap.min.css
+ create mode 100644 site_libs/bootstrap/bootstrap.min.js
+ create mode 100644 site_libs/clipboard/clipboard.min.js
+ rename {docs/site_libs => site_libs}/quarto-contrib/glightbox/glightbox.min.css (100%)
+ rename {docs/site_libs => site_libs}/quarto-contrib/glightbox/glightbox.min.js (100%)
+ rename {docs/site_libs => site_libs}/quarto-contrib/glightbox/lightbox.css (100%)
+ create mode 100644 site_libs/quarto-html/anchor.min.js
+ create mode 100644 site_libs/quarto-html/popper.min.js
+ create mode 100644 site_libs/quarto-html/quarto-syntax-highlighting.css
+ create mode 100644 site_libs/quarto-html/quarto.js
+ create mode 100644 site_libs/quarto-html/tippy.css
+ create mode 100644 site_libs/quarto-html/tippy.umd.min.js
+ create mode 100644 site_libs/quarto-nav/headroom.min.js
+ create mode 100644 site_libs/quarto-nav/quarto-nav.js
+ create mode 100644 site_libs/quarto-search/autocomplete.umd.js
+ create mode 100644 site_libs/quarto-search/fuse.min.js
+ create mode 100644 site_libs/quarto-search/quarto-search.js
+ rename {docs/site_libs => site_libs}/tabwid-1.1.3/tabwid.css (100%)
+ rename {docs/site_libs => site_libs}/tabwid-1.1.3/tabwid.js (100%)
+ rename docs/summaries.html => summaries.html (85%)
+ create mode 100644 tasks.html
+ create mode 100644 wear_time.html
+To github.com:JohnFranchak/sip_dashboard.git
+   a5d7aec1..2095fa22  main -> main

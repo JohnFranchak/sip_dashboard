@@ -44,13 +44,17 @@ board <- board_folder("/Volumes/padlab/study_sensorsinperson/data_processed/data
 data_version <- board %>% pin_meta("redcap_data")
 
 cols = c("sitting", "belly", "crawl", "cruise", "walk")
+dates = c("visit_date", "dob", "sit_date", "belly_date", "crawl_date", "cruise_date", "walk_date")
 redcap <- board %>% pin_read("redcap_data") %>% 
   select(id:visit_date, sitting:walking_notes) %>% 
   mutate(across(all_of(cols), ~ ifelse(is.na(.x),"Missing",.x))) %>% 
-  mutate(across(all_of(cols), ~ factor(.x, levels = c("Missing", "No","Yes"))))
+  mutate(across(all_of(cols), ~ factor(.x, levels = c("Missing", "No","Yes")))) %>% 
+  mutate(across(all_of(dates), ~ ymd(.x)))
 ```
 
 | Last updated: `r round(now())` using pinned data version from: `r round(data_version$created)`
+| 
+|  
 
 ## Milestone Checks
 
@@ -62,8 +66,31 @@ Any missing entries in the following table must be fixed:
 #| warning: false
 #| error: false
 
-redcap %>% filter(sitting == "Missing" | belly == "Missing" | crawl == "Missing" | cruise == "Missing" | walk == "Missing") %>% 
+check_missing <- redcap %>% filter(sitting == "Missing" | belly == "Missing" | crawl == "Missing" | cruise == "Missing" | walk == "Missing") %>% 
   select(id, session, all_of(cols))
+
+if (nrow(check_missing) == 0) {
+  print("No missing rows")
+} else {
+  print(check_missing)
+}
+```
+
+### Are any dates impossible?
+
+Any dates in the following table must be fixed because they occurred after the visit:
+
+```{r}
+#| warning: false
+#| error: false
+check_dates <- redcap %>% filter(sit_date > visit_date | belly_date > visit_date | crawl_date > visit_date | cruise_date > visit_date | walk_date > visit_date) %>% 
+  select(id, all_of(dates))
+
+if (nrow(check_dates) == 0) {
+  print("No impossible dates")
+} else {
+  print(check_dates)
+}
 ```
 
 ### Are milestone dates consistent across visits?
@@ -100,9 +127,9 @@ redcap %>% group_by(id) %>% summarize(Sit = n_distinct(sit_date, na.rm = T), Bel
 
 summarize_milestones <- function(s) {
   bind_cols(
-  {redcap %>% filter(session == s) %>% count(sitting, name = "sitting_n", .drop = F)},
+  {redcap %>% filter(session == s) %>% count(sitting, name = "sit_n", .drop = F)},
   {redcap %>% filter(session == s) %>% count(belly, name = "belly_n", .drop = F)},
-  {redcap %>% filter(session == s) %>% count(crawl, name = "crawl_n", .drop = F)},
+  {redcap %>% filter(session == s) %>% count(crawl, name = "hk_n", .drop = F)},
   {redcap %>% filter(session == s) %>% count(cruise, name = "cruise_n", .drop = F)},
   {redcap %>% filter(session == s) %>% count(walk, name = "walk_n", .drop = F)})
 }
@@ -112,8 +139,13 @@ Unlikely to be any cruisers or walkers (check anyone who appears in the table be
 ```{r}
 #| warning: false
 #| error: false
-redcap %>% filter(session == 1) %>% filter(cruise == "Yes" | walk == "Yes") %>% 
+check_7 <- redcap %>% filter(session == 1) %>% filter(cruise == "Yes" | walk == "Yes") %>% 
   select(id, session, all_of(cols))
+if (nrow(check_7) == 0) {
+  print("No flagged rows")
+} else {
+  print(check_7)
+}
 ```
 
 
@@ -128,8 +160,13 @@ Most infants should be sitting, unlikely to be walking (check anyone who appears
 ```{r}
 #| warning: false
 #| error: false
-redcap %>% filter(session == 2) %>% filter(sitting == "No" | walk == "Yes") %>% 
+check_9 <- redcap %>% filter(session == 2) %>% filter(sitting == "No" | walk == "Yes") %>% 
   select(id, session, all_of(cols))
+if (nrow(check_9) == 0) {
+  print("No flagged rows")
+} else {
+  print(check_9)
+}
 ```
 
 #### Session 3 (11 months)
@@ -143,8 +180,13 @@ Most infants should be sitting (check anyone who appears in the table below):
 ```{r}
 #| warning: false
 #| error: false
-redcap %>% filter(session == 3) %>% filter(sitting == "No") %>% 
+check_11 <- redcap %>% filter(session == 3) %>% filter(sitting == "No") %>% 
   select(id, session, all_of(cols))
+if (nrow(check_11) == 0) {
+  print("No flagged rows")
+} else {
+  print(check_11)
+}
 ```
 
 #### Session 4 (13 months)
@@ -158,6 +200,116 @@ Most infants should be sitting and cruising (check anyone who appears in the tab
 ```{r}
 #| warning: false
 #| error: false
-redcap %>% filter(session == 4) %>% filter(sitting == "No" | cruise == "No") %>% 
+check_13 <- redcap %>% filter(session == 4) %>% filter(sitting == "No" | cruise == "No") %>% 
   select(id, session, all_of(cols))
+if (nrow(check_13) == 0) {
+  print("No flagged rows")
+} else {
+  print(check_13)
+}
+```
+
+### Are onset ages within expected ranges?
+
+#### Sitting
+
+Check any of the following (sitting onset < 5 or > 8 months)
+```{r}
+sit_onset <- redcap %>% select(id, session, dob, sitting, sit_date) %>% 
+  filter(sitting == "Yes") %>% group_by(id) %>% slice_max(session) %>% 
+  mutate(onset_age = time_length(interval(dob, sit_date),unit = "month")) %>% ungroup()
+check_sit <- sit_onset %>% filter(onset_age < 5 | onset_age > 8)
+if (nrow(check_sit) == 0) {
+  print("No flagged rows")
+} else {
+  print(check_sit)
+}
+```
+
+```{r}
+ggplot(sit_onset, aes(onset_age)) + geom_histogram(binwidth = .25) + 
+  scale_x_continuous(limits = c(3,13), breaks = 3:13, name = "Onset age (mo)") + 
+  ggtitle("Sitting onset")
+```
+#### Belly crawling
+
+Check any of the following (belly onset < 5 or > 8 months)
+```{r}
+belly_onset <- redcap %>% select(id, session, dob, belly, belly_date) %>% 
+  filter(belly == "Yes") %>% group_by(id) %>% slice_max(session) %>% 
+  mutate(onset_age = time_length(interval(dob, belly_date),unit = "month")) %>% ungroup()
+check_belly <- belly_onset %>% filter(onset_age < 5 | onset_age > 8)
+if (nrow(check_belly) == 0) {
+  print("No flagged rows")
+} else {
+  print(check_belly)
+}
+```
+
+```{r}
+ggplot(belly_onset, aes(onset_age)) + geom_histogram(binwidth = .25) + 
+  scale_x_continuous(limits = c(3,13), breaks = 3:13, name = "Onset age (mo)") + 
+  ggtitle("Belly onset")
+```
+
+#### Hands and knees crawling
+
+Check any of the following (crawling onset < 5 or > 11 months)
+```{r}
+crawl_onset <- redcap %>% select(id, session, dob, crawl, crawl_date) %>% 
+  filter(crawl == "Yes") %>% group_by(id) %>% slice_max(session) %>% 
+  mutate(onset_age = time_length(interval(dob, crawl_date),unit = "month"))
+check_crawl <- crawl_onset %>% filter(onset_age < 5 | onset_age > 11)
+if (nrow(check_crawl) == 0) {
+  print("No flagged rows")
+} else {
+  print(check_crawl)
+}
+```
+
+```{r}
+ggplot(crawl_onset, aes(onset_age)) + geom_histogram(binwidth = .25) + 
+  scale_x_continuous(limits = c(3,13), breaks = 3:13, name = "Onset age (mo)") + 
+  ggtitle("Crawl onset")
+```
+#### Cruising
+
+Check any of the following (cruising onset < 7 or > 12 months)
+```{r}
+cruise_onset <- redcap %>% select(id, session, dob, cruise, cruise_date) %>% 
+  filter(cruise == "Yes") %>% group_by(id) %>% slice_max(session) %>% 
+  mutate(onset_age = time_length(interval(dob, cruise_date),unit = "month"))
+check_cruise <- cruise_onset %>% filter(onset_age < 7 | onset_age > 12)
+if (nrow(check_cruise) == 0) {
+  print("No flagged rows")
+} else {
+  print(check_cruise)
+}
+```
+
+```{r}
+ggplot(cruise_onset, aes(onset_age)) + geom_histogram(binwidth = .25) + 
+  scale_x_continuous(limits = c(3,13), breaks = 3:13, name = "Onset age (mo)") + 
+  ggtitle("Cruise onset")
+```
+
+#### Walking
+
+Check any of the following (walking onset < 9 or > 16 months)
+```{r}
+walk_onset <- redcap %>% select(id, session, dob, walk, walk_date) %>% 
+  filter(walk == "Yes") %>% group_by(id) %>% slice_max(session) %>% 
+  mutate(onset_age = time_length(interval(dob, walk_date),unit = "month"))
+check_walk <- walk_onset %>% filter(onset_age < 9 | onset_age > 16)
+if (nrow(check_walk) == 0) {
+  print("No flagged rows")
+} else {
+  print(check_walk)
+}
+```
+
+```{r}
+ggplot(walk_onset, aes(onset_age)) + geom_histogram(binwidth = .25) + 
+  scale_x_continuous(limits = c(3,13), breaks = 3:13, name = "Onset age (mo)") + 
+  ggtitle("Walk onset")
 ```

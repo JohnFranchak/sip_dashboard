@@ -25,10 +25,9 @@ library(tidyverse)
 library(hms)
 library(rstatix)
 library(flextable)
+library(reactable)
+library(reactablefmtr)
 library(pins)
-
-pal <-  c("#F0E442","#009E73","#56B4E9", "#E69F00","#0072B2") %>%  set_names(c("Standing", "Sitting", "Prone", "Supine", "Held"))
-restraint_pal <-  c("#CC79A7","chartreuse4") %>%  set_names(c("Restrained", "Unrestrained"))
 
 theme_update(text = element_text(size = 12),
              axis.text.x = element_text(size = 12, color = "black"), 
@@ -42,21 +41,71 @@ theme_update(text = element_text(size = 12),
              legend.key = element_rect(fill = "white")) 
 
 board <- board_folder("/Volumes/padlab/study_sensorsinperson/data_processed/datasets/")
-data_version <- board %>% pin_meta("imu_raw_samples")
-ds <- board %>% pin_read("imu_raw_samples") %>%
-  filter(nap_period == 0, exclude_period == 0)
+data_version <- board %>% pin_meta("redcap_data")
 
+cols = c("sitting", "belly", "crawl", "cruise", "walk")
 redcap <- board %>% pin_read("redcap_data") %>% 
-  select(id, session, sitting, crawl, cruise, walk, aims_totalscore, percentile_rank,
-         aims_prone_complete, aims_prone_total, aims_supine_complete, aims_supine_total,
-         aims_sitting_complete, aims_sitting_total, aims_standing_complete, aims_standing_total) %>% 
-  mutate(id = as.character(id), 
-         aims_prone_total = ifelse(aims_prone_complete == "Yes", aims_prone_total, NA),
-         aims_supine_total = ifelse(aims_supine_complete == "Yes", aims_supine_total, NA),
-         aims_sitting_total = ifelse(aims_sitting_complete == "Yes", aims_sitting_total, NA),
-         aims_standing_total = ifelse(aims_standing_complete == "Yes", aims_standing_total, NA),
-         aims_totalscore = ifelse(aims_prone_complete == "Yes" & aims_supine_complete == "Yes" & aims_sitting_complete == "Yes" & aims_standing_complete == "Yes", aims_totalscore, NA),
-         percentile_rank = ifelse(aims_prone_complete == "Yes" & aims_supine_complete == "Yes" & aims_sitting_complete == "Yes" & aims_standing_complete == "Yes", percentile_rank, NA))
+  select(id:visit_date, sitting:walking_notes) %>% 
+  mutate(across(all_of(cols), ~ ifelse(is.na(.x),"Missing",.x))) %>% 
+  mutate(across(all_of(cols), ~ factor(.x, levels = c("Missing", "No","Yes"))))
 ```
 
 | Last updated: `r round(now())` using pinned data version from: `r round(data_version$created)`
+
+## Milestone Checks
+
+### Are any milestones missing?
+
+Any missing entries in the following table must be fixed:
+
+```{r}
+#| warning: false
+#| error: false
+
+redcap %>% filter(sitting == "Missing" | belly == "Missing" | crawl == "Missing" | cruise == "Missing" | walk == "Missing") %>% 
+  select(id, session, all_of(cols))
+```
+
+### Are milestone dates consistent across visits?
+| &#x2714; Yes, &#x2716; Never Observed, &#x274C; No (Needs to be Fixed)
+```{r}
+#| warning: false
+#| error: false
+
+redcap %>% group_by(id) %>% summarize(Sit = n_distinct(sit_date, na.rm = T), Belly = n_distinct(belly_date, na.rm = T), Crawl = n_distinct(crawl_date, na.rm = T), Cruise = n_distinct(cruise_date, na.rm = T), Walk = n_distinct(walk_date, na.rm = T)) %>% 
+  reactable( 
+          filterable = TRUE, 
+          compact = TRUE,
+          striped = TRUE,
+          defaultPageSize = 50,
+          defaultSorted = c("id"),
+          columns = list(
+            id = colDef(format = colFormat(digits = 0), maxWidth = 50, align = "left"),
+            Sit = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u2716" else "\u274c"}),
+            Belly = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u2716" else "\u274c"}),
+            Crawl = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u2716" else "\u274c"}),
+            Cruise = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u2716" else "\u274c"}),
+            Walk = colDef(maxWidth = 90, cell = function(value) {if (value == 1) "\u2714\ufe0f" else if (value == 0) "\u2716" else "\u274c"})
+            ))
+
+```
+
+### Have infants acquired milestones by expected ages?
+
+#### Session 1 (7 months)
+
+```{r}
+#| warning: false
+#| error: false
+
+session_1_counts <- bind_cols(
+{redcap %>% filter(session == 1) %>% count(sitting, name = "sitting_n", .drop = F)},
+{redcap %>% filter(session == 1) %>% count(belly, name = "belly_n", .drop = F)},
+{redcap %>% filter(session == 1) %>% count(crawl, name = "crawl_n", .drop = F)},
+{redcap %>% filter(session == 1) %>% count(cruise, name = "cruise_n", .drop = F)},
+{redcap %>% filter(session == 1) %>% count(walk, name = "walk_n", .drop = F)})
+
+
+print(session_1_counts)
+```
+

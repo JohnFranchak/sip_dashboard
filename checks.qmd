@@ -13,7 +13,7 @@ code-tools: true
 code-link: true
 knitr: 
   opts_chunk: 
-   out.width: "100%"
+   out.width: "120%"
 ---
   
 ```{r} 
@@ -98,14 +98,66 @@ redcap %>% group_by(id) %>% summarize(Sit = n_distinct(sit_date, na.rm = T), Bel
 #| warning: false
 #| error: false
 
-session_1_counts <- bind_cols(
-{redcap %>% filter(session == 1) %>% count(sitting, name = "sitting_n", .drop = F)},
-{redcap %>% filter(session == 1) %>% count(belly, name = "belly_n", .drop = F)},
-{redcap %>% filter(session == 1) %>% count(crawl, name = "crawl_n", .drop = F)},
-{redcap %>% filter(session == 1) %>% count(cruise, name = "cruise_n", .drop = F)},
-{redcap %>% filter(session == 1) %>% count(walk, name = "walk_n", .drop = F)})
-
-
-print(session_1_counts)
+summarize_milestones <- function(s) {
+  bind_cols(
+  {redcap %>% filter(session == s) %>% count(sitting, name = "sitting_n", .drop = F)},
+  {redcap %>% filter(session == s) %>% count(belly, name = "belly_n", .drop = F)},
+  {redcap %>% filter(session == s) %>% count(crawl, name = "crawl_n", .drop = F)},
+  {redcap %>% filter(session == s) %>% count(cruise, name = "cruise_n", .drop = F)},
+  {redcap %>% filter(session == s) %>% count(walk, name = "walk_n", .drop = F)})
+}
+summarize_milestones(1)
+```
+Unlikely to be any cruisers or walkers (check anyone who appears in the table below):
+```{r}
+#| warning: false
+#| error: false
+redcap %>% filter(session == 1) %>% filter(cruise == "Yes" | walk == "Yes") %>% 
+  select(id, session, all_of(cols))
 ```
 
+
+#### Session 2 (9 months)
+
+```{r}
+#| warning: false
+#| error: false
+summarize_milestones(2)
+```
+Most infants should be sitting, unlikely to be walking (check anyone who appears in the table below):
+```{r}
+#| warning: false
+#| error: false
+redcap %>% filter(session == 2) %>% filter(sitting == "No" | walk == "Yes") %>% 
+  select(id, session, all_of(cols))
+```
+
+#### Session 3 (11 months)
+
+```{r}
+#| warning: false
+#| error: false
+summarize_milestones(3)
+```
+Most infants should be sitting (check anyone who appears in the table below):
+```{r}
+#| warning: false
+#| error: false
+redcap %>% filter(session == 3) %>% filter(sitting == "No") %>% 
+  select(id, session, all_of(cols))
+```
+
+#### Session 4 (13 months)
+
+```{r}
+#| warning: false
+#| error: false
+summarize_milestones(4)
+```
+Most infants should be sitting and cruising (check anyone who appears in the table below):
+```{r}
+#| warning: false
+#| error: false
+redcap %>% filter(session == 4) %>% filter(sitting == "No" | cruise == "No") %>% 
+  select(id, session, all_of(cols))
+```

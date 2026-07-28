@@ -401,3 +401,70 @@ facet_grid(restraint ~ pos) +
   geom_point(size = 2.5, shape = 21) + geom_smooth(method = "lm", se = F) + 
   ylab("% of awake time") + xlab("AIMS Total Score") + ylim(0,100)
 ```
+
+### Infant Restraint and Position by Milestones
+
+```{r}
+#| warning: false
+#| label: "restraint-position-by-milestones"
+#| layout-nrow: 4
+#| fig-cap: 
+#|   - "Restrained Time by Crawling"
+#|   - "Unrestrained Time by Crawling"
+#|   - "Restrained Time by Cruising"
+#|   - "Unrestrained Time by Cruising"
+#|   
+
+ds_sum_posrest_aims <- ds_sum_posrest_aims %>%  
+  mutate(crawl = factor(crawl, levels = c("No","Yes"), labels = c("Non-Crawler","Crawler")),
+         cruise = factor(cruise, levels = c("No","Yes"), labels = c("Non-Cruiser","Cruiser")))
+
+
+ds_sum_posrest_aims %>% filter(restraint == "Restrained") %>% 
+  ggplot(data = . , aes(x = session, y = prop, color = pos, shape = crawl, linetype = crawl)) + 
+  stat_summary(geom = "line", position = position_dodge(.1)) + 
+  stat_summary(position = position_dodge(.1), linetype = 1, fill = "white") + 
+  facet_wrap(~ pos) + 
+  ylab("% of time") + xlab("Session") +
+  scale_x_continuous(breaks = 1:3, labels = c("7 mo","9 mo","11 mo"), limits = c(0.5,3.5)) + 
+  coord_cartesian(ylim = c(0,55)) + 
+  scale_shape_manual(values = c(21, 22)) +
+  scale_color_manual(values = pal, name ="", guide = F) + 
+  theme(legend.position = "bottom") + ggtitle("Restrained time")
+
+ds_sum_posrest_aims %>% filter(restraint == "Unrestrained") %>% 
+  ggplot(data = . , aes(x = session, y = prop, color = pos, linetype = crawl, shape = crawl)) + 
+  stat_summary(geom = "line", position = position_dodge(.1)) + 
+  stat_summary(position = position_dodge(.1), linetype = 1, fill = "white") + 
+  facet_wrap(~ pos) + 
+  ylab("% of time") + xlab("Session") +
+  scale_x_continuous(breaks = 1:3, labels = c("7 mo","9 mo","11 mo"), limits = c(0.5,3.5)) + 
+  coord_cartesian(ylim = c(0,55)) + 
+  scale_shape_manual(values = c(21, 22)) +
+  scale_color_manual(values = pal, name ="", guide = F) + 
+  theme(legend.position = "bottom") + ggtitle("Unrestrained time")
+
+ds_sum_posrest_aims %>% filter(restraint == "Restrained") %>% 
+  ggplot(data = . , aes(x = session, y = prop, color = pos, shape = cruise, linetype = cruise)) + 
+  stat_summary(geom = "line", position = position_dodge(.1)) + 
+  stat_summary(position = position_dodge(.1), linetype = 1, fill = "white") + 
+  facet_wrap(~ pos) + 
+  ylab("% of time") + xlab("Session") +
+  scale_x_continuous(breaks = 1:3, labels = c("7 mo","9 mo","11 mo"), limits = c(0.5,3.5)) + 
+  coord_cartesian(ylim = c(0,55)) + 
+  scale_shape_manual(values = c(21, 22)) +
+  scale_color_manual(values = pal, name ="", guide = F) + 
+  theme(legend.position = "bottom") + ggtitle("Restrained time")
+
+ds_sum_posrest_aims %>% filter(restraint == "Unrestrained") %>% 
+  ggplot(data = . , aes(x = session, y = prop, color = pos, shape = cruise, linetype = cruise)) + 
+  stat_summary(geom = "line", position = position_dodge(.1)) + 
+  stat_summary(position = position_dodge(.1), linetype = 1, fill = "white") + 
+  facet_wrap(~ pos) + 
+  ylab("% of time") + xlab("Session") +
+  scale_x_continuous(breaks = 1:3, labels = c("7 mo","9 mo","11 mo"), limits = c(0.5,3.5)) + 
+  coord_cartesian(ylim = c(0,55)) + 
+  scale_shape_manual(values = c(21, 22)) +
+  scale_color_manual(values = pal, name ="", guide = F) + 
+  theme(legend.position = "bottom") + ggtitle("Unrestrained time")
+```

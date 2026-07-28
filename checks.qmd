@@ -227,7 +227,7 @@ if (nrow(check_sit) == 0) {
 ```
 
 ```{r}
-ggplot(sit_onset, aes(onset_age)) + geom_histogram(binwidth = .25) + 
+ggplot(sit_onset, aes(onset_age)) + geom_histogram(binwidth = .5) + 
   scale_x_continuous(limits = c(3,13), breaks = 3:13, name = "Onset age (mo)") + 
   ggtitle("Sitting onset")
 ```
@@ -247,7 +247,7 @@ if (nrow(check_belly) == 0) {
 ```
 
 ```{r}
-ggplot(belly_onset, aes(onset_age)) + geom_histogram(binwidth = .25) + 
+ggplot(belly_onset, aes(onset_age)) + geom_histogram(binwidth = .5) + 
   scale_x_continuous(limits = c(3,13), breaks = 3:13, name = "Onset age (mo)") + 
   ggtitle("Belly onset")
 ```
@@ -268,7 +268,7 @@ if (nrow(check_crawl) == 0) {
 ```
 
 ```{r}
-ggplot(crawl_onset, aes(onset_age)) + geom_histogram(binwidth = .25) + 
+ggplot(crawl_onset, aes(onset_age)) + geom_histogram(binwidth = .5) + 
   scale_x_continuous(limits = c(3,13), breaks = 3:13, name = "Onset age (mo)") + 
   ggtitle("Crawl onset")
 ```
@@ -288,7 +288,7 @@ if (nrow(check_cruise) == 0) {
 ```
 
 ```{r}
-ggplot(cruise_onset, aes(onset_age)) + geom_histogram(binwidth = .25) + 
+ggplot(cruise_onset, aes(onset_age)) + geom_histogram(binwidth = .5) + 
   scale_x_continuous(limits = c(3,13), breaks = 3:13, name = "Onset age (mo)") + 
   ggtitle("Cruise onset")
 ```
@@ -309,7 +309,7 @@ if (nrow(check_walk) == 0) {
 ```
 
 ```{r}
-ggplot(walk_onset, aes(onset_age)) + geom_histogram(binwidth = .25) + 
+ggplot(walk_onset, aes(onset_age)) + geom_histogram(binwidth = .5) + 
   scale_x_continuous(limits = c(3,13), breaks = 3:13, name = "Onset age (mo)") + 
   ggtitle("Walk onset")
 ```

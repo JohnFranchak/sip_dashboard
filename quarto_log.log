@@ -67814,4 +67814,46 @@ processing file: interactive_timelines.qmd
   Error writing to connection:  No space left on device
 Calls: .main ... <Anonymous> -> <Anonymous> -> write_utf8 -> writeLines
 [39m[31mExecution halted
+[39m[main e0d3720f] Automated Quarto update: 2026-08-09 09:01:28
+ 5 files changed, 57 insertions(+), 15 deletions(-)
+To github.com:JohnFranchak/sip_dashboard.git
+   6b55eaee..e0d3720f  main -> main
+//franchak@johnds920.ucr.edu/padlab on /Volumes/padlab (smbfs, nodev, nosuid, mounted by johnfranchak)
+[1m[34m[1/8] tasks.qmd[39m[22m
+[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: tasks.knit.md
+
+[39m[1m[34m[2/8] files.qmd[39m[22m
+[31m
+
+processing file: files.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: files.knit.md
+
+[39m[1m[34m[3/8] index.qmd[39m[22m
+[31m
+
+processing file: index.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: index.knit.md
+
+[39m[1m[34m[4/8] wear_time.qmd[39m[22m
+[31m
+
+processing file: wear_time.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |.........                                           |  17%                    |                                                            |.................                                   |  33% (unnamed-chunk-1)  |                                                            |..........................                          |  50%                    |                                                            |...................................                 |  67% (unnamed-chunk-2)  |                                                            |...........................................         |  83%                    |                                                            |....................................................| 100% (unnamed-chunk-3)                                                                                                            
+[31moutput file: wear_time.knit.md
+
+[39m[1m[34m[5/8] interactive_timelines.qmd[39m[22m
+[31m
+
+processing file: interactive_timelines.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31mError in writeLines(enc2utf8(text), con, ..., useBytes = TRUE) : 
+  Error writing to connection:  No space left on device
+Calls: .main ... <Anonymous> -> <Anonymous> -> write_utf8 -> writeLines
+[39m[31mExecution halted
 [39m

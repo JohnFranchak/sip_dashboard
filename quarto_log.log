@@ -69627,3 +69627,56 @@ processing file: timelines.qmd
 [39m
 Output created: docs/index.html
 
+[main 4e8ee91e] Automated Quarto update: 2026-08-10 05:03:26
+ 10 files changed, 395 insertions(+), 329 deletions(-)
+To github.com:JohnFranchak/sip_dashboard.git
+   7baf6710..4e8ee91e  main -> main
+//franchak@johnds920.ucr.edu/padlab on /Volumes/padlab (smbfs, nodev, nosuid, mounted by johnfranchak)
+[1m[34m[1/8] tasks.qmd[39m[22m
+[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: tasks.knit.md
+
+[39m[1m[34m[2/8] files.qmd[39m[22m
+[31m
+
+processing file: files.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: files.knit.md
+
+[39m[1m[34m[3/8] index.qmd[39m[22m
+[31m
+
+processing file: index.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: index.knit.md
+
+[39m[1m[34m[4/8] wear_time.qmd[39m[22m
+[31m
+
+processing file: wear_time.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |.........                                           |  17%                    |                                                            |.................                                   |  33% (unnamed-chunk-1)  |                                                            |..........................                          |  50%                    |                                                            |...................................                 |  67% (unnamed-chunk-2)  |                                                            |...........................................         |  83%                    |                                                            |....................................................| 100% (unnamed-chunk-3)                                                                                                            
+[31moutput file: wear_time.knit.md
+
+[39m[1m[34m[5/8] interactive_timelines.qmd[39m[22m
+[31m
+
+processing file: interactive_timelines.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: interactive_timelines.knit.md
+
+[39m[91mERROR: No space left on device (os error 28): writefile '/Users/johnfranchak/Documents/GitHub/sip_dashboard/interactive_timelines.html'
+
+Stack trace:
+    at writeFileSync (ext:deno_fs/30_fs.js:769:7)
+    at Object.writeTextFileSync (ext:deno_fs/30_fs.js:832:10)
+    at postProcessRestorePreservedHtml (file:///Applications/quarto/bin/quarto.js:28029:10)
+    at Object.postprocess (file:///Applications/quarto/bin/quarto.js:28174:9)
+    at file:///Applications/quarto/bin/quarto.js:70050:49
+    at withTimingAsync (file:///Applications/quarto/bin/quarto.js:19466:31)
+    at Object.complete (file:///Applications/quarto/bin/quarto.js:70049:23)
+    at Object.onPostProcess (file:///Applications/quarto/bin/quarto.js:77266:53)
+    at renderFileInternal (file:///Applications/quarto/bin/quarto.js:77250:26)
+    at eventLoopTick (ext:core/01_core.js:183:11)[39m

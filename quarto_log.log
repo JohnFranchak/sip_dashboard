@@ -70019,4 +70019,47 @@ processing file: interactive_timelines.qmd
   Error writing to connection:  No space left on device
 Calls: .main ... <Anonymous> -> <Anonymous> -> write_utf8 -> writeLines
 [39m[31mExecution halted
-[39m
+[39m[main fff7b680] Automated Quarto update: 2026-08-10 09:01:29
+ 5 files changed, 115 insertions(+), 15 deletions(-)
+To github.com:JohnFranchak/sip_dashboard.git
+   6ccb835a..fff7b680  main -> main
+//franchak@johnds920.ucr.edu/padlab on /Volumes/padlab (smbfs, nodev, nosuid, mounted by johnfranchak)
+[1m[34m[1/8] tasks.qmd[39m[22m
+[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: tasks.knit.md
+
+[39m[1m[34m[2/8] files.qmd[39m[22m
+[31m
+
+processing file: files.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: files.knit.md
+
+[39m[1m[34m[3/8] index.qmd[39m[22m
+[31m
+
+processing file: index.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: index.knit.md
+
+[39m[1m[34m[4/8] wear_time.qmd[39m[22m
+[31m
+
+processing file: wear_time.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |.........                                           |  17%                    |                                                            |.................                                   |  33% (unnamed-chunk-1)  |                                                            |..........................                          |  50%                    |                                                            |...................................                 |  67% (unnamed-chunk-2)  |                                                            |...........................................         |  83%                    |                                                            |....................................................| 100% (unnamed-chunk-3)                                                                                                            
+[31moutput file: wear_time.knit.md
+
+[39mpandoc: wear_time.html: withFile: resource exhausted (No space left on device)
+[91mERROR: No space left on device (os error 28): rename '/Users/johnfranchak/Documents/GitHub/sip_dashboard/index.html' -> '/Users/johnfranchak/Documents/GitHub/sip_dashboard/docs/index.html'
+
+Stack trace:
+    at Object.renameSync (ext:deno_fs/30_fs.js:207:7)
+    at renderProject (file:///Applications/quarto/bin/quarto.js:77422:22)
+    at eventLoopTick (ext:core/01_core.js:183:11)
+    at async Command.fn (file:///Applications/quarto/bin/quarto.js:81954:32)
+    at async Command.execute (file:///Applications/quarto/bin/quarto.js:8104:13)
+    at async quarto (file:///Applications/quarto/bin/quarto.js:114999:5)
+    at async file:///Applications/quarto/bin/quarto.js:115017:9[39m

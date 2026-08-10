@@ -69680,3 +69680,142 @@ Stack trace:
     at Object.onPostProcess (file:///Applications/quarto/bin/quarto.js:77266:53)
     at renderFileInternal (file:///Applications/quarto/bin/quarto.js:77250:26)
     at eventLoopTick (ext:core/01_core.js:183:11)[39m
+[main 7895e29a] Automated Quarto update: 2026-08-10 06:02:14
+ 94 files changed, 68 insertions(+), 4862 deletions(-)
+ delete mode 100644 docs/checks.html
+ delete mode 100644 docs/checks_files/figure-html/unnamed-chunk-14-1.png
+ delete mode 100644 docs/checks_files/figure-html/unnamed-chunk-16-1.png
+ delete mode 100644 docs/checks_files/figure-html/unnamed-chunk-18-1.png
+ delete mode 100644 docs/checks_files/figure-html/unnamed-chunk-20-1.png
+ delete mode 100644 docs/checks_files/figure-html/unnamed-chunk-22-1.png
+ delete mode 100644 docs/search.json
+ delete mode 100644 docs/site_libs/quarto-contrib/glightbox/glightbox.min.css
+ delete mode 100644 docs/site_libs/quarto-contrib/glightbox/glightbox.min.js
+ delete mode 100644 docs/site_libs/quarto-contrib/glightbox/lightbox.css
+ delete mode 100644 docs/site_libs/tabwid-1.1.3/tabwid.css
+ delete mode 100644 docs/site_libs/tabwid-1.1.3/tabwid.js
+ delete mode 100644 docs/summaries.html
+ delete mode 100644 docs/summaries_files/figure-html/AIMS-by-age-overall-1.png
+ delete mode 100644 docs/summaries_files/figure-html/Usable-data-histograms-1.png
+ delete mode 100644 docs/summaries_files/figure-html/Usable-data-histograms-2.png
+ delete mode 100644 docs/summaries_files/figure-html/frequency-by-age-individual-1.png
+ delete mode 100644 docs/summaries_files/figure-html/frequency-by-age-overall-1.png
+ delete mode 100644 docs/summaries_files/figure-html/frequency-by-age-overall-2.png
+ delete mode 100644 docs/summaries_files/figure-html/position-by-AIMS-1.png
+ delete mode 100644 docs/summaries_files/figure-html/position-by-AIMS-2.png
+ delete mode 100644 docs/summaries_files/figure-html/position-by-AIMS-3.png
+ delete mode 100644 docs/summaries_files/figure-html/position-by-AIMS-4.png
+ delete mode 100644 docs/summaries_files/figure-html/position-by-AIMS-5.png
+ delete mode 100644 docs/summaries_files/figure-html/posture-by-restraint-1.png
+ delete mode 100644 docs/summaries_files/figure-html/restraint-by-age-individual-1.png
+ delete mode 100644 docs/summaries_files/figure-html/restraint-by-age-overall-1.png
+ delete mode 100644 docs/summaries_files/figure-html/restraint-by-age-overall-2.png
+ delete mode 100644 docs/summaries_files/figure-html/restraint-position-by-AIMS-1.png
+ delete mode 100644 docs/summaries_files/figure-html/restraint-position-by-AIMS-2.png
+ delete mode 100644 docs/summaries_files/figure-html/restraint-position-by-AIMS-3.png
+ delete mode 100644 docs/summaries_files/figure-html/restraint-position-by-AIMS-4.png
+ delete mode 100644 docs/summaries_files/figure-html/restraint-position-by-AIMS-5.png
+ delete mode 100644 docs/summaries_files/figure-html/restraint-position-by-milestones-1.png
+ delete mode 100644 docs/summaries_files/figure-html/restraint-position-by-milestones-2.png
+ delete mode 100644 docs/summaries_files/figure-html/restraint-position-by-milestones-3.png
+ delete mode 100644 docs/summaries_files/figure-html/restraint-position-by-milestones-4.png
+ delete mode 100644 docs/timelines.html
+ delete mode 100755 docs/timelines/12_1.png
+ delete mode 100755 docs/timelines/12_2.png
+ delete mode 100644 docs/timelines/12_3.png
+ delete mode 100755 docs/timelines/13_1.png
+ delete mode 100755 docs/timelines/13_2.png
+ delete mode 100644 docs/timelines/13_3.png
+ delete mode 100755 docs/timelines/15_1.png
+ delete mode 100644 docs/timelines/15_2.png
+ delete mode 100644 docs/timelines/15_3.png
+ delete mode 100755 docs/timelines/16_1.png
+ delete mode 100755 docs/timelines/16_2.png
+ delete mode 100644 docs/timelines/16_3.png
+ delete mode 100755 docs/timelines/18_1.png
+ delete mode 100644 docs/timelines/18_2.png
+ delete mode 100644 docs/timelines/18_3.png
+ delete mode 100755 docs/timelines/21_1.png
+ delete mode 100644 docs/timelines/21_2.png
+ delete mode 100644 docs/timelines/21_3.png
+ delete mode 100755 docs/timelines/23_1.png
+ delete mode 100644 docs/timelines/23_2.png
+ delete mode 100644 docs/timelines/23_3.png
+ delete mode 100644 docs/timelines/26_1.png
+ delete mode 100644 docs/timelines/26_2.png
+ delete mode 100644 docs/timelines/26_3.png
+ delete mode 100644 docs/timelines/29_1.png
+ delete mode 100644 docs/timelines/29_2.png
+ delete mode 100644 docs/timelines/29_3.png
+ delete mode 100644 docs/timelines/33_1.png
+ delete mode 100644 docs/timelines/33_2.png
+ delete mode 100644 docs/timelines/34_1.png
+ delete mode 100644 docs/timelines/34_2.png
+ delete mode 100644 docs/timelines/37_1.png
+ delete mode 100644 docs/timelines/37_2.png
+ delete mode 100644 docs/timelines/40_1.png
+ delete mode 100644 docs/timelines/40_2.png
+ delete mode 100644 docs/timelines/42_1.png
+ delete mode 100644 docs/timelines/42_2.png
+ delete mode 100644 docs/timelines/43_1.png
+ delete mode 100644 docs/timelines/43_2.png
+ delete mode 100644 docs/timelines/45_1.png
+ delete mode 100644 docs/timelines/45_2.png
+ delete mode 100644 docs/timelines/47_1.png
+ delete mode 100644 docs/timelines/48_1.png
+ delete mode 100644 docs/timelines/50_1.png
+ delete mode 100644 docs/timelines/51_1.png
+ delete mode 100644 docs/timelines/54_1.png
+ delete mode 100644 docs/timelines/55_1.png
+ delete mode 100644 docs/timelines/57_1.png
+ delete mode 100644 docs/timelines/59_1.png
+ create mode 100644 interactive_timelines.html
+To github.com:JohnFranchak/sip_dashboard.git
+   4e8ee91e..7895e29a  main -> main
+//franchak@johnds920.ucr.edu/padlab on /Volumes/padlab (smbfs, nodev, nosuid, mounted by johnfranchak)
+[1m[34m[1/8] tasks.qmd[39m[22m
+[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: tasks.knit.md
+
+[39m[1m[34m[2/8] files.qmd[39m[22m
+[31m
+
+processing file: files.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: files.knit.md
+
+[39m[1m[34m[3/8] index.qmd[39m[22m
+[31m
+
+processing file: index.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: index.knit.md
+
+[39m[1m[34m[4/8] wear_time.qmd[39m[22m
+[31m
+
+processing file: wear_time.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |.........                                           |  17%                    |                                                            |.................                                   |  33% (unnamed-chunk-1)  |                                                            |..........................                          |  50%                    |                                                            |...................................                 |  67% (unnamed-chunk-2)  |                                                            |...........................................         |  83%                    |                                                            |....................................................| 100% (unnamed-chunk-3)                                                                                                            
+[31moutput file: wear_time.knit.md
+
+[39m[1m[34m[5/8] interactive_timelines.qmd[39m[22m
+[31m
+
+processing file: interactive_timelines.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: interactive_timelines.knit.md
+
+[39mpandoc: interactive_timelines.html: withFile: resource exhausted (No space left on device)
+[91mERROR: No space left on device (os error 28): rename '/Users/johnfranchak/Documents/GitHub/sip_dashboard/wear_time.html' -> '/Users/johnfranchak/Documents/GitHub/sip_dashboard/docs/wear_time.html'
+
+Stack trace:
+    at Object.renameSync (ext:deno_fs/30_fs.js:207:7)
+    at renderProject (file:///Applications/quarto/bin/quarto.js:77422:22)
+    at eventLoopTick (ext:core/01_core.js:183:11)
+    at async Command.fn (file:///Applications/quarto/bin/quarto.js:81954:32)
+    at async Command.execute (file:///Applications/quarto/bin/quarto.js:8104:13)
+    at async quarto (file:///Applications/quarto/bin/quarto.js:114999:5)
+    at async file:///Applications/quarto/bin/quarto.js:115017:9[39m

@@ -326,34 +326,66 @@ ggplot(aims_long, aes(x = session, y = Score, color = Scale, group = Scale)) +
 ds_sum_aims <- left_join(ds_sum, redcap)
 
 ds_sum_aims %>% 
-ggplot(aes(x = aims_supine_total, y = pos_prop)) + 
+ggplot(aes(x = aims_supine_total, y = pos_prop,color = as.factor(session))) + 
   facet_wrap(~pos) + 
   geom_point(size = 2.5, shape = 21) + geom_smooth(method = "lm", se = F) + 
+  scale_color_discrete(name = "Session") + theme(legend.position = "bottom") + 
   ylab("% of awake time") + xlab("AIMS Supine") + ylim(0,100)
 
 ds_sum_aims %>% 
-ggplot(aes(x = aims_prone_total, y = pos_prop)) + 
+ggplot(aes(x = aims_prone_total, y = pos_prop, color = as.factor(session))) + 
   facet_wrap(~pos) + 
   geom_point(size = 2.5, shape = 21) + geom_smooth(method = "lm", se = F) + 
+  scale_color_discrete(name = "Session") + theme(legend.position = "bottom") + 
   ylab("% of awake time") + xlab("AIMS Prone") + ylim(0,100)
 
 ds_sum_aims %>% 
-ggplot(aes(x = aims_sitting_total, y = pos_prop)) + 
+ggplot(aes(x = aims_sitting_total, y = pos_prop, color = as.factor(session))) + 
   facet_wrap(~pos) + 
   geom_point(size = 2.5, shape = 21) + geom_smooth(method = "lm", se = F) + 
+  scale_color_discrete(name = "Session") + theme(legend.position = "bottom") + 
   ylab("% of awake time") + xlab("AIMS Sitting") + ylim(0,100)
 
 ds_sum_aims %>% 
-ggplot(aes(x = aims_standing_total, y = pos_prop)) + 
+ggplot(aes(x = aims_standing_total, y = pos_prop, color = as.factor(session))) + 
   facet_wrap(~pos) + 
   geom_point(size = 2.5, shape = 21) + geom_smooth(method = "lm", se = F) + 
+  scale_color_discrete(name = "Session") + theme(legend.position = "bottom") + 
   ylab("% of awake time") + xlab("AIMS Standing") + ylim(0,100)
 
 ds_sum_aims %>% 
-ggplot(aes(x = aims_totalscore, y = pos_prop)) + 
+ggplot(aes(x = aims_totalscore, y = pos_prop, color = as.factor(session))) + 
   facet_wrap(~pos) + 
   geom_point(size = 2.5, shape = 21) + geom_smooth(method = "lm", se = F) + 
+  scale_color_discrete(name = "Session") + theme(legend.position = "bottom") + 
   ylab("% of awake time") + xlab("AIMS Total Score") + ylim(0,100)
+```
+
+### Infant Restraint by AIMS
+
+```{r}
+#| warning: false
+#| label: "restraint-by-AIMS"
+#| layout-nrow: 2
+#| fig-cap: 
+#|   - "AIMS Subscales"
+#|   - "AIMS Total"
+
+ds_sum_restraint_aims <- left_join(aims_long, filter(ds_sum_restraint, restraint == "Restrained"))
+
+ds_sum_restraint_aims %>% filter(Scale != "total") %>% 
+ggplot(aes(x = Score, y = restraint_prop, color = as.factor(session))) + 
+  facet_wrap(~Scale, scales = "free_x") + 
+  geom_point(size = 2.5, shape = 21) + geom_smooth(method = "lm", se = F) + 
+  scale_color_discrete(name = "Session") + theme(legend.position = "bottom") + 
+  ylab("Restraint (% of awake time)") + xlab("AIMS Score") + ylim(0,100)
+
+ds_sum_restraint_aims %>% filter(Scale == "total") %>% 
+ggplot(aes(x = Score, y = restraint_prop, color = as.factor(session))) + 
+  geom_point(size = 2.5, shape = 21) + geom_smooth(method = "lm", se = F) + 
+  scale_color_discrete(name = "Session") + theme(legend.position = "bottom") + 
+  ylab("Restraint (% of awake time)") + xlab("AIMS Total Score") + ylim(0,100)
+
 ```
 
 ### Infant Restraint and Position by AIMS
@@ -372,33 +404,38 @@ ggplot(aes(x = aims_totalscore, y = pos_prop)) +
 ds_sum_posrest_aims <- left_join(ds_sum_posrest, redcap)
 
 ds_sum_posrest_aims %>% 
-ggplot(aes(x = aims_supine_total, y = prop)) + 
+ggplot(aes(x = aims_supine_total, y = prop, color = as.factor(session))) + 
   facet_grid(restraint ~ pos) + 
   geom_point(size = 2.5, shape = 21) + geom_smooth(method = "lm", se = F) + 
+  scale_color_discrete(name = "Session") + theme(legend.position = "bottom") + 
   ylab("% of awake time") + xlab("AIMS Supine") + ylim(0,100)
 
 ds_sum_posrest_aims %>% 
-ggplot(aes(x = aims_prone_total, y = prop)) + 
+ggplot(aes(x = aims_prone_total, y = prop, color = as.factor(session))) + 
   facet_grid(restraint ~ pos) +
   geom_point(size = 2.5, shape = 21) + geom_smooth(method = "lm", se = F) + 
+  scale_color_discrete(name = "Session") + theme(legend.position = "bottom") + 
   ylab("% of awake time") + xlab("AIMS Prone") + ylim(0,100)
 
 ds_sum_posrest_aims %>% 
-ggplot(aes(x = aims_sitting_total, y = prop)) + 
+ggplot(aes(x = aims_sitting_total, y = prop, color = as.factor(session))) + 
   facet_grid(restraint ~ pos) +
   geom_point(size = 2.5, shape = 21) + geom_smooth(method = "lm", se = F) + 
+  scale_color_discrete(name = "Session") + theme(legend.position = "bottom") + 
   ylab("% of awake time") + xlab("AIMS Sitting") + ylim(0,100)
 
 ds_sum_posrest_aims %>% 
-ggplot(aes(x = aims_standing_total, y = prop)) + 
+ggplot(aes(x = aims_standing_total, y = prop, color = as.factor(session))) + 
   facet_grid(restraint ~ pos) +
   geom_point(size = 2.5, shape = 21) + geom_smooth(method = "lm", se = F) + 
+  scale_color_discrete(name = "Session") + theme(legend.position = "bottom") + 
   ylab("% of awake time") + xlab("AIMS Standing") + ylim(0,100)
 
 ds_sum_posrest_aims %>% 
-ggplot(aes(x = aims_totalscore, y = prop)) + 
+ggplot(aes(x = aims_totalscore, y = prop, color = as.factor(session))) + 
 facet_grid(restraint ~ pos) +
   geom_point(size = 2.5, shape = 21) + geom_smooth(method = "lm", se = F) + 
+  scale_color_discrete(name = "Session") + theme(legend.position = "bottom") + 
   ylab("% of awake time") + xlab("AIMS Total Score") + ylim(0,100)
 ```
 

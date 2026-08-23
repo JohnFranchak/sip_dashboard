@@ -82094,3 +82094,38 @@ processing file: timelines.qmd
 [39m
 Output created: docs/index.html
 
+[main 0312278a] Automated Quarto update: 2026-08-22 17:03:42
+ 10 files changed, 395 insertions(+), 329 deletions(-)
+To github.com:JohnFranchak/sip_dashboard.git
+   c73935ca..0312278a  main -> main
+//franchak@johnds920.ucr.edu/padlab on /Volumes/padlab (smbfs, nodev, nosuid, mounted by johnfranchak)
+[1m[34m[1/8] tasks.qmd[39m[22m
+[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: tasks.knit.md
+
+[39m[1m[34m[2/8] files.qmd[39m[22m
+[31m
+
+processing file: files.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: files.knit.md
+
+[39m[1m[34m[3/8] index.qmd[39m[22m
+[31m
+
+processing file: index.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)[31m
+
+Quitting from lines 6-42 (index.qmd) 
+[39m[31mError in `REDCapR::redcap_variables()`:
+! upstream connect error or disconnect/reset before headers. reset reason: connection timeout
+Backtrace:
+ 1. REDCapR::redcap_read(...)
+ 2. REDCapR:::redcap_metadata_internal(...)
+ 3. REDCapR::redcap_variables(redcap_uri, token, verbose = verbose, handle_httr = handle_httr)
+[39m                                                                                                            
+[31mExecution halted
+[39m

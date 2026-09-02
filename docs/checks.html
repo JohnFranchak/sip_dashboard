@@ -187,7 +187,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><div class="line-block">Last updated: 2026-09-01 22:02:55 using pinned data version from: 2026-09-01 08:36:03<br><br>
+</header><div class="line-block">Last updated: 2026-09-02 08:46:13 using pinned data version from: 2026-09-02 08:35:28<br><br>
 </div>
 <section id="milestone-checks" class="level2"><h2 class="anchored" data-anchor-id="milestone-checks">Milestone Checks</h2>
 <section id="are-any-milestones-missing" class="level3"><h3 class="anchored" data-anchor-id="are-any-milestones-missing">Are any milestones missing?</h3>
@@ -202,9 +202,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">check_missing</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>  id session sitting   belly   crawl  cruise    walk
-1 29       4 Missing Missing Missing Missing Missing
-2 33       3 Missing Missing Missing Missing Missing</code></pre>
+<pre><code>[1] "No missing rows"</code></pre>
 </div>
 </div>
 </section><section id="are-any-dates-impossible" class="level3"><h3 class="anchored" data-anchor-id="are-any-dates-impossible">Are any dates impossible?</h3>
@@ -241,8 +239,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>            Walk <span class="op">=</span> <span class="fu">colDef</span><span class="op">(</span>maxWidth <span class="op">=</span> <span class="fl">90</span>, cell <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">value</span><span class="op">)</span> <span class="op">{</span><span class="kw">if</span> <span class="op">(</span><span class="va">value</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="st">"\u2714\ufe0f"</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">value</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span> <span class="st">"\u2716"</span> <span class="kw">else</span> <span class="st">"\u274c"</span><span class="op">}</span><span class="op">)</span></span>
 <span>            <span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
-<div class="reactable html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-73803b157f747ad413b1" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-73803b157f747ad413b1">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"id":[12,13,15,16,18,21,23,26,29,33,34,37,40,42,43,45,47,48,50,51,54,55,57,58,59],"Sit":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1],"Belly":[0,1,1,1,0,1,1,0,1,0,1,0,0,1,0,0,1,0,0,0,0,0,0,1,0],"Crawl":[1,0,1,1,1,1,1,1,1,0,1,1,1,1,1,0,1,1,1,1,0,0,0,0,0],"Cruise":[1,0,1,1,1,1,1,1,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,1,0],"Walk":[0,0,1,1,1,1,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0]},"columns":[{"id":"id","name":"id","type":"numeric","format":{"cell":{"digits":0},"aggregated":{"digits":0}},"maxWidth":50,"align":"left"},{"id":"Sit","name":"Sit","type":"numeric","cell":["✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✖","✔️","✔️","✔️"],"maxWidth":90},{"id":"Belly","name":"Belly","type":"numeric","cell":["✖","✔️","✔️","✔️","✖","✔️","✔️","✖","✔️","✖","✔️","✖","✖","✔️","✖","✖","✔️","✖","✖","✖","✖","✖","✖","✔️","✖"],"maxWidth":90},{"id":"Crawl","name":"Crawl","type":"numeric","cell":["✔️","✖","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✖","✔️","✔️","✔️","✔️","✔️","✖","✔️","✔️","✔️","✔️","✖","✖","✖","✖","✖"],"maxWidth":90},{"id":"Cruise","name":"Cruise","type":"numeric","cell":["✔️","✖","✔️","✔️","✔️","✔️","✔️","✔️","✔️","✖","✖","✔️","✔️","✖","✖","✖","✖","✖","✖","✖","✖","✖","✖","✔️","✖"],"maxWidth":90},{"id":"Walk","name":"Walk","type":"numeric","cell":["✖","✖","✔️","✔️","✔️","✔️","✔️","✔️","✖","✖","✖","✔️","✖","✖","✖","✖","✖","✖","✖","✖","✖","✖","✖","✖","✖"],"maxWidth":90}],"filterable":true,"defaultSorted":[{"id":"id","desc":false}],"defaultPageSize":50,"striped":true,"compact":true,"dataKey":"e3b6cc6bebe3ec77c6807cfbf6249301"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div class="reactable html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-1d20966167245850380a" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-1d20966167245850380a">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"id":[],"Sit":[],"Belly":[],"Crawl":[],"Cruise":[],"Walk":[]},"columns":[{"id":"id","name":"id","type":"logical","format":{"cell":{"digits":0},"aggregated":{"digits":0}},"maxWidth":50,"align":"left"},{"id":"Sit","name":"Sit","type":"numeric","cell":[],"maxWidth":90},{"id":"Belly","name":"Belly","type":"numeric","cell":[],"maxWidth":90},{"id":"Crawl","name":"Crawl","type":"numeric","cell":[],"maxWidth":90},{"id":"Cruise","name":"Cruise","type":"numeric","cell":[],"maxWidth":90},{"id":"Walk","name":"Walk","type":"numeric","cell":[],"maxWidth":90}],"filterable":true,"defaultSorted":[{"id":"id","desc":false}],"defaultPageSize":50,"striped":true,"compact":true,"dataKey":"a4bf3a0419e3a485ee227177ea71e0de"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section><section id="have-infants-acquired-milestones-by-expected-ages" class="level3"><h3 class="anchored" data-anchor-id="have-infants-acquired-milestones-by-expected-ages">Have infants acquired milestones by expected ages?</h3>
@@ -260,8 +258,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details><div class="cell-output cell-output-stdout">
 <pre><code>  sitting sit_n   belly belly_n   crawl hk_n  cruise cruise_n    walk walk_n
 1 Missing     0 Missing       0 Missing    0 Missing        0 Missing      0
-2      No     5      No      18      No   21      No       23      No     25
-3     Yes    20     Yes       7     Yes    4     Yes        2     Yes      0</code></pre>
+2      No     0      No       0      No    0      No        0      No      0
+3     Yes     0     Yes       0     Yes    0     Yes        0     Yes      0</code></pre>
 </div>
 </div>
 <p>Unlikely to be any walkers (check anyone who appears in the table below):</p>
@@ -283,8 +281,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details><div class="cell-output cell-output-stdout">
 <pre><code>  sitting sit_n   belly belly_n   crawl hk_n  cruise cruise_n    walk walk_n
 1 Missing     0 Missing       0 Missing    0 Missing        0 Missing      0
-2      No     0      No      12      No    5      No       14      No     19
-3     Yes    19     Yes       7     Yes   14     Yes        5     Yes      0</code></pre>
+2      No     0      No       0      No    0      No        0      No      0
+3     Yes     0     Yes       0     Yes    0     Yes        0     Yes      0</code></pre>
 </div>
 </div>
 <p>Most infants should be sitting, unlikely to be walking (check anyone who appears in the table below):</p>
@@ -305,9 +303,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">summarize_milestones</span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>  sitting sit_n   belly belly_n   crawl hk_n  cruise cruise_n    walk walk_n
-1 Missing     1 Missing       1 Missing    1 Missing        1 Missing      1
-2      No     0      No       5      No    1      No        2      No     10
-3     Yes    12     Yes       7     Yes   11     Yes       10     Yes      2</code></pre>
+1 Missing     0 Missing       0 Missing    0 Missing        0 Missing      0
+2      No     0      No       0      No    0      No        0      No      0
+3     Yes     0     Yes       0     Yes    0     Yes        0     Yes      0</code></pre>
 </div>
 </div>
 <p>Most infants should be sitting (check anyone who appears in the table below):</p>
@@ -328,9 +326,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">summarize_milestones</span><span class="op">(</span><span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>  sitting sit_n   belly belly_n   crawl hk_n  cruise cruise_n    walk walk_n
-1 Missing     1 Missing       1 Missing    1 Missing        1 Missing      1
-2      No     0      No       3      No    1      No        1      No      2
-3     Yes     8     Yes       5     Yes    7     Yes        7     Yes      6</code></pre>
+1 Missing     0 Missing       0 Missing    0 Missing        0 Missing      0
+2      No     0      No       0      No    0      No        0      No      0
+3     Yes     0     Yes       0     Yes    0     Yes        0     Yes      0</code></pre>
 </div>
 </div>
 <p>Most infants should be sitting and cruising (check anyone who appears in the table below):</p>
@@ -343,8 +341,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">check_13</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>  id session sitting belly crawl cruise walk
-1 13       4     Yes   Yes    No     No   No</code></pre>
+<pre><code>[1] "No flagged rows"</code></pre>
 </div>
 </div>
 </section></section><section id="are-onset-ages-within-expected-ranges" class="level3"><h3 class="anchored" data-anchor-id="are-onset-ages-within-expected-ranges">Are onset ages within expected ranges?</h3>
@@ -361,11 +358,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">check_sit</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 x 6
-     id session dob        sitting sit_date   onset_age
-  &lt;int&gt;   &lt;int&gt; &lt;date&gt;     &lt;fct&gt;   &lt;date&gt;         &lt;dbl&gt;
-1    13       4 2025-05-21 Yes     2026-02-09      8.61
-2    26       4 2025-07-27 Yes     2025-12-01      4.13</code></pre>
+<pre><code>[1] "No flagged rows"</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -392,12 +385,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">check_belly</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 x 6
-     id session dob        belly belly_date onset_age
-  &lt;int&gt;   &lt;int&gt; &lt;date&gt;     &lt;fct&gt; &lt;date&gt;         &lt;dbl&gt;
-1    13       4 2025-05-21 Yes   2026-03-23     10.1 
-2    16       4 2025-05-08 Yes   2025-09-15      4.23
-3    34       3 2025-09-04 Yes   2026-07-20     10.5 </code></pre>
+<pre><code>[1] "No flagged rows"</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -451,12 +439,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">check_cruise</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 x 6
-# Groups:   id [2]
-     id session dob        cruise cruise_date onset_age
-  &lt;int&gt;   &lt;int&gt; &lt;date&gt;     &lt;fct&gt;  &lt;date&gt;          &lt;dbl&gt;
-1    16       4 2025-05-08 Yes    2025-11-01       5.77
-2    58       1 2026-01-03 Yes    2026-07-30       6.87</code></pre>
+<pre><code>[1] "No flagged rows"</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -1257,7 +1240,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"openEffect":"zoom","selector":".lightbox","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"descPosition":"bottom","openEffect":"zoom","selector":".lightbox"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

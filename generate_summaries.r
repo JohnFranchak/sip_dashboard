@@ -68,22 +68,22 @@ board_gd %>% pin_write(name = "redcap_data", x = session_export,
                        type = "csv")
 
 #EMA DATA
-redcap_ema <- redcap_read(redcap_uri = uri, token = api_token, forms = c("hour_activity"), guess_type = F, raw_or_label = "label") %>% 
-  .[["data"]] %>% filter(study_id %in% unique(ids), str_detect(redcap_event_name, "test", negate = T), str_detect(redcap_event_name, "Visit [1-3]_")) %>% 
-  separate_wider_regex(cols = redcap_event_name, patterns = c("Visit ", session = "[1-3]", "_", time = "\\d{4}"))
-redcap_ema <- redcap_ema %>% rename(id = study_id) %>%  left_join(select(session_export, id, session, visit_date, sex, dob)) %>% relocate(session, .after = "id") %>% relocate(dob, .after = "session") %>% 
-  relocate(sex, .after = "dob") %>% relocate(visit_date, .after = "dob")
-
-redcap_ema <- redcap_ema %>% mutate(across(hour_present:hour_babysitter, as.numeric))
-
-board %>% pin_write(name = "ema", x = redcap_ema,
-                    title = "Hourly EMA data from redcap",
-                    description = "Hourly EMA data from redcap",
-                    type = "csv")
-board_gd %>% pin_write(name = "ema", x = redcap_ema,
-                       title = "Hourly EMA data from redcap",
-                       description = "Hourly EMA data from redcap",
-                       type = "csv")
+# redcap_ema <- redcap_read(redcap_uri = uri, token = api_token, forms = c("hour_activity"), guess_type = F, raw_or_label = "label") %>% 
+#   .[["data"]] %>% filter(study_id %in% unique(ids), str_detect(redcap_event_name, "test", negate = T), str_detect(redcap_event_name, "Visit [1-3]_")) %>% 
+#   separate_wider_regex(cols = redcap_event_name, patterns = c("Visit ", session = "[1-3]", "_", time = "\\d{4}"))
+# redcap_ema <- redcap_ema %>% rename(id = study_id) %>%  left_join(select(session_export, id, session, visit_date, sex, dob)) %>% relocate(session, .after = "id") %>% relocate(dob, .after = "session") %>% 
+#   relocate(sex, .after = "dob") %>% relocate(visit_date, .after = "dob")
+# 
+# redcap_ema <- redcap_ema %>% mutate(across(hour_present:hour_babysitter, as.numeric))
+# 
+# board %>% pin_write(name = "ema", x = redcap_ema,
+#                     title = "Hourly EMA data from redcap",
+#                     description = "Hourly EMA data from redcap",
+#                     type = "csv")
+# board_gd %>% pin_write(name = "ema", x = redcap_ema,
+#                        title = "Hourly EMA data from redcap",
+#                        description = "Hourly EMA data from redcap",
+#                        type = "csv")
 
 #IMU DATA 
 

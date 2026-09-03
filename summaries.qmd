@@ -46,7 +46,7 @@ data_version <- board %>% pin_meta("imu_raw_samples")
 ds <- board %>% pin_read("imu_raw_samples") %>%
   filter(nap_period == 0, exclude_period == 0)
 
-redcap <- board %>% pin_read("redcap_data") %>% 
+redcap <- board %>% pin_read("redcap_data", version = "20260901T153603Z-f1f28") %>% 
   select(id, session, sitting, crawl, cruise, walk, aims_totalscore, percentile_rank,
          aims_prone_complete, aims_prone_total, aims_supine_complete, aims_supine_total,
          aims_sitting_complete, aims_sitting_total, aims_standing_complete, aims_standing_total) %>% 

@@ -17,10 +17,10 @@ theme_update(text = element_text(size = 12),
              axis.ticks.length=unit(.25, "cm"), 
              legend.key = element_rect(fill = "white")) 
 pal <-  c("#F0E442","#009E73","#56B4E9", "#E69F00","#0072B2") %>%  set_names(c("Standing", "Sitting", "Prone", "Supine", "Held"))
-
-uri <- "https://redcap.ucr.edu/api/"
-source("api_token.R")
-all_events <- redcap_event_instruments(redcap_uri = uri, token = api_token)$data
+# 
+# uri <- "https://redcap.ucr.edu/api/"
+# source("api_token.R")
+# all_events <- redcap_event_instruments(redcap_uri = uri, token = api_token)$data
 
 board <- board_folder("/Volumes/padlab/study_sensorsinperson/data_processed/datasets/")
 data_version <- board %>% pin_meta("imu_raw_samples")
@@ -29,6 +29,7 @@ ds <- board %>% pin_read("imu_raw_samples") %>%
 id_session <- unique(ds$id_uni)
 
 sleep_tcds <- board %>% pin_read("sleep_tcds")
+ema_all <- board %>% pin_read("ema") %>% mutate(id_uni = paste(id, session, sep = "_"))
 
 make_timeline <- function(i) {
   id <-strsplit(i, "_")[[1]][[1]]
@@ -39,24 +40,27 @@ make_timeline <- function(i) {
 
   session_string  <-  as.character(factor(session, levels = 1:4, labels = c("visit_1_arm_1", "visit_2_arm_1", "visit_3_arm_1", "visit_4_arm_1")))
   
-  events <- all_events %>% filter(str_detect(unique_event_name, str_glue("visit_{session}")),
-                                  form == "hour_activity") %>%
-    filter(str_detect(unique_event_name, "test", negate = T)) %>% pull(unique_event_name)
-  ema <- redcap_read(redcap_uri = uri, token = api_token, events = events, records = id, forms = "hour_activity")$data %>% 
-    filter(str_detect(redcap_event_name, "test", negate = T))
+  # events <- all_events %>% filter(str_detect(unique_event_name, str_glue("visit_{session}")),
+  #                                 form == "hour_activity") %>%
+  #   filter(str_detect(unique_event_name, "test", negate = T)) %>% pull(unique_event_name)
+  
+  ema_temp <- ema_all %>% filter(id_uni == i) %>% rename(hour = time)
+  
+  # ema <- redcap_read(redcap_uri = uri, token = api_token, events = events, records = id, forms = "hour_activity")$data %>% 
+  #   filter(str_detect(redcap_event_name, "test", negate = T))
   
   
-  ema_plot <- tibble(redcap_event_name = events)
-  hour_midpoints <- as_hms(c('07:30:00','08:30:00','09:30:00', '10:30:00', '11:30:00', '12:30:00', '13:30:00', '14:30:00', '15:30:00', '16:30:00', '17:30:00', '18:30:00', '19:30:00'))
-  ema_plot$time <- hour_midpoints
-  ema_plot <- left_join(ema_plot, ema)
+  ema_plot <- tibble(hour = c(800,  900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000),
+                     time = c('07:30:00','08:30:00','09:30:00', '10:30:00', '11:30:00', '12:30:00', '13:30:00', '14:30:00', '15:30:00', '16:30:00', '17:30:00', '18:30:00', '19:30:00'))
+  ema_plot <- left_join(ema_plot, ema_temp)
   
   lims <- as_hms(c('07:00:00', '21:59:00'))
   hour_breaks = as_hms(c('07:00:00','08:00:00','09:00:00', '10:00:00', '11:00:00', '12:00:00', '13:00:00', '14:00:00', '15:00:00', '16:00:00', '17:00:00', '18:00:00', '19:00:00', '20:00:00', '21:00:00'))
   label_breaks = c("7am","","9am","","11am","","1pm","","3pm","","5pm","","7pm","","9pm")
   
   ema_plot <- ema_plot %>% select(time, hour_present, hour_nap, play_inside, nurse) %>% 
-    pivot_longer(cols = hour_nap:nurse, names_to = "Activity", values_to = "Minutes")
+    pivot_longer(cols = hour_nap:nurse, names_to = "Activity", values_to = "Minutes") %>% 
+    mutate(time = as_hms(time))
   
   p1 <- ema_plot %>% mutate(Activity = factor(Activity, 
                                               levels=c("hour_nap", "play_inside", "nurse"),
@@ -156,9 +160,8 @@ make_timeline <- function(i) {
     }
   }
   
-  ggsave(plot = fig, filename = str_glue("/Volumes/padlab/study_sensorsinperson/data_processed/timelines/{id}_{session}.png",
-                                         width = 10, height = 10), scale = 1.5)
-  ggsave(plot = fig, filename = str_glue("timelines/{id}_{session}.png",
+  #ggsave(plot = fig, filename = str_glue("/Volumes/padlab/study_sensorsinperson/data_processed/timelines/{id}_{session}.png", width = 10, height = 10), scale = 1.5)
+  ggsave(plot = fig, filename = str_glue("/Users/johnfranchak/Documents/GitHub/sip_dashboard/timelines/{id}_{session}.png",
                                          width = 10, height = 10), scale = 1.5)
 }
 

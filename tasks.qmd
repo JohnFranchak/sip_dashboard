@@ -21,12 +21,12 @@ source("api_token.R")
 
 # event_instrument <- redcap_event_instruments(redcap_uri = uri, token = api_token)$data
 
-events <- c("visit_1_arm_1", "visit_2_arm_1", "visit_3_arm_1", "visit_4_arm_1")
+events <- c("visit_1_arm_1", "visit_2_arm_1", "visit_3_arm_1", "visit_4_arm_1", "visit_1_arm_2", "visit_2_arm_2", "visit_3_arm_2", "visit_4_arm_2")
 ds_raw <- redcap_read_oneshot(redcap_uri = uri, token = api_token, events = events)$data 
 ds_raw$surveys_complete <- ds_raw$infant_curiosity_complete == 2 & ds_raw$mulbourne_cg_complete == 2 & ds_raw$parent_responsiveness_complete == 2 & ds_raw$parent_stress_complete == 2
 
 ds <- ds_raw %>% filter(inclusion == 1 | finished_aims == 1) %>% 
-  mutate(session = str_remove(str_remove(redcap_event_name, "visit_"),"_arm_1"),
+  mutate(session = str_remove(str_remove(str_remove(redcap_event_name, "visit_"),"_arm_1"), "_arm_2"),
          session = factor(session, levels = c("1","2","3","4"))) %>% 
   mutate(across(all_of(c("lena_its","imu_sync","imu_sync_cg","wear_time_correction","video_composite")), ~ ifelse(session == 4, -1, .x)),
          server_upload = ifelse(session == 4, upload, server_upload),

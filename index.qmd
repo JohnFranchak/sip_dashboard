@@ -17,14 +17,15 @@ uri <- "https://redcap.ucr.edu/api/"
 source("api_token.R")
 
 
-events <- c("visit_1_arm_1", "visit_2_arm_1", "visit_3_arm_1", "visit_4_arm_1")
+events <- c("visit_1_arm_1", "visit_2_arm_1", "visit_3_arm_1", "visit_4_arm_1", "visit_1_arm_2", "visit_2_arm_2", "visit_3_arm_2", "visit_4_arm_2")
 ds <- redcap_read(redcap_uri = uri, token = api_token, events = events, forms = c("study_outcome", "mo_study_outcome"))$data 
-ds <- ds %>% mutate(study_outcome_complete = ifelse(redcap_event_name == "visit_4_arm_1", mo_study_outcome_complete, study_outcome_complete),
-                    inclusion = ifelse(redcap_event_name == "visit_4_arm_1", finished_aims, inclusion))
+ds <- ds %>% mutate(study_outcome_complete = ifelse(redcap_event_name == "visit_4_arm_1" | redcap_event_name == "visit_4_arm_2", mo_study_outcome_complete, study_outcome_complete),
+                    inclusion = ifelse(redcap_event_name == "visit_4_arm_1" | redcap_event_name == "visit_4_arm_2", finished_aims, inclusion))
 ds <- ds %>% filter(study_outcome_complete != 1) %>% 
-  mutate(session = str_remove(str_remove(redcap_event_name, "visit_"),"_arm_1"),
+  mutate(Version = ifelse(redcap_event_name == "visit_4_arm_1", "Single", "Multiday"),
+         session = str_remove(str_remove(str_remove(redcap_event_name, "visit_"),"_arm_1"), "_arm_2"),
          session = factor(session, levels = c("1","2","3","4"))) %>% 
-  select(study_id, session, next_interest, inclusion) %>% 
+  select(study_id, Version, session, next_interest, inclusion) %>% 
   rename(Session = inclusion, ID = study_id)
 
 ds <- complete(ds, ID, session) %>% pivot_wider(id_cols = ID, names_from = session, values_from = c("next_interest","Session"))

@@ -29,6 +29,8 @@ all_ppts <- all_ppts %>% mutate(is_multiday = ifelse(str_detect(redcap_event_nam
                                 session_num = str_extract(redcap_event_name, "(?<=_)\\d(?=_)"),
                                 id_session = str_glue("{study_id}_{session_num}"))
 id_session_strings <- all_ppts %>% filter(id_session %in% id_session_keep) %>% pull(id_session_strings)
+single_day_ids <- all_ppts %>% filter(!is_multiday) %>% group_by(study_id) %>% slice_head %>% ungroup %>% pull(study_id)
+multi_day_ids <- all_ppts %>% filter(is_multiday) %>% group_by(study_id) %>% slice_head %>% ungroup %>% pull(study_id)
 
 # For other redcap data needed for IMU
 redcap <- redcap_read(redcap_uri = uri, token = api_token, forms = c("session_notes"), guess_type = F) %>% 
@@ -36,6 +38,9 @@ redcap <- redcap_read(redcap_uri = uri, token = api_token, forms = c("session_no
   mutate(id_redcap_session = paste0(study_id, "_", redcap_event_name)) %>% 
   filter(id_redcap_session %in% id_session_strings) %>% 
   mutate(session_num = as.numeric(str_extract(redcap_event_name, "\\d+")))
+
+redcap_multi <- redcap_read(redcap_uri = uri, token = api_token, forms = c("multiday_notes"), guess_type = F) %>% 
+  .[["data"]] %>% filter(study_id %in% multi_day_ids, str_detect(redcap_event_name, "visit_[1-3]_[2-5]_arm_2"))
 
 # For Redcap Participant Level Board
 redcap_id <- redcap_read(redcap_uri = uri, token = api_token, fields = c("study_id","dob","sex"), guess_type = F, raw_or_label = "label") %>% 
@@ -82,8 +87,6 @@ board_gd %>% pin_write(name = "redcap_data", x = session_export,
                        type = "csv")
 
 #EMA DATA
-single_day_ids <- all_ppts %>% filter(!is_multiday) %>% group_by(study_id) %>% slice_head %>% ungroup %>% pull(study_id)
-multi_day_ids <- all_ppts %>% filter(is_multiday) %>% group_by(study_id) %>% slice_head %>% ungroup %>% pull(study_id)
 
 redcap_ema <- redcap_read(redcap_uri = uri, token = api_token, forms = c("hour_activity"), guess_type = F, raw_or_label = "label") %>% 
   .[["data"]] %>% filter(study_id %in% single_day_ids, str_detect(redcap_event_name, "test", negate = T), str_detect(redcap_event_name, "^Visit [1-3]_.*Arm 1")) %>% 
@@ -110,12 +113,23 @@ redcap_ema <- redcap_ema %>% rename(id = study_id) %>%  left_join(select(session
 
 redcap_ema <- redcap_ema %>% mutate(across(hour_present:hour_babysitter, as.numeric)) %>% filter(id != 11)
 
+redcap_ema_multi <- redcap_ema %>% filter(day > 2)
+redcap_ema <- redcap_ema %>% filter(day == 1)
+
 board %>% pin_write(name = "ema", x = redcap_ema,
                     title = "Hourly EMA data from redcap",
                     description = "Hourly EMA data from redcap",
                     type = "csv")
 board_gd %>% pin_write(name = "ema", x = redcap_ema,
                        title = "Hourly EMA data from redcap",
+                       description = "Hourly EMA data from redcap",
+                       type = "csv")
+board %>% pin_write(name = "ema_multi", x = redcap_ema_multi,
+                    title = "Hourly EMA data from redcap additional days",
+                    description = "Hourly EMA data from redcap",
+                    type = "csv")
+board_gd %>% pin_write(name = "ema_multi", x = redcap_ema_multi,
+                       title = "Hourly EMA data from redcap additional days",
                        description = "Hourly EMA data from redcap",
                        type = "csv")
 
@@ -180,6 +194,7 @@ read_session <- function(id, session) {
   
   sync$id = id
   sync$session = session
+  sync$day = 1
   sync$time_plot <- as_hms(force_tz(sync$time, "America/Los_Angeles"))
   return(sync)
 }
@@ -205,6 +220,108 @@ board_gd %>% pin_write(name = "imu_raw_samples", x = ds,
                     Data are NOT filtered and include unusable samples.",
                        metadata = list(infant_model = "TDCP-March2025", cg_model = "Nov2025", rest_model = "May2026"),
                        type = "parquet")
+
+# Multiday IMU
+read_multiday <- function(id, session) {
+  days <- list.files(path = str_glue("{study_dir}{id}_{session}"), pattern = "infant_position_predictions_4s_")
+  day_nums <- str_extract(days, "\\d(?=\\.csv)")
+
+  read_one_day <- function(id, session, day) {
+    predictions <- read_csv(str_glue("{study_dir}{id}_{session}/infant_position_predictions_4s_{day}.csv")) %>%
+      rename(time = time_start) %>%
+      mutate(time_rounded = as.numeric(time)) %>%
+      select(-exclude_period, -nap_period)
+
+    cg_exists <- FALSE
+    if (file.exists(str_glue("{study_dir}{id}_{session}/cg_position_predictions_4s_{day}.csv"))) {
+      cg_predictions <- read_csv(str_glue("{study_dir}{id}_{session}/cg_position_predictions_4s.csv")) %>%
+        rename(cgpos = pos) %>%
+        mutate(time_rounded = as.numeric(time_start)) %>%
+        select(-cg_exclude_period)
+      cg_exists <- TRUE
+    }
+
+    exclude_times <- redcap_multi %>% filter(study_id == id, redcap_event_name == str_glue("visit_{session}_{day}_arm_2"))
+    sync_point <- exclude_times$sync_point_la_multi
+
+    inf_exclude <- exclude_times %>%
+      select(matches("^time_off_\\d_(start|end)")) %>%
+      pivot_longer(cols = everything(), names_to = c("event", ".value"), names_pattern = "time_off_(\\d)_(.*)_multi") %>%
+      drop_na() %>%
+      separate(start, into = c("start_hour", "start_minute")) %>%
+      separate(end, into = c("end_hour", "end_minute")) %>%
+      mutate(across(start_hour:end_minute, as.numeric),
+        start_time = make_datetime(year = year(sync_point), month = month(sync_point), day = day(sync_point), hour = start_hour, min = start_minute, sec = 0, tz = tz(sync_point)),
+        end_time = make_datetime(year = year(sync_point), month = month(sync_point), day = day(sync_point), hour = end_hour, min = end_minute, sec = 0, tz = tz(sync_point))
+      ) %>%
+      select(start_time, end_time)
+
+
+    nap_exclude <- exclude_times %>%
+      select(matches("^time_nap_\\d_(start|end)")) %>%
+      pivot_longer(cols = everything(), names_to = c("event", ".value"), names_pattern = "time_nap_(\\d)_(.*)_multi") %>%
+      drop_na() %>%
+      separate(start, into = c("start_hour", "start_minute")) %>%
+      separate(end, into = c("end_hour", "end_minute")) %>%
+      mutate(across(start_hour:end_minute, as.numeric),
+        start_time = make_datetime(year = year(sync_point), month = month(sync_point), day = day(sync_point), hour = start_hour, min = start_minute, sec = 0, tz = tz(sync_point)),
+        end_time = make_datetime(year = year(sync_point), month = month(sync_point), day = day(sync_point), hour = end_hour, min = end_minute, sec = 0, tz = tz(sync_point))
+      ) %>%
+      select(start_time, end_time)
+
+    predictions <- predictions %>%
+      left_join(inf_exclude, by = join_by(between(time, start_time, end_time))) %>%
+      mutate(exclude_period = as.numeric(!is.na(start_time))) %>%
+      select(-start_time, -end_time)
+    predictions <- predictions %>%
+      left_join(nap_exclude, by = join_by(between(time, start_time, end_time))) %>%
+      mutate(nap_period = as.numeric(!is.na(start_time))) %>%
+      select(-start_time, -end_time)
+
+    if (cg_exists) {
+      cg_exclude <- exclude_times %>%
+        select(matches("^cg_off_\\d_(start|end)")) %>%
+        pivot_longer(cols = everything(), names_to = c("event", ".value"), names_pattern = "cg_off_(\\d)_(.*)_multi") %>%
+        drop_na() %>%
+        separate(start, into = c("start_hour", "start_minute")) %>%
+        separate(end, into = c("end_hour", "end_minute")) %>%
+        mutate(across(start_hour:end_minute, as.numeric),
+          start_time = make_datetime(year = year(sync_point), month = month(sync_point), day = day(sync_point), hour = start_hour, min = start_minute, sec = 0, tz = tz(sync_point)),
+          end_time = make_datetime(year = year(sync_point), month = month(sync_point), day = day(sync_point), hour = end_hour, min = end_minute, sec = 0, tz = tz(sync_point))
+        ) %>%
+        select(start_time, end_time)
+
+      cg_predictions <- cg_predictions %>%
+        left_join(cg_exclude, by = join_by(between(time_start, start_time, end_time))) %>%
+        mutate(cg_exclude_period = as.numeric(!is.na(start_time))) %>%
+        select(-start_time, -end_time, -time_start)
+
+      sync <- left_join(predictions, cg_predictions, by = join_by(closest(time_rounded >= time_rounded))) # %>% drop_na(cgpos)
+    } else {
+      sync <- predictions
+    }
+
+    sync$id <- id
+    sync$session <- session
+    sync$day <- day
+    sync$time_plot <- as_hms(force_tz(sync$time, "America/Los_Angeles"))
+    return(sync)
+  }
+  
+  all_days <- map_dfr(day_nums, ~read_one_day(id, session, .x))
+  
+}
+multi_ppts <- all_ppts %>% filter(is_multiday == T, id_session %in% id_session_keep)
+ds_multi <- map2_dfr(multi_ppts$study_id, multi_ppts$session_num, read_multiday) 
+
+ds_multi <- ds_multi %>% 
+  mutate(pos = ifelse(pos == "Upright", "Standing", pos),
+         cgpos = ifelse(cgpos == "Upright", "Standing", cgpos),
+         pos = factor(pos, levels=c("Supine", "Prone", "Sitting", "Standing", "Held")),
+         cgpos = factor(cgpos, levels=c("Down", "Standing")),
+         restraint = factor(restraint, levels=c("Restrained","Unrestrained"))) %>%
+  select(-time_rounded.x, -time_rounded.y) 
+
 
 # Sleep and TCDS
 

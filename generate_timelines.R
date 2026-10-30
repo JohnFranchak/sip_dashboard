@@ -29,7 +29,7 @@ ds <- board %>% pin_read("imu_raw_samples") %>%
 id_session <- unique(ds$id_uni)
 
 sleep_tcds <- board %>% pin_read("sleep_tcds")
-ema_all <- board %>% pin_read("ema") %>% mutate(id_uni = paste(id, session, sep = "_"))
+ema_all <- board %>% pin_read("ema") %>% mutate(id_uni = paste(id, session, sep = "_")) %>% filter(day == 1)
 
 make_timeline <- function(i) {
   id <-strsplit(i, "_")[[1]][[1]]

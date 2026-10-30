@@ -16,12 +16,19 @@ id_session_keep <- id_session[file.exists(str_glue("{study_dir}{id_session}/infa
 ids <- map_chr(id_session_keep, ~ strsplit(.x, "_")[[1]][[1]])
 sessions <- map_chr(id_session_keep, ~ strsplit(.x, "_")[[1]][[2]])
 
-
 #REDCAP DATA
 uri <- "https://redcap.ucr.edu/api/"
 source("api_token.R")
 
-id_session_strings  <-  paste0(ids, "_", as.character(factor(sessions, levels = 1:4, labels = c("visit_1_arm_1", "visit_2_arm_1", "visit_3_arm_1", "visit_4_arm_1"))))
+all_ppts <- redcap_read_oneshot(redcap_uri = uri, token = api_token, 
+                                fields = c("study_id", "redcap_event_name"),
+                                events = c("visit_1_arm_1", "visit_2_arm_1", "visit_3_arm_1", "visit_4_arm_1",
+                                           "visit_1_arm_2", "visit_2_arm_2", "visit_3_arm_2", "visit_4_arm_2"))$data
+all_ppts <- all_ppts %>% mutate(is_multiday = ifelse(str_detect(redcap_event_name, pattern = "arm_2"), TRUE, FALSE),
+                                id_session_strings = str_glue("{study_id}_{redcap_event_name}"),
+                                session_num = str_extract(redcap_event_name, "(?<=_)\\d(?=_)"),
+                                id_session = str_glue("{study_id}_{session_num}"))
+id_session_strings <- all_ppts %>% filter(id_session %in% id_session_keep) %>% pull(id_session_strings)
 
 # For other redcap data needed for IMU
 redcap <- redcap_read(redcap_uri = uri, token = api_token, forms = c("session_notes"), guess_type = F) %>% 

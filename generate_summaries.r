@@ -54,10 +54,11 @@ redcap_visits <- redcap_read(redcap_uri = uri, token = api_token, fields = c("st
   select(-redcap_event_name, -zoom_call_date, -visit_date2)
 
 redcap_demo <- redcap_read(redcap_uri = uri, token = api_token, forms = c("demographics"), guess_type = F, raw_or_label = "label") %>% 
-  .[["data"]] %>% filter(study_id %in% unique(ids), redcap_event_name %in% c("Visit 1 (Arm 1: Arm 1)")) %>% select(-redcap_event_name)
+  .[["data"]] %>% filter(study_id %in% unique(ids), redcap_event_name %in% c("Visit 1 (Arm 1: Arm 1)", "Visit 1 (Arm 2: multiday)")) %>% select(-redcap_event_name)
 
 redcap_session <- redcap_read(redcap_uri = uri, token = api_token, forms = c("motor_milestones","mulbourne_cg", "parent_responsiveness","infant_curiosity", "parent_stress", "aims","aims_reliability"), guess_type = F, raw_or_label = "label") %>% 
-  .[["data"]] %>% filter(study_id %in% unique(ids), redcap_event_name %in% c("Visit 1 (Arm 1: Arm 1)", "Visit 2 (Arm 1: Arm 1)", "Visit 3 (Arm 1: Arm 1)", "Visit 4 (Arm 1: Arm 1)")) %>% 
+  .[["data"]] %>% filter(study_id %in% unique(ids), redcap_event_name %in% c("Visit 1 (Arm 1: Arm 1)", "Visit 2 (Arm 1: Arm 1)", "Visit 3 (Arm 1: Arm 1)", "Visit 4 (Arm 1: Arm 1)",
+                                                                             "Visit 1 (Arm 2: multiday)", "Visit 2 (Arm 2: multiday)", "Visit 3 (Arm 2: multiday)", "Visit 4 (Arm 2: multiday)")) %>% 
   mutate(session = str_extract(redcap_event_name, "\\d")) %>% select(-redcap_event_name)
 
 session_export <- left_join(redcap_session, redcap_id) %>% left_join(redcap_demo)
@@ -81,13 +82,33 @@ board_gd %>% pin_write(name = "redcap_data", x = session_export,
                        type = "csv")
 
 #EMA DATA
+single_day_ids <- all_ppts %>% filter(!is_multiday) %>% group_by(study_id) %>% slice_head %>% ungroup %>% pull(study_id)
+multi_day_ids <- all_ppts %>% filter(is_multiday) %>% group_by(study_id) %>% slice_head %>% ungroup %>% pull(study_id)
+
 redcap_ema <- redcap_read(redcap_uri = uri, token = api_token, forms = c("hour_activity"), guess_type = F, raw_or_label = "label") %>% 
-  .[["data"]] %>% filter(study_id %in% unique(ids), str_detect(redcap_event_name, "test", negate = T), str_detect(redcap_event_name, "^Visit [1-3]_.*Arm 1")) %>% 
-  separate_wider_regex(cols = redcap_event_name, patterns = c("Visit ", session = "[1-3]", "_", time = "\\d{4}", ".*"))
+  .[["data"]] %>% filter(study_id %in% single_day_ids, str_detect(redcap_event_name, "test", negate = T), str_detect(redcap_event_name, "^Visit [1-3]_.*Arm 1")) %>% 
+  separate_wider_regex(cols = redcap_event_name, patterns = c("Visit ", session = "[1-3]", "_", time = "\\d{4}", ".*")) %>% 
+  mutate(day = "1", .after = session)
+
+redcap_ema_multi <- redcap_read(redcap_uri = uri, token = api_token, forms = c("hour_activity"), guess_type = F, raw_or_label = "label") %>% 
+  .[["data"]] %>% filter(study_id %in% multi_day_ids, 
+                         str_detect(redcap_event_name, "test", negate = T), 
+                         str_detect(redcap_event_name, "^Visit [1-3]_"),
+                         str_detect(redcap_event_name, "(?<!\\d)\\d{4}(?!\\d)"))
+
+redcap_ema_multi_day1 <- redcap_ema_multi %>% filter(!str_detect(redcap_event_name, "_\\d_")) %>% 
+  separate_wider_regex(cols = redcap_event_name, patterns = c("Visit ", session = "[1-3]", "_", time = "\\d{4}", ".*")) %>% 
+  mutate(day = "1", .after = session)
+
+redcap_ema_multi_additional <- redcap_ema_multi %>% filter(str_detect(redcap_event_name, "_\\d_")) %>% 
+  separate_wider_regex(cols = redcap_event_name, patterns = c("Visit ", session = "[1-3]", "_", day = "[2-5]", "_", time = "\\d{4}", ".*"))
+
+redcap_ema <- redcap_ema %>% bind_rows(redcap_ema_multi_day1) %>% bind_rows(redcap_ema_multi_additional)
+
 redcap_ema <- redcap_ema %>% rename(id = study_id) %>%  left_join(select(session_export, id, session, visit_date, sex, dob)) %>% relocate(session, .after = "id") %>% relocate(dob, .after = "session") %>% 
   relocate(sex, .after = "dob") %>% relocate(visit_date, .after = "dob")
 
-redcap_ema <- redcap_ema %>% mutate(across(hour_present:hour_babysitter, as.numeric))
+redcap_ema <- redcap_ema %>% mutate(across(hour_present:hour_babysitter, as.numeric)) %>% filter(id != 11)
 
 board %>% pin_write(name = "ema", x = redcap_ema,
                     title = "Hourly EMA data from redcap",

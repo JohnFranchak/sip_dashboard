@@ -320,7 +320,8 @@ ds_multi <- ds_multi %>%
          pos = factor(pos, levels=c("Supine", "Prone", "Sitting", "Standing", "Held")),
          cgpos = factor(cgpos, levels=c("Down", "Standing")),
          restraint = factor(restraint, levels=c("Restrained","Unrestrained")),
-         id = as.character(id), day = as.numeric(day)) %>%
+         id = as.character(id), 
+         day = as.numeric(day)) %>%
   select(-time_rounded.x, -time_rounded.y) 
 
 board %>% pin_write(name = "imu_raw_samples_multi", x = ds_multi,

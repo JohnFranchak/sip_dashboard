@@ -322,6 +322,18 @@ ds_multi <- ds_multi %>%
          restraint = factor(restraint, levels=c("Restrained","Unrestrained"))) %>%
   select(-time_rounded.x, -time_rounded.y) 
 
+board %>% pin_write(name = "imu_raw_samples_multi", x = ds_multi,
+                    title = "Days 2-5 of Infant and Caregiver Raw Position",
+                    description = "Raw position predictions sampled every 1 second. 
+                    Data are NOT filtered and include unusable samples.",
+                    metadata = list(infant_model = "TDCP-March2025", cg_model = "Nov2025", rest_model = "May2026"),
+                    type = "parquet")
+board_gd %>% pin_write(name = "imu_raw_samples_multi", x = ds_multi,
+                       title = "Days 2-5 of Infant and Caregiver Raw Position",
+                       description = "Raw position predictions sampled every 1 second. 
+                    Data are NOT filtered and include unusable samples.",
+                       metadata = list(infant_model = "TDCP-March2025", cg_model = "Nov2025", rest_model = "May2026"),
+                       type = "parquet")
 
 # Sleep and TCDS
 

@@ -39,13 +39,19 @@ redcap <- redcap_read(redcap_uri = uri, token = api_token, forms = c("session_no
 
 # For Redcap Participant Level Board
 redcap_id <- redcap_read(redcap_uri = uri, token = api_token, fields = c("study_id","dob","sex"), guess_type = F, raw_or_label = "label") %>% 
-  .[["data"]] %>% filter(study_id %in% unique(ids), redcap_event_name %in% c("Intro Call (Arm 1: Arm 1)")) %>% select(-redcap_event_name)
+  .[["data"]] %>% filter(study_id %in% unique(ids), redcap_event_name %in% c("Intro Call (Arm 1: Arm 1)", "Intro Call (Arm 2: multiday)")) %>% 
+  select(-redcap_event_name)
 
-redcap_visits <- redcap_read(redcap_uri = uri, token = api_token, fields = c("study_id","visit_date","zoom_call_date"), guess_type = F, raw_or_label = "label") %>% 
-  .[["data"]] %>% filter(study_id %in% unique(ids), redcap_event_name %in% c("Intro Call (Arm 1: Arm 1)", "Schedule 2 (Arm 1: Arm 1)", "Schedule 3 (Arm 1: Arm 1)", "Visit 4 (Arm 1: Arm 1)")) %>% 
+redcap_visits <- redcap_read(redcap_uri = uri, token = api_token, fields = c("study_id","visit_date","visit_date2", "zoom_call_date"), guess_type = F, raw_or_label = "label") %>% 
+  .[["data"]] %>% filter(
+    study_id %in% unique(ids), 
+    redcap_event_name %in% c("Intro Call (Arm 1: Arm 1)", "Schedule 2 (Arm 1: Arm 1)", "Schedule 3 (Arm 1: Arm 1)", "Visit 4 (Arm 1: Arm 1)",
+                             "Intro Call (Arm 2: multiday)", "Schedule 2 (Arm 2: multiday)", "Schedule 3 (Arm 2: multiday)", "Visit 4 (Arm 2: multiday)")) %>% 
   mutate(visit_date = ifelse(is.na(visit_date), zoom_call_date, visit_date),
-         session = as.character(factor(redcap_event_name, levels = c("Intro Call (Arm 1: Arm 1)", "Schedule 2 (Arm 1: Arm 1)", "Schedule 3 (Arm 1: Arm 1)", "Visit 4 (Arm 1: Arm 1)"), labels = 1:4))) %>% 
-  select(-redcap_event_name, -zoom_call_date)
+         visit_date = ifelse(is.na(visit_date), visit_date2, visit_date),
+         session = as.character(factor(redcap_event_name, levels = c("Intro Call (Arm 1: Arm 1)", "Schedule 2 (Arm 1: Arm 1)", "Schedule 3 (Arm 1: Arm 1)", "Visit 4 (Arm 1: Arm 1)",
+                                                                     "Intro Call (Arm 2: multiday)", "Schedule 2 (Arm 2: multiday)", "Schedule 3 (Arm 2: multiday)", "Visit 4 (Arm 2: multiday)"), labels = c(1:4,1:4)))) %>% 
+  select(-redcap_event_name, -zoom_call_date, -visit_date2)
 
 redcap_demo <- redcap_read(redcap_uri = uri, token = api_token, forms = c("demographics"), guess_type = F, raw_or_label = "label") %>% 
   .[["data"]] %>% filter(study_id %in% unique(ids), redcap_event_name %in% c("Visit 1 (Arm 1: Arm 1)")) %>% select(-redcap_event_name)

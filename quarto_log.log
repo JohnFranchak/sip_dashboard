@@ -153110,3 +153110,38 @@ remote: warning: File docs/interactive_timelines.html is 53.81 MB; this is large
 remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
 To github.com:JohnFranchak/sip_dashboard.git
    2c6968ca..6ddf41c7  main -> main
+//franchak@johnds920.ucr.edu/padlab on /Volumes/padlab (smbfs, nodev, nosuid, mounted by johnfranchak)
+[1m[34m[1/8] tasks.qmd[39m[22m
+[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: tasks.knit.md
+
+[39m[1m[34m[2/8] files.qmd[39m[22m
+[31m
+
+processing file: files.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: files.knit.md
+
+[39m[1m[34m[3/8] index.qmd[39m[22m
+[31m
+
+processing file: index.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: index.knit.md
+
+[39m[1m[34m[4/8] wear_time.qmd[39m[22m
+[31m
+
+processing file: wear_time.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |.........                                           |  17%                    |                                                            |.................                                   |  33% (unnamed-chunk-1)[31m
+
+Quitting from lines 22-71 (wear_time.qmd) 
+[39m                                                                                                            
+[31mError in nanoparquet::read_parquet(path) : 
+  No leading magic bytes, invalid Parquet file at '/Volumes/padlab/study_sensorsinperson/data_processed/datasets/imu_raw_samples/20261030T220833Z-f4423/imu_raw_samples.parquet' @ lib/ParquetReader.cpp:72
+Calls: .main ... pin_read -> object_read -> read_parquet -> <Anonymous>
+Execution halted
+[39m

@@ -21,19 +21,15 @@ events <- c("visit_1_arm_1", "visit_2_arm_1", "visit_3_arm_1", "visit_4_arm_1", 
 ds <- redcap_read(redcap_uri = uri, token = api_token, events = events, forms = c("study_outcome", "mo_study_outcome"))$data 
 ds <- ds %>% mutate(study_outcome_complete = ifelse(redcap_event_name == "visit_4_arm_1" | redcap_event_name == "visit_4_arm_2", mo_study_outcome_complete, study_outcome_complete),
                     inclusion = ifelse(redcap_event_name == "visit_4_arm_1" | redcap_event_name == "visit_4_arm_2", finished_aims, inclusion))
-ds <- ds %>% filter(study_outcome_complete != 1) %>% 
+ds <- ds %>% filter(study_outcome_complete == 2, inclusion == 1) %>% 
   mutate(Version = ifelse(str_detect(redcap_event_name, "arm_1"), "Single", "Multiday"),
          session = str_remove(str_remove(str_remove(redcap_event_name, "visit_"),"_arm_1"), "_arm_2"),
          session = factor(session, levels = c("1","2","3","4"))) %>% 
-  select(study_id, Version, session, next_interest, inclusion) %>% 
+  select(study_id, Version, session, inclusion) %>% 
   rename(Session = inclusion, ID = study_id)
 
-ds <- complete(ds, nesting(ID, Version), session) %>% pivot_wider(id_cols = c("ID", "Version"), names_from = session, values_from = c("next_interest","Session"))
-ds <- ds %>%
-  mutate(Session_2 = ifelse(next_interest_1 == 1 & is.na(Session_2), 2, Session_2),
-         Session_3 = ifelse(next_interest_2 == 1 & is.na(Session_3), 2, Session_3),
-         Session_4 = ifelse(next_interest_3 == 1 & is.na(Session_4), 2, Session_4)) %>% 
-  replace_na(list(Session_1 = 0, Session_2 = 0, Session_3 = 0, Session_4 = 0))
+ds <- complete(ds, nesting(ID, Version), session) %>% pivot_wider(id_cols = c("ID", "Version"), names_from = session, names_prefix = "Session_", values_from = c("Session"))
+ds <- ds %>% replace_na(list(Session_1 = 0, Session_2 = 0, Session_3 = 0, Session_4 = 0))
 
 ds <- ds %>% mutate(
   In_Person = as.numeric(Session_1 == 1) + as.numeric(Session_2 == 1) + as.numeric(Session_3 == 1) ,
@@ -51,13 +47,13 @@ ds <- ds %>% mutate(
 | `r sum(as.numeric(ds$Session_2 == 1 & ds$Session_3 == 1))` participants have complete 9 and 11 month sessions.
 | `r sum(as.numeric(ds$Session_3 == 1 & ds$Session_4 == 1))` participants have complete 11 and 13 month sessions.
 | 
-| &#x2714; Complete, &#x2716; Pending, &#x274C; Missing/Unsure
+| &#x2714; Complete, &#x274C; Missing/Unsure
 | 
 
 ```{r}
 #| echo: false
 
-ds %>% select(-(next_interest_1:next_interest_4)) %>% 
+ds %>% 
 reactable( 
           filterable = TRUE, 
           compact = TRUE,

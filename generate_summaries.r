@@ -234,7 +234,7 @@ read_multiday <- function(id, session) {
 
     cg_exists <- FALSE
     if (file.exists(str_glue("{study_dir}{id}_{session}/cg_position_predictions_4s_{day}.csv"))) {
-      cg_predictions <- read_csv(str_glue("{study_dir}{id}_{session}/cg_position_predictions_4s.csv")) %>%
+      cg_predictions <- read_csv(str_glue("{study_dir}{id}_{session}/cg_position_predictions_4s_{day}.csv")) %>%
         rename(cgpos = pos) %>%
         mutate(time_rounded = as.numeric(time_start)) %>%
         select(-cg_exclude_period)

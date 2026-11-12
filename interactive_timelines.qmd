@@ -60,7 +60,7 @@ ds$Standing_CG = SMA(ds[,"Standing_CG"], smooth_sec)
 ds$Restrained = SMA(ds[,"Restrained"], smooth_sec)
 ds$Unrestrained = SMA(ds[,"Unrestrained"], smooth_sec)
 
-ds <- ds %>% filter(row_number() %% 15 == 0)
+ds <- ds %>% filter(row_number() %% 30 == 0)
 
 ds <- ds %>% mutate(
   across(Supine:Unrestrained, ~ ifelse(exclude_period == 1 | nap_period == 1, NA, .x)),
@@ -76,8 +76,6 @@ shared_ds <- SharedData$new(ds)
 #| warning: false
 #| echo: false
 shared_plot <- plot_ly(data = shared_ds, type = 'scatter', mode = 'lines') %>% 
-  add_trace(x = ~time, y = ~inf_wear, name = "Sensor-based Infant Wear", visible = "legendonly") %>% 
-  add_trace(x = ~time, y = ~cg_excl, name = "Sensor-based CG Wear", visible = "legendonly") %>% 
   add_trace(x = ~time, y = ~Held, name = "Held", visible = "legendonly") %>%
   add_trace(x = ~time, y = ~Supine, name = "Supine", visible = "legendonly") %>%
   add_trace(x = ~time, y = ~Prone, name = "Prone", visible = "legendonly") %>%

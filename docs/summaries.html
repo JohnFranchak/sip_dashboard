@@ -144,6 +144,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Timelines</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./timelines_multi.html"> 
+<span class="menu-text">Timelines Multi</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./checks.html"> 
 <span class="menu-text">Checks</span></a>
   </li>  
@@ -192,7 +196,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><div class="line-block">Last updated: 2026-11-12 14:02:34 using pinned data version from: 2026-11-10 12:39:34<br>
+</header><div class="line-block">Last updated: 2026-11-12 14:41:00 using pinned data version from: 2026-11-10 12:39:34<br>
 Users can load data by running (requires one-time google drive authentication):</div>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
@@ -236,33 +240,33 @@ Users can load data by running (requires one-time google drive authentication):<
 <span>  <span class="fu">flextable</span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">autofit</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div class="tabwid">
-<style>.cl-c4202346{}.cl-c4187cc2{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c41bb87e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-c41bb89c{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-c41bcd32{width:1.389in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c41bcd46{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c41bcd47{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c41bcd50{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c41bcd5a{width:1.389in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c41bcd5b{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c41bcd64{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c41bcd65{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c41bcd66{width:1.389in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c41bcd6e{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c41bcd78{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c41bcd79{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table data-quarto-disable-processing="true" class="cl-c4202346">
+<style>.cl-225c2afe{}.cl-2259769c{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-225a96c6{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-225a96d0{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-225a9e6e{width:1.389in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-225a9e78{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-225a9e79{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-225a9e7a{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-225a9e7b{width:1.389in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-225a9e82{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-225a9e83{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-225a9e84{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-225a9e85{width:1.389in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-225a9e86{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-225a9e87{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-225a9e88{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table data-quarto-disable-processing="true" class="cl-225c2afe">
 <caption><p>Usable data and total recording length in hours</p></caption>
 <thead><tr style="overflow-wrap:break-word;">
-<th class="cl-c41bcd32"><p class="cl-c41bb87e"><span class="cl-c4187cc2">variable</span></p></th>
-<th class="cl-c41bcd46"><p class="cl-c41bb89c"><span class="cl-c4187cc2">n</span></p></th>
-<th class="cl-c41bcd47"><p class="cl-c41bb89c"><span class="cl-c4187cc2">mean</span></p></th>
-<th class="cl-c41bcd47"><p class="cl-c41bb89c"><span class="cl-c4187cc2">sd</span></p></th>
-<th class="cl-c41bcd47"><p class="cl-c41bb89c"><span class="cl-c4187cc2">min</span></p></th>
-<th class="cl-c41bcd50"><p class="cl-c41bb89c"><span class="cl-c4187cc2">max</span></p></th>
+<th class="cl-225a9e6e"><p class="cl-225a96c6"><span class="cl-2259769c">variable</span></p></th>
+<th class="cl-225a9e78"><p class="cl-225a96d0"><span class="cl-2259769c">n</span></p></th>
+<th class="cl-225a9e79"><p class="cl-225a96d0"><span class="cl-2259769c">mean</span></p></th>
+<th class="cl-225a9e79"><p class="cl-225a96d0"><span class="cl-2259769c">sd</span></p></th>
+<th class="cl-225a9e79"><p class="cl-225a96d0"><span class="cl-2259769c">min</span></p></th>
+<th class="cl-225a9e7a"><p class="cl-225a96d0"><span class="cl-2259769c">max</span></p></th>
 </tr></thead>
 <tbody>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c41bcd5a"><p class="cl-c41bb87e"><span class="cl-c4187cc2">usable_hours</span></p></td>
-<td class="cl-c41bcd5b"><p class="cl-c41bb89c"><span class="cl-c4187cc2">72</span></p></td>
-<td class="cl-c41bcd64"><p class="cl-c41bb89c"><span class="cl-c4187cc2">6.079</span></p></td>
-<td class="cl-c41bcd64"><p class="cl-c41bb89c"><span class="cl-c4187cc2">2.092</span></p></td>
-<td class="cl-c41bcd64"><p class="cl-c41bb89c"><span class="cl-c4187cc2">1.399</span></p></td>
-<td class="cl-c41bcd65"><p class="cl-c41bb89c"><span class="cl-c4187cc2">9.816</span></p></td>
+<td class="cl-225a9e7b"><p class="cl-225a96c6"><span class="cl-2259769c">usable_hours</span></p></td>
+<td class="cl-225a9e82"><p class="cl-225a96d0"><span class="cl-2259769c">72</span></p></td>
+<td class="cl-225a9e83"><p class="cl-225a96d0"><span class="cl-2259769c">6.079</span></p></td>
+<td class="cl-225a9e83"><p class="cl-225a96d0"><span class="cl-2259769c">2.092</span></p></td>
+<td class="cl-225a9e83"><p class="cl-225a96d0"><span class="cl-2259769c">1.399</span></p></td>
+<td class="cl-225a9e84"><p class="cl-225a96d0"><span class="cl-2259769c">9.816</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c41bcd66"><p class="cl-c41bb87e"><span class="cl-c4187cc2">recording_hours</span></p></td>
-<td class="cl-c41bcd6e"><p class="cl-c41bb89c"><span class="cl-c4187cc2">72</span></p></td>
-<td class="cl-c41bcd78"><p class="cl-c41bb89c"><span class="cl-c4187cc2">9.134</span></p></td>
-<td class="cl-c41bcd78"><p class="cl-c41bb89c"><span class="cl-c4187cc2">2.671</span></p></td>
-<td class="cl-c41bcd78"><p class="cl-c41bb89c"><span class="cl-c4187cc2">1.466</span></p></td>
-<td class="cl-c41bcd79"><p class="cl-c41bb89c"><span class="cl-c4187cc2">12.799</span></p></td>
+<td class="cl-225a9e85"><p class="cl-225a96c6"><span class="cl-2259769c">recording_hours</span></p></td>
+<td class="cl-225a9e86"><p class="cl-225a96d0"><span class="cl-2259769c">72</span></p></td>
+<td class="cl-225a9e87"><p class="cl-225a96d0"><span class="cl-2259769c">9.134</span></p></td>
+<td class="cl-225a9e87"><p class="cl-225a96d0"><span class="cl-2259769c">2.671</span></p></td>
+<td class="cl-225a9e87"><p class="cl-225a96d0"><span class="cl-2259769c">1.466</span></p></td>
+<td class="cl-225a9e88"><p class="cl-225a96d0"><span class="cl-2259769c">12.799</span></p></td>
 </tr>
 </tbody>
 </table>
@@ -281,13 +285,13 @@ Users can load data by running (requires one-time google drive authentication):<
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="summaries_files/figure-html/Usable-data-histograms-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Usable hours after exclusions"><img src="summaries_files/figure-html/Usable-data-histograms-1.png" class="img-fluid figure-img" style="width:100.0%" alt="Usable hours after exclusions"></a></p>
+<figure class="figure"><p><a href="summaries_files/figure-html/Usable-data-histograms-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Usable hours after exclusions"><img src="summaries_files/figure-html/Usable-data-histograms-1.png" class="img-fluid figure-img" style="width:100.0%" alt="Usable hours after exclusions"></a></p>
 <figcaption>Usable hours after exclusions</figcaption></figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="summaries_files/figure-html/Usable-data-histograms-2.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Recording length in hours"><img src="summaries_files/figure-html/Usable-data-histograms-2.png" class="img-fluid figure-img" style="width:100.0%" alt="Recording length in hours"></a></p>
+<figure class="figure"><p><a href="summaries_files/figure-html/Usable-data-histograms-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="Recording length in hours"><img src="summaries_files/figure-html/Usable-data-histograms-2.png" class="img-fluid figure-img" style="width:100.0%" alt="Recording length in hours"></a></p>
 <figcaption>Recording length in hours</figcaption></figure>
 </div>
 </div>
@@ -307,153 +311,153 @@ Users can load data by running (requires one-time google drive authentication):<
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">variable</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">flextable</span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">autofit</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div class="tabwid">
-<style>.cl-c588279c{}.cl-c580806e{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c58394de{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-c58394fc{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-c583a924{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c583a92e{width:0.888in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c583a92f{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c583a938{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c583a939{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c583a942{width:0.888in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c583a94c{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c583a94d{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c583a956{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c583a96a{width:0.888in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c583a96b{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c583a974{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c583a97e{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c583a97f{width:0.888in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c583a988{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c583a989{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c583a992{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c583a993{width:0.888in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c583a99c{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c583a9a6{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c583a9a7{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c583a9b0{width:0.888in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c583a9b1{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c583a9ba{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table data-quarto-disable-processing="true" class="cl-c588279c">
+<style>.cl-22e51ff8{}.cl-22e24bfc{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-22e36bea{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-22e36beb{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-22e3737e{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-22e37388{width:0.888in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-22e37389{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-22e3738a{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-22e3738b{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-22e37392{width:0.888in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-22e37393{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-22e37394{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-22e37395{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-22e37396{width:0.888in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-22e3739c{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-22e3739d{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-22e3739e{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-22e3739f{width:0.888in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-22e373a0{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-22e373a6{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-22e373a7{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-22e373a8{width:0.888in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-22e373a9{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-22e373aa{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-22e373ab{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-22e373ac{width:0.888in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-22e373b0{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-22e373b1{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table data-quarto-disable-processing="true" class="cl-22e51ff8">
 <caption><p>Position summary statistics</p></caption>
 <thead><tr style="overflow-wrap:break-word;">
-<th class="cl-c583a924"><p class="cl-c58394de"><span class="cl-c580806e">session</span></p></th>
-<th class="cl-c583a92e"><p class="cl-c58394fc"><span class="cl-c580806e">pos</span></p></th>
-<th class="cl-c583a92f"><p class="cl-c58394de"><span class="cl-c580806e">n</span></p></th>
-<th class="cl-c583a938"><p class="cl-c58394de"><span class="cl-c580806e">mean</span></p></th>
-<th class="cl-c583a938"><p class="cl-c58394de"><span class="cl-c580806e">sd</span></p></th>
-<th class="cl-c583a938"><p class="cl-c58394de"><span class="cl-c580806e">min</span></p></th>
-<th class="cl-c583a938"><p class="cl-c58394de"><span class="cl-c580806e">max</span></p></th>
+<th class="cl-22e3737e"><p class="cl-22e36bea"><span class="cl-22e24bfc">session</span></p></th>
+<th class="cl-22e37388"><p class="cl-22e36beb"><span class="cl-22e24bfc">pos</span></p></th>
+<th class="cl-22e37389"><p class="cl-22e36bea"><span class="cl-22e24bfc">n</span></p></th>
+<th class="cl-22e3738a"><p class="cl-22e36bea"><span class="cl-22e24bfc">mean</span></p></th>
+<th class="cl-22e3738a"><p class="cl-22e36bea"><span class="cl-22e24bfc">sd</span></p></th>
+<th class="cl-22e3738a"><p class="cl-22e36bea"><span class="cl-22e24bfc">min</span></p></th>
+<th class="cl-22e3738a"><p class="cl-22e36bea"><span class="cl-22e24bfc">max</span></p></th>
 </tr></thead>
 <tbody>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c583a939"><p class="cl-c58394de"><span class="cl-c580806e">1</span></p></td>
-<td class="cl-c583a942"><p class="cl-c58394fc"><span class="cl-c580806e">Supine</span></p></td>
-<td class="cl-c583a94c"><p class="cl-c58394de"><span class="cl-c580806e">28</span></p></td>
-<td class="cl-c583a94d"><p class="cl-c58394de"><span class="cl-c580806e">24.582</span></p></td>
-<td class="cl-c583a94d"><p class="cl-c58394de"><span class="cl-c580806e">16.902</span></p></td>
-<td class="cl-c583a94d"><p class="cl-c58394de"><span class="cl-c580806e">5.698</span></p></td>
-<td class="cl-c583a94d"><p class="cl-c58394de"><span class="cl-c580806e">57.754</span></p></td>
+<td class="cl-22e3738b"><p class="cl-22e36bea"><span class="cl-22e24bfc">1</span></p></td>
+<td class="cl-22e37392"><p class="cl-22e36beb"><span class="cl-22e24bfc">Supine</span></p></td>
+<td class="cl-22e37393"><p class="cl-22e36bea"><span class="cl-22e24bfc">28</span></p></td>
+<td class="cl-22e37394"><p class="cl-22e36bea"><span class="cl-22e24bfc">24.582</span></p></td>
+<td class="cl-22e37394"><p class="cl-22e36bea"><span class="cl-22e24bfc">16.902</span></p></td>
+<td class="cl-22e37394"><p class="cl-22e36bea"><span class="cl-22e24bfc">5.698</span></p></td>
+<td class="cl-22e37394"><p class="cl-22e36bea"><span class="cl-22e24bfc">57.754</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c583a939"><p class="cl-c58394de"><span class="cl-c580806e">2</span></p></td>
-<td class="cl-c583a942"><p class="cl-c58394fc"><span class="cl-c580806e">Supine</span></p></td>
-<td class="cl-c583a94c"><p class="cl-c58394de"><span class="cl-c580806e">25</span></p></td>
-<td class="cl-c583a94d"><p class="cl-c58394de"><span class="cl-c580806e">18.045</span></p></td>
-<td class="cl-c583a94d"><p class="cl-c58394de"><span class="cl-c580806e">11.076</span></p></td>
-<td class="cl-c583a94d"><p class="cl-c58394de"><span class="cl-c580806e">3.949</span></p></td>
-<td class="cl-c583a94d"><p class="cl-c58394de"><span class="cl-c580806e">44.385</span></p></td>
+<td class="cl-22e3738b"><p class="cl-22e36bea"><span class="cl-22e24bfc">2</span></p></td>
+<td class="cl-22e37392"><p class="cl-22e36beb"><span class="cl-22e24bfc">Supine</span></p></td>
+<td class="cl-22e37393"><p class="cl-22e36bea"><span class="cl-22e24bfc">25</span></p></td>
+<td class="cl-22e37394"><p class="cl-22e36bea"><span class="cl-22e24bfc">18.045</span></p></td>
+<td class="cl-22e37394"><p class="cl-22e36bea"><span class="cl-22e24bfc">11.076</span></p></td>
+<td class="cl-22e37394"><p class="cl-22e36bea"><span class="cl-22e24bfc">3.949</span></p></td>
+<td class="cl-22e37394"><p class="cl-22e36bea"><span class="cl-22e24bfc">44.385</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c583a939"><p class="cl-c58394de"><span class="cl-c580806e">3</span></p></td>
-<td class="cl-c583a942"><p class="cl-c58394fc"><span class="cl-c580806e">Supine</span></p></td>
-<td class="cl-c583a94c"><p class="cl-c58394de"><span class="cl-c580806e">19</span></p></td>
-<td class="cl-c583a94d"><p class="cl-c58394de"><span class="cl-c580806e">10.831</span></p></td>
-<td class="cl-c583a94d"><p class="cl-c58394de"><span class="cl-c580806e">6.857</span></p></td>
-<td class="cl-c583a94d"><p class="cl-c58394de"><span class="cl-c580806e">1.760</span></p></td>
-<td class="cl-c583a94d"><p class="cl-c58394de"><span class="cl-c580806e">25.060</span></p></td>
+<td class="cl-22e3738b"><p class="cl-22e36bea"><span class="cl-22e24bfc">3</span></p></td>
+<td class="cl-22e37392"><p class="cl-22e36beb"><span class="cl-22e24bfc">Supine</span></p></td>
+<td class="cl-22e37393"><p class="cl-22e36bea"><span class="cl-22e24bfc">19</span></p></td>
+<td class="cl-22e37394"><p class="cl-22e36bea"><span class="cl-22e24bfc">10.831</span></p></td>
+<td class="cl-22e37394"><p class="cl-22e36bea"><span class="cl-22e24bfc">6.857</span></p></td>
+<td class="cl-22e37394"><p class="cl-22e36bea"><span class="cl-22e24bfc">1.760</span></p></td>
+<td class="cl-22e37394"><p class="cl-22e36bea"><span class="cl-22e24bfc">25.060</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c583a956"><p class="cl-c58394de"><span class="cl-c580806e">1</span></p></td>
-<td class="cl-c583a96a"><p class="cl-c58394fc"><span class="cl-c580806e">Prone</span></p></td>
-<td class="cl-c583a96b"><p class="cl-c58394de"><span class="cl-c580806e">28</span></p></td>
-<td class="cl-c583a974"><p class="cl-c58394de"><span class="cl-c580806e">16.831</span></p></td>
-<td class="cl-c583a974"><p class="cl-c58394de"><span class="cl-c580806e">12.525</span></p></td>
-<td class="cl-c583a974"><p class="cl-c58394de"><span class="cl-c580806e">2.280</span></p></td>
-<td class="cl-c583a974"><p class="cl-c58394de"><span class="cl-c580806e">51.909</span></p></td>
+<td class="cl-22e37395"><p class="cl-22e36bea"><span class="cl-22e24bfc">1</span></p></td>
+<td class="cl-22e37396"><p class="cl-22e36beb"><span class="cl-22e24bfc">Prone</span></p></td>
+<td class="cl-22e3739c"><p class="cl-22e36bea"><span class="cl-22e24bfc">28</span></p></td>
+<td class="cl-22e3739d"><p class="cl-22e36bea"><span class="cl-22e24bfc">16.831</span></p></td>
+<td class="cl-22e3739d"><p class="cl-22e36bea"><span class="cl-22e24bfc">12.525</span></p></td>
+<td class="cl-22e3739d"><p class="cl-22e36bea"><span class="cl-22e24bfc">2.280</span></p></td>
+<td class="cl-22e3739d"><p class="cl-22e36bea"><span class="cl-22e24bfc">51.909</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c583a956"><p class="cl-c58394de"><span class="cl-c580806e">2</span></p></td>
-<td class="cl-c583a96a"><p class="cl-c58394fc"><span class="cl-c580806e">Prone</span></p></td>
-<td class="cl-c583a96b"><p class="cl-c58394de"><span class="cl-c580806e">25</span></p></td>
-<td class="cl-c583a974"><p class="cl-c58394de"><span class="cl-c580806e">14.151</span></p></td>
-<td class="cl-c583a974"><p class="cl-c58394de"><span class="cl-c580806e">10.559</span></p></td>
-<td class="cl-c583a974"><p class="cl-c58394de"><span class="cl-c580806e">2.987</span></p></td>
-<td class="cl-c583a974"><p class="cl-c58394de"><span class="cl-c580806e">47.832</span></p></td>
+<td class="cl-22e37395"><p class="cl-22e36bea"><span class="cl-22e24bfc">2</span></p></td>
+<td class="cl-22e37396"><p class="cl-22e36beb"><span class="cl-22e24bfc">Prone</span></p></td>
+<td class="cl-22e3739c"><p class="cl-22e36bea"><span class="cl-22e24bfc">25</span></p></td>
+<td class="cl-22e3739d"><p class="cl-22e36bea"><span class="cl-22e24bfc">14.151</span></p></td>
+<td class="cl-22e3739d"><p class="cl-22e36bea"><span class="cl-22e24bfc">10.559</span></p></td>
+<td class="cl-22e3739d"><p class="cl-22e36bea"><span class="cl-22e24bfc">2.987</span></p></td>
+<td class="cl-22e3739d"><p class="cl-22e36bea"><span class="cl-22e24bfc">47.832</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c583a956"><p class="cl-c58394de"><span class="cl-c580806e">3</span></p></td>
-<td class="cl-c583a96a"><p class="cl-c58394fc"><span class="cl-c580806e">Prone</span></p></td>
-<td class="cl-c583a96b"><p class="cl-c58394de"><span class="cl-c580806e">19</span></p></td>
-<td class="cl-c583a974"><p class="cl-c58394de"><span class="cl-c580806e">11.928</span></p></td>
-<td class="cl-c583a974"><p class="cl-c58394de"><span class="cl-c580806e">4.805</span></p></td>
-<td class="cl-c583a974"><p class="cl-c58394de"><span class="cl-c580806e">5.141</span></p></td>
-<td class="cl-c583a974"><p class="cl-c58394de"><span class="cl-c580806e">20.825</span></p></td>
+<td class="cl-22e37395"><p class="cl-22e36bea"><span class="cl-22e24bfc">3</span></p></td>
+<td class="cl-22e37396"><p class="cl-22e36beb"><span class="cl-22e24bfc">Prone</span></p></td>
+<td class="cl-22e3739c"><p class="cl-22e36bea"><span class="cl-22e24bfc">19</span></p></td>
+<td class="cl-22e3739d"><p class="cl-22e36bea"><span class="cl-22e24bfc">11.928</span></p></td>
+<td class="cl-22e3739d"><p class="cl-22e36bea"><span class="cl-22e24bfc">4.805</span></p></td>
+<td class="cl-22e3739d"><p class="cl-22e36bea"><span class="cl-22e24bfc">5.141</span></p></td>
+<td class="cl-22e3739d"><p class="cl-22e36bea"><span class="cl-22e24bfc">20.825</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c583a97e"><p class="cl-c58394de"><span class="cl-c580806e">1</span></p></td>
-<td class="cl-c583a97f"><p class="cl-c58394fc"><span class="cl-c580806e">Sitting</span></p></td>
-<td class="cl-c583a988"><p class="cl-c58394de"><span class="cl-c580806e">28</span></p></td>
-<td class="cl-c583a989"><p class="cl-c58394de"><span class="cl-c580806e">37.330</span></p></td>
-<td class="cl-c583a989"><p class="cl-c58394de"><span class="cl-c580806e">15.453</span></p></td>
-<td class="cl-c583a989"><p class="cl-c58394de"><span class="cl-c580806e">13.208</span></p></td>
-<td class="cl-c583a989"><p class="cl-c58394de"><span class="cl-c580806e">60.349</span></p></td>
+<td class="cl-22e3739e"><p class="cl-22e36bea"><span class="cl-22e24bfc">1</span></p></td>
+<td class="cl-22e3739f"><p class="cl-22e36beb"><span class="cl-22e24bfc">Sitting</span></p></td>
+<td class="cl-22e373a0"><p class="cl-22e36bea"><span class="cl-22e24bfc">28</span></p></td>
+<td class="cl-22e373a6"><p class="cl-22e36bea"><span class="cl-22e24bfc">37.330</span></p></td>
+<td class="cl-22e373a6"><p class="cl-22e36bea"><span class="cl-22e24bfc">15.453</span></p></td>
+<td class="cl-22e373a6"><p class="cl-22e36bea"><span class="cl-22e24bfc">13.208</span></p></td>
+<td class="cl-22e373a6"><p class="cl-22e36bea"><span class="cl-22e24bfc">60.349</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c583a97e"><p class="cl-c58394de"><span class="cl-c580806e">2</span></p></td>
-<td class="cl-c583a97f"><p class="cl-c58394fc"><span class="cl-c580806e">Sitting</span></p></td>
-<td class="cl-c583a988"><p class="cl-c58394de"><span class="cl-c580806e">25</span></p></td>
-<td class="cl-c583a989"><p class="cl-c58394de"><span class="cl-c580806e">41.797</span></p></td>
-<td class="cl-c583a989"><p class="cl-c58394de"><span class="cl-c580806e">10.594</span></p></td>
-<td class="cl-c583a989"><p class="cl-c58394de"><span class="cl-c580806e">28.228</span></p></td>
-<td class="cl-c583a989"><p class="cl-c58394de"><span class="cl-c580806e">63.506</span></p></td>
+<td class="cl-22e3739e"><p class="cl-22e36bea"><span class="cl-22e24bfc">2</span></p></td>
+<td class="cl-22e3739f"><p class="cl-22e36beb"><span class="cl-22e24bfc">Sitting</span></p></td>
+<td class="cl-22e373a0"><p class="cl-22e36bea"><span class="cl-22e24bfc">25</span></p></td>
+<td class="cl-22e373a6"><p class="cl-22e36bea"><span class="cl-22e24bfc">41.797</span></p></td>
+<td class="cl-22e373a6"><p class="cl-22e36bea"><span class="cl-22e24bfc">10.594</span></p></td>
+<td class="cl-22e373a6"><p class="cl-22e36bea"><span class="cl-22e24bfc">28.228</span></p></td>
+<td class="cl-22e373a6"><p class="cl-22e36bea"><span class="cl-22e24bfc">63.506</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c583a97e"><p class="cl-c58394de"><span class="cl-c580806e">3</span></p></td>
-<td class="cl-c583a97f"><p class="cl-c58394fc"><span class="cl-c580806e">Sitting</span></p></td>
-<td class="cl-c583a988"><p class="cl-c58394de"><span class="cl-c580806e">19</span></p></td>
-<td class="cl-c583a989"><p class="cl-c58394de"><span class="cl-c580806e">42.321</span></p></td>
-<td class="cl-c583a989"><p class="cl-c58394de"><span class="cl-c580806e">11.474</span></p></td>
-<td class="cl-c583a989"><p class="cl-c58394de"><span class="cl-c580806e">24.578</span></p></td>
-<td class="cl-c583a989"><p class="cl-c58394de"><span class="cl-c580806e">67.114</span></p></td>
+<td class="cl-22e3739e"><p class="cl-22e36bea"><span class="cl-22e24bfc">3</span></p></td>
+<td class="cl-22e3739f"><p class="cl-22e36beb"><span class="cl-22e24bfc">Sitting</span></p></td>
+<td class="cl-22e373a0"><p class="cl-22e36bea"><span class="cl-22e24bfc">19</span></p></td>
+<td class="cl-22e373a6"><p class="cl-22e36bea"><span class="cl-22e24bfc">42.321</span></p></td>
+<td class="cl-22e373a6"><p class="cl-22e36bea"><span class="cl-22e24bfc">11.474</span></p></td>
+<td class="cl-22e373a6"><p class="cl-22e36bea"><span class="cl-22e24bfc">24.578</span></p></td>
+<td class="cl-22e373a6"><p class="cl-22e36bea"><span class="cl-22e24bfc">67.114</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c583a97e"><p class="cl-c58394de"><span class="cl-c580806e">1</span></p></td>
-<td class="cl-c583a97f"><p class="cl-c58394fc"><span class="cl-c580806e">Standing</span></p></td>
-<td class="cl-c583a988"><p class="cl-c58394de"><span class="cl-c580806e">28</span></p></td>
-<td class="cl-c583a989"><p class="cl-c58394de"><span class="cl-c580806e">10.706</span></p></td>
-<td class="cl-c583a989"><p class="cl-c58394de"><span class="cl-c580806e">8.734</span></p></td>
-<td class="cl-c583a989"><p class="cl-c58394de"><span class="cl-c580806e">1.673</span></p></td>
-<td class="cl-c583a989"><p class="cl-c58394de"><span class="cl-c580806e">36.694</span></p></td>
+<td class="cl-22e3739e"><p class="cl-22e36bea"><span class="cl-22e24bfc">1</span></p></td>
+<td class="cl-22e3739f"><p class="cl-22e36beb"><span class="cl-22e24bfc">Standing</span></p></td>
+<td class="cl-22e373a0"><p class="cl-22e36bea"><span class="cl-22e24bfc">28</span></p></td>
+<td class="cl-22e373a6"><p class="cl-22e36bea"><span class="cl-22e24bfc">10.706</span></p></td>
+<td class="cl-22e373a6"><p class="cl-22e36bea"><span class="cl-22e24bfc">8.734</span></p></td>
+<td class="cl-22e373a6"><p class="cl-22e36bea"><span class="cl-22e24bfc">1.673</span></p></td>
+<td class="cl-22e373a6"><p class="cl-22e36bea"><span class="cl-22e24bfc">36.694</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c583a97e"><p class="cl-c58394de"><span class="cl-c580806e">2</span></p></td>
-<td class="cl-c583a97f"><p class="cl-c58394fc"><span class="cl-c580806e">Standing</span></p></td>
-<td class="cl-c583a988"><p class="cl-c58394de"><span class="cl-c580806e">25</span></p></td>
-<td class="cl-c583a989"><p class="cl-c58394de"><span class="cl-c580806e">16.169</span></p></td>
-<td class="cl-c583a989"><p class="cl-c58394de"><span class="cl-c580806e">7.351</span></p></td>
-<td class="cl-c583a989"><p class="cl-c58394de"><span class="cl-c580806e">1.049</span></p></td>
-<td class="cl-c583a989"><p class="cl-c58394de"><span class="cl-c580806e">31.565</span></p></td>
+<td class="cl-22e3739e"><p class="cl-22e36bea"><span class="cl-22e24bfc">2</span></p></td>
+<td class="cl-22e3739f"><p class="cl-22e36beb"><span class="cl-22e24bfc">Standing</span></p></td>
+<td class="cl-22e373a0"><p class="cl-22e36bea"><span class="cl-22e24bfc">25</span></p></td>
+<td class="cl-22e373a6"><p class="cl-22e36bea"><span class="cl-22e24bfc">16.169</span></p></td>
+<td class="cl-22e373a6"><p class="cl-22e36bea"><span class="cl-22e24bfc">7.351</span></p></td>
+<td class="cl-22e373a6"><p class="cl-22e36bea"><span class="cl-22e24bfc">1.049</span></p></td>
+<td class="cl-22e373a6"><p class="cl-22e36bea"><span class="cl-22e24bfc">31.565</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c583a97e"><p class="cl-c58394de"><span class="cl-c580806e">3</span></p></td>
-<td class="cl-c583a97f"><p class="cl-c58394fc"><span class="cl-c580806e">Standing</span></p></td>
-<td class="cl-c583a988"><p class="cl-c58394de"><span class="cl-c580806e">19</span></p></td>
-<td class="cl-c583a989"><p class="cl-c58394de"><span class="cl-c580806e">25.634</span></p></td>
-<td class="cl-c583a989"><p class="cl-c58394de"><span class="cl-c580806e">11.591</span></p></td>
-<td class="cl-c583a989"><p class="cl-c58394de"><span class="cl-c580806e">6.150</span></p></td>
-<td class="cl-c583a989"><p class="cl-c58394de"><span class="cl-c580806e">57.772</span></p></td>
+<td class="cl-22e3739e"><p class="cl-22e36bea"><span class="cl-22e24bfc">3</span></p></td>
+<td class="cl-22e3739f"><p class="cl-22e36beb"><span class="cl-22e24bfc">Standing</span></p></td>
+<td class="cl-22e373a0"><p class="cl-22e36bea"><span class="cl-22e24bfc">19</span></p></td>
+<td class="cl-22e373a6"><p class="cl-22e36bea"><span class="cl-22e24bfc">25.634</span></p></td>
+<td class="cl-22e373a6"><p class="cl-22e36bea"><span class="cl-22e24bfc">11.591</span></p></td>
+<td class="cl-22e373a6"><p class="cl-22e36bea"><span class="cl-22e24bfc">6.150</span></p></td>
+<td class="cl-22e373a6"><p class="cl-22e36bea"><span class="cl-22e24bfc">57.772</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c583a992"><p class="cl-c58394de"><span class="cl-c580806e">1</span></p></td>
-<td class="cl-c583a993"><p class="cl-c58394fc"><span class="cl-c580806e">Held</span></p></td>
-<td class="cl-c583a99c"><p class="cl-c58394de"><span class="cl-c580806e">28</span></p></td>
-<td class="cl-c583a9a6"><p class="cl-c58394de"><span class="cl-c580806e">10.551</span></p></td>
-<td class="cl-c583a9a6"><p class="cl-c58394de"><span class="cl-c580806e">5.340</span></p></td>
-<td class="cl-c583a9a6"><p class="cl-c58394de"><span class="cl-c580806e">2.458</span></p></td>
-<td class="cl-c583a9a6"><p class="cl-c58394de"><span class="cl-c580806e">21.318</span></p></td>
+<td class="cl-22e373a7"><p class="cl-22e36bea"><span class="cl-22e24bfc">1</span></p></td>
+<td class="cl-22e373a8"><p class="cl-22e36beb"><span class="cl-22e24bfc">Held</span></p></td>
+<td class="cl-22e373a9"><p class="cl-22e36bea"><span class="cl-22e24bfc">28</span></p></td>
+<td class="cl-22e373aa"><p class="cl-22e36bea"><span class="cl-22e24bfc">10.551</span></p></td>
+<td class="cl-22e373aa"><p class="cl-22e36bea"><span class="cl-22e24bfc">5.340</span></p></td>
+<td class="cl-22e373aa"><p class="cl-22e36bea"><span class="cl-22e24bfc">2.458</span></p></td>
+<td class="cl-22e373aa"><p class="cl-22e36bea"><span class="cl-22e24bfc">21.318</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c583a992"><p class="cl-c58394de"><span class="cl-c580806e">2</span></p></td>
-<td class="cl-c583a993"><p class="cl-c58394fc"><span class="cl-c580806e">Held</span></p></td>
-<td class="cl-c583a99c"><p class="cl-c58394de"><span class="cl-c580806e">25</span></p></td>
-<td class="cl-c583a9a6"><p class="cl-c58394de"><span class="cl-c580806e">9.838</span></p></td>
-<td class="cl-c583a9a6"><p class="cl-c58394de"><span class="cl-c580806e">5.687</span></p></td>
-<td class="cl-c583a9a6"><p class="cl-c58394de"><span class="cl-c580806e">2.494</span></p></td>
-<td class="cl-c583a9a6"><p class="cl-c58394de"><span class="cl-c580806e">25.515</span></p></td>
+<td class="cl-22e373a7"><p class="cl-22e36bea"><span class="cl-22e24bfc">2</span></p></td>
+<td class="cl-22e373a8"><p class="cl-22e36beb"><span class="cl-22e24bfc">Held</span></p></td>
+<td class="cl-22e373a9"><p class="cl-22e36bea"><span class="cl-22e24bfc">25</span></p></td>
+<td class="cl-22e373aa"><p class="cl-22e36bea"><span class="cl-22e24bfc">9.838</span></p></td>
+<td class="cl-22e373aa"><p class="cl-22e36bea"><span class="cl-22e24bfc">5.687</span></p></td>
+<td class="cl-22e373aa"><p class="cl-22e36bea"><span class="cl-22e24bfc">2.494</span></p></td>
+<td class="cl-22e373aa"><p class="cl-22e36bea"><span class="cl-22e24bfc">25.515</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c583a9a7"><p class="cl-c58394de"><span class="cl-c580806e">3</span></p></td>
-<td class="cl-c583a9b0"><p class="cl-c58394fc"><span class="cl-c580806e">Held</span></p></td>
-<td class="cl-c583a9b1"><p class="cl-c58394de"><span class="cl-c580806e">19</span></p></td>
-<td class="cl-c583a9ba"><p class="cl-c58394de"><span class="cl-c580806e">9.286</span></p></td>
-<td class="cl-c583a9ba"><p class="cl-c58394de"><span class="cl-c580806e">5.624</span></p></td>
-<td class="cl-c583a9ba"><p class="cl-c58394de"><span class="cl-c580806e">3.254</span></p></td>
-<td class="cl-c583a9ba"><p class="cl-c58394de"><span class="cl-c580806e">23.200</span></p></td>
+<td class="cl-22e373ab"><p class="cl-22e36bea"><span class="cl-22e24bfc">3</span></p></td>
+<td class="cl-22e373ac"><p class="cl-22e36beb"><span class="cl-22e24bfc">Held</span></p></td>
+<td class="cl-22e373b0"><p class="cl-22e36bea"><span class="cl-22e24bfc">19</span></p></td>
+<td class="cl-22e373b1"><p class="cl-22e36bea"><span class="cl-22e24bfc">9.286</span></p></td>
+<td class="cl-22e373b1"><p class="cl-22e36bea"><span class="cl-22e24bfc">5.624</span></p></td>
+<td class="cl-22e373b1"><p class="cl-22e36bea"><span class="cl-22e24bfc">3.254</span></p></td>
+<td class="cl-22e373b1"><p class="cl-22e36bea"><span class="cl-22e24bfc">23.200</span></p></td>
 </tr>
 </tbody>
 </table>
@@ -477,13 +481,13 @@ Users can load data by running (requires one-time google drive authentication):<
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="summaries_files/figure-html/frequency-by-age-overall-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3" title="Position means and SE"><img src="summaries_files/figure-html/frequency-by-age-overall-1.png" class="img-fluid figure-img" style="width:100.0%" alt="Position means and SE"></a></p>
+<figure class="figure"><p><a href="summaries_files/figure-html/frequency-by-age-overall-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3" title="Position means and SE"><img src="summaries_files/figure-html/frequency-by-age-overall-1.png" class="img-fluid figure-img" style="width:100.0%" alt="Position means and SE"></a></p>
 <figcaption>Position means and SE</figcaption></figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="summaries_files/figure-html/frequency-by-age-overall-2.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4" title="Position distribution"><img src="summaries_files/figure-html/frequency-by-age-overall-2.png" class="img-fluid figure-img" style="width:100.0%" alt="Position distribution"></a></p>
+<figure class="figure"><p><a href="summaries_files/figure-html/frequency-by-age-overall-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4" title="Position distribution"><img src="summaries_files/figure-html/frequency-by-age-overall-2.png" class="img-fluid figure-img" style="width:100.0%" alt="Position distribution"></a></p>
 <figcaption>Position distribution</figcaption></figure>
 </div>
 </div>
@@ -519,72 +523,72 @@ Users can load data by running (requires one-time google drive authentication):<
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">variable</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">flextable</span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">autofit</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div class="tabwid">
-<style>.cl-c7c50b9c{}.cl-c7bb9198{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c7bedc72{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-c7bedc7c{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-c7bef0a4{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c7bef0ae{width:1.16in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c7bef0af{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c7bef0b8{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c7bef0cc{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c7bef0cd{width:1.16in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c7bef0d6{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c7bef0e0{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c7bef0ea{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c7bef0f4{width:1.16in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c7bef0f5{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c7bef0fe{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table data-quarto-disable-processing="true" class="cl-c7c50b9c">
+<style>.cl-23b2d3da{}.cl-23afc6a4{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-23b0dcba{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-23b0dcc4{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-23b0e43a{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-23b0e43b{width:1.16in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-23b0e444{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-23b0e445{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-23b0e446{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-23b0e447{width:1.16in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-23b0e448{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-23b0e44e{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-23b0e44f{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-23b0e450{width:1.16in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-23b0e451{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-23b0e458{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table data-quarto-disable-processing="true" class="cl-23b2d3da">
 <caption><p>Restraint summary statistics</p></caption>
 <thead><tr style="overflow-wrap:break-word;">
-<th class="cl-c7bef0a4"><p class="cl-c7bedc72"><span class="cl-c7bb9198">session</span></p></th>
-<th class="cl-c7bef0ae"><p class="cl-c7bedc7c"><span class="cl-c7bb9198">restraint</span></p></th>
-<th class="cl-c7bef0af"><p class="cl-c7bedc72"><span class="cl-c7bb9198">n</span></p></th>
-<th class="cl-c7bef0b8"><p class="cl-c7bedc72"><span class="cl-c7bb9198">mean</span></p></th>
-<th class="cl-c7bef0b8"><p class="cl-c7bedc72"><span class="cl-c7bb9198">sd</span></p></th>
-<th class="cl-c7bef0b8"><p class="cl-c7bedc72"><span class="cl-c7bb9198">min</span></p></th>
-<th class="cl-c7bef0b8"><p class="cl-c7bedc72"><span class="cl-c7bb9198">max</span></p></th>
+<th class="cl-23b0e43a"><p class="cl-23b0dcba"><span class="cl-23afc6a4">session</span></p></th>
+<th class="cl-23b0e43b"><p class="cl-23b0dcc4"><span class="cl-23afc6a4">restraint</span></p></th>
+<th class="cl-23b0e444"><p class="cl-23b0dcba"><span class="cl-23afc6a4">n</span></p></th>
+<th class="cl-23b0e445"><p class="cl-23b0dcba"><span class="cl-23afc6a4">mean</span></p></th>
+<th class="cl-23b0e445"><p class="cl-23b0dcba"><span class="cl-23afc6a4">sd</span></p></th>
+<th class="cl-23b0e445"><p class="cl-23b0dcba"><span class="cl-23afc6a4">min</span></p></th>
+<th class="cl-23b0e445"><p class="cl-23b0dcba"><span class="cl-23afc6a4">max</span></p></th>
 </tr></thead>
 <tbody>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c7bef0cc"><p class="cl-c7bedc72"><span class="cl-c7bb9198">1</span></p></td>
-<td class="cl-c7bef0cd"><p class="cl-c7bedc7c"><span class="cl-c7bb9198">Restrained</span></p></td>
-<td class="cl-c7bef0d6"><p class="cl-c7bedc72"><span class="cl-c7bb9198">28</span></p></td>
-<td class="cl-c7bef0e0"><p class="cl-c7bedc72"><span class="cl-c7bb9198">25.321</span></p></td>
-<td class="cl-c7bef0e0"><p class="cl-c7bedc72"><span class="cl-c7bb9198">12.035</span></p></td>
-<td class="cl-c7bef0e0"><p class="cl-c7bedc72"><span class="cl-c7bb9198">7.843</span></p></td>
-<td class="cl-c7bef0e0"><p class="cl-c7bedc72"><span class="cl-c7bb9198">55.540</span></p></td>
+<td class="cl-23b0e446"><p class="cl-23b0dcba"><span class="cl-23afc6a4">1</span></p></td>
+<td class="cl-23b0e447"><p class="cl-23b0dcc4"><span class="cl-23afc6a4">Restrained</span></p></td>
+<td class="cl-23b0e448"><p class="cl-23b0dcba"><span class="cl-23afc6a4">28</span></p></td>
+<td class="cl-23b0e44e"><p class="cl-23b0dcba"><span class="cl-23afc6a4">25.321</span></p></td>
+<td class="cl-23b0e44e"><p class="cl-23b0dcba"><span class="cl-23afc6a4">12.035</span></p></td>
+<td class="cl-23b0e44e"><p class="cl-23b0dcba"><span class="cl-23afc6a4">7.843</span></p></td>
+<td class="cl-23b0e44e"><p class="cl-23b0dcba"><span class="cl-23afc6a4">55.540</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c7bef0cc"><p class="cl-c7bedc72"><span class="cl-c7bb9198">2</span></p></td>
-<td class="cl-c7bef0cd"><p class="cl-c7bedc7c"><span class="cl-c7bb9198">Restrained</span></p></td>
-<td class="cl-c7bef0d6"><p class="cl-c7bedc72"><span class="cl-c7bb9198">25</span></p></td>
-<td class="cl-c7bef0e0"><p class="cl-c7bedc72"><span class="cl-c7bb9198">24.045</span></p></td>
-<td class="cl-c7bef0e0"><p class="cl-c7bedc72"><span class="cl-c7bb9198">14.000</span></p></td>
-<td class="cl-c7bef0e0"><p class="cl-c7bedc72"><span class="cl-c7bb9198">4.963</span></p></td>
-<td class="cl-c7bef0e0"><p class="cl-c7bedc72"><span class="cl-c7bb9198">54.996</span></p></td>
+<td class="cl-23b0e446"><p class="cl-23b0dcba"><span class="cl-23afc6a4">2</span></p></td>
+<td class="cl-23b0e447"><p class="cl-23b0dcc4"><span class="cl-23afc6a4">Restrained</span></p></td>
+<td class="cl-23b0e448"><p class="cl-23b0dcba"><span class="cl-23afc6a4">25</span></p></td>
+<td class="cl-23b0e44e"><p class="cl-23b0dcba"><span class="cl-23afc6a4">24.045</span></p></td>
+<td class="cl-23b0e44e"><p class="cl-23b0dcba"><span class="cl-23afc6a4">14.000</span></p></td>
+<td class="cl-23b0e44e"><p class="cl-23b0dcba"><span class="cl-23afc6a4">4.963</span></p></td>
+<td class="cl-23b0e44e"><p class="cl-23b0dcba"><span class="cl-23afc6a4">54.996</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c7bef0cc"><p class="cl-c7bedc72"><span class="cl-c7bb9198">3</span></p></td>
-<td class="cl-c7bef0cd"><p class="cl-c7bedc7c"><span class="cl-c7bb9198">Restrained</span></p></td>
-<td class="cl-c7bef0d6"><p class="cl-c7bedc72"><span class="cl-c7bb9198">19</span></p></td>
-<td class="cl-c7bef0e0"><p class="cl-c7bedc72"><span class="cl-c7bb9198">21.790</span></p></td>
-<td class="cl-c7bef0e0"><p class="cl-c7bedc72"><span class="cl-c7bb9198">8.805</span></p></td>
-<td class="cl-c7bef0e0"><p class="cl-c7bedc72"><span class="cl-c7bb9198">8.169</span></p></td>
-<td class="cl-c7bef0e0"><p class="cl-c7bedc72"><span class="cl-c7bb9198">36.106</span></p></td>
+<td class="cl-23b0e446"><p class="cl-23b0dcba"><span class="cl-23afc6a4">3</span></p></td>
+<td class="cl-23b0e447"><p class="cl-23b0dcc4"><span class="cl-23afc6a4">Restrained</span></p></td>
+<td class="cl-23b0e448"><p class="cl-23b0dcba"><span class="cl-23afc6a4">19</span></p></td>
+<td class="cl-23b0e44e"><p class="cl-23b0dcba"><span class="cl-23afc6a4">21.790</span></p></td>
+<td class="cl-23b0e44e"><p class="cl-23b0dcba"><span class="cl-23afc6a4">8.805</span></p></td>
+<td class="cl-23b0e44e"><p class="cl-23b0dcba"><span class="cl-23afc6a4">8.169</span></p></td>
+<td class="cl-23b0e44e"><p class="cl-23b0dcba"><span class="cl-23afc6a4">36.106</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c7bef0cc"><p class="cl-c7bedc72"><span class="cl-c7bb9198">1</span></p></td>
-<td class="cl-c7bef0cd"><p class="cl-c7bedc7c"><span class="cl-c7bb9198">Unrestrained</span></p></td>
-<td class="cl-c7bef0d6"><p class="cl-c7bedc72"><span class="cl-c7bb9198">28</span></p></td>
-<td class="cl-c7bef0e0"><p class="cl-c7bedc72"><span class="cl-c7bb9198">74.679</span></p></td>
-<td class="cl-c7bef0e0"><p class="cl-c7bedc72"><span class="cl-c7bb9198">12.035</span></p></td>
-<td class="cl-c7bef0e0"><p class="cl-c7bedc72"><span class="cl-c7bb9198">44.460</span></p></td>
-<td class="cl-c7bef0e0"><p class="cl-c7bedc72"><span class="cl-c7bb9198">92.157</span></p></td>
+<td class="cl-23b0e446"><p class="cl-23b0dcba"><span class="cl-23afc6a4">1</span></p></td>
+<td class="cl-23b0e447"><p class="cl-23b0dcc4"><span class="cl-23afc6a4">Unrestrained</span></p></td>
+<td class="cl-23b0e448"><p class="cl-23b0dcba"><span class="cl-23afc6a4">28</span></p></td>
+<td class="cl-23b0e44e"><p class="cl-23b0dcba"><span class="cl-23afc6a4">74.679</span></p></td>
+<td class="cl-23b0e44e"><p class="cl-23b0dcba"><span class="cl-23afc6a4">12.035</span></p></td>
+<td class="cl-23b0e44e"><p class="cl-23b0dcba"><span class="cl-23afc6a4">44.460</span></p></td>
+<td class="cl-23b0e44e"><p class="cl-23b0dcba"><span class="cl-23afc6a4">92.157</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c7bef0cc"><p class="cl-c7bedc72"><span class="cl-c7bb9198">2</span></p></td>
-<td class="cl-c7bef0cd"><p class="cl-c7bedc7c"><span class="cl-c7bb9198">Unrestrained</span></p></td>
-<td class="cl-c7bef0d6"><p class="cl-c7bedc72"><span class="cl-c7bb9198">25</span></p></td>
-<td class="cl-c7bef0e0"><p class="cl-c7bedc72"><span class="cl-c7bb9198">75.955</span></p></td>
-<td class="cl-c7bef0e0"><p class="cl-c7bedc72"><span class="cl-c7bb9198">14.000</span></p></td>
-<td class="cl-c7bef0e0"><p class="cl-c7bedc72"><span class="cl-c7bb9198">45.004</span></p></td>
-<td class="cl-c7bef0e0"><p class="cl-c7bedc72"><span class="cl-c7bb9198">95.037</span></p></td>
+<td class="cl-23b0e446"><p class="cl-23b0dcba"><span class="cl-23afc6a4">2</span></p></td>
+<td class="cl-23b0e447"><p class="cl-23b0dcc4"><span class="cl-23afc6a4">Unrestrained</span></p></td>
+<td class="cl-23b0e448"><p class="cl-23b0dcba"><span class="cl-23afc6a4">25</span></p></td>
+<td class="cl-23b0e44e"><p class="cl-23b0dcba"><span class="cl-23afc6a4">75.955</span></p></td>
+<td class="cl-23b0e44e"><p class="cl-23b0dcba"><span class="cl-23afc6a4">14.000</span></p></td>
+<td class="cl-23b0e44e"><p class="cl-23b0dcba"><span class="cl-23afc6a4">45.004</span></p></td>
+<td class="cl-23b0e44e"><p class="cl-23b0dcba"><span class="cl-23afc6a4">95.037</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-c7bef0ea"><p class="cl-c7bedc72"><span class="cl-c7bb9198">3</span></p></td>
-<td class="cl-c7bef0f4"><p class="cl-c7bedc7c"><span class="cl-c7bb9198">Unrestrained</span></p></td>
-<td class="cl-c7bef0f5"><p class="cl-c7bedc72"><span class="cl-c7bb9198">19</span></p></td>
-<td class="cl-c7bef0fe"><p class="cl-c7bedc72"><span class="cl-c7bb9198">78.210</span></p></td>
-<td class="cl-c7bef0fe"><p class="cl-c7bedc72"><span class="cl-c7bb9198">8.805</span></p></td>
-<td class="cl-c7bef0fe"><p class="cl-c7bedc72"><span class="cl-c7bb9198">63.894</span></p></td>
-<td class="cl-c7bef0fe"><p class="cl-c7bedc72"><span class="cl-c7bb9198">91.831</span></p></td>
+<td class="cl-23b0e44f"><p class="cl-23b0dcba"><span class="cl-23afc6a4">3</span></p></td>
+<td class="cl-23b0e450"><p class="cl-23b0dcc4"><span class="cl-23afc6a4">Unrestrained</span></p></td>
+<td class="cl-23b0e451"><p class="cl-23b0dcba"><span class="cl-23afc6a4">19</span></p></td>
+<td class="cl-23b0e458"><p class="cl-23b0dcba"><span class="cl-23afc6a4">78.210</span></p></td>
+<td class="cl-23b0e458"><p class="cl-23b0dcba"><span class="cl-23afc6a4">8.805</span></p></td>
+<td class="cl-23b0e458"><p class="cl-23b0dcba"><span class="cl-23afc6a4">63.894</span></p></td>
+<td class="cl-23b0e458"><p class="cl-23b0dcba"><span class="cl-23afc6a4">91.831</span></p></td>
 </tr>
 </tbody>
 </table>
@@ -608,13 +612,13 @@ Users can load data by running (requires one-time google drive authentication):<
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="summaries_files/figure-html/restraint-by-age-overall-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="quarto-lightbox-gallery-6" title="Restraint means and SE"><img src="summaries_files/figure-html/restraint-by-age-overall-1.png" class="img-fluid figure-img" style="width:100.0%" alt="Restraint means and SE"></a></p>
+<figure class="figure"><p><a href="summaries_files/figure-html/restraint-by-age-overall-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-glightbox="description: .lightbox-desc-6" title="Restraint means and SE"><img src="summaries_files/figure-html/restraint-by-age-overall-1.png" class="img-fluid figure-img" style="width:100.0%" alt="Restraint means and SE"></a></p>
 <figcaption>Restraint means and SE</figcaption></figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="summaries_files/figure-html/restraint-by-age-overall-2.png" class="lightbox" data-glightbox="description: .lightbox-desc-7" data-gallery="quarto-lightbox-gallery-7" title="Restraint distribution"><img src="summaries_files/figure-html/restraint-by-age-overall-2.png" class="img-fluid figure-img" style="width:100.0%" alt="Restraint distribution"></a></p>
+<figure class="figure"><p><a href="summaries_files/figure-html/restraint-by-age-overall-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" data-glightbox="description: .lightbox-desc-7" title="Restraint distribution"><img src="summaries_files/figure-html/restraint-by-age-overall-2.png" class="img-fluid figure-img" style="width:100.0%" alt="Restraint distribution"></a></p>
 <figcaption>Restraint distribution</figcaption></figure>
 </div>
 </div>
@@ -670,198 +674,198 @@ Users can load data by running (requires one-time google drive authentication):<
 <span>  <span class="fu">flextable</span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">autofit</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div class="tabwid">
-<style>.cl-d4234174{}.cl-d41a5050{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-d41e1654{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-d41e1672{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-d41e2efa{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2f04{width:1.644in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2f0e{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2f0f{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2f18{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2f19{width:0.531in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2f22{width:0.574in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2f2c{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2f40{width:1.644in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2f4a{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2f4b{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2f54{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2f5e{width:0.531in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2f68{width:0.574in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2f69{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2f72{width:1.644in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2f73{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2f7c{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2f7d{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2f86{width:0.531in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2f87{width:0.574in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2f90{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2fa4{width:1.644in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2fae{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2faf{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2fb8{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2fc2{width:0.531in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2fcc{width:0.574in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2fd6{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2fe0{width:1.644in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2fe1{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2fea{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2ff4{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2ff5{width:0.531in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e2ffe{width:0.574in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e3008{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e3009{width:1.644in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e3012{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e301c{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e301d{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e3026{width:0.531in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d41e3030{width:0.574in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table data-quarto-disable-processing="true" class="cl-d4234174">
+<style>.cl-24ccb4ac{}.cl-24c9a618{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-24cad45c{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-24cad466{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-24cadc54{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc55{width:1.644in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc56{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc5e{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc5f{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc60{width:0.531in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc68{width:0.574in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc69{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc6a{width:1.644in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc6b{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc72{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc73{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc74{width:0.531in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc75{width:0.574in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc7c{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc7d{width:1.644in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc7e{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc7f{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc80{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc86{width:0.531in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc87{width:0.574in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc88{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc90{width:1.644in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc91{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc92{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc93{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc94{width:0.531in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc9a{width:0.574in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc9b{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc9c{width:1.644in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadc9d{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadca4{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadca5{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadca6{width:0.531in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadca7{width:0.574in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadca8{width:0.803in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadca9{width:1.644in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadcae{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadcaf{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadcb0{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadcb1{width:0.531in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-24cadcb8{width:0.574in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table data-quarto-disable-processing="true" class="cl-24ccb4ac">
 <caption><p>AIMS summary statistics</p></caption>
 <thead><tr style="overflow-wrap:break-word;">
-<th class="cl-d41e2efa"><p class="cl-d41e1654"><span class="cl-d41a5050">session</span></p></th>
-<th class="cl-d41e2f04"><p class="cl-d41e1672"><span class="cl-d41a5050">variable</span></p></th>
-<th class="cl-d41e2f0e"><p class="cl-d41e1654"><span class="cl-d41a5050">n</span></p></th>
-<th class="cl-d41e2f0f"><p class="cl-d41e1654"><span class="cl-d41a5050">mean</span></p></th>
-<th class="cl-d41e2f18"><p class="cl-d41e1654"><span class="cl-d41a5050">sd</span></p></th>
-<th class="cl-d41e2f19"><p class="cl-d41e1654"><span class="cl-d41a5050">min</span></p></th>
-<th class="cl-d41e2f22"><p class="cl-d41e1654"><span class="cl-d41a5050">max</span></p></th>
+<th class="cl-24cadc54"><p class="cl-24cad45c"><span class="cl-24c9a618">session</span></p></th>
+<th class="cl-24cadc55"><p class="cl-24cad466"><span class="cl-24c9a618">variable</span></p></th>
+<th class="cl-24cadc56"><p class="cl-24cad45c"><span class="cl-24c9a618">n</span></p></th>
+<th class="cl-24cadc5e"><p class="cl-24cad45c"><span class="cl-24c9a618">mean</span></p></th>
+<th class="cl-24cadc5f"><p class="cl-24cad45c"><span class="cl-24c9a618">sd</span></p></th>
+<th class="cl-24cadc60"><p class="cl-24cad45c"><span class="cl-24c9a618">min</span></p></th>
+<th class="cl-24cadc68"><p class="cl-24cad45c"><span class="cl-24c9a618">max</span></p></th>
 </tr></thead>
 <tbody>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-d41e2f2c"><p class="cl-d41e1654"><span class="cl-d41a5050">1</span></p></td>
-<td class="cl-d41e2f40"><p class="cl-d41e1672"><span class="cl-d41a5050">aims_supine_total</span></p></td>
-<td class="cl-d41e2f4a"><p class="cl-d41e1654"><span class="cl-d41a5050">27</span></p></td>
-<td class="cl-d41e2f4b"><p class="cl-d41e1654"><span class="cl-d41a5050">7.667</span></p></td>
-<td class="cl-d41e2f54"><p class="cl-d41e1654"><span class="cl-d41a5050">1.641</span></p></td>
-<td class="cl-d41e2f5e"><p class="cl-d41e1654"><span class="cl-d41a5050">4</span></p></td>
-<td class="cl-d41e2f68"><p class="cl-d41e1654"><span class="cl-d41a5050">9</span></p></td>
+<td class="cl-24cadc69"><p class="cl-24cad45c"><span class="cl-24c9a618">1</span></p></td>
+<td class="cl-24cadc6a"><p class="cl-24cad466"><span class="cl-24c9a618">aims_supine_total</span></p></td>
+<td class="cl-24cadc6b"><p class="cl-24cad45c"><span class="cl-24c9a618">27</span></p></td>
+<td class="cl-24cadc72"><p class="cl-24cad45c"><span class="cl-24c9a618">7.667</span></p></td>
+<td class="cl-24cadc73"><p class="cl-24cad45c"><span class="cl-24c9a618">1.641</span></p></td>
+<td class="cl-24cadc74"><p class="cl-24cad45c"><span class="cl-24c9a618">4</span></p></td>
+<td class="cl-24cadc75"><p class="cl-24cad45c"><span class="cl-24c9a618">9</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-d41e2f2c"><p class="cl-d41e1654"><span class="cl-d41a5050">2</span></p></td>
-<td class="cl-d41e2f40"><p class="cl-d41e1672"><span class="cl-d41a5050">aims_supine_total</span></p></td>
-<td class="cl-d41e2f4a"><p class="cl-d41e1654"><span class="cl-d41a5050">24</span></p></td>
-<td class="cl-d41e2f4b"><p class="cl-d41e1654"><span class="cl-d41a5050">8.792</span></p></td>
-<td class="cl-d41e2f54"><p class="cl-d41e1654"><span class="cl-d41a5050">0.658</span></p></td>
-<td class="cl-d41e2f5e"><p class="cl-d41e1654"><span class="cl-d41a5050">6</span></p></td>
-<td class="cl-d41e2f68"><p class="cl-d41e1654"><span class="cl-d41a5050">9</span></p></td>
+<td class="cl-24cadc69"><p class="cl-24cad45c"><span class="cl-24c9a618">2</span></p></td>
+<td class="cl-24cadc6a"><p class="cl-24cad466"><span class="cl-24c9a618">aims_supine_total</span></p></td>
+<td class="cl-24cadc6b"><p class="cl-24cad45c"><span class="cl-24c9a618">24</span></p></td>
+<td class="cl-24cadc72"><p class="cl-24cad45c"><span class="cl-24c9a618">8.792</span></p></td>
+<td class="cl-24cadc73"><p class="cl-24cad45c"><span class="cl-24c9a618">0.658</span></p></td>
+<td class="cl-24cadc74"><p class="cl-24cad45c"><span class="cl-24c9a618">6</span></p></td>
+<td class="cl-24cadc75"><p class="cl-24cad45c"><span class="cl-24c9a618">9</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-d41e2f2c"><p class="cl-d41e1654"><span class="cl-d41a5050">3</span></p></td>
-<td class="cl-d41e2f40"><p class="cl-d41e1672"><span class="cl-d41a5050">aims_supine_total</span></p></td>
-<td class="cl-d41e2f4a"><p class="cl-d41e1654"><span class="cl-d41a5050">19</span></p></td>
-<td class="cl-d41e2f4b"><p class="cl-d41e1654"><span class="cl-d41a5050">8.895</span></p></td>
-<td class="cl-d41e2f54"><p class="cl-d41e1654"><span class="cl-d41a5050">0.315</span></p></td>
-<td class="cl-d41e2f5e"><p class="cl-d41e1654"><span class="cl-d41a5050">8</span></p></td>
-<td class="cl-d41e2f68"><p class="cl-d41e1654"><span class="cl-d41a5050">9</span></p></td>
+<td class="cl-24cadc69"><p class="cl-24cad45c"><span class="cl-24c9a618">3</span></p></td>
+<td class="cl-24cadc6a"><p class="cl-24cad466"><span class="cl-24c9a618">aims_supine_total</span></p></td>
+<td class="cl-24cadc6b"><p class="cl-24cad45c"><span class="cl-24c9a618">19</span></p></td>
+<td class="cl-24cadc72"><p class="cl-24cad45c"><span class="cl-24c9a618">8.895</span></p></td>
+<td class="cl-24cadc73"><p class="cl-24cad45c"><span class="cl-24c9a618">0.315</span></p></td>
+<td class="cl-24cadc74"><p class="cl-24cad45c"><span class="cl-24c9a618">8</span></p></td>
+<td class="cl-24cadc75"><p class="cl-24cad45c"><span class="cl-24c9a618">9</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-d41e2f2c"><p class="cl-d41e1654"><span class="cl-d41a5050">4</span></p></td>
-<td class="cl-d41e2f40"><p class="cl-d41e1672"><span class="cl-d41a5050">aims_supine_total</span></p></td>
-<td class="cl-d41e2f4a"><p class="cl-d41e1654"><span class="cl-d41a5050">12</span></p></td>
-<td class="cl-d41e2f4b"><p class="cl-d41e1654"><span class="cl-d41a5050">8.667</span></p></td>
-<td class="cl-d41e2f54"><p class="cl-d41e1654"><span class="cl-d41a5050">0.492</span></p></td>
-<td class="cl-d41e2f5e"><p class="cl-d41e1654"><span class="cl-d41a5050">8</span></p></td>
-<td class="cl-d41e2f68"><p class="cl-d41e1654"><span class="cl-d41a5050">9</span></p></td>
+<td class="cl-24cadc69"><p class="cl-24cad45c"><span class="cl-24c9a618">4</span></p></td>
+<td class="cl-24cadc6a"><p class="cl-24cad466"><span class="cl-24c9a618">aims_supine_total</span></p></td>
+<td class="cl-24cadc6b"><p class="cl-24cad45c"><span class="cl-24c9a618">12</span></p></td>
+<td class="cl-24cadc72"><p class="cl-24cad45c"><span class="cl-24c9a618">8.667</span></p></td>
+<td class="cl-24cadc73"><p class="cl-24cad45c"><span class="cl-24c9a618">0.492</span></p></td>
+<td class="cl-24cadc74"><p class="cl-24cad45c"><span class="cl-24c9a618">8</span></p></td>
+<td class="cl-24cadc75"><p class="cl-24cad45c"><span class="cl-24c9a618">9</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-d41e2f2c"><p class="cl-d41e1654"><span class="cl-d41a5050">1</span></p></td>
-<td class="cl-d41e2f40"><p class="cl-d41e1672"><span class="cl-d41a5050">aims_prone_total</span></p></td>
-<td class="cl-d41e2f4a"><p class="cl-d41e1654"><span class="cl-d41a5050">27</span></p></td>
-<td class="cl-d41e2f4b"><p class="cl-d41e1654"><span class="cl-d41a5050">11.074</span></p></td>
-<td class="cl-d41e2f54"><p class="cl-d41e1654"><span class="cl-d41a5050">3.562</span></p></td>
-<td class="cl-d41e2f5e"><p class="cl-d41e1654"><span class="cl-d41a5050">8</span></p></td>
-<td class="cl-d41e2f68"><p class="cl-d41e1654"><span class="cl-d41a5050">20</span></p></td>
+<td class="cl-24cadc69"><p class="cl-24cad45c"><span class="cl-24c9a618">1</span></p></td>
+<td class="cl-24cadc6a"><p class="cl-24cad466"><span class="cl-24c9a618">aims_prone_total</span></p></td>
+<td class="cl-24cadc6b"><p class="cl-24cad45c"><span class="cl-24c9a618">27</span></p></td>
+<td class="cl-24cadc72"><p class="cl-24cad45c"><span class="cl-24c9a618">11.074</span></p></td>
+<td class="cl-24cadc73"><p class="cl-24cad45c"><span class="cl-24c9a618">3.562</span></p></td>
+<td class="cl-24cadc74"><p class="cl-24cad45c"><span class="cl-24c9a618">8</span></p></td>
+<td class="cl-24cadc75"><p class="cl-24cad45c"><span class="cl-24c9a618">20</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-d41e2f2c"><p class="cl-d41e1654"><span class="cl-d41a5050">2</span></p></td>
-<td class="cl-d41e2f40"><p class="cl-d41e1672"><span class="cl-d41a5050">aims_prone_total</span></p></td>
-<td class="cl-d41e2f4a"><p class="cl-d41e1654"><span class="cl-d41a5050">25</span></p></td>
-<td class="cl-d41e2f4b"><p class="cl-d41e1654"><span class="cl-d41a5050">15.800</span></p></td>
-<td class="cl-d41e2f54"><p class="cl-d41e1654"><span class="cl-d41a5050">3.753</span></p></td>
-<td class="cl-d41e2f5e"><p class="cl-d41e1654"><span class="cl-d41a5050">8</span></p></td>
-<td class="cl-d41e2f68"><p class="cl-d41e1654"><span class="cl-d41a5050">20</span></p></td>
+<td class="cl-24cadc69"><p class="cl-24cad45c"><span class="cl-24c9a618">2</span></p></td>
+<td class="cl-24cadc6a"><p class="cl-24cad466"><span class="cl-24c9a618">aims_prone_total</span></p></td>
+<td class="cl-24cadc6b"><p class="cl-24cad45c"><span class="cl-24c9a618">25</span></p></td>
+<td class="cl-24cadc72"><p class="cl-24cad45c"><span class="cl-24c9a618">15.800</span></p></td>
+<td class="cl-24cadc73"><p class="cl-24cad45c"><span class="cl-24c9a618">3.753</span></p></td>
+<td class="cl-24cadc74"><p class="cl-24cad45c"><span class="cl-24c9a618">8</span></p></td>
+<td class="cl-24cadc75"><p class="cl-24cad45c"><span class="cl-24c9a618">20</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-d41e2f2c"><p class="cl-d41e1654"><span class="cl-d41a5050">3</span></p></td>
-<td class="cl-d41e2f40"><p class="cl-d41e1672"><span class="cl-d41a5050">aims_prone_total</span></p></td>
-<td class="cl-d41e2f4a"><p class="cl-d41e1654"><span class="cl-d41a5050">19</span></p></td>
-<td class="cl-d41e2f4b"><p class="cl-d41e1654"><span class="cl-d41a5050">18.684</span></p></td>
-<td class="cl-d41e2f54"><p class="cl-d41e1654"><span class="cl-d41a5050">2.029</span></p></td>
-<td class="cl-d41e2f5e"><p class="cl-d41e1654"><span class="cl-d41a5050">12</span></p></td>
-<td class="cl-d41e2f68"><p class="cl-d41e1654"><span class="cl-d41a5050">21</span></p></td>
+<td class="cl-24cadc69"><p class="cl-24cad45c"><span class="cl-24c9a618">3</span></p></td>
+<td class="cl-24cadc6a"><p class="cl-24cad466"><span class="cl-24c9a618">aims_prone_total</span></p></td>
+<td class="cl-24cadc6b"><p class="cl-24cad45c"><span class="cl-24c9a618">19</span></p></td>
+<td class="cl-24cadc72"><p class="cl-24cad45c"><span class="cl-24c9a618">18.684</span></p></td>
+<td class="cl-24cadc73"><p class="cl-24cad45c"><span class="cl-24c9a618">2.029</span></p></td>
+<td class="cl-24cadc74"><p class="cl-24cad45c"><span class="cl-24c9a618">12</span></p></td>
+<td class="cl-24cadc75"><p class="cl-24cad45c"><span class="cl-24c9a618">21</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-d41e2f2c"><p class="cl-d41e1654"><span class="cl-d41a5050">4</span></p></td>
-<td class="cl-d41e2f40"><p class="cl-d41e1672"><span class="cl-d41a5050">aims_prone_total</span></p></td>
-<td class="cl-d41e2f4a"><p class="cl-d41e1654"><span class="cl-d41a5050">12</span></p></td>
-<td class="cl-d41e2f4b"><p class="cl-d41e1654"><span class="cl-d41a5050">19.583</span></p></td>
-<td class="cl-d41e2f54"><p class="cl-d41e1654"><span class="cl-d41a5050">1.443</span></p></td>
-<td class="cl-d41e2f5e"><p class="cl-d41e1654"><span class="cl-d41a5050">16</span></p></td>
-<td class="cl-d41e2f68"><p class="cl-d41e1654"><span class="cl-d41a5050">21</span></p></td>
+<td class="cl-24cadc69"><p class="cl-24cad45c"><span class="cl-24c9a618">4</span></p></td>
+<td class="cl-24cadc6a"><p class="cl-24cad466"><span class="cl-24c9a618">aims_prone_total</span></p></td>
+<td class="cl-24cadc6b"><p class="cl-24cad45c"><span class="cl-24c9a618">12</span></p></td>
+<td class="cl-24cadc72"><p class="cl-24cad45c"><span class="cl-24c9a618">19.583</span></p></td>
+<td class="cl-24cadc73"><p class="cl-24cad45c"><span class="cl-24c9a618">1.443</span></p></td>
+<td class="cl-24cadc74"><p class="cl-24cad45c"><span class="cl-24c9a618">16</span></p></td>
+<td class="cl-24cadc75"><p class="cl-24cad45c"><span class="cl-24c9a618">21</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-d41e2f69"><p class="cl-d41e1654"><span class="cl-d41a5050">1</span></p></td>
-<td class="cl-d41e2f72"><p class="cl-d41e1672"><span class="cl-d41a5050">aims_sitting_total</span></p></td>
-<td class="cl-d41e2f73"><p class="cl-d41e1654"><span class="cl-d41a5050">28</span></p></td>
-<td class="cl-d41e2f7c"><p class="cl-d41e1654"><span class="cl-d41a5050">8.750</span></p></td>
-<td class="cl-d41e2f7d"><p class="cl-d41e1654"><span class="cl-d41a5050">2.675</span></p></td>
-<td class="cl-d41e2f86"><p class="cl-d41e1654"><span class="cl-d41a5050">2</span></p></td>
-<td class="cl-d41e2f87"><p class="cl-d41e1654"><span class="cl-d41a5050">12</span></p></td>
+<td class="cl-24cadc7c"><p class="cl-24cad45c"><span class="cl-24c9a618">1</span></p></td>
+<td class="cl-24cadc7d"><p class="cl-24cad466"><span class="cl-24c9a618">aims_sitting_total</span></p></td>
+<td class="cl-24cadc7e"><p class="cl-24cad45c"><span class="cl-24c9a618">28</span></p></td>
+<td class="cl-24cadc7f"><p class="cl-24cad45c"><span class="cl-24c9a618">8.750</span></p></td>
+<td class="cl-24cadc80"><p class="cl-24cad45c"><span class="cl-24c9a618">2.675</span></p></td>
+<td class="cl-24cadc86"><p class="cl-24cad45c"><span class="cl-24c9a618">2</span></p></td>
+<td class="cl-24cadc87"><p class="cl-24cad45c"><span class="cl-24c9a618">12</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-d41e2f69"><p class="cl-d41e1654"><span class="cl-d41a5050">2</span></p></td>
-<td class="cl-d41e2f72"><p class="cl-d41e1672"><span class="cl-d41a5050">aims_sitting_total</span></p></td>
-<td class="cl-d41e2f73"><p class="cl-d41e1654"><span class="cl-d41a5050">25</span></p></td>
-<td class="cl-d41e2f7c"><p class="cl-d41e1654"><span class="cl-d41a5050">11.320</span></p></td>
-<td class="cl-d41e2f7d"><p class="cl-d41e1654"><span class="cl-d41a5050">1.314</span></p></td>
-<td class="cl-d41e2f86"><p class="cl-d41e1654"><span class="cl-d41a5050">8</span></p></td>
-<td class="cl-d41e2f87"><p class="cl-d41e1654"><span class="cl-d41a5050">12</span></p></td>
+<td class="cl-24cadc7c"><p class="cl-24cad45c"><span class="cl-24c9a618">2</span></p></td>
+<td class="cl-24cadc7d"><p class="cl-24cad466"><span class="cl-24c9a618">aims_sitting_total</span></p></td>
+<td class="cl-24cadc7e"><p class="cl-24cad45c"><span class="cl-24c9a618">25</span></p></td>
+<td class="cl-24cadc7f"><p class="cl-24cad45c"><span class="cl-24c9a618">11.320</span></p></td>
+<td class="cl-24cadc80"><p class="cl-24cad45c"><span class="cl-24c9a618">1.314</span></p></td>
+<td class="cl-24cadc86"><p class="cl-24cad45c"><span class="cl-24c9a618">8</span></p></td>
+<td class="cl-24cadc87"><p class="cl-24cad45c"><span class="cl-24c9a618">12</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-d41e2f69"><p class="cl-d41e1654"><span class="cl-d41a5050">3</span></p></td>
-<td class="cl-d41e2f72"><p class="cl-d41e1672"><span class="cl-d41a5050">aims_sitting_total</span></p></td>
-<td class="cl-d41e2f73"><p class="cl-d41e1654"><span class="cl-d41a5050">19</span></p></td>
-<td class="cl-d41e2f7c"><p class="cl-d41e1654"><span class="cl-d41a5050">11.895</span></p></td>
-<td class="cl-d41e2f7d"><p class="cl-d41e1654"><span class="cl-d41a5050">0.459</span></p></td>
-<td class="cl-d41e2f86"><p class="cl-d41e1654"><span class="cl-d41a5050">10</span></p></td>
-<td class="cl-d41e2f87"><p class="cl-d41e1654"><span class="cl-d41a5050">12</span></p></td>
+<td class="cl-24cadc7c"><p class="cl-24cad45c"><span class="cl-24c9a618">3</span></p></td>
+<td class="cl-24cadc7d"><p class="cl-24cad466"><span class="cl-24c9a618">aims_sitting_total</span></p></td>
+<td class="cl-24cadc7e"><p class="cl-24cad45c"><span class="cl-24c9a618">19</span></p></td>
+<td class="cl-24cadc7f"><p class="cl-24cad45c"><span class="cl-24c9a618">11.895</span></p></td>
+<td class="cl-24cadc80"><p class="cl-24cad45c"><span class="cl-24c9a618">0.459</span></p></td>
+<td class="cl-24cadc86"><p class="cl-24cad45c"><span class="cl-24c9a618">10</span></p></td>
+<td class="cl-24cadc87"><p class="cl-24cad45c"><span class="cl-24c9a618">12</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-d41e2f69"><p class="cl-d41e1654"><span class="cl-d41a5050">4</span></p></td>
-<td class="cl-d41e2f72"><p class="cl-d41e1672"><span class="cl-d41a5050">aims_sitting_total</span></p></td>
-<td class="cl-d41e2f73"><p class="cl-d41e1654"><span class="cl-d41a5050">12</span></p></td>
-<td class="cl-d41e2f7c"><p class="cl-d41e1654"><span class="cl-d41a5050">11.917</span></p></td>
-<td class="cl-d41e2f7d"><p class="cl-d41e1654"><span class="cl-d41a5050">0.289</span></p></td>
-<td class="cl-d41e2f86"><p class="cl-d41e1654"><span class="cl-d41a5050">11</span></p></td>
-<td class="cl-d41e2f87"><p class="cl-d41e1654"><span class="cl-d41a5050">12</span></p></td>
+<td class="cl-24cadc7c"><p class="cl-24cad45c"><span class="cl-24c9a618">4</span></p></td>
+<td class="cl-24cadc7d"><p class="cl-24cad466"><span class="cl-24c9a618">aims_sitting_total</span></p></td>
+<td class="cl-24cadc7e"><p class="cl-24cad45c"><span class="cl-24c9a618">12</span></p></td>
+<td class="cl-24cadc7f"><p class="cl-24cad45c"><span class="cl-24c9a618">11.917</span></p></td>
+<td class="cl-24cadc80"><p class="cl-24cad45c"><span class="cl-24c9a618">0.289</span></p></td>
+<td class="cl-24cadc86"><p class="cl-24cad45c"><span class="cl-24c9a618">11</span></p></td>
+<td class="cl-24cadc87"><p class="cl-24cad45c"><span class="cl-24c9a618">12</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-d41e2f90"><p class="cl-d41e1654"><span class="cl-d41a5050">1</span></p></td>
-<td class="cl-d41e2fa4"><p class="cl-d41e1672"><span class="cl-d41a5050">aims_standing_total</span></p></td>
-<td class="cl-d41e2fae"><p class="cl-d41e1654"><span class="cl-d41a5050">28</span></p></td>
-<td class="cl-d41e2faf"><p class="cl-d41e1654"><span class="cl-d41a5050">3.071</span></p></td>
-<td class="cl-d41e2fb8"><p class="cl-d41e1654"><span class="cl-d41a5050">1.585</span></p></td>
-<td class="cl-d41e2fc2"><p class="cl-d41e1654"><span class="cl-d41a5050">2</span></p></td>
-<td class="cl-d41e2fcc"><p class="cl-d41e1654"><span class="cl-d41a5050">8</span></p></td>
+<td class="cl-24cadc88"><p class="cl-24cad45c"><span class="cl-24c9a618">1</span></p></td>
+<td class="cl-24cadc90"><p class="cl-24cad466"><span class="cl-24c9a618">aims_standing_total</span></p></td>
+<td class="cl-24cadc91"><p class="cl-24cad45c"><span class="cl-24c9a618">28</span></p></td>
+<td class="cl-24cadc92"><p class="cl-24cad45c"><span class="cl-24c9a618">3.071</span></p></td>
+<td class="cl-24cadc93"><p class="cl-24cad45c"><span class="cl-24c9a618">1.585</span></p></td>
+<td class="cl-24cadc94"><p class="cl-24cad45c"><span class="cl-24c9a618">2</span></p></td>
+<td class="cl-24cadc9a"><p class="cl-24cad45c"><span class="cl-24c9a618">8</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-d41e2f90"><p class="cl-d41e1654"><span class="cl-d41a5050">2</span></p></td>
-<td class="cl-d41e2fa4"><p class="cl-d41e1672"><span class="cl-d41a5050">aims_standing_total</span></p></td>
-<td class="cl-d41e2fae"><p class="cl-d41e1654"><span class="cl-d41a5050">25</span></p></td>
-<td class="cl-d41e2faf"><p class="cl-d41e1654"><span class="cl-d41a5050">6.400</span></p></td>
-<td class="cl-d41e2fb8"><p class="cl-d41e1654"><span class="cl-d41a5050">2.843</span></p></td>
-<td class="cl-d41e2fc2"><p class="cl-d41e1654"><span class="cl-d41a5050">2</span></p></td>
-<td class="cl-d41e2fcc"><p class="cl-d41e1654"><span class="cl-d41a5050">10</span></p></td>
+<td class="cl-24cadc88"><p class="cl-24cad45c"><span class="cl-24c9a618">2</span></p></td>
+<td class="cl-24cadc90"><p class="cl-24cad466"><span class="cl-24c9a618">aims_standing_total</span></p></td>
+<td class="cl-24cadc91"><p class="cl-24cad45c"><span class="cl-24c9a618">25</span></p></td>
+<td class="cl-24cadc92"><p class="cl-24cad45c"><span class="cl-24c9a618">6.400</span></p></td>
+<td class="cl-24cadc93"><p class="cl-24cad45c"><span class="cl-24c9a618">2.843</span></p></td>
+<td class="cl-24cadc94"><p class="cl-24cad45c"><span class="cl-24c9a618">2</span></p></td>
+<td class="cl-24cadc9a"><p class="cl-24cad45c"><span class="cl-24c9a618">10</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-d41e2f90"><p class="cl-d41e1654"><span class="cl-d41a5050">3</span></p></td>
-<td class="cl-d41e2fa4"><p class="cl-d41e1672"><span class="cl-d41a5050">aims_standing_total</span></p></td>
-<td class="cl-d41e2fae"><p class="cl-d41e1654"><span class="cl-d41a5050">18</span></p></td>
-<td class="cl-d41e2faf"><p class="cl-d41e1654"><span class="cl-d41a5050">10.056</span></p></td>
-<td class="cl-d41e2fb8"><p class="cl-d41e1654"><span class="cl-d41a5050">2.578</span></p></td>
-<td class="cl-d41e2fc2"><p class="cl-d41e1654"><span class="cl-d41a5050">2</span></p></td>
-<td class="cl-d41e2fcc"><p class="cl-d41e1654"><span class="cl-d41a5050">15</span></p></td>
+<td class="cl-24cadc88"><p class="cl-24cad45c"><span class="cl-24c9a618">3</span></p></td>
+<td class="cl-24cadc90"><p class="cl-24cad466"><span class="cl-24c9a618">aims_standing_total</span></p></td>
+<td class="cl-24cadc91"><p class="cl-24cad45c"><span class="cl-24c9a618">18</span></p></td>
+<td class="cl-24cadc92"><p class="cl-24cad45c"><span class="cl-24c9a618">10.056</span></p></td>
+<td class="cl-24cadc93"><p class="cl-24cad45c"><span class="cl-24c9a618">2.578</span></p></td>
+<td class="cl-24cadc94"><p class="cl-24cad45c"><span class="cl-24c9a618">2</span></p></td>
+<td class="cl-24cadc9a"><p class="cl-24cad45c"><span class="cl-24c9a618">15</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-d41e2f90"><p class="cl-d41e1654"><span class="cl-d41a5050">4</span></p></td>
-<td class="cl-d41e2fa4"><p class="cl-d41e1672"><span class="cl-d41a5050">aims_standing_total</span></p></td>
-<td class="cl-d41e2fae"><p class="cl-d41e1654"><span class="cl-d41a5050">12</span></p></td>
-<td class="cl-d41e2faf"><p class="cl-d41e1654"><span class="cl-d41a5050">13.000</span></p></td>
-<td class="cl-d41e2fb8"><p class="cl-d41e1654"><span class="cl-d41a5050">3.885</span></p></td>
-<td class="cl-d41e2fc2"><p class="cl-d41e1654"><span class="cl-d41a5050">3</span></p></td>
-<td class="cl-d41e2fcc"><p class="cl-d41e1654"><span class="cl-d41a5050">16</span></p></td>
+<td class="cl-24cadc88"><p class="cl-24cad45c"><span class="cl-24c9a618">4</span></p></td>
+<td class="cl-24cadc90"><p class="cl-24cad466"><span class="cl-24c9a618">aims_standing_total</span></p></td>
+<td class="cl-24cadc91"><p class="cl-24cad45c"><span class="cl-24c9a618">12</span></p></td>
+<td class="cl-24cadc92"><p class="cl-24cad45c"><span class="cl-24c9a618">13.000</span></p></td>
+<td class="cl-24cadc93"><p class="cl-24cad45c"><span class="cl-24c9a618">3.885</span></p></td>
+<td class="cl-24cadc94"><p class="cl-24cad45c"><span class="cl-24c9a618">3</span></p></td>
+<td class="cl-24cadc9a"><p class="cl-24cad45c"><span class="cl-24c9a618">16</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-d41e2fd6"><p class="cl-d41e1654"><span class="cl-d41a5050">1</span></p></td>
-<td class="cl-d41e2fe0"><p class="cl-d41e1672"><span class="cl-d41a5050">aims_totalscore</span></p></td>
-<td class="cl-d41e2fe1"><p class="cl-d41e1654"><span class="cl-d41a5050">27</span></p></td>
-<td class="cl-d41e2fea"><p class="cl-d41e1654"><span class="cl-d41a5050">30.593</span></p></td>
-<td class="cl-d41e2ff4"><p class="cl-d41e1654"><span class="cl-d41a5050">7.175</span></p></td>
-<td class="cl-d41e2ff5"><p class="cl-d41e1654"><span class="cl-d41a5050">20</span></p></td>
-<td class="cl-d41e2ffe"><p class="cl-d41e1654"><span class="cl-d41a5050">49</span></p></td>
+<td class="cl-24cadc9b"><p class="cl-24cad45c"><span class="cl-24c9a618">1</span></p></td>
+<td class="cl-24cadc9c"><p class="cl-24cad466"><span class="cl-24c9a618">aims_totalscore</span></p></td>
+<td class="cl-24cadc9d"><p class="cl-24cad45c"><span class="cl-24c9a618">27</span></p></td>
+<td class="cl-24cadca4"><p class="cl-24cad45c"><span class="cl-24c9a618">30.593</span></p></td>
+<td class="cl-24cadca5"><p class="cl-24cad45c"><span class="cl-24c9a618">7.175</span></p></td>
+<td class="cl-24cadca6"><p class="cl-24cad45c"><span class="cl-24c9a618">20</span></p></td>
+<td class="cl-24cadca7"><p class="cl-24cad45c"><span class="cl-24c9a618">49</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-d41e2fd6"><p class="cl-d41e1654"><span class="cl-d41a5050">2</span></p></td>
-<td class="cl-d41e2fe0"><p class="cl-d41e1672"><span class="cl-d41a5050">aims_totalscore</span></p></td>
-<td class="cl-d41e2fe1"><p class="cl-d41e1654"><span class="cl-d41a5050">24</span></p></td>
-<td class="cl-d41e2fea"><p class="cl-d41e1654"><span class="cl-d41a5050">42.875</span></p></td>
-<td class="cl-d41e2ff4"><p class="cl-d41e1654"><span class="cl-d41a5050">7.079</span></p></td>
-<td class="cl-d41e2ff5"><p class="cl-d41e1654"><span class="cl-d41a5050">26</span></p></td>
-<td class="cl-d41e2ffe"><p class="cl-d41e1654"><span class="cl-d41a5050">51</span></p></td>
+<td class="cl-24cadc9b"><p class="cl-24cad45c"><span class="cl-24c9a618">2</span></p></td>
+<td class="cl-24cadc9c"><p class="cl-24cad466"><span class="cl-24c9a618">aims_totalscore</span></p></td>
+<td class="cl-24cadc9d"><p class="cl-24cad45c"><span class="cl-24c9a618">24</span></p></td>
+<td class="cl-24cadca4"><p class="cl-24cad45c"><span class="cl-24c9a618">42.875</span></p></td>
+<td class="cl-24cadca5"><p class="cl-24cad45c"><span class="cl-24c9a618">7.079</span></p></td>
+<td class="cl-24cadca6"><p class="cl-24cad45c"><span class="cl-24c9a618">26</span></p></td>
+<td class="cl-24cadca7"><p class="cl-24cad45c"><span class="cl-24c9a618">51</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-d41e2fd6"><p class="cl-d41e1654"><span class="cl-d41a5050">3</span></p></td>
-<td class="cl-d41e2fe0"><p class="cl-d41e1672"><span class="cl-d41a5050">aims_totalscore</span></p></td>
-<td class="cl-d41e2fe1"><p class="cl-d41e1654"><span class="cl-d41a5050">18</span></p></td>
-<td class="cl-d41e2fea"><p class="cl-d41e1654"><span class="cl-d41a5050">49.500</span></p></td>
-<td class="cl-d41e2ff4"><p class="cl-d41e1654"><span class="cl-d41a5050">4.731</span></p></td>
-<td class="cl-d41e2ff5"><p class="cl-d41e1654"><span class="cl-d41a5050">33</span></p></td>
-<td class="cl-d41e2ffe"><p class="cl-d41e1654"><span class="cl-d41a5050">56</span></p></td>
+<td class="cl-24cadc9b"><p class="cl-24cad45c"><span class="cl-24c9a618">3</span></p></td>
+<td class="cl-24cadc9c"><p class="cl-24cad466"><span class="cl-24c9a618">aims_totalscore</span></p></td>
+<td class="cl-24cadc9d"><p class="cl-24cad45c"><span class="cl-24c9a618">18</span></p></td>
+<td class="cl-24cadca4"><p class="cl-24cad45c"><span class="cl-24c9a618">49.500</span></p></td>
+<td class="cl-24cadca5"><p class="cl-24cad45c"><span class="cl-24c9a618">4.731</span></p></td>
+<td class="cl-24cadca6"><p class="cl-24cad45c"><span class="cl-24c9a618">33</span></p></td>
+<td class="cl-24cadca7"><p class="cl-24cad45c"><span class="cl-24c9a618">56</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-d41e3008"><p class="cl-d41e1654"><span class="cl-d41a5050">4</span></p></td>
-<td class="cl-d41e3009"><p class="cl-d41e1672"><span class="cl-d41a5050">aims_totalscore</span></p></td>
-<td class="cl-d41e3012"><p class="cl-d41e1654"><span class="cl-d41a5050">12</span></p></td>
-<td class="cl-d41e301c"><p class="cl-d41e1654"><span class="cl-d41a5050">53.167</span></p></td>
-<td class="cl-d41e301d"><p class="cl-d41e1654"><span class="cl-d41a5050">5.024</span></p></td>
-<td class="cl-d41e3026"><p class="cl-d41e1654"><span class="cl-d41a5050">39</span></p></td>
-<td class="cl-d41e3030"><p class="cl-d41e1654"><span class="cl-d41a5050">58</span></p></td>
+<td class="cl-24cadca8"><p class="cl-24cad45c"><span class="cl-24c9a618">4</span></p></td>
+<td class="cl-24cadca9"><p class="cl-24cad466"><span class="cl-24c9a618">aims_totalscore</span></p></td>
+<td class="cl-24cadcae"><p class="cl-24cad45c"><span class="cl-24c9a618">12</span></p></td>
+<td class="cl-24cadcaf"><p class="cl-24cad45c"><span class="cl-24c9a618">53.167</span></p></td>
+<td class="cl-24cadcb0"><p class="cl-24cad45c"><span class="cl-24c9a618">5.024</span></p></td>
+<td class="cl-24cadcb1"><p class="cl-24cad45c"><span class="cl-24c9a618">39</span></p></td>
+<td class="cl-24cadcb8"><p class="cl-24cad45c"><span class="cl-24c9a618">58</span></p></td>
 </tr>
 </tbody>
 </table>
@@ -882,7 +886,7 @@ Users can load data by running (requires one-time google drive authentication):<
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="summaries_files/figure-html/AIMS-by-age-overall-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-10" data-gallery="quarto-lightbox-gallery-10" title="AIMS scores by age"><img src="summaries_files/figure-html/AIMS-by-age-overall-1.png" class="img-fluid figure-img" style="width:100.0%" alt="AIMS scores by age"></a></p>
+<figure class="figure"><p><a href="summaries_files/figure-html/AIMS-by-age-overall-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" data-glightbox="description: .lightbox-desc-10" title="AIMS scores by age"><img src="summaries_files/figure-html/AIMS-by-age-overall-1.png" class="img-fluid figure-img" style="width:100.0%" alt="AIMS scores by age"></a></p>
 <figcaption>AIMS scores by age</figcaption></figure>
 </div>
 </div>
@@ -924,7 +928,7 @@ Users can load data by running (requires one-time google drive authentication):<
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="summaries_files/figure-html/position-by-AIMS-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-11" data-gallery="quarto-lightbox-gallery-11" title="Supine AIMS"><img src="summaries_files/figure-html/position-by-AIMS-1.png" class="img-fluid figure-img" style="width:100.0%" alt="Supine AIMS"></a></p>
+<figure class="figure"><p><a href="summaries_files/figure-html/position-by-AIMS-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" data-glightbox="description: .lightbox-desc-11" title="Supine AIMS"><img src="summaries_files/figure-html/position-by-AIMS-1.png" class="img-fluid figure-img" style="width:100.0%" alt="Supine AIMS"></a></p>
 <figcaption>Supine AIMS</figcaption></figure>
 </div>
 </div>
@@ -932,7 +936,7 @@ Users can load data by running (requires one-time google drive authentication):<
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="summaries_files/figure-html/position-by-AIMS-2.png" class="lightbox" data-glightbox="description: .lightbox-desc-12" data-gallery="quarto-lightbox-gallery-12" title="Prone AIMS"><img src="summaries_files/figure-html/position-by-AIMS-2.png" class="img-fluid figure-img" style="width:100.0%" alt="Prone AIMS"></a></p>
+<figure class="figure"><p><a href="summaries_files/figure-html/position-by-AIMS-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" data-glightbox="description: .lightbox-desc-12" title="Prone AIMS"><img src="summaries_files/figure-html/position-by-AIMS-2.png" class="img-fluid figure-img" style="width:100.0%" alt="Prone AIMS"></a></p>
 <figcaption>Prone AIMS</figcaption></figure>
 </div>
 </div>
@@ -940,7 +944,7 @@ Users can load data by running (requires one-time google drive authentication):<
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="summaries_files/figure-html/position-by-AIMS-3.png" class="lightbox" data-glightbox="description: .lightbox-desc-13" data-gallery="quarto-lightbox-gallery-13" title="Sitting AIMS"><img src="summaries_files/figure-html/position-by-AIMS-3.png" class="img-fluid figure-img" style="width:100.0%" alt="Sitting AIMS"></a></p>
+<figure class="figure"><p><a href="summaries_files/figure-html/position-by-AIMS-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" data-glightbox="description: .lightbox-desc-13" title="Sitting AIMS"><img src="summaries_files/figure-html/position-by-AIMS-3.png" class="img-fluid figure-img" style="width:100.0%" alt="Sitting AIMS"></a></p>
 <figcaption>Sitting AIMS</figcaption></figure>
 </div>
 </div>
@@ -948,7 +952,7 @@ Users can load data by running (requires one-time google drive authentication):<
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="summaries_files/figure-html/position-by-AIMS-4.png" class="lightbox" data-glightbox="description: .lightbox-desc-14" data-gallery="quarto-lightbox-gallery-14" title="Standing AIMS"><img src="summaries_files/figure-html/position-by-AIMS-4.png" class="img-fluid figure-img" style="width:100.0%" alt="Standing AIMS"></a></p>
+<figure class="figure"><p><a href="summaries_files/figure-html/position-by-AIMS-4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" data-glightbox="description: .lightbox-desc-14" title="Standing AIMS"><img src="summaries_files/figure-html/position-by-AIMS-4.png" class="img-fluid figure-img" style="width:100.0%" alt="Standing AIMS"></a></p>
 <figcaption>Standing AIMS</figcaption></figure>
 </div>
 </div>
@@ -956,7 +960,7 @@ Users can load data by running (requires one-time google drive authentication):<
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="summaries_files/figure-html/position-by-AIMS-5.png" class="lightbox" data-glightbox="description: .lightbox-desc-15" data-gallery="quarto-lightbox-gallery-15" title="Total AIMS"><img src="summaries_files/figure-html/position-by-AIMS-5.png" class="img-fluid figure-img" style="width:100.0%" alt="Total AIMS"></a></p>
+<figure class="figure"><p><a href="summaries_files/figure-html/position-by-AIMS-5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" data-glightbox="description: .lightbox-desc-15" title="Total AIMS"><img src="summaries_files/figure-html/position-by-AIMS-5.png" class="img-fluid figure-img" style="width:100.0%" alt="Total AIMS"></a></p>
 <figcaption>Total AIMS</figcaption></figure>
 </div>
 </div>
@@ -980,7 +984,7 @@ Users can load data by running (requires one-time google drive authentication):<
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="summaries_files/figure-html/restraint-by-AIMS-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-16" data-gallery="quarto-lightbox-gallery-16" title="AIMS Subscales"><img src="summaries_files/figure-html/restraint-by-AIMS-1.png" class="img-fluid figure-img" style="width:100.0%" alt="AIMS Subscales"></a></p>
+<figure class="figure"><p><a href="summaries_files/figure-html/restraint-by-AIMS-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" data-glightbox="description: .lightbox-desc-16" title="AIMS Subscales"><img src="summaries_files/figure-html/restraint-by-AIMS-1.png" class="img-fluid figure-img" style="width:100.0%" alt="AIMS Subscales"></a></p>
 <figcaption>AIMS Subscales</figcaption></figure>
 </div>
 </div>
@@ -988,7 +992,7 @@ Users can load data by running (requires one-time google drive authentication):<
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="summaries_files/figure-html/restraint-by-AIMS-2.png" class="lightbox" data-glightbox="description: .lightbox-desc-17" data-gallery="quarto-lightbox-gallery-17" title="AIMS Total"><img src="summaries_files/figure-html/restraint-by-AIMS-2.png" class="img-fluid figure-img" style="width:100.0%" alt="AIMS Total"></a></p>
+<figure class="figure"><p><a href="summaries_files/figure-html/restraint-by-AIMS-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" data-glightbox="description: .lightbox-desc-17" title="AIMS Total"><img src="summaries_files/figure-html/restraint-by-AIMS-2.png" class="img-fluid figure-img" style="width:100.0%" alt="AIMS Total"></a></p>
 <figcaption>AIMS Total</figcaption></figure>
 </div>
 </div>
@@ -1031,7 +1035,7 @@ Users can load data by running (requires one-time google drive authentication):<
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="summaries_files/figure-html/restraint-position-by-AIMS-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-18" data-gallery="quarto-lightbox-gallery-18" title="Supine AIMS"><img src="summaries_files/figure-html/restraint-position-by-AIMS-1.png" class="img-fluid figure-img" style="width:100.0%" alt="Supine AIMS"></a></p>
+<figure class="figure"><p><a href="summaries_files/figure-html/restraint-position-by-AIMS-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" data-glightbox="description: .lightbox-desc-18" title="Supine AIMS"><img src="summaries_files/figure-html/restraint-position-by-AIMS-1.png" class="img-fluid figure-img" style="width:100.0%" alt="Supine AIMS"></a></p>
 <figcaption>Supine AIMS</figcaption></figure>
 </div>
 </div>
@@ -1039,7 +1043,7 @@ Users can load data by running (requires one-time google drive authentication):<
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="summaries_files/figure-html/restraint-position-by-AIMS-2.png" class="lightbox" data-glightbox="description: .lightbox-desc-19" data-gallery="quarto-lightbox-gallery-19" title="Prone AIMS"><img src="summaries_files/figure-html/restraint-position-by-AIMS-2.png" class="img-fluid figure-img" style="width:100.0%" alt="Prone AIMS"></a></p>
+<figure class="figure"><p><a href="summaries_files/figure-html/restraint-position-by-AIMS-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" data-glightbox="description: .lightbox-desc-19" title="Prone AIMS"><img src="summaries_files/figure-html/restraint-position-by-AIMS-2.png" class="img-fluid figure-img" style="width:100.0%" alt="Prone AIMS"></a></p>
 <figcaption>Prone AIMS</figcaption></figure>
 </div>
 </div>
@@ -1047,7 +1051,7 @@ Users can load data by running (requires one-time google drive authentication):<
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="summaries_files/figure-html/restraint-position-by-AIMS-3.png" class="lightbox" data-glightbox="description: .lightbox-desc-20" data-gallery="quarto-lightbox-gallery-20" title="Sitting AIMS"><img src="summaries_files/figure-html/restraint-position-by-AIMS-3.png" class="img-fluid figure-img" style="width:100.0%" alt="Sitting AIMS"></a></p>
+<figure class="figure"><p><a href="summaries_files/figure-html/restraint-position-by-AIMS-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" data-glightbox="description: .lightbox-desc-20" title="Sitting AIMS"><img src="summaries_files/figure-html/restraint-position-by-AIMS-3.png" class="img-fluid figure-img" style="width:100.0%" alt="Sitting AIMS"></a></p>
 <figcaption>Sitting AIMS</figcaption></figure>
 </div>
 </div>
@@ -1055,7 +1059,7 @@ Users can load data by running (requires one-time google drive authentication):<
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="summaries_files/figure-html/restraint-position-by-AIMS-4.png" class="lightbox" data-glightbox="description: .lightbox-desc-21" data-gallery="quarto-lightbox-gallery-21" title="Standing AIMS"><img src="summaries_files/figure-html/restraint-position-by-AIMS-4.png" class="img-fluid figure-img" style="width:100.0%" alt="Standing AIMS"></a></p>
+<figure class="figure"><p><a href="summaries_files/figure-html/restraint-position-by-AIMS-4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" data-glightbox="description: .lightbox-desc-21" title="Standing AIMS"><img src="summaries_files/figure-html/restraint-position-by-AIMS-4.png" class="img-fluid figure-img" style="width:100.0%" alt="Standing AIMS"></a></p>
 <figcaption>Standing AIMS</figcaption></figure>
 </div>
 </div>
@@ -1063,7 +1067,7 @@ Users can load data by running (requires one-time google drive authentication):<
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="summaries_files/figure-html/restraint-position-by-AIMS-5.png" class="lightbox" data-glightbox="description: .lightbox-desc-22" data-gallery="quarto-lightbox-gallery-22" title="Total AIMS"><img src="summaries_files/figure-html/restraint-position-by-AIMS-5.png" class="img-fluid figure-img" style="width:100.0%" alt="Total AIMS"></a></p>
+<figure class="figure"><p><a href="summaries_files/figure-html/restraint-position-by-AIMS-5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22" data-glightbox="description: .lightbox-desc-22" title="Total AIMS"><img src="summaries_files/figure-html/restraint-position-by-AIMS-5.png" class="img-fluid figure-img" style="width:100.0%" alt="Total AIMS"></a></p>
 <figcaption>Total AIMS</figcaption></figure>
 </div>
 </div>
@@ -1123,7 +1127,7 @@ Users can load data by running (requires one-time google drive authentication):<
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="summaries_files/figure-html/restraint-position-by-milestones-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-23" data-gallery="quarto-lightbox-gallery-23" title="Restrained Time by Crawling"><img src="summaries_files/figure-html/restraint-position-by-milestones-1.png" class="img-fluid figure-img" style="width:100.0%" alt="Restrained Time by Crawling"></a></p>
+<figure class="figure"><p><a href="summaries_files/figure-html/restraint-position-by-milestones-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23" data-glightbox="description: .lightbox-desc-23" title="Restrained Time by Crawling"><img src="summaries_files/figure-html/restraint-position-by-milestones-1.png" class="img-fluid figure-img" style="width:100.0%" alt="Restrained Time by Crawling"></a></p>
 <figcaption>Restrained Time by Crawling</figcaption></figure>
 </div>
 </div>
@@ -1131,7 +1135,7 @@ Users can load data by running (requires one-time google drive authentication):<
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="summaries_files/figure-html/restraint-position-by-milestones-2.png" class="lightbox" data-glightbox="description: .lightbox-desc-24" data-gallery="quarto-lightbox-gallery-24" title="Unrestrained Time by Crawling"><img src="summaries_files/figure-html/restraint-position-by-milestones-2.png" class="img-fluid figure-img" style="width:100.0%" alt="Unrestrained Time by Crawling"></a></p>
+<figure class="figure"><p><a href="summaries_files/figure-html/restraint-position-by-milestones-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24" data-glightbox="description: .lightbox-desc-24" title="Unrestrained Time by Crawling"><img src="summaries_files/figure-html/restraint-position-by-milestones-2.png" class="img-fluid figure-img" style="width:100.0%" alt="Unrestrained Time by Crawling"></a></p>
 <figcaption>Unrestrained Time by Crawling</figcaption></figure>
 </div>
 </div>
@@ -1139,7 +1143,7 @@ Users can load data by running (requires one-time google drive authentication):<
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="summaries_files/figure-html/restraint-position-by-milestones-3.png" class="lightbox" data-glightbox="description: .lightbox-desc-25" data-gallery="quarto-lightbox-gallery-25" title="Restrained Time by Cruising"><img src="summaries_files/figure-html/restraint-position-by-milestones-3.png" class="img-fluid figure-img" style="width:100.0%" alt="Restrained Time by Cruising"></a></p>
+<figure class="figure"><p><a href="summaries_files/figure-html/restraint-position-by-milestones-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25" data-glightbox="description: .lightbox-desc-25" title="Restrained Time by Cruising"><img src="summaries_files/figure-html/restraint-position-by-milestones-3.png" class="img-fluid figure-img" style="width:100.0%" alt="Restrained Time by Cruising"></a></p>
 <figcaption>Restrained Time by Cruising</figcaption></figure>
 </div>
 </div>
@@ -1147,7 +1151,7 @@ Users can load data by running (requires one-time google drive authentication):<
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="summaries_files/figure-html/restraint-position-by-milestones-4.png" class="lightbox" data-glightbox="description: .lightbox-desc-26" data-gallery="quarto-lightbox-gallery-26" title="Unrestrained Time by Cruising"><img src="summaries_files/figure-html/restraint-position-by-milestones-4.png" class="img-fluid figure-img" style="width:100.0%" alt="Unrestrained Time by Cruising"></a></p>
+<figure class="figure"><p><a href="summaries_files/figure-html/restraint-position-by-milestones-4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26" data-glightbox="description: .lightbox-desc-26" title="Unrestrained Time by Cruising"><img src="summaries_files/figure-html/restraint-position-by-milestones-4.png" class="img-fluid figure-img" style="width:100.0%" alt="Unrestrained Time by Cruising"></a></p>
 <figcaption>Unrestrained Time by Cruising</figcaption></figure>
 </div>
 </div>
@@ -2134,7 +2138,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","loop":false,"descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

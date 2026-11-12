@@ -18,6 +18,8 @@ website:
       - href: interactive_timelines.qmd
         text: Interactive Timelines
       - href: timelines.qmd
+      - href: timelines_multi.qmd
+        text: Timelines Multi
       - href: checks.qmd
       - href: summaries.qmd
 

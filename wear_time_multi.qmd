@@ -1,0 +1,138 @@
+---
+title: "Wear Time Multiday"
+fig-dpi: 300
+execute:
+  cache: false
+  error: false
+  warning: false
+  echo: false
+format: 
+  html:
+    page-layout: custom
+knitr: 
+  opts_chunk: 
+    out.width: "100%"
+---
+
+| Last updated: `r round(lubridate::now())`
+
+These timelines are used to explore and make potential corrections to parent-logged wear time based on automatically-detected wear time based on sensor movement. Use the drop-down menu to select a session and a day. The bottom timeline allows the user to select a range to zoom in. Each timeline can be dynamically panned, and hovering over the timeline indicates the data value. Values are smoothed over a 30-s window; each point represents the proportion of samples in the 30-s window labelled as "worn".
+
+```{r}
+#| echo: false
+#| error: false
+#| warning: false
+library(tidyverse)
+library(hms)
+library(rstatix)
+library(flextable)
+library(pins)
+library(plotly)
+library(TTR)
+library(crosstalk)
+
+pal <-  c("#F0E442","#009E73","#56B4E9", "#E69F00","#0072B2") %>%  set_names(c("Standing", "Sitting", "Prone", "Supine", "Held"))
+restraint_pal <-  c("#CC79A7","chartreuse4") %>%  set_names(c("Restrained", "Unrestrained"))
+
+theme_update(text = element_text(size = 12),
+             axis.text.x = element_text(size = 12, color = "black"), 
+             axis.title.x = element_text(size = 14),
+             axis.text.y = element_text(size = 12,  color = "black"), 
+             axis.title.y = element_text(size = 14), 
+             panel.background = element_blank(),panel.border = element_blank(), 
+             panel.grid.major = element_blank(),
+             panel.grid.minor = element_blank(), axis.line = element_blank(), 
+             axis.ticks.length=unit(.25, "cm"), 
+             legend.key = element_rect(fill = "white")) 
+
+# lims <- as_hms(c('07:00:00', '21:59:00'))
+# hour_breaks = as_hms(c('07:00:00','08:00:00','09:00:00', '10:00:00', '11:00:00', '12:00:00', '13:00:00', '14:00:00', '15:00:00', '16:00:00', '17:00:00', '18:00:00', '19:00:00', '20:00:00', '21:00:00'))
+# label_breaks = c("7am","","9am","","11am","","1pm","","3pm","","5pm","","7pm","","9pm")
+
+board <- board_folder("/Volumes/padlab/study_sensorsinperson/data_processed/datasets/")
+data_version <- board %>% pin_meta("imu_raw_samples")
+
+ds_multi <- board %>% pin_read("imu_raw_samples_multi")
+ds_day_1 <- board %>% pin_read("imu_raw_samples") %>% filter(id %in% unique(ds_multi$id))
+
+ds <- bind_rows(ds_day_1, ds_multi) %>%  
+  mutate(wear_status = as.numeric(wear_status == "worn"),
+         wear_status_cg = as.numeric(cg_wear_status == "worn"),
+         wear_status_cg = ifelse(is.na(wear_status_cg),0,wear_status_cg),
+         logged_exclude = as.numeric(!(exclude_period == 1 | nap_period == 1)),
+         logged_exclude_cg = as.numeric(cg_exclude_period == 0),
+         logged_exclude_cg = ifelse(is.na(logged_exclude_cg), 1, logged_exclude_cg),
+         id = as.numeric(id),
+         day = as.numeric(day),
+         session = as.numeric(session),
+         id_uni = str_glue("{id}_{session}_{day}"))
+ds$inf_wear = SMA(ds[,"wear_status"], 30)
+ds$inf_excl = SMA(ds[,"logged_exclude"], 30)
+ds$cg_wear = SMA(ds[,"wear_status_cg"], 30)
+ds$cg_excl = SMA(ds[,"logged_exclude_cg"], 30)
+
+ds <- ds %>% filter(row_number() %% 15 == 0)
+shared_ds <- SharedData$new(ds)
+```
+
+```{r} 
+#| error: false
+#| warning: false
+#| echo: false
+shared_plot <- plot_ly(data = shared_ds, type = 'scatter', mode = 'lines') %>% 
+  add_trace(x = ~time, y = ~inf_wear, name = "Sensor-based") %>% 
+  add_trace(x = ~time, y = ~inf_excl, name = "Parent-logged") %>% 
+  layout(xaxis = list(
+    type = "date",
+    title = "Time",
+    tickformat = "%I:%M %p",
+    rangeslider = list(visible = T)),
+    yaxis = list(title = "Infant Wear Time"))
+
+bscols(
+  widths = c(1,1,9),
+  list(),
+  list(
+    filter_select(
+      id = "id_slider",
+      label = "Session",
+      sharedData = shared_ds,
+      multiple = F,
+      group = ~id_uni
+      )
+  ),
+  list()
+  )
+bscols(
+  widths = c(1,1,9),
+  list(),
+  list(),
+  shared_plot
+  )
+
+
+```
+
+```{r} 
+#| error: false
+#| warning: false
+#| echo: false
+shared_plot_cg <- plot_ly(data = shared_ds, type = 'scatter', mode = 'lines') %>% 
+  add_trace(x = ~time, y = ~cg_wear, name = "Sensor-based") %>% 
+  add_trace(x = ~time, y = ~cg_excl, name = "Parent-logged") %>% 
+  layout(xaxis = list(
+    type = "date",
+    title = "Time",
+    tickformat = "%I:%M %p",
+    rangeslider = list(visible = T)),
+    yaxis = list(title = "CG Wear Time"))
+
+bscols(
+  widths = c(1,1,9),
+  list(),
+  list(),
+  shared_plot_cg
+  )
+
+
+```

@@ -70,7 +70,7 @@ make_timeline <- function(i) {
             axis.title.x = element_blank(),
             axis.text.x = element_blank(),
             axis.ticks.x = element_blank()) + ylim(0,60) 
-    if (d == 1) p1 <- p1 + ggtitle(str_glue("ID {id}, Session {session})"))
+    if (d == 1) p1 <- p1 + ggtitle(str_glue("ID {id}, Session {session}"))
     if (d > 1) p1 <- p1 + theme(axis.title.y = element_blank(), axis.text.y = element_blank(), axis.ticks.y = element_blank())
       
     

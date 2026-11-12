@@ -33,6 +33,7 @@ git commit -m "Updated Data Pins: $(date +'%Y-%m-%d %H:%M:%S')"
 git push origin main
 
 /usr/local/bin/Rscript generate_timelines.r
+/usr/local/bin/Rscript generate_timelines_multi.r
 
 # Add changes to Git
 git add .

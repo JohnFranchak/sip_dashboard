@@ -1,0 +1,35 @@
+---
+title: "Timelines Multiday"
+fig-dpi: 300
+lightbox: auto
+execute:
+  cache: false
+format: 
+  html:
+    page-layout: custom
+knitr: 
+  opts_chunk: 
+    out.width: "100%"
+---
+
+```{r}
+#| echo: false
+
+# Get list of files
+files <- list.files("timelines_multi", pattern = "*.png", full.names = TRUE)
+```
+
+| Last updated: `r round(lubridate::now())`
+| Displaying `r length(files)` timelines
+
+::: {layout-ncol=1}
+```{r}
+#| echo: false
+#| results: asis
+
+# Generate markdown for each file
+for (f in files) {
+  cat(paste0("![](", f, "){width=100%}\n\n"))
+}
+```
+:::

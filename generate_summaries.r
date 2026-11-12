@@ -113,7 +113,7 @@ redcap_ema <- redcap_ema %>% rename(id = study_id) %>%  left_join(select(session
 
 redcap_ema <- redcap_ema %>% mutate(across(hour_present:hour_babysitter, as.numeric)) %>% filter(id != 11)
 
-redcap_ema_multi <- redcap_ema %>% filter(day > 2)
+redcap_ema_multi <- redcap_ema %>% filter(day >= 2)
 redcap_ema <- redcap_ema %>% filter(day == 1)
 
 board %>% pin_write(name = "ema", x = redcap_ema,

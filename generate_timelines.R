@@ -160,9 +160,9 @@ make_timeline <- function(i) {
     }
   }
   
-  ggsave(plot = fig, filename = str_glue("/Volumes/padlab/study_sensorsinperson/data_processed/timelines/{id}_{session}.png"), width = 10, height = 10, scale = 1.15)
+  ggsave(plot = fig, filename = str_glue("/Volumes/padlab/study_sensorsinperson/data_processed/timelines/{id}_{session}.png"), width = 10, height = 10, scale = .9)
   ggsave(plot = fig, filename = str_glue("/Users/johnfranchak/Documents/GitHub/sip_dashboard/timelines/{id}_{session}.png"),
-                                         width = 10, height = 10, scale = 1.15)
+                                         width = 10, height = 10, scale = .9)
 }
 
 walk(id_session, make_timeline)

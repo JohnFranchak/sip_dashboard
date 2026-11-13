@@ -167226,3 +167226,52 @@ processing file: timelines.qmd
 [39m
 Output created: docs/index.html
 
+[main 72946e60] Automated Quarto update: 2026-11-13 01:08:22
+ 12 files changed, 474 insertions(+), 394 deletions(-)
+To github.com:JohnFranchak/sip_dashboard.git
+   c1cb88b9..72946e60  main -> main
+//franchak@172.19.193.140/padlab on /Volumes/padlab (smbfs, nodev, nosuid, mounted by johnfranchak)
+[1m[34m[ 1/10] tasks.qmd[39m[22m
+[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: tasks.knit.md
+
+[39m[1m[34m[ 2/10] files.qmd[39m[22m
+[31m
+
+processing file: files.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: files.knit.md
+
+[39m[1m[34m[ 3/10] timelines_multi.qmd[39m[22m
+[31m
+
+processing file: timelines_multi.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: timelines_multi.knit.md
+
+[39m[1m[34m[ 4/10] wear_time_multi.qmd[39m[22m
+[31m
+
+processing file: wear_time_multi.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |.........                                           |  17%                    |                                                            |.................                                   |  33% (unnamed-chunk-1)  |                                                            |..........................                          |  50%                    |                                                            |...................................                 |  67% (unnamed-chunk-2)  |                                                            |...........................................         |  83%                    |                                                            |....................................................| 100% (unnamed-chunk-3)                                                                                                            
+[31moutput file: wear_time_multi.knit.md
+
+[39m[1m[34m[ 5/10] index.qmd[39m[22m
+[31m
+
+processing file: index.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)[31m
+
+Quitting from lines 6-39 (index.qmd) 
+[39m[31mError in `REDCapR::redcap_variables()`:
+! upstream connect error or disconnect/reset before headers. reset reason: remote connection failure
+Backtrace:
+ 1. REDCapR::redcap_read(...)
+ 2. REDCapR:::redcap_metadata_internal(...)
+ 3. REDCapR::redcap_variables(redcap_uri, token, verbose = verbose, handle_httr = handle_httr)
+[39m                                                                                                            
+[31mExecution halted
+[39m

@@ -169162,3 +169162,78 @@ processing file: timelines.qmd
 [39m
 Output created: docs/index.html
 
+[main 55af6cd5] Automated Quarto update: 2026-11-16 19:03:35
+ 12 files changed, 452 insertions(+), 372 deletions(-)
+To github.com:JohnFranchak/sip_dashboard.git
+   bed8c66c..55af6cd5  main -> main
+//franchak@172.19.193.140/padlab on /Volumes/padlab (smbfs, nodev, nosuid, mounted by johnfranchak)
+[1m[34m[ 1/10] tasks.qmd[39m[22m
+[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)//franchak@172.19.193.140/padlab on /Volumes/padlab (smbfs, nodev, nosuid, mounted by johnfranchak)
+[1m[34m[ 1/11] tasks.qmd[39m[22m
+[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: tasks.knit.md
+
+[39m[1m[34m[ 2/11] files.qmd[39m[22m
+[31m
+
+processing file: files.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: files.knit.md
+
+[39m[1m[34m[ 3/11] timelines_multi.qmd[39m[22m
+[31m
+
+processing file: timelines_multi.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: timelines_multi.knit.md
+
+[39m[1m[34m[ 4/11] wear_time_multi.qmd[39m[22m
+[31m
+
+processing file: wear_time_multi.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |.........                                           |  17%                    |                                                            |.................                                   |  33% (unnamed-chunk-1)  |                                                            |..........................                          |  50%                    |                                                            |...................................                 |  67% (unnamed-chunk-2)  |                                                            |...........................................         |  83%                    |                                                            |....................................................| 100% (unnamed-chunk-3)                                                                                                            
+[31moutput file: wear_time_multi.knit.md
+
+[39m[1m[34m[ 5/11] index.qmd[39m[22m
+[31m
+
+processing file: index.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: index.knit.md
+
+[39m[1m[34m[ 6/11] wear_time.qmd[39m[22m
+[31m
+
+processing file: wear_time.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |.........                                           |  17%                    |                                                            |.................                                   |  33% (unnamed-chunk-1)  |                                                            |..........................                          |  50%                    |                                                            |...................................                 |  67% (unnamed-chunk-2)  |                                                            |...........................................         |  83%                    |                                                            |....................................................| 100% (unnamed-chunk-3)                                                                                                            
+[31moutput file: wear_time.knit.md
+
+[39m[1m[34m[ 7/11] interactive_timelines.qmd[39m[22m
+[31m
+
+processing file: interactive_timelines.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)  |                                                            |...............................                     |  60%                    |                                                            |..........................................          |  80% (unnamed-chunk-2)  |                                                            |....................................................| 100%                                                                                                                              
+[31moutput file: interactive_timelines.knit.md
+
+[39m[1m[34m[ 8/11] tasks.rmarkdown[39m[22m
+[91mERROR: NotFound: No such file or directory (os error 2): readfile '/Users/johnfranchak/Documents/GitHub/sip_dashboard/tasks.rmarkdown'
+Path: /Users/johnfranchak/Documents/GitHub/sip_dashboard/tasks.rmarkdown
+
+Stack trace:
+Path: /Users/johnfranchak/Documents/GitHub/sip_dashboard/tasks.rmarkdown
+    at readTextFileSync (ext:deno_fs/30_fs.js:733:14)
+    at Object.Deno.readTextFileSync (file:///Applications/quarto/bin/quarto.js:5625:25)
+    at mappedStringFromFile (file:///Applications/quarto/bin/quarto.js:19579:24)
+    at Object.target (file:///Applications/quarto/bin/quarto.js:28108:28)
+    at fileExecutionEngineAndTarget (file:///Applications/quarto/bin/quarto.js:41258:33)
+    at renderFileInternal (file:///Applications/quarto/bin/quarto.js:77115:42)
+    at eventLoopTick (ext:core/01_core.js:183:11)
+    at async renderFiles (file:///Applications/quarto/bin/quarto.js:77062:17)
+    at async renderProject (file:///Applications/quarto/bin/quarto.js:77389:25)
+    at async Command.fn (file:///Applications/quarto/bin/quarto.js:81954:32)[39m

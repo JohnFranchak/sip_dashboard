@@ -177699,3 +177699,29 @@ processing file: timelines.qmd
 [39m
 Output created: docs/index.html
 
+[main fa0b92e0] Automated Quarto update: 2026-11-21 16:09:26
+ 12 files changed, 475 insertions(+), 395 deletions(-)
+To github.com:JohnFranchak/sip_dashboard.git
+   b5f5f5e9..fa0b92e0  main -> main
+//franchak@172.19.193.140/padlab on /Volumes/padlab (smbfs, nodev, nosuid, mounted by johnfranchak)
+[1m[34m[ 1/10] tasks.qmd[39m[22m
+[31m
+
+processing file: tasks.qmd
+[39m  |                                                            |                                                    |   0%  |                                                            |..........                                          |  20%                    |                                                            |.....................                               |  40% (unnamed-chunk-1)[31m
+
+Quitting from lines 9-51 (tasks.qmd) 
+[39m[31mError in `filter()`:
+i In argument: `inclusion == 1 | finished_aims == 1`.
+Caused by error:
+! object 'inclusion' not found
+Backtrace:
+  1. ... %>% ...
+  8. dplyr:::filter.data.frame(., inclusion == 1 | finished_aims == 1)
+  9. dplyr:::filter_rows(.data, dots, by)
+ 10. dplyr:::filter_eval(...)
+ 12. mask$eval_all_filter(dots, env_filter)
+ 13. dplyr (local) eval()
+[39m                                                                                                            
+[31mExecution halted
+[39m
